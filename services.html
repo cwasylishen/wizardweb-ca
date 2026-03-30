@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services | WizardWeb - What We Build and How We Build It</title>
+  <meta name="description" content="Custom HTML/CSS/JS websites backed by 30+ years of sales and marketing. Story-driven copy, 100/100 PageSpeed, full SEO, mobile-first design, and Cloudflare edge hosting.">
+  <meta name="keywords" content="web design services Canada, custom website development, SEO services, website copywriting, Cloudflare hosting, mobile first design, WizardWeb">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Services | WizardWeb - What We Build and How We Build It">
+  <meta property="og:description" content="Custom HTML/CSS/JS websites backed by 30+ years of sales and marketing. Story-driven copy, 100/100 PageSpeed, full SEO, and Cloudflare edge hosting.">
+  <meta property="og:image" content="https://wizardweb.ca/assets/images/airborne-arts-desktop.jpg">
+  <meta property="og:url" content="https://wizardweb.ca/services.html">
+  <meta property="og:site_name" content="WizardWeb">
+  <meta property="og:locale" content="en_CA">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Services | WizardWeb - What We Build and How We Build It">
+  <meta name="twitter:description" content="Custom HTML/CSS/JS websites backed by 30+ years of sales and marketing. 100/100 PageSpeed, full SEO, mobile-first design.">
+  <meta name="twitter:image" content="https://wizardweb.ca/assets/images/airborne-arts-desktop.jpg">
+
+  <link rel="canonical" href="https://wizardweb.ca/services.html">
+
+  <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+  <link href="https://api.fontshare.com/v2/css?f[]=zodiak@400,500,700&f[]=satoshi@300,400,500,600,700&display=swap"
+        rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript>
+  <link href="https://api.fontshare.com/v2/css?f[]=zodiak@400,500,700&f[]=satoshi@300,400,500,600,700&display=swap"
+        rel="stylesheet">
+  </noscript>
+
+  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="style.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "WizardWeb Services",
+    "description": "Custom-built websites backed by 30+ years of sales and marketing. Story-driven copy, 100/100 PageSpeed, full SEO, mobile-first design, and Cloudflare edge hosting.",
+    "url": "https://wizardweb.ca/services.html",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "WizardWeb",
+      "url": "https://wizardweb.ca"
+    }
+  }
+  </script>
+
+  <style>
+    /* Services-page specific styles */
+    .page-hero {
+      background: var(--bg);
+      padding: calc(var(--header-height) + var(--space-16)) var(--space-6) var(--space-16);
+      text-align: center;
+      border-bottom: 1px solid var(--divider);
+    }
+    .page-hero h1 {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: clamp(36px, 5vw, 64px);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      margin-bottom: var(--space-6);
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .page-hero h1 em {
+      font-style: italic;
+      color: var(--primary);
+    }
+    .page-hero p {
+      font-size: 18px;
+      line-height: 1.7;
+      color: var(--text-muted);
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    /* Services grid extended (6-up) */
+    .services-grid-full {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-6);
+    }
+
+    /* Don't-get list */
+    .dont-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-4);
+    }
+    .dont-item {
+      background: var(--surface);
+      border-radius: var(--radius-xl);
+      padding: var(--space-6) var(--space-8);
+      border: 1px solid var(--divider);
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-4);
+    }
+    .dont-icon {
+      flex-shrink: 0;
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-md);
+      background: #FEF3E2;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2px;
+    }
+    .dont-icon svg {
+      width: 18px;
+      height: 18px;
+    }
+    .dont-item-text strong {
+      display: block;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: var(--space-1);
+    }
+    .dont-item-text span {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* Process grid expanded (6-step) */
+    .process-grid-6 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-6);
+      counter-reset: step;
+    }
+    .process-step-card {
+      counter-increment: step;
+      background: var(--surface);
+      border-radius: var(--radius-xl);
+      padding: var(--space-8);
+      border: 1px solid var(--divider);
+      position: relative;
+    }
+    .process-step-card::before {
+      content: counter(step, decimal-leading-zero);
+      display: block;
+      font-family: var(--font-display);
+      font-size: 42px;
+      font-weight: 700;
+      color: var(--primary);
+      opacity: 0.15;
+      line-height: 1;
+      margin-bottom: var(--space-4);
+    }
+    .process-step-card h3 {
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: 17px;
+      margin-bottom: var(--space-3);
+      color: var(--text);
+    }
+    .process-step-card p {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    @media (max-width: 1100px) {
+      .services-grid-full {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .process-grid-6 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .dont-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 640px) {
+      .services-grid-full {
+        grid-template-columns: 1fr;
+      }
+      .process-grid-6 {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========== HEADER ========== -->
+  <header class="site-header" id="siteHeader" role="banner">
+    <div class="header-inner">
+      <a href="index.html" class="header-logo" aria-label="WizardWeb - Home">
+        <div class="logo-icon">W</div>
+        <div class="logo-text">Wizard<span>Web</span></div>
+      </a>
+
+      <button class="mobile-menu-btn" aria-label="Open navigation menu" aria-expanded="false" id="mobileMenuBtn">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="header-nav" id="headerNav" aria-label="Main navigation">
+        <ul class="nav-links" role="list">
+          <li><a href="work.html">Our Work</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html" aria-current="page">Services</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+        </ul>
+        <div class="nav-buttons">
+          <a href="contact.html" class="btn btn-outline btn-sm">Contact</a>
+          <a href="https://cal.com/clintonw/website-launch-strategy-call" target="_blank" class="btn btn-accent btn-sm">Book a Call</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ========== HERO ========== -->
+    <section class="page-hero" aria-label="Page hero">
+      <div>
+        <span class="section-label">Services</span>
+        <h1>What We Build and<br><em>How We Build It</em></h1>
+        <p>Every service we offer connects to one outcome: a website that earns its place. Fast, found, and built to tell the story that makes your customer act.</p>
+      </div>
+    </section>
+
+    <!-- ========== CORE SERVICES ========== -->
+    <section class="section" aria-label="Core services">
+      <div class="container">
+        <div style="text-align: center; margin-bottom: var(--space-12);">
+          <span class="section-label">What You Get</span>
+          <h2 class="heading-lg" style="margin-bottom: var(--space-4);">Six things, done right, every time.</h2>
+          <p class="text-lg" style="max-width: 580px; margin: 0 auto;">Not a menu of add-ons. Every engagement includes the full stack of what makes a website actually work.</p>
+        </div>
+        <div class="services-grid-full">
+
+          <!-- Story & Copy -->
+          <div class="service-card">
+            <div class="service-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+            </div>
+            <h3>Story &amp; Copy</h3>
+            <p>30+ years of sales writing, applied to your business. We craft the narrative that makes your customer care. Headlines that convert, copy that sells, positioning that differentiates you from every competitor in your market.</p>
+          </div>
+
+          <!-- Website Design & Build -->
+          <div class="service-card">
+            <div class="service-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            </div>
+            <h3>Website Design &amp; Build</h3>
+            <p>Custom HTML, CSS, and JS. No WordPress. No templates. No page builders. Every pixel is intentional, every page built for your specific business and your specific customer. Nothing generic. Nothing borrowed.</p>
+          </div>
+
+          <!-- SEO & Visibility -->
+          <div class="service-card">
+            <div class="service-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            </div>
+            <h3>SEO &amp; Visibility</h3>
+            <p>Semantic HTML5, schema markup, XML sitemaps, and optimized meta tags on every page. Your site is built to be found, not just to look good. SEO is not an afterthought here. It is built into the foundation from line one.</p>
+          </div>
+
+          <!-- Speed & Performance -->
+          <div class="service-card">
+            <div class="service-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            </div>
+            <h3>Speed &amp; Performance</h3>
+            <p>100/100 PageSpeed guaranteed. Global Cloudflare edge delivery. Under 0.5s load time. Zero JavaScript bloat. Every millisecond matters when a visitor is deciding whether to stay or leave.</p>
+          </div>
+
+          <!-- Mobile-First Design -->
+          <div class="service-card">
+            <div class="service-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+            </div>
+            <h3>Mobile-First Design</h3>
+            <p>Over 60% of your visitors are on mobile. We design for the smallest screen first, then scale up. Your site works everywhere, looks sharp everywhere, and converts everywhere. No afterthought mobile layouts.</p>
+          </div>
+
+          <!-- Hosting & Support -->
+          <div class="service-card">
+            <div class="service-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+            </div>
+            <h3>Hosting &amp; Support</h3>
+            <p>Cloudflare edge hosting from 300+ cities worldwide. SSL, uptime monitoring, and daily backups included. Priority support for hosted clients. When something needs fixing, it gets fixed fast.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== PROCESS ========== -->
+    <section class="section section-alt" aria-label="Our process">
+      <div class="container">
+        <div style="text-align: center; margin-bottom: var(--space-12);">
+          <span class="section-label">How It Works</span>
+          <h2 class="heading-lg" style="margin-bottom: var(--space-4);">From first conversation to live site in under two weeks.</h2>
+          <p class="text-lg" style="max-width: 580px; margin: 0 auto;">No drawn-out timelines. No vague deliverables. Six clear steps, one team, one outcome.</p>
+        </div>
+        <div class="process-grid-6">
+
+          <div class="process-step-card">
+            <h3>Free Audit</h3>
+            <p>We do a full analysis of your current site for speed, SEO, mobile usability, and conversion gaps. You get a clear report with zero obligation. Most clients are surprised by what they find out.</p>
+          </div>
+
+          <div class="process-step-card">
+            <h3>Discovery Call</h3>
+            <p>20 minutes. We learn your business, your customers, and your competition. We map the entire site strategy before a single line of code is written. This is where the story starts.</p>
+          </div>
+
+          <div class="process-step-card">
+            <h3>Story &amp; Copy</h3>
+            <p>We craft the narrative and positioning that will run through every page. Headlines, body copy, calls to action. Written with 30+ years of real sales experience, not a content template.</p>
+          </div>
+
+          <div class="process-step-card">
+            <h3>Design &amp; Build</h3>
+            <p>Custom HTML, CSS, and JS built to your exact specifications. When it is ready, you get a private preview link to review the full site before anything goes live.</p>
+          </div>
+
+          <div class="process-step-card">
+            <h3>Review &amp; Refine</h3>
+            <p>Your feedback, our refinement. We go back and forth until you are completely satisfied. This is not a one-pass deal. We get it right.</p>
+          </div>
+
+          <div class="process-step-card">
+            <h3>Launch</h3>
+            <p>We handle DNS, SSL configuration, and deployment directly to Cloudflare's global edge network. Your site goes live fast, loads fast, and stays fast from day one.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== WHAT YOU DON'T GET ========== -->
+    <section class="section" aria-label="What you don't get">
+      <div class="container">
+        <div style="text-align: center; margin-bottom: var(--space-12);">
+          <span class="section-label">No Nonsense</span>
+          <h2 class="heading-lg" style="margin-bottom: var(--space-4);">What you will never find here.</h2>
+          <p class="text-lg" style="max-width: 560px; margin: 0 auto;">We built our business by saying no to the things that slow you down, drain your budget, and produce websites that look like everyone else's.</p>
+        </div>
+        <div class="dont-grid">
+
+          <div class="dont-item">
+            <div class="dont-icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </div>
+            <div class="dont-item-text">
+              <strong>No WordPress</strong>
+              <span>No security vulnerabilities. No plugin update roulette. No mystery conflicts between themes and extensions. Clean code that you own outright.</span>
+            </div>
+          </div>
+
+          <div class="dont-item">
+            <div class="dont-icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </div>
+            <div class="dont-item-text">
+              <strong>No Templates</strong>
+              <span>Your site looks like yours, not like every other business in your category. Custom design means your brand, your story, your identity.</span>
+            </div>
+          </div>
+
+          <div class="dont-item">
+            <div class="dont-icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </div>
+            <div class="dont-item-text">
+              <strong>No Hidden Fees</strong>
+              <span>No hourly rates that balloon on you. No retainer traps. No surprise invoices. You know what you are paying before we start. That is the deal.</span>
+            </div>
+          </div>
+
+          <div class="dont-item">
+            <div class="dont-icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </div>
+            <div class="dont-item-text">
+              <strong>No Monthly Meetings About Nothing</strong>
+              <span>We build. You grow. No standing calls, no status updates for their own sake, no agency bloat. You hired us to deliver a result, and that is what we do.</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CTA ========== -->
+    <section class="cta-section" aria-label="Call to action">
+      <span class="section-label section-label-light">Ready to get started?</span>
+      <h2 class="heading-lg" style="color: #fff; margin-bottom: var(--space-4);">Your site should be working harder<br>than you are.</h2>
+      <p>See what your current site is costing you, or jump straight to a build conversation. Both are free.</p>
+      <div class="cta-buttons">
+        <a href="pricing.html" class="btn btn-accent btn-lg">See Pricing</a>
+        <a href="https://cal.com/clintonw/website-launch-strategy-call" target="_blank" class="btn btn-outline-light btn-lg">Book a Free Call</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div style="display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-2);">
+            <div class="logo-icon">W</div>
+            <div class="logo-text" style="color: #fff;">Wizard<span style="color: var(--primary);">Web</span></div>
+          </div>
+          <p>Custom-built websites backed by 30+ years of sales and marketing. We craft the story that sells, then build the site that gets you found.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Pages</h4>
+          <a href="work.html">Our Work</a>
+          <a href="about.html">About</a>
+          <a href="services.html">Services</a>
+          <a href="pricing.html">Pricing</a>
+        </div>
+        <div class="footer-col">
+          <h4>Work</h4>
+          <a href="https://airbornearts.com" target="_blank">Airborne Arts</a>
+          <a href="https://alpinedrywallcalgary.com" target="_blank">Alpine Drywall</a>
+          <a href="https://laserquittherapy.ca" target="_blank">LaserQuit Therapy</a>
+          <a href="https://tandmbookkeeping.com" target="_blank">T&M Bookkeeping</a>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <a href="contact.html">Contact Us</a>
+          <a href="https://cal.com/clintonw/website-launch-strategy-call" target="_blank">Book a Call</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; <script>document.write(new Date().getFullYear())</script> WizardWeb. All rights reserved.</span>
+        <span>Built in Canada.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  // Mobile nav toggle
+  var mobileBtn = document.getElementById('mobileMenuBtn');
+  var headerNav = document.getElementById('headerNav');
+  if (mobileBtn && headerNav) {
+    mobileBtn.addEventListener('click', function() {
+      headerNav.classList.toggle('open');
+      mobileBtn.classList.toggle('active');
+      mobileBtn.setAttribute('aria-expanded', headerNav.classList.contains('open'));
+    });
+    headerNav.querySelectorAll('a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        headerNav.classList.remove('open');
+        mobileBtn.classList.remove('active');
+        mobileBtn.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+
+  // Header scroll effect
+  var header = document.getElementById('siteHeader');
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 20) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  });
+  </script>
+
+</body>
+</html>

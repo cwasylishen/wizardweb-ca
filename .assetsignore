@@ -1,0 +1,7 @@
+.git
+.gitignore
+.assetsignore
+*.py
+node_modules
+wrangler.jsonc
+*.md

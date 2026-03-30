@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pricing | WizardWeb - Simple Pricing. Serious Websites.</title>
+  <meta name="description" content="Transparent, flat-rate pricing for custom-built websites. Starter from $497 CAD. No hourly rates. No retainers. 30-day money-back guarantee.">
+  <meta name="keywords" content="website pricing Canada, web design cost, affordable custom website, flat rate website, WizardWeb pricing, website packages Canada">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Pricing | WizardWeb - Simple Pricing. Serious Websites.">
+  <meta property="og:description" content="Transparent, flat-rate pricing for custom-built websites. Starter from $497 CAD. No hourly rates. No retainers. 30-day money-back guarantee.">
+  <meta property="og:image" content="https://wizardweb.ca/assets/images/airborne-arts-desktop.jpg">
+  <meta property="og:url" content="https://wizardweb.ca/pricing.html">
+  <meta property="og:site_name" content="WizardWeb">
+  <meta property="og:locale" content="en_CA">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Pricing | WizardWeb - Simple Pricing. Serious Websites.">
+  <meta name="twitter:description" content="Transparent, flat-rate pricing for custom-built websites. Starter from $497 CAD. No hourly rates. No retainers.">
+  <meta name="twitter:image" content="https://wizardweb.ca/assets/images/airborne-arts-desktop.jpg">
+
+  <link rel="canonical" href="https://wizardweb.ca/pricing.html">
+
+  <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+  <link href="https://api.fontshare.com/v2/css?f[]=zodiak@400,500,700&f[]=satoshi@300,400,500,600,700&display=swap"
+        rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript>
+  <link href="https://api.fontshare.com/v2/css?f[]=zodiak@400,500,700&f[]=satoshi@300,400,500,600,700&display=swap"
+        rel="stylesheet">
+  </noscript>
+
+  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="style.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "WizardWeb Pricing",
+    "description": "Transparent, flat-rate pricing for custom-built websites. No hourly rates. No retainers. 30-day money-back guarantee.",
+    "url": "https://wizardweb.ca/pricing.html",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "WizardWeb",
+      "url": "https://wizardweb.ca"
+    }
+  }
+  </script>
+
+  <style>
+    /* Pricing-page specific styles */
+    .page-hero {
+      background: var(--bg);
+      padding: calc(var(--header-height) + var(--space-16)) var(--space-6) var(--space-16);
+      text-align: center;
+      border-bottom: 1px solid var(--divider);
+    }
+    .page-hero h1 {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: clamp(36px, 5vw, 64px);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      margin-bottom: var(--space-6);
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .page-hero h1 em {
+      font-style: italic;
+      color: var(--primary);
+    }
+    .page-hero p {
+      font-size: 18px;
+      line-height: 1.7;
+      color: var(--text-muted);
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    /* Hosting add-on */
+    .hosting-card {
+      background: var(--surface);
+      border-radius: var(--radius-2xl);
+      border: 2px solid var(--divider);
+      padding: var(--space-10) var(--space-12);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: var(--space-10);
+      align-items: center;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .hosting-features-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+      margin-top: var(--space-5);
+    }
+    .hosting-feature {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      font-size: 15px;
+      color: var(--text-muted);
+    }
+    .hosting-feature::before {
+      content: '';
+      flex-shrink: 0;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--primary-light);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%231B5E5A' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 10px;
+    }
+    .hosting-price-block {
+      text-align: center;
+      flex-shrink: 0;
+    }
+    .hosting-price {
+      font-family: var(--font-display);
+      font-size: 56px;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1;
+    }
+    .hosting-price sub {
+      font-size: 20px;
+      font-weight: 400;
+      vertical-align: middle;
+      color: var(--text-muted);
+    }
+    .hosting-note {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: var(--space-2);
+      line-height: 1.4;
+    }
+
+    /* Guarantee */
+    .guarantee-block {
+      background: var(--primary);
+      border-radius: var(--radius-2xl);
+      padding: var(--space-12) var(--space-12);
+      display: flex;
+      align-items: center;
+      gap: var(--space-10);
+      max-width: 860px;
+      margin: 0 auto;
+      color: #fff;
+    }
+    .guarantee-icon {
+      flex-shrink: 0;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .guarantee-icon svg {
+      width: 40px;
+      height: 40px;
+      stroke: #fff;
+    }
+    .guarantee-text h3 {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: clamp(22px, 2.5vw, 30px);
+      color: #fff;
+      margin-bottom: var(--space-3);
+      line-height: 1.2;
+    }
+    .guarantee-text p {
+      font-size: 16px;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.6;
+      max-width: 520px;
+    }
+
+    /* FAQ */
+    .faq-list {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .faq-item {
+      border-bottom: 1px solid var(--divider);
+    }
+    .faq-item:first-child {
+      border-top: 1px solid var(--divider);
+    }
+    .faq-question {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: var(--space-6) 0;
+      text-align: left;
+      background: none;
+      border: none;
+      cursor: pointer;
+      gap: var(--space-4);
+    }
+    .faq-question-text {
+      font-family: var(--font-body);
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.4;
+    }
+    .faq-icon {
+      flex-shrink: 0;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--primary-light);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+    .faq-icon svg {
+      width: 14px;
+      height: 14px;
+      transition: transform 0.3s ease;
+    }
+    .faq-item.open .faq-icon {
+      background: var(--primary);
+      color: #fff;
+    }
+    .faq-item.open .faq-icon svg {
+      transform: rotate(45deg);
+    }
+    .faq-answer {
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s ease;
+    }
+    .faq-answer.open {
+      max-height: 300px;
+      padding-bottom: var(--space-6);
+    }
+
+    @media (max-width: 768px) {
+      .hosting-card {
+        grid-template-columns: 1fr;
+        padding: var(--space-8);
+        gap: var(--space-6);
+        text-align: center;
+      }
+      .hosting-features-list {
+        align-items: flex-start;
+        text-align: left;
+      }
+      .guarantee-block {
+        flex-direction: column;
+        text-align: center;
+        padding: var(--space-8);
+        gap: var(--space-6);
+      }
+      .guarantee-text p {
+        margin: 0 auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========== HEADER ========== -->
+  <header class="site-header" id="siteHeader" role="banner">
+    <div class="header-inner">
+      <a href="index.html" class="header-logo" aria-label="WizardWeb - Home">
+        <div class="logo-icon">W</div>
+        <div class="logo-text">Wizard<span>Web</span></div>
+      </a>
+
+      <button class="mobile-menu-btn" aria-label="Open navigation menu" aria-expanded="false" id="mobileMenuBtn">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="header-nav" id="headerNav" aria-label="Main navigation">
+        <ul class="nav-links" role="list">
+          <li><a href="work.html">Our Work</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="pricing.html" aria-current="page">Pricing</a></li>
+        </ul>
+        <div class="nav-buttons">
+          <a href="contact.html" class="btn btn-outline btn-sm">Contact</a>
+          <a href="https://cal.com/clintonw/website-launch-strategy-call" target="_blank" class="btn btn-accent btn-sm">Book a Call</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ========== HERO ========== -->
+    <section class="page-hero" aria-label="Page hero">
+      <div>
+        <span class="section-label">Pricing</span>
+        <h1>Simple Pricing.<br><em>Serious Websites.</em></h1>
+        <p>Flat rates. No surprises. No retainers. You know exactly what you are paying before we start, and exactly what you get when we are done.</p>
+      </div>
+    </section>
+
+    <!-- ========== PRICING TIERS ========== -->
+    <section class="section" aria-label="Pricing tiers">
+      <div class="container">
+        <div class="pricing-grid">
+
+          <!-- Starter -->
+          <div class="pricing-card">
+            <h3>Starter</h3>
+            <div class="pricing-price">$497 <span>CAD one-time</span></div>
+            <p class="pricing-desc">One powerful page that tells your story, loads in under half a second, and ranks from day one.</p>
+            <ul class="pricing-features" role="list">
+              <li>Single powerful page</li>
+              <li>Custom HTML, CSS, and JS</li>
+              <li>100/100 PageSpeed guaranteed</li>
+              <li>On-page SEO and schema markup</li>
+              <li>Mobile-first responsive design</li>
+              <li>Delivered in 5-7 business days</li>
+            </ul>
+            <a href="https://buy.stripe.com/bJe14oaRgevSdSN7AM9AA0g" target="_blank" class="btn btn-primary" style="width: 100%; justify-content: center;">Get Started</a>
+          </div>
+
+          <!-- Professional (Featured) -->
+          <div class="pricing-card featured">
+            <div class="pricing-badge">Most Popular</div>
+            <h3>Professional</h3>
+            <div class="pricing-price">$997 <span>CAD one-time</span></div>
+            <p class="pricing-desc">A full site that sells. Story-driven copy, unique design on every page, and the SEO foundation to grow on.</p>
+            <ul class="pricing-features" role="list">
+              <li>Up to 5 custom pages</li>
+              <li>Everything in Starter</li>
+              <li>Full SEO package and XML sitemap</li>
+              <li>Unique hero imagery per page</li>
+              <li>Story-driven copy and positioning</li>
+              <li>Delivered in 7-10 business days</li>
+            </ul>
+            <a href="https://buy.stripe.com/bJe14oaRgevSdSN7AM9AA0g" target="_blank" class="btn btn-accent" style="width: 100%; justify-content: center;">Get Started</a>
+          </div>
+
+          <!-- Custom Build -->
+          <div class="pricing-card">
+            <h3>Custom Build</h3>
+            <div class="pricing-price" style="font-size: 32px; line-height: 1.2; margin-bottom: var(--space-3);">Let's Talk</div>
+            <p class="pricing-desc">Larger builds, e-commerce, booking systems, and custom integrations. Fixed quote before we start, always.</p>
+            <ul class="pricing-features" role="list">
+              <li>6 or more custom pages</li>
+              <li>Complex builds and integrations</li>
+              <li>E-commerce and booking systems</li>
+              <li>Dedicated project timeline</li>
+              <li>Fixed quote before we start</li>
+            </ul>
+            <a href="https://cal.com/clintonw/website-launch-strategy-call" target="_blank" class="btn btn-outline" style="width: 100%; justify-content: center;">Book a Call</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== HOSTING ADD-ON ========== -->
+    <section class="section section-alt" aria-label="Hosting add-on">
+      <div class="container">
+        <div style="text-align: center; margin-bottom: var(--space-10);">
+          <span class="section-label">Optional Add-On</span>
+          <h2 class="heading-lg" style="margin-bottom: var(--space-4);">Hosting done right.</h2>
+          <p class="text-lg" style="max-width: 540px; margin: 0 auto;">You can host anywhere you like. But if you want your site on the same infrastructure that powers the fastest sites on earth, this is how we do it.</p>
+        </div>
+
+        <div class="hosting-card">
+          <div>
+            <h3 style="font-family: var(--font-body); font-weight: 700; font-size: 22px; margin-bottom: var(--space-3);">Cloudflare Edge Hosting</h3>
+            <p style="font-size: 15px; color: var(--text-muted); line-height: 1.6;">Your site served from 300+ cities worldwide. Available for any plan.</p>
+            <div class="hosting-features-list">
+              <div class="hosting-feature">Cloudflare edge hosting from 300+ cities</div>
+              <div class="hosting-feature">SSL included, managed and renewed automatically</div>
+              <div class="hosting-feature">Uptime monitoring and daily backups</div>
+              <div class="hosting-feature">Priority support and fast fixes</div>
+              <div class="hosting-feature">First month free. Billing starts after DNS goes live.</div>
+              <div class="hosting-feature">Cancel anytime, no contracts, no questions asked</div>
+            </div>
+          </div>
+          <div class="hosting-price-block">
+            <div class="hosting-price">$49<sub>/mo</sub></div>
+            <div class="hosting-note">First month free.<br>Cancel anytime.</div>
+            <a href="https://cal.com/clintonw/website-launch-strategy-call" target="_blank" class="btn btn-primary" style="margin-top: var(--space-5);">Ask About Hosting</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== GUARANTEE ========== -->
+    <section class="section" aria-label="Money-back guarantee">
+      <div class="container">
+        <div style="text-align: center; margin-bottom: var(--space-10);">
+          <span class="section-label">Our Promise</span>
+          <h2 class="heading-lg" style="margin-bottom: var(--space-4);">Zero risk. Serious commitment.</h2>
+        </div>
+        <div class="guarantee-block">
+          <div class="guarantee-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+          </div>
+          <div class="guarantee-text">
+            <h3>30-Day Money-Back Guarantee</h3>
+            <p>If you are not satisfied with your site after launch, we will refund your full build fee. No lengthy back-and-forth. No partial credits. A real guarantee from a business built on results.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== FAQ ========== -->
+    <section class="section section-alt" aria-label="Frequently asked questions">
+      <div class="container">
+        <div style="text-align: center; margin-bottom: var(--space-12);">
+          <span class="section-label">FAQ</span>
+          <h2 class="heading-lg" style="margin-bottom: var(--space-4);">Questions we hear every time.</h2>
+          <p class="text-lg" style="max-width: 520px; margin: 0 auto;">Straight answers. No filler.</p>
+        </div>
+
+        <div class="faq-list" role="list">
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-question" aria-expanded="false">
+              <span class="faq-question-text">How long does it take to build my site?</span>
+              <span class="faq-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              </span>
+            </button>
+            <div class="faq-answer" aria-hidden="true">
+              Starter sites are delivered in 5-7 business days. Professional sites in 7-10 business days. Custom builds have a dedicated timeline we agree on before the project starts. We move fast because your business cannot afford to wait.
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-question" aria-expanded="false">
+              <span class="faq-question-text">What platform is the site built on?</span>
+              <span class="faq-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              </span>
+            </button>
+            <div class="faq-answer" aria-hidden="true">
+              Custom HTML, CSS, and JS. Deployed on Cloudflare. Zero WordPress. Zero plugins. Zero templates. Clean code that loads in under half a second and that you own outright. No platform can hold you hostage.
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-question" aria-expanded="false">
+              <span class="faq-question-text">Can I make changes after the site launches?</span>
+              <span class="faq-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              </span>
+            </button>
+            <div class="faq-answer" aria-hidden="true">
+              Unlimited revisions within 30 days of launch. After that, changes are quoted per request. Most are quick and inexpensive. Hosted clients get priority turnaround on updates.
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-question" aria-expanded="false">
+              <span class="faq-question-text">What about SEO? Do I need to pay extra?</span>
+              <span class="faq-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              </span>
+            </button>
+            <div class="faq-answer" aria-hidden="true">
+              Every site ships with full on-page SEO built in. That means semantic HTML5, schema markup, optimized meta tags on every page, and proper heading structure. The Professional plan adds an XML sitemap. SEO is never an add-on here. It is part of the build.
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-question" aria-expanded="false">
+              <span class="faq-question-text">Do I need to use your hosting?</span>
+              <span class="faq-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              </span>
+            </button>
+            <div class="faq-answer" aria-hidden="true">
+              No. Hosting is optional. You receive the full source files and can deploy anywhere you want. That said, our Cloudflare edge hosting at $49/month is how we guarantee the 100/100 PageSpeed and sub-0.5s load times. It is the infrastructure that makes those numbers real.
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CTA ========== -->
+    <section class="cta-section" aria-label="Call to action">
+      <span class="section-label section-label-light">Still have questions?</span>
+      <h2 class="heading-lg" style="color: #fff; margin-bottom: var(--space-4);">Let's talk through it.<br>No pitch. No pressure.</h2>
+      <p>Book a free 20-minute call. We will look at your current site together, answer every question you have, and tell you exactly what we would build.</p>
+      <div class="cta-buttons">
+        <a href="https://cal.com/clintonw/website-launch-strategy-call" target="_blank" class="btn btn-accent btn-lg">Book a Free Call</a>
+        <a href="contact.html" class="btn btn-outline-light btn-lg">Send a Message</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div style="display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-2);">
+            <div class="logo-icon">W</div>
+            <div class="logo-text" style="color: #fff;">Wizard<span style="color: var(--primary);">Web</span></div>
+          </div>
+          <p>Custom-built websites backed by 30+ years of sales and marketing. We craft the story that sells, then build the site that gets you found.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Pages</h4>
+          <a href="work.html">Our Work</a>
+          <a href="about.html">About</a>
+          <a href="services.html">Services</a>
+          <a href="pricing.html">Pricing</a>
+        </div>
+        <div class="footer-col">
+          <h4>Work</h4>
+          <a href="https://airbornearts.com" target="_blank">Airborne Arts</a>
+          <a href="https://alpinedrywallcalgary.com" target="_blank">Alpine Drywall</a>
+          <a href="https://laserquittherapy.ca" target="_blank">LaserQuit Therapy</a>
+          <a href="https://tandmbookkeeping.com" target="_blank">T&M Bookkeeping</a>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <a href="contact.html">Contact Us</a>
+          <a href="https://cal.com/clintonw/website-launch-strategy-call" target="_blank">Book a Call</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; <script>document.write(new Date().getFullYear())</script> WizardWeb. All rights reserved.</span>
+        <span>Built in Canada.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  // Mobile nav toggle
+  var mobileBtn = document.getElementById('mobileMenuBtn');
+  var headerNav = document.getElementById('headerNav');
+  if (mobileBtn && headerNav) {
+    mobileBtn.addEventListener('click', function() {
+      headerNav.classList.toggle('open');
+      mobileBtn.classList.toggle('active');
+      mobileBtn.setAttribute('aria-expanded', headerNav.classList.contains('open'));
+    });
+    headerNav.querySelectorAll('a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        headerNav.classList.remove('open');
+        mobileBtn.classList.remove('active');
+        mobileBtn.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+
+  // Header scroll effect
+  var header = document.getElementById('siteHeader');
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 20) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  });
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-question').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var item = btn.closest('.faq-item');
+      var answer = item.querySelector('.faq-answer');
+      var isOpen = item.classList.contains('open');
+
+      // Close all
+      document.querySelectorAll('.faq-item').forEach(function(el) {
+        el.classList.remove('open');
+        el.querySelector('.faq-answer').classList.remove('open');
+        el.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+        el.querySelector('.faq-answer').setAttribute('aria-hidden', 'true');
+      });
+
+      // Open clicked if it was closed
+      if (!isOpen) {
+        item.classList.add('open');
+        answer.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+        answer.setAttribute('aria-hidden', 'false');
+      }
+    });
+  });
+  </script>
+
+</body>
+</html>
