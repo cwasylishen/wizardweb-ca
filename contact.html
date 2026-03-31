@@ -228,7 +228,7 @@
         </ul>
         <div class="nav-buttons">
           <a href="contact.html" class="btn btn-outline btn-sm">Contact</a>
-          <a href="https://cal.com/clintonw/website-launch-strategy-call" target="_blank" class="btn btn-accent btn-sm">Book a Call</a>
+          <a href="#" data-cal-link="clintonw/website-launch-strategy-call" data-cal-namespace="strategy-call" data-cal-config='{"layout":"month_view"}' class="btn btn-accent btn-sm">Book a Call</a>
         </div>
       </nav>
     </div>
@@ -253,20 +253,16 @@
           <!-- LEFT: Contact Form -->
           <div class="contact-form-card">
             <h2>Send Us a Message</h2>
-            <form
-              action="https://formsubmit.co/cwasylishen@gmail.com"
-              method="POST"
-              novalidate
-            >
-              <!-- FormSubmit hidden fields -->
-              <input type="hidden" name="_captcha" value="false">
-              <input type="hidden" name="_subject" value="New Inquiry from WizardWeb">
-              <input type="hidden" name="_next" value="https://wizardweb.ca/thank-you.html">
-
-              <!-- Honeypot spam field -->
-              <div class="form-honeypot" aria-hidden="true">
+            <form id="contactForm" novalidate>
+              <!-- Honeypot spam traps (hidden from real users) -->
+              <div style="position:absolute;left:-9999px;top:-9999px;" aria-hidden="true">
                 <input type="text" name="_honey" tabindex="-1" autocomplete="off">
+                <input type="text" name="website_url_confirm" tabindex="-1" autocomplete="off">
+                <input type="text" name="fax_number" tabindex="-1" autocomplete="off">
               </div>
+              <!-- Timestamp for bot speed detection -->
+              <input type="hidden" name="_timestamp" id="formTimestamp" value="">
+              <input type="hidden" name="_source" value="wizardweb.ca">
 
               <div class="form-group">
                 <label for="name">Your Name <span style="color: var(--accent);">*</span></label>
@@ -326,7 +322,8 @@
                 ></textarea>
               </div>
 
-              <button type="submit" class="btn btn-primary">Send Message</button>
+              <button type="submit" class="btn btn-primary" id="submitBtn">Send Message</button>
+              <div id="formStatus" style="margin-top: var(--space-4); display: none;"></div>
             </form>
           </div>
 
@@ -345,9 +342,7 @@
               </div>
               <h3>Prefer to talk it through?</h3>
               <p>Schedule a free 20-minute strategy call. No pitch. Just an honest look at what your business needs.</p>
-              <a
-                href="https://cal.com/clintonw/website-launch-strategy-call"
-                target="_blank"
+              <a href="#" data-cal-link="clintonw/website-launch-strategy-call" data-cal-namespace="strategy-call" data-cal-config='{"layout":"month_view"}'
                 rel="noopener noreferrer"
                 class="btn btn-accent"
                 style="display: inline-flex;"
@@ -411,7 +406,7 @@
         <div class="footer-col">
           <h4>Connect</h4>
           <a href="contact.html">Contact Us</a>
-          <a href="https://cal.com/clintonw/website-launch-strategy-call" target="_blank">Book a Call</a>
+          <a href="#" data-cal-link="clintonw/website-launch-strategy-call" data-cal-namespace="strategy-call" data-cal-config='{"layout":"month_view"}'>Book a Call</a>
         </div>
       </div>
       <div class="footer-bottom">
@@ -448,6 +443,97 @@
     } else {
       header.classList.remove('scrolled');
     }
+  });
+  </script>
+
+
+
+  <!-- Form Handler -->
+  <script>
+  // Set timestamp when page loads (bot detection)
+  document.getElementById('formTimestamp').value = Date.now();
+
+  document.getElementById('contactForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    var btn = document.getElementById('submitBtn');
+    var status = document.getElementById('formStatus');
+    var form = this;
+    
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
+    status.style.display = 'none';
+    
+    var formData = new FormData(form);
+    var data = Object.fromEntries(formData);
+    
+    // Map the select field
+    var helpSelect = document.getElementById('help');
+    if (helpSelect && helpSelect.value) {
+      data.inquiry = helpSelect.value;
+    }
+    
+    try {
+      var response = await fetch('https://wizardweb-forms.cwasylishen.workers.dev/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      
+      var result = await response.json();
+      
+      if (result.success) {
+        window.location.href = 'thank-you.html';
+      } else {
+        status.style.display = 'block';
+        status.style.color = '#a13544';
+        status.style.fontSize = '14px';
+        status.textContent = result.error || 'Something went wrong. Please try again.';
+        btn.disabled = false;
+        btn.textContent = 'Send Message';
+      }
+    } catch (err) {
+      status.style.display = 'block';
+      status.style.color = '#a13544';
+      status.style.fontSize = '14px';
+      status.textContent = 'Connection error. Please try again or email us directly.';
+      btn.disabled = false;
+      btn.textContent = 'Send Message';
+    }
+  });
+  </script>
+
+  <!-- Cal.com Popup Embed -->
+  <script type="text/javascript">
+  (function (C, A, L) {
+    let p = function (a, ar) { a.q.push(ar); };
+    let d = C.document;
+    C.Cal = C.Cal || function () {
+      let cal = C.Cal; let ar = arguments;
+      if (!cal.loaded) {
+        cal.ns = {}; cal.q = cal.q || [];
+        d.head.appendChild(d.createElement("script")).src = A;
+        cal.loaded = true;
+      }
+      if (ar[0] === L) {
+        const api = function () { p(api, arguments); };
+        const namespace = ar[1];
+        api.q = api.q || [];
+        if (typeof namespace === "string") {
+          cal.ns[namespace] = cal.ns[namespace] || api;
+          p(cal.ns[namespace], ar);
+          p(cal, ["initNamespace", namespace]);
+        } else p(cal, ar);
+        return;
+      }
+      p(cal, ar);
+    };
+  })(window, "https://app.cal.com/embed/embed.js", "init");
+  Cal("init", "strategy-call", {origin: "https://cal.com"});
+  Cal.ns["strategy-call"]("ui", {
+    "styles": {"branding": {"brandColor": "#1B5E5A"}},
+    "hideEventTypeDetails": false,
+    "layout": "month_view"
   });
   </script>
 
