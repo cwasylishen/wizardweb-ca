@@ -900,13 +900,18 @@
     left: 0;
     right: 0;
     bottom: 0;
+    height: calc(100vh - var(--header-height));
+    height: calc(100dvh - var(--header-height));
     background: var(--bg);
     flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
     padding: var(--space-8) var(--space-6);
     gap: var(--space-6);
     transform: translateX(100%);
     transition: transform 0.3s ease;
     overflow-y: auto;
+    z-index: 9999;
   }
   .header-nav.open {
     transform: translateX(0);
