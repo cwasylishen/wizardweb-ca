@@ -1,0 +1,154 @@
+# WizardWeb Content Editor — Decap CMS configuration
+# https://decapcms.org/docs/configuration-options/
+#
+# Backend mode below is `test-repo`: an in-memory sandbox used for the public
+# demo at wizardweb.ca/admin/. Edits live in browser memory only.
+# Production setup notes are at the bottom of this file.
+
+backend:
+  name: test-repo
+
+local_backend: false
+
+media_folder: assets/images
+public_folder: /assets/images
+
+display_url: https://wizardweb.ca
+logo_url: /favicon.svg
+site_url: https://wizardweb.ca
+
+publish_mode: simple
+
+collections:
+
+  - name: settings
+    label: Site Settings
+    description: "Hero, contact details, booking link, availability strip."
+    files:
+      - file: content/settings/brand.json
+        label: Brand & Hero
+        name: brand
+        fields:
+          - label: Hero eyebrow text
+            name: hero_eyebrow
+            widget: string
+            default: "WizardWeb Studio / est. 2021 / based in canada"
+            hint: "Small mono-caps line above the hero headline."
+          - label: Hero headline (line 1)
+            name: hero_h1_top
+            widget: string
+            default: "Websites"
+          - label: Hero headline (accent word, italic lime)
+            name: hero_h1_em
+            widget: string
+            default: "earn"
+            hint: "Renders italic in the lime accent colour."
+          - label: Hero headline (line 3)
+            name: hero_h1_bottom
+            widget: string
+            default: "their keep."
+          - label: Hero lede paragraph
+            name: hero_lede
+            widget: text
+            default: "A small Canadian studio building fast, beautiful, search-friendly websites for small businesses, and hosting them on infrastructure that does not blink."
+          - label: Contact email
+            name: contact_email
+            widget: string
+            default: "hello@wizardweb.ca"
+          - label: Cal.com booking URL
+            name: cal_link
+            widget: string
+            default: "https://cal.com/clintonw/website-launch-strategy-call"
+          - label: Availability status (CTA eyebrow)
+            name: availability
+            widget: string
+            default: "Available for 2 projects in Q3"
+
+  - name: faq
+    label: FAQ entries
+    description: "One file per question. Re-orders by Sort order."
+    folder: content/faq
+    identifier_field: question
+    create: true
+    delete: true
+    slug: "{{order}}-{{slug}}"
+    fields:
+      - { label: Sort order, name: order, widget: number, value_type: int, default: 1 }
+      - { label: Question, name: question, widget: string, default: "How much does a website cost?" }
+      - label: Answer
+        name: body
+        widget: text
+        default: "Every project is custom priced. Scope drives the number: a focused custom build can start under a thousand dollars, while e-commerce, custom CMS, and deeper integrations sit higher. After a 30-minute call you get a fixed quote in writing."
+
+  - name: work
+    label: Selected Work
+    description: "One file per project. Each becomes a card or a featured block."
+    folder: content/work
+    identifier_field: title
+    create: true
+    delete: true
+    slug: "{{order}}-{{slug}}"
+    fields:
+      - { label: Sort order, name: order, widget: number, value_type: int, default: 10 }
+      - { label: Project name, name: title, widget: string, default: "Sample Project Co." }
+      - label: Industry
+        name: industry
+        widget: select
+        options: ["Hospitality","Tour Operator","Trades","Health","Industrial","Pro Services"]
+        default: "Trades"
+      - { label: Location, name: location, widget: string, default: "Calgary, AB" }
+      - { label: Live site URL, name: url, widget: string, default: "https://example.com" }
+      - { label: Hero image, name: image, widget: image, required: false }
+      - label: Top-left chip text (e.g. "Trades · Calgary")
+        name: tag
+        widget: string
+        default: "Trades · Calgary"
+      - label: Italic lede line
+        name: lede
+        widget: string
+        default: "One sharp line about what made the build matter."
+      - label: Body copy
+        name: body
+        widget: text
+        default: "Two or three sentences telling the project story: what the client needed, what we delivered, how it changed the outcome."
+      - label: Deliverables (up to 4)
+        name: deliverables
+        widget: list
+        max: 4
+        default: ["Custom design across every page", "Local-first SEO baked in", "Edge hosting included", "Plain-language copy"]
+        field: { label: Item, name: item, widget: string }
+
+# ─────────────────────────────────────────────────────────────────
+# PRODUCTION SETUP
+# ─────────────────────────────────────────────────────────────────
+#
+# To turn this from a demo into a working editor that actually saves edits
+# back to the GitHub repo and triggers a Cloudflare Pages rebuild:
+#
+# 1. Register a GitHub OAuth app at
+#    https://github.com/settings/developers
+#    - Authorization callback URL: https://YOUR-OAUTH-PROXY.workers.dev/callback
+#
+# 2. Deploy an OAuth proxy (a tiny Cloudflare Worker is plenty):
+#    https://github.com/sterlingwes/netlify-cms-oauth-cf-workers
+#    Set the OAuth app client_id and client_secret as Worker secrets.
+#
+# 3. Replace the `backend:` block above with:
+#
+#      backend:
+#        name: github
+#        repo: cwasylishen/wizardweb-ca
+#        branch: master
+#        base_url: https://YOUR-OAUTH-PROXY.workers.dev
+#
+# 4. Wire the site templates to actually read from these content files at
+#    build time. The current wizardweb.ca pages are hand-coded; for client
+#    sites we use Astro or a small Node build script that reads
+#    content/**/*.{json,md} and renders the HTML.
+#
+# 5. (Optional) Editorial workflow:
+#      publish_mode: editorial_workflow
+#    This converts saves into draft pull requests instead of direct commits.
+#
+# The schema above already matches a typical client site, so steps 1-3 are
+# the only ones unique to each deployment.

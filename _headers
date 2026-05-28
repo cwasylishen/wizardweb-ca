@@ -15,6 +15,15 @@
 /
   Cache-Control: public, max-age=3600, must-revalidate
 
+# CMS sandbox: keep out of search results, short cache
+/admin/*
+  X-Robots-Tag: noindex, nofollow, noarchive
+  Cache-Control: public, max-age=300
+
+# Editor content seeds: not for search, not for visitors
+/content/*
+  X-Robots-Tag: noindex, nofollow
+
 # Security headers on every response
 /*
   X-Frame-Options: DENY
