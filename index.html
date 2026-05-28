@@ -271,7 +271,19 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   inset: 0;
   z-index: 0;
 }
+.sigil-fallback {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  z-index: 0;
+  opacity: 0.45;
+  pointer-events: none;
+}
 .hero-canvas canvas {
+  position: relative;
+  z-index: 1;
   width: 100%;
   height: 100%;
   display: block;
@@ -1079,6 +1091,42 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 <!-- ───────────── HERO ───────────── -->
 <section class="hero" id="top">
   <div class="hero-canvas" aria-hidden="true">
+    <svg class="sigil-fallback" viewBox="-200 -200 400 400" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+      <g fill="#F2EFE7" opacity="0.55">
+        <circle cx="-170" cy="-110" r="1.1"/>
+        <circle cx="125"  cy="-150" r="1.2"/>
+        <circle cx="-180" cy="60"   r="0.9"/>
+        <circle cx="170"  cy="100"  r="1.1"/>
+        <circle cx="-90"  cy="-180" r="1.0"/>
+        <circle cx="60"   cy="160"  r="1.1"/>
+        <circle cx="-120" cy="170"  r="0.8"/>
+        <circle cx="150"  cy="-30"  r="1.2"/>
+        <circle cx="40"   cy="-90"  r="0.7"/>
+        <circle cx="-50"  cy="120"  r="0.9"/>
+      </g>
+      <g fill="none" stroke-linecap="round" stroke-linejoin="round" transform="rotate(-8)">
+        <ellipse cx="0" cy="-110" rx="55"  ry="6"  stroke="#F2EFE7" stroke-opacity="0.22" stroke-width="1.2"/>
+        <ellipse cx="0" cy="-72"  rx="100" ry="12" stroke="#F2EFE7" stroke-opacity="0.32" stroke-width="1.2"/>
+        <ellipse cx="0" cy="-36"  rx="130" ry="20" stroke="#F2EFE7" stroke-opacity="0.40" stroke-width="1.2"/>
+        <ellipse cx="0" cy="0"    rx="140" ry="26" stroke="#B6FF5C" stroke-opacity="0.95" stroke-width="2.2"/>
+        <ellipse cx="0" cy="36"   rx="130" ry="20" stroke="#F2EFE7" stroke-opacity="0.40" stroke-width="1.2"/>
+        <ellipse cx="0" cy="72"   rx="100" ry="12" stroke="#F2EFE7" stroke-opacity="0.32" stroke-width="1.2"/>
+        <ellipse cx="0" cy="110"  rx="55"  ry="6"  stroke="#F2EFE7" stroke-opacity="0.22" stroke-width="1.2"/>
+      </g>
+      <g fill="#B6FF5C" transform="rotate(-8)">
+        <circle cx="-140" cy="0"  r="2.4" opacity="0.9"/>
+        <circle cx="-100" cy="14" r="2.4" opacity="0.85"/>
+        <circle cx="-50"  cy="22" r="2.4" opacity="0.8"/>
+        <circle cx="0"    cy="26" r="2.4" opacity="0.85"/>
+        <circle cx="50"   cy="22" r="2.4" opacity="0.8"/>
+        <circle cx="100"  cy="14" r="2.4" opacity="0.85"/>
+        <circle cx="140"  cy="0"  r="2.4" opacity="0.9"/>
+      </g>
+      <g stroke="#F2EFE7" stroke-opacity="0.10" stroke-width="1">
+        <line x1="-14" y1="0" x2="14" y2="0"/>
+        <line x1="0" y1="-14" x2="0" y2="14"/>
+      </g>
+    </svg>
     <canvas id="sigil"></canvas>
   </div>
   <div class="hero-vignette" aria-hidden="true"></div>
@@ -1409,14 +1457,20 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 
 <script>
 /* ───────────── interactive sigil canvas ───────────── */
+/* Defensive: SVG fallback is always visible behind this canvas. */
+/* If anything below silently fails or rAF gets throttled, the SVG still shows the sphere. */
 (function () {
   const canvas = document.getElementById("sigil");
   if (!canvas) return;
-  const ctx = canvas.getContext("2d", { alpha: true });
+
+  let ctx;
+  try { ctx = canvas.getContext("2d", { alpha: true }); } catch (err) { return; }
+  if (!ctx) return;
 
   let W = 0, H = 0, DPR = 1, cx = 0, cy = 0;
   let motion = "normal";
   const accent = "#B6FF5C";
+  let lastFrame = 0;
 
   function resize() {
     DPR = Math.min(window.devicePixelRatio || 1, 2);
@@ -1477,6 +1531,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 
   function draw() {
     const now = performance.now();
+    lastFrame = now;
     const t = (now - t0) / 1000;
 
     mouseX += (targetMX - mouseX) * 0.06;
@@ -1562,19 +1617,29 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
     ctx.moveTo(cx, cy - 14); ctx.lineTo(cx, cy + 14);
     ctx.stroke();
 
-    rafId = requestAnimationFrame(draw);
+    rafId = requestAnimationFrame(safeDraw);
+  }
+
+  function safeDraw() {
+    try { draw(); } catch (err) { cancelAnimationFrame(rafId); rafId = null; }
   }
 
   let rafId = null;
   function start() {
-    cancelAnimationFrame(rafId);
-    resize();
-    scene = build();
-    t0 = performance.now();
-    rafId = requestAnimationFrame(draw);
+    if (rafId) cancelAnimationFrame(rafId);
+    try {
+      resize();
+      scene = build();
+      if (!W || !H) return;
+      t0 = performance.now();
+      lastFrame = t0;
+      rafId = requestAnimationFrame(safeDraw);
+    } catch (err) { /* SVG fallback remains visible */ }
   }
 
-  window.addEventListener("resize", () => { resize(); scene = build(); });
+  window.addEventListener("resize", () => {
+    try { resize(); scene = build(); } catch (err) {}
+  });
   window.addEventListener("mousemove", (e) => {
     const rect = canvas.getBoundingClientRect();
     if (e.clientX >= rect.left && e.clientX <= rect.right && e.clientY >= rect.top && e.clientY <= rect.bottom) {
@@ -1586,6 +1651,18 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
       targetMX *= 0.9; targetMY *= 0.9;
     }
   });
+
+  // Recovery: restart if rAF stalled while we were away
+  document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "visible") {
+      const stalled = performance.now() - lastFrame > 2000;
+      if (stalled || !rafId) start();
+    }
+  });
+
+  // Recovery: 2D contexts can be lost on GPU resets (Chromium emits this)
+  canvas.addEventListener("contextlost", () => { cancelAnimationFrame(rafId); rafId = null; });
+  canvas.addEventListener("contextrestored", () => { start(); });
 
   if (matchMedia("(prefers-reduced-motion: reduce)").matches) motion = "calm";
   start();
