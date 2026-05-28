@@ -1,1113 +1,925 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Our Work | WizardWeb Portfolio</title>
-  <meta name="description" content="See the websites WizardWeb has built. From a premium aerial retreat in Costa Rica to a Tanzania tour operator to industrial drywall in Calgary. Every client has a story worth telling. These are theirs.">
-  <meta name="keywords" content="WizardWeb portfolio, web design examples, small business websites, custom website builds Canada, website case studies">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Selected Work — WizardWeb</title>
+<meta name="description" content="A look at recent websites built by WizardWeb. Hospitality, tour operators, trades, health, and industrial clients across Canada and beyond." />
+<meta name="theme-color" content="#07080A" />
+<link rel="canonical" href="https://wizardweb.ca/work.html" />
+<meta property="og:title" content="Selected Work — WizardWeb" />
+<meta property="og:description" content="Recent websites built by WizardWeb." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://wizardweb.ca/work.html" />
+<meta property="og:locale" content="en_CA" />
+<meta property="og:site_name" content="WizardWeb" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Selected Work — WizardWeb" />
+<meta name="twitter:description" content="Recent websites built by WizardWeb." />
 
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Our Work | WizardWeb Portfolio">
-  <meta property="og:description" content="See the websites WizardWeb has built. Every client has a story worth telling. These are theirs.">
-  <meta property="og:image" content="https://wizardweb.ca/assets/images/airborne-arts-desktop.jpg">
-  <meta property="og:url" content="https://wizardweb.ca/work.html">
-  <meta property="og:site_name" content="WizardWeb">
-  <meta property="og:locale" content="en_CA">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="apple-touch-icon" href="/favicon.svg" />
 
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Our Work | WizardWeb Portfolio">
-  <meta name="twitter:description" content="See the websites WizardWeb has built. Every client has a story worth telling. These are theirs.">
-  <meta name="twitter:image" content="https://wizardweb.ca/assets/images/airborne-arts-desktop.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-  <link rel="canonical" href="https://wizardweb.ca/work.html">
+<style>
+:root {
+  --ink:        #07080A;
+  --ink-2:      #0E1014;
+  --paper:      #F2EFE7;
+  --smoke:      #8A8A82;
+  --line:       rgba(242, 239, 231, 0.10);
+  --line-strong:rgba(242, 239, 231, 0.22);
+  --accent:     #B6FF5C;
+  --accent-ink: #07080A;
 
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <link rel="apple-touch-icon" href="/assets/images/logo-mark.svg">
-  <meta name="theme-color" content="#1B5E5A">
+  --f-display:  "Instrument Serif", "Times New Roman", serif;
+  --f-sans:     "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --f-mono:     "JetBrains Mono", ui-monospace, monospace;
 
-  <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
-  <link href="https://api.fontshare.com/v2/css?f[]=zodiak@400,500,700&f[]=satoshi@300,400,500,600,700&display=swap"
-        rel="stylesheet" media="print" onload="this.media='all'">
-  <noscript>
-  <link href="https://api.fontshare.com/v2/css?f[]=zodiak@400,500,700&f[]=satoshi@300,400,500,600,700&display=swap"
-        rel="stylesheet">
-  </noscript>
+  --gutter:     clamp(20px, 4vw, 56px);
+  --max:        1440px;
+}
 
-  <link rel="stylesheet" href="base.css">
-  <link rel="stylesheet" href="style.css">
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: var(--ink); color: var(--paper); }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--f-sans);
+  font-size: 17px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+::selection { background: var(--accent); color: var(--accent-ink); }
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
 
-  <style>
-    /* Work page specific styles */
+.eyebrow {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--smoke);
+}
+.eyebrow .dot {
+  display: inline-block;
+  width: 6px; height: 6px;
+  background: var(--accent);
+  border-radius: 50%;
+  margin-right: 8px;
+  vertical-align: 1px;
+  box-shadow: 0 0 10px var(--accent);
+}
 
-    /* Page hero -- light cream, not dark */
-    .page-hero {
-      background: var(--bg);
-      padding: calc(var(--header-height) + var(--space-20)) 0 var(--space-16);
-      text-align: center;
-      border-bottom: 1px solid var(--divider);
-    }
-    .page-hero .section-label {
-      margin-bottom: var(--space-4);
-    }
-    .page-hero h1 {
-      font-family: var(--font-display);
-      font-weight: 500;
-      font-size: clamp(40px, 5vw, 68px);
-      line-height: 1.1;
-      letter-spacing: -0.02em;
-      color: var(--text);
-      margin-bottom: var(--space-6);
-    }
-    .page-hero h1 em {
-      font-style: italic;
-      color: var(--primary);
-    }
-    .page-hero p {
-      font-size: 18px;
-      line-height: 1.7;
-      color: var(--text-muted);
-      max-width: 560px;
-      margin: 0 auto;
-    }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 22px 16px 24px;
+  border-radius: 999px;
+  font-family: var(--f-mono);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: transform .2s ease, background .2s ease, color .2s ease;
+}
+.btn .arr {
+  display: inline-flex;
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: var(--accent-ink);
+  color: var(--accent);
+  align-items: center; justify-content: center;
+  transition: transform .25s ease;
+}
+.btn-primary { background: var(--accent); color: var(--accent-ink); }
+.btn-primary:hover { transform: translateY(-1px); }
+.btn-primary:hover .arr { transform: translate(3px, -3px); }
+.btn-ghost { background: transparent; color: var(--paper); border: 1px solid var(--line-strong); }
+.btn-ghost .arr { background: var(--paper); color: var(--ink); }
+.btn-ghost:hover { background: rgba(242,239,231,0.04); }
+.btn-ghost:hover .arr { transform: translate(3px, -3px); }
 
-    /* Section intro */
-    .case-study-intro {
-      padding: var(--space-16) 0 var(--space-8);
-    }
+/* ───── nav ───── */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 50;
+  padding: 18px var(--gutter);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: backdrop-filter .3s ease, background .3s ease, border-color .3s ease;
+  border-bottom: 1px solid transparent;
+}
+.nav.is-stuck {
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  background: rgba(7, 8, 10, 0.62);
+  border-bottom-color: var(--line);
+}
+.brand {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+  font-family: var(--f-display);
+  font-size: 22px;
+  letter-spacing: -0.01em;
+}
+.brand .mark {
+  display: inline-flex;
+  width: 22px; height: 22px;
+  margin-right: 4px;
+}
+.brand .mark svg { width: 100%; height: 100%; }
+.nav-links {
+  display: flex;
+  gap: 28px;
+  font-family: var(--f-mono);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.nav-links a {
+  position: relative;
+  color: var(--smoke);
+  transition: color .2s ease;
+}
+.nav-links a:hover, .nav-links a.is-current { color: var(--paper); }
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 100%;
+  bottom: -6px;
+  height: 1px;
+  background: var(--accent);
+  transition: right .3s ease;
+}
+.nav-links a:hover::after, .nav-links a.is-current::after { right: 0; }
+.nav-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 10px 14px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: rgba(242,239,231,0.02);
+  transition: background .2s ease, border-color .2s ease, color .2s ease;
+}
+.nav-cta:hover { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.nav-cta::before {
+  content: "";
+  width: 6px; height: 6px;
+  background: var(--accent);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--accent);
+}
+.nav-cta:hover::before { background: var(--accent-ink); box-shadow: none; }
+@media (max-width: 760px) {
+  .nav-links { display: none; }
+}
 
-    /* Hero case study -- extended version */
-    .airborne-hero {
-      background: var(--surface);
-      border-radius: var(--radius-2xl);
-      overflow: hidden;
-      box-shadow: var(--shadow-xl);
-    }
+/* ───── page header ───── */
+.page-hero {
+  padding: 160px var(--gutter) 60px;
+  border-bottom: 1px solid var(--line);
+  position: relative;
+  overflow: hidden;
+}
+.page-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(60% 80% at 80% 20%, rgba(182,255,92,0.10), transparent 60%),
+    radial-gradient(40% 60% at 10% 90%, rgba(182,255,92,0.06), transparent 60%);
+  pointer-events: none;
+}
+.page-hero-inner {
+  position: relative;
+  max-width: var(--max);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 64px;
+  align-items: end;
+}
+.page-hero h1 {
+  font-family: var(--f-display);
+  font-weight: 400;
+  font-size: clamp(56px, 9vw, 140px);
+  line-height: 0.94;
+  letter-spacing: -0.02em;
+  margin: 18px 0 0;
+  max-width: 12ch;
+}
+.page-hero h1 em { font-style: italic; color: var(--accent); }
+.page-hero .lede {
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--paper);
+  opacity: 0.88;
+  max-width: 46ch;
+  margin: 0 0 24px;
+}
+.page-meta {
+  display: grid;
+  gap: 18px;
+  font-family: var(--f-mono);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  color: var(--smoke);
+}
+.page-meta .row {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  border-top: 1px solid var(--line);
+  padding-top: 14px;
+}
+.page-meta .num {
+  font-family: var(--f-display);
+  font-size: 36px;
+  color: var(--paper);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+@media (max-width: 860px) {
+  .page-hero-inner { grid-template-columns: 1fr; gap: 36px; }
+}
 
-    /* Main image area */
-    .airborne-main-image {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 16/7;
-      overflow: hidden;
-    }
-    .airborne-main-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: top center;
-    }
-    .airborne-main-image-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(15,25,35,0.7) 0%, transparent 50%);
-      display: flex;
-      align-items: flex-end;
-      padding: var(--space-8) var(--space-10);
-    }
-    .airborne-main-image-overlay h2 {
-      font-family: var(--font-display);
-      font-weight: 500;
-      font-size: clamp(28px, 3.5vw, 48px);
-      color: #fff;
-      letter-spacing: -0.02em;
-      line-height: 1.15;
-    }
-    .airborne-main-image-overlay h2 span {
-      display: block;
-      font-size: 0.6em;
-      font-weight: 400;
-      color: rgba(255,255,255,0.7);
-      letter-spacing: 0.01em;
-      margin-bottom: var(--space-2);
-      font-family: var(--font-body);
-      text-transform: uppercase;
-      font-size: 12px;
-      letter-spacing: 0.1em;
-    }
+/* ───── filters ───── */
+.filters {
+  padding: 24px var(--gutter);
+  border-bottom: 1px solid var(--line);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  background: rgba(7, 8, 10, 0.78);
+}
+.filter-row {
+  max-width: var(--max);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.filter-label {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--smoke);
+}
+.chips { display: flex; gap: 8px; flex-wrap: wrap; }
+.chip {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--smoke);
+  padding: 8px 14px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: transparent;
+  transition: background .2s ease, color .2s ease, border-color .2s ease;
+}
+.chip:hover { color: var(--paper); }
+.chip.is-on { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
 
-    /* Detail grid inside hero card */
-    .airborne-detail {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0;
-    }
-    .airborne-copy {
-      padding: var(--space-10);
-      border-right: 1px solid var(--divider);
-    }
-    .airborne-copy .portfolio-tag {
-      margin-bottom: var(--space-5);
-    }
-    .airborne-copy .heading-md {
-      margin-bottom: var(--space-5);
-    }
-    .airborne-copy p {
-      font-size: 16px;
-      line-height: 1.7;
-      color: var(--text-muted);
-      margin-bottom: var(--space-6);
-    }
-    .airborne-feature-list {
-      margin-bottom: var(--space-8);
-    }
-    .airborne-feature-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: var(--space-3);
-      font-size: 15px;
-      color: var(--text-muted);
-      padding: var(--space-2) 0;
-      line-height: 1.5;
-    }
-    .airborne-feature-list li::before {
-      content: '';
-      flex-shrink: 0;
-      width: 18px;
-      height: 18px;
-      border-radius: 50%;
-      background: var(--primary-light);
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%231B5E5A' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: 10px;
-      margin-top: 2px;
-    }
+/* ───── projects ───── */
+.projects {
+  padding: 80px var(--gutter) 120px;
+  display: grid;
+  gap: 120px;
+  max-width: var(--max);
+  margin: 0 auto;
+}
+.project {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+.project.alt {
+  grid-template-columns: 1fr 1.2fr;
+}
+.project.alt .p-shot { order: 2; }
+.project.alt .p-copy { order: 1; }
 
-    /* Founders / meta panel */
-    .airborne-meta {
-      padding: var(--space-10);
-    }
-    .airborne-meta-section {
-      margin-bottom: var(--space-8);
-    }
-    .airborne-meta-label {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--text-faint);
-      margin-bottom: var(--space-3);
-      display: block;
-    }
-    .airborne-founders {
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-4);
-    }
-    .airborne-founder {
-      display: flex;
-      align-items: flex-start;
-      gap: var(--space-3);
-    }
-    .airborne-founder-icon {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: var(--primary-light);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-    .airborne-founder-icon svg {
-      width: 20px;
-      height: 20px;
-      color: var(--primary);
-    }
-    .airborne-founder-name {
-      font-weight: 600;
-      font-size: 15px;
-      color: var(--text);
-      line-height: 1.3;
-    }
-    .airborne-founder-title {
-      font-size: 13px;
-      color: var(--text-muted);
-      line-height: 1.4;
-      margin-top: 2px;
-    }
-    .airborne-design-chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: var(--space-2);
-    }
-    .design-chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--text);
-      background: var(--bg-alt);
-      border: 1px solid var(--divider);
-      border-radius: 100px;
-      padding: 4px 12px;
-    }
-    .design-chip-swatch {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      flex-shrink: 0;
-    }
+.p-shot {
+  position: relative;
+  aspect-ratio: 4/3;
+  background: var(--ink-2);
+  border: 1px solid var(--line);
+  overflow: hidden;
+  display: block;
+}
+.p-shot img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .8s ease;
+}
+.p-shot:hover img { transform: scale(1.03); }
+.p-shot .tag {
+  position: absolute;
+  top: 18px; left: 18px;
+  z-index: 2;
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--paper);
+  padding: 6px 10px;
+  background: rgba(7,8,10,0.55);
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  backdrop-filter: blur(6px);
+}
+.p-shot .num {
+  position: absolute;
+  top: 18px; right: 18px;
+  z-index: 2;
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: var(--paper);
+  opacity: 0.7;
+}
+.p-shot .view {
+  position: absolute;
+  bottom: 18px; right: 18px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--paper);
+  padding: 8px 12px;
+  background: rgba(7,8,10,0.55);
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  backdrop-filter: blur(6px);
+  transition: background .2s ease, color .2s ease;
+}
+.p-shot:hover .view { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
 
-    /* Page screenshots gallery */
-    .airborne-screenshots {
-      padding: var(--space-8) var(--space-10);
-      border-top: 1px solid var(--divider);
-      background: var(--bg);
-    }
-    .airborne-screenshots-label {
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--text-faint);
-      margin-bottom: var(--space-5);
-      display: block;
-    }
-    .airborne-screenshots-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--space-5);
-    }
-    .airborne-screenshot {
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      box-shadow: var(--shadow-md);
-      aspect-ratio: 16/9;
-    }
-    .airborne-screenshot img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: top center;
-      display: block;
-    }
-    .airborne-screenshot-caption {
-      font-size: 12px;
-      color: var(--text-faint);
-      margin-top: var(--space-2);
-      text-align: center;
-    }
+.p-shot.is-type {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 36px 32px;
+  background:
+    radial-gradient(60% 80% at 80% 110%, rgba(182,255,92,0.12), transparent 60%),
+    linear-gradient(140deg, #14140f, #0c0c0a 70%);
+}
+.p-shot.is-type::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(242,239,231,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(242,239,231,0.04) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+.p-shot.is-type .big {
+  position: relative;
+  font-family: var(--f-display);
+  font-size: clamp(54px, 7vw, 96px);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  margin: auto 0;
+  z-index: 1;
+}
+.p-shot.is-type .big em { font-style: italic; color: var(--accent); }
+.p-shot.is-type .url {
+  position: relative;
+  z-index: 1;
+  font-family: var(--f-mono);
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  color: var(--smoke);
+}
 
-    /* Alpine Drywall section */
-    .alpine-card {
-      background: var(--surface);
-      border-radius: var(--radius-2xl);
-      overflow: hidden;
-      box-shadow: var(--shadow-lg);
-    }
-    .alpine-inner {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0;
-    }
-    .alpine-images {
-      position: relative;
-      background: #0F1923;
-      min-height: 360px;
-      overflow: hidden;
-    }
-    .alpine-desktop-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: top center;
-      display: block;
-    }
-    .alpine-mobile-badge {
-      position: absolute;
-      bottom: var(--space-5);
-      right: var(--space-5);
-      width: 90px;
-      background: #1a1a1a;
-      border-radius: 14px;
-      padding: 6px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.5);
-    }
-    .alpine-mobile-badge img {
-      width: 100%;
-      border-radius: 10px;
-      display: block;
-    }
-    .alpine-content {
-      padding: var(--space-10);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-    .alpine-content .portfolio-tag {
-      background: rgba(200,146,42,0.12);
-      color: var(--accent);
-      margin-bottom: var(--space-5);
-    }
-    .alpine-content .heading-md {
-      margin-bottom: var(--space-5);
-    }
-    .alpine-content p {
-      font-size: 16px;
-      line-height: 1.7;
-      color: var(--text-muted);
-      margin-bottom: var(--space-6);
-    }
-    .alpine-creds {
-      display: flex;
-      flex-wrap: wrap;
-      gap: var(--space-3);
-      margin-bottom: var(--space-8);
-    }
-    .alpine-cred {
-      display: inline-flex;
-      align-items: center;
-      gap: var(--space-2);
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--text);
-      background: var(--bg-alt);
-      border: 1px solid var(--divider);
-      border-radius: var(--radius-md);
-      padding: 6px 12px;
-    }
-    .alpine-cred svg {
-      width: 14px;
-      height: 14px;
-      color: var(--primary);
-      flex-shrink: 0;
-    }
+.p-copy .eyebrow { margin-bottom: 10px; }
+.p-copy h2 {
+  font-family: var(--f-display);
+  font-weight: 400;
+  font-size: clamp(36px, 4.4vw, 64px);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  margin: 0 0 16px;
+}
+.p-copy .lede {
+  font-family: var(--f-display);
+  font-style: italic;
+  font-size: clamp(20px, 1.8vw, 24px);
+  line-height: 1.25;
+  color: var(--paper);
+  margin: 0 0 22px;
+  max-width: 28ch;
+}
+.p-copy .lede em { color: var(--accent); }
+.p-copy p.body {
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--paper);
+  opacity: 0.85;
+  margin: 0 0 24px;
+  max-width: 48ch;
+}
+.deliv {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 28px;
+}
+.deliv li {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: 12px;
+  align-items: baseline;
+  padding: 12px 0;
+  border-top: 1px solid var(--line);
+  font-size: 15px;
+  line-height: 1.4;
+}
+.deliv li:last-child { border-bottom: 1px solid var(--line); }
+.deliv .k {
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--smoke);
+}
 
-    /* Portfolio grid section */
-    .portfolio-section-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      margin-bottom: var(--space-10);
-    }
+.p-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--paper);
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--line-strong);
+  transition: color .2s ease, border-color .2s ease;
+}
+.p-link:hover { color: var(--accent); border-color: var(--accent); }
+.p-link .arr {
+  display: inline-flex;
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--accent-ink);
+  align-items: center; justify-content: center;
+  transition: transform .25s ease;
+}
+.p-link:hover .arr { transform: translate(3px, -3px); }
 
-    /* Enhanced portfolio cards for work page */
-    .work-portfolio-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: var(--space-6);
-    }
-    .work-portfolio-card {
-      background: var(--surface);
-      border-radius: var(--radius-xl);
-      overflow: hidden;
-      box-shadow: var(--shadow-md);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      display: flex;
-      flex-direction: column;
-    }
-    .work-portfolio-card:hover {
-      transform: translateY(-5px);
-      box-shadow: var(--shadow-xl);
-    }
-    .work-portfolio-card-image {
-      aspect-ratio: 16/9;
-      overflow: hidden;
-    }
-    .work-portfolio-card-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: top center;
-      transition: transform 0.5s ease;
-    }
-    .work-portfolio-card:hover .work-portfolio-card-image img {
-      transform: scale(1.03);
-    }
-    .work-portfolio-card-content {
-      padding: var(--space-6);
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-    }
-    .work-portfolio-card-content h3 {
-      font-family: var(--font-body);
-      font-weight: 700;
-      font-size: 18px;
-      color: var(--text);
-      margin-bottom: var(--space-2);
-    }
-    .work-portfolio-card-content .card-location {
-      font-size: 12px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--primary);
-      margin-bottom: var(--space-3);
-    }
-    .work-portfolio-card-content p {
-      font-size: 14px;
-      color: var(--text-muted);
-      line-height: 1.6;
-      flex: 1;
-      margin-bottom: var(--space-5);
-    }
-    .work-portfolio-card-content .card-link {
-      display: inline-flex;
-      align-items: center;
-      gap: var(--space-2);
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--primary);
-      transition: gap 0.2s ease;
-    }
-    .work-portfolio-card-content .card-link:hover {
-      gap: var(--space-3);
-    }
-    .work-portfolio-card-content .card-link svg {
-      width: 14px;
-      height: 14px;
-    }
-
-    /* Stat bar */
-    .work-stat-bar {
-      background: var(--primary);
-      padding: var(--space-12) 0;
-    }
-    .work-stat-bar .container {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: var(--space-8);
-      text-align: center;
-    }
-    .work-stat-item {
-      color: #fff;
-    }
-    .work-stat-number {
-      font-family: var(--font-display);
-      font-size: clamp(32px, 4vw, 52px);
-      font-weight: 700;
-      line-height: 1;
-      margin-bottom: var(--space-2);
-    }
-    .work-stat-label {
-      font-size: 13px;
-      color: rgba(255,255,255,0.65);
-      font-weight: 500;
-      letter-spacing: 0.04em;
-    }
-
-    /* Responsive adjustments */
-    @media (max-width: 1100px) {
-      .airborne-detail {
-        grid-template-columns: 1fr;
-      }
-      .airborne-copy {
-        border-right: none;
-        border-bottom: 1px solid var(--divider);
-      }
-      .airborne-main-image {
-        aspect-ratio: 16/9;
-      }
-      .alpine-inner {
-        grid-template-columns: 1fr;
-      }
-      .alpine-images {
-        min-height: 260px;
-      }
-      .work-portfolio-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-      .work-stat-bar .container {
-        grid-template-columns: repeat(2, 1fr);
-        gap: var(--space-8);
-      }
-    }
-
-    @media (max-width: 640px) {
-      .airborne-screenshots-grid {
-        grid-template-columns: 1fr;
-      }
-      .airborne-copy {
-        padding: var(--space-8) var(--space-6);
-      }
-      .airborne-meta {
-        padding: var(--space-8) var(--space-6);
-      }
-      .airborne-screenshots {
-        padding: var(--space-6);
-      }
-      .airborne-main-image-overlay {
-        padding: var(--space-5) var(--space-6);
-      }
-      .alpine-content {
-        padding: var(--space-8) var(--space-6);
-      }
-      .work-portfolio-grid {
-        grid-template-columns: 1fr;
-      }
-      .work-stat-bar .container {
-        grid-template-columns: repeat(2, 1fr);
-        gap: var(--space-6);
-      }
-      .portfolio-section-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: var(--space-4);
-      }
-    }
-  </style>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "CollectionPage",
-    "name": "Our Work | WizardWeb Portfolio",
-    "description": "Portfolio of custom websites built by WizardWeb, including Airborne Arts Costa Rica, Go Kilimanjaro Treks Tanzania, Alpine Drywall Calgary, LaserQuit Therapy, T&M Bookkeeping, and Lloydminster Chemical Transport.",
-    "url": "https://wizardweb.ca/work.html",
-    "publisher": {
-      "@type": "ProfessionalService",
-      "name": "WizardWeb",
-      "url": "https://wizardweb.ca",
-      "founder": {
-        "@type": "Person",
-        "name": "Clinton Wasylishen"
-      }
-    }
+@media (max-width: 980px) {
+  .projects { gap: 80px; padding: 60px var(--gutter) 100px; }
+  .project, .project.alt {
+    grid-template-columns: 1fr;
+    gap: 32px;
   }
-  </script>
+  .project.alt .p-shot { order: 0; }
+  .project.alt .p-copy { order: 1; }
+}
+
+/* ───── closing CTA ───── */
+.cta {
+  padding: 120px var(--gutter);
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid var(--line);
+}
+.cta::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(60% 80% at 50% 100%, rgba(182,255,92,0.22), transparent 60%);
+  pointer-events: none;
+}
+.cta-inner {
+  position: relative;
+  max-width: var(--max);
+  margin: 0 auto;
+  text-align: center;
+}
+.cta h2 {
+  font-family: var(--f-display);
+  font-weight: 400;
+  font-size: clamp(44px, 7vw, 112px);
+  line-height: 0.96;
+  letter-spacing: -0.03em;
+  margin: 24px auto 32px;
+  max-width: 18ch;
+}
+.cta h2 em { color: var(--accent); font-style: italic; }
+.cta p {
+  font-size: 18px;
+  color: var(--paper);
+  opacity: 0.8;
+  max-width: 52ch;
+  margin: 0 auto 28px;
+}
+.cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  justify-content: center;
+}
+
+/* ───── footer ───── */
+.footer {
+  padding: 40px var(--gutter);
+  border-top: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--smoke);
+  flex-wrap: wrap;
+}
+.footer .right { display: flex; gap: 22px; flex-wrap: wrap; }
+.footer a:hover { color: var(--paper); }
+.footer .live::before {
+  content: "";
+  display: inline-block;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 8px var(--accent);
+  margin-right: 8px;
+  vertical-align: 1px;
+  animation: pulse 1.6s ease-in-out infinite;
+}
+@keyframes pulse { 50% { opacity: 0.3; } }
+
+/* ───── reveal ───── */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity .9s cubic-bezier(.2,.7,0,1), transform .9s cubic-bezier(.2,.7,0,1);
+}
+[data-reveal].is-in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+  [data-reveal] { opacity: 1; transform: none; }
+}
+
+.project.is-hidden { display: none; }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Selected Work — WizardWeb",
+  "url": "https://wizardweb.ca/work.html",
+  "description": "Recent websites built by WizardWeb, including Airborne Arts Costa Rica, Go Kilimanjaro Treks Tanzania, Alpine Drywall Calgary, LaserQuit Therapy, Lloydminster Chemical Transport, and T&M Bookkeeping.",
+  "publisher": {
+    "@type": "ProfessionalService",
+    "name": "WizardWeb",
+    "url": "https://wizardweb.ca",
+    "founder": { "@type": "Person", "name": "Clinton Wasylishen" }
+  }
+}
+</script>
 </head>
 <body>
 
-  <!-- ========== HEADER ========== -->
-  <header class="site-header" id="siteHeader" role="banner">
-    <div class="header-inner">
-      <a href="index.html" class="header-logo" aria-label="WizardWeb - Home">
-        <svg class="logo-icon" viewBox="0 0 64 64" width="40" height="40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#1B5E5A"/><path d="M14 19 L22 47 L32 28 L42 47 L50 19" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="50" cy="14" r="3" fill="#C8922A"/><circle cx="50" cy="14" r="1" fill="#ffffff"/></svg>
-        <div class="logo-text">Wizard<span>Web</span></div>
+<!-- NAV -->
+<header class="nav" id="nav">
+  <a href="index.html" class="brand" aria-label="WizardWeb home">
+    <span class="mark" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none">
+        <path d="M3 19 L12 3 L21 19 Z" stroke="currentColor" stroke-width="1.4" />
+        <path d="M7 14 L12 8 L17 14" stroke="currentColor" stroke-width="1.4" />
+        <circle cx="12" cy="11" r="1.2" fill="#B6FF5C"/>
+      </svg>
+    </span>
+    Wizardweb
+  </a>
+  <nav class="nav-links" aria-label="Primary">
+    <a href="work.html" class="is-current">Work</a>
+    <a href="index.html#services">Services</a>
+    <a href="index.html#faq">FAQ</a>
+  </nav>
+  <a class="nav-cta" href="index.html#contact">Start a project</a>
+</header>
+
+<!-- PAGE HEADER -->
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div>
+      <div class="eyebrow"><span class="dot"></span>Selected Work &nbsp;/&nbsp; Index 2023&ndash;2025</div>
+      <h1>Every site<br/>has a job.<br/><em>Here's the receipts.</em></h1>
+    </div>
+    <div>
+      <p class="lede">
+        Recent builds across hospitality, trades, health and industrial. Different categories, same brief: faster, sharper, better positioned than what the client had before.
+      </p>
+      <div class="page-meta">
+        <div class="row"><span class="num">30+</span><span>Years in sales &amp; marketing<br/>poured into every build</span></div>
+        <div class="row"><span class="num">5×</span><span>Seven-figure businesses<br/>founded by our lead</span></div>
+        <div class="row"><span class="num">100/100</span><span>PageSpeed average<br/>across our builds</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FILTERS -->
+<div class="filters" role="region" aria-label="Filter projects by industry">
+  <div class="filter-row">
+    <span class="filter-label">Filter</span>
+    <div class="chips" id="chips">
+      <button class="chip is-on" data-cat="all">All</button>
+      <button class="chip" data-cat="hospitality">Hospitality</button>
+      <button class="chip" data-cat="trades">Trades</button>
+      <button class="chip" data-cat="health">Health</button>
+      <button class="chip" data-cat="industrial">Industrial</button>
+      <button class="chip" data-cat="services">Pro Services</button>
+    </div>
+    <span class="filter-label" id="count">06 / 06</span>
+  </div>
+</div>
+
+<!-- PROJECTS -->
+<section class="projects" id="projects">
+
+  <!-- 01 Airborne Arts (featured) -->
+  <article class="project" data-cat="hospitality" data-reveal>
+    <a class="p-shot" href="https://airbornearts.com" target="_blank" rel="noopener" aria-label="Visit Airborne Arts">
+      <span class="tag">Hospitality &middot; Retreat</span>
+      <span class="num">№ 01 / Featured</span>
+      <img src="/assets/images/airborne-arts-desktop.jpg" alt="Airborne Arts Costa Rica website" loading="lazy" />
+      <span class="view">Visit live →</span>
+    </a>
+    <div class="p-copy">
+      <div class="eyebrow"><span class="dot"></span>2025 &middot; Featured Build &middot; Costa Rica</div>
+      <h2>Airborne Arts<br/>Costa Rica</h2>
+      <p class="lede">From an outdated Weebly site to a <em>premium retreat experience.</em></p>
+      <p class="body">
+        A world-class aerial retreat center in the mountains of Costa Rica, founded by a 7-time National Champion aerialist and the co-founder of Trapeze School New York. They needed a site that matched the caliber of the experience. We delivered a story-driven, SEO-optimized build that positions them as the premier aerial retreat in Central America.
+      </p>
+      <ul class="deliv">
+        <li><span class="k">01</span><span>Multi-page site with unique hero imagery on every page</span></li>
+        <li><span class="k">02</span><span>Full SEO restructure with JSON-LD structured data</span></li>
+        <li><span class="k">03</span><span>WhatsApp, Google Calendar &amp; Instagram integrations</span></li>
+        <li><span class="k">04</span><span>Delivered globally via Cloudflare's edge network</span></li>
+      </ul>
+      <a class="p-link" href="https://airbornearts.com" target="_blank" rel="noopener">
+        airbornearts.com
+        <span class="arr" aria-hidden="true">↗</span>
       </a>
-
-      <button class="mobile-menu-btn" aria-label="Open navigation menu" aria-expanded="false" id="mobileMenuBtn">
-        <span></span><span></span><span></span>
-      </button>
-
-      <nav class="header-nav" id="headerNav" aria-label="Main navigation">
-        <ul class="nav-links" role="list">
-          <li><a href="work.html" aria-current="page">Our Work</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="pricing.html">Pricing</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-        <div class="nav-buttons">
-          <a href="#" data-cal-link="clintonw/website-launch-strategy-call" data-cal-namespace="strategy-call" data-cal-config='{"layout":"month_view"}' class="btn btn-accent btn-sm">Book a Call</a>
-        </div>
-      </nav>
     </div>
-  </header>
+  </article>
 
-  <main>
-
-    <!-- ========== PAGE HERO ========== -->
-    <section class="page-hero" aria-label="Portfolio introduction">
-      <div class="container-narrow">
-        <span class="section-label">Our Work</span>
-        <h1>Every client has a story.<br><em>We help the world hear it.</em></h1>
-        <p>These are businesses that deserved more than a generic template and a prayer. We listened, we built, and we made sure the right people found them.</p>
-      </div>
-    </section>
-
-
-
-    <!-- ========== HERO CASE STUDY: AIRBORNE ARTS ========== -->
-    <section class="section" aria-label="Airborne Arts Costa Rica case study">
-      <div class="container">
-        <div class="case-study-intro" style="padding: 0 0 var(--space-8);">
-          <span class="section-label">Hero Case Study</span>
-          <h2 class="heading-lg" style="max-width: 600px;">The build that set the standard for everything we do.</h2>
-        </div>
-
-        <article class="airborne-hero">
-          <!-- Full-width hero image with title overlay -->
-          <div class="airborne-main-image">
-            <img
-              src="./assets/images/airborne-arts-desktop.jpg"
-              alt="Airborne Arts Costa Rica - premium aerial retreat website built by WizardWeb"
-              width="1400"
-              height="900"
-              loading="eager"
-              fetchpriority="high"
-            >
-            <div class="airborne-main-image-overlay">
-              <div>
-                <h2><span>Featured Build</span>Airborne Arts Costa Rica</h2>
-              </div>
-            </div>
-          </div>
-
-          <!-- Copy + meta detail grid -->
-          <div class="airborne-detail">
-            <!-- Left: Copy -->
-            <div class="airborne-copy">
-              <span class="portfolio-tag">Featured Build</span>
-              <h3 class="heading-md">From an outdated Weebly site to a premium retreat experience.</h3>
-              <p>Airborne Arts is a world-class flying trapeze and aerial arts retreat center in the mountains of Costa Rica. They run workshops, retreats, weddings, and private stays. The kind of place where your jaw drops on day one and you start planning your return before you leave.</p>
-              <p>They came to us with an old Weebly site that buried the story entirely. Visitors had no idea what was possible. We rebuilt the entire web presence from scratch: 16 custom pages, editorial design, and full SEO from the ground up. The site now competes at the highest level in the boutique retreat market.</p>
-
-              <ul class="airborne-feature-list" aria-label="Project features">
-                <li>16 custom pages, each with unique hero imagery and layout</li>
-                <li>Hero image slider on the homepage</li>
-                <li>Embedded video showcase and Instagram feed integration</li>
-                <li>WhatsApp live chat for real-time booking inquiries</li>
-                <li>Google Calendar integration for retreat scheduling</li>
-                <li>FormSubmit contact forms on every inquiry page</li>
-                <li>Full SEO restructure with JSON-LD structured data on every page</li>
-                <li>Served via world-class global edge network</li>
-                <li>10+ rounds of refinement, built together with Clinton</li>
-              </ul>
-
-              <a href="https://airbornearts.com" target="_blank" rel="noopener" class="btn btn-primary">
-                Visit Live Site
-                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-              </a>
-            </div>
-
-            <!-- Right: Meta panel -->
-            <div class="airborne-meta">
-              <!-- Founders -->
-              <div class="airborne-meta-section">
-                <span class="airborne-meta-label">Founded by</span>
-                <div class="airborne-founders">
-                  <div class="airborne-founder">
-                    <div class="airborne-founder-icon">
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-                    </div>
-                    <div>
-                      <div class="airborne-founder-name">Christine Van Loo</div>
-                      <div class="airborne-founder-title">7-time National Champion Aerialist</div>
-                    </div>
-                  </div>
-                  <div class="airborne-founder">
-                    <div class="airborne-founder-icon">
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-                    </div>
-                    <div>
-                      <div class="airborne-founder-name">Jonathon Conant</div>
-                      <div class="airborne-founder-title">Co-founder, Trapeze School New York</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Design palette -->
-              <div class="airborne-meta-section">
-                <span class="airborne-meta-label">Design Direction</span>
-                <div class="airborne-design-chips">
-                  <span class="design-chip">
-                    <span class="design-chip-swatch" style="background: #F7F1E6;border:1px solid #ddd;"></span>
-                    Warm Cream
-                  </span>
-                  <span class="design-chip">
-                    <span class="design-chip-swatch" style="background: #2D5A2E;"></span>
-                    Forest Green
-                  </span>
-                  <span class="design-chip">
-                    <span class="design-chip-swatch" style="background: #C8922A;"></span>
-                    Amber Gold
-                  </span>
-                  <span class="design-chip">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="4 7 4 4 20 4 20 7"/><line x1="9" y1="20" x2="15" y2="20"/><line x1="12" y1="4" x2="12" y2="20"/></svg>
-                    Editorial Serif / Sans
-                  </span>
-                </div>
-              </div>
-
-              <!-- Site type -->
-              <div class="airborne-meta-section">
-                <span class="airborne-meta-label">Industry</span>
-                <p style="font-size: 15px; color: var(--text-muted); line-height: 1.6; margin: 0;">Flying trapeze, aerial arts, retreat center, weddings &amp; events. Located in Costa Rica's Central Valley.</p>
-              </div>
-
-              <!-- Before / After -->
-              <div class="airborne-meta-section" style="margin-bottom: 0;">
-                <span class="airborne-meta-label">The Transformation</span>
-                <div style="display: flex; flex-direction: column; gap: var(--space-3);">
-                  <div style="display: flex; align-items: center; gap: var(--space-3);">
-                    <span style="display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background: #FEE2E2; flex-shrink: 0;">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#DC2626" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-                    </span>
-                    <span style="font-size: 14px; color: var(--text-muted);">Outdated Weebly site that buried the story</span>
-                  </div>
-                  <div style="display: flex; align-items: center; gap: var(--space-3);">
-                    <span style="display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background: var(--primary-light); flex-shrink: 0;">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-                    </span>
-                    <span style="font-size: 14px; color: var(--text-muted);">A premium site that competes globally</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Additional page screenshots -->
-          <div class="airborne-screenshots">
-            <span class="airborne-screenshots-label">More pages from the build</span>
-            <div class="airborne-screenshots-grid">
-              <div>
-                <div class="airborne-screenshot">
-                  <img
-                    src="./assets/images/airborne-arts-weddings.jpg"
-                    alt="Airborne Arts Costa Rica - Weddings page screenshot"
-                    width="1400"
-                    height="900"
-                    loading="lazy"
-                    decoding="async"
-                  >
-                </div>
-                <p class="airborne-screenshot-caption">Weddings &amp; Events page</p>
-              </div>
-              <div>
-                <div class="airborne-screenshot">
-                  <img
-                    src="./assets/images/airborne-arts-stay.jpg"
-                    alt="Airborne Arts Costa Rica - Stay page screenshot"
-                    width="1400"
-                    height="900"
-                    loading="lazy"
-                    decoding="async"
-                  >
-                </div>
-                <p class="airborne-screenshot-caption">Stay &amp; Accommodations page</p>
-              </div>
-            </div>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- ========== GO KILIMANJARO TREKS ========== -->
-    <section class="section section-alt" aria-label="Go Kilimanjaro Treks build">
-      <div class="container">
-        <span class="section-label">Featured Build</span>
-        <h2 class="heading-lg" style="margin-bottom: var(--space-10);">From Tanzania to the World: Go Kilimanjaro Treks</h2>
-
-        <article class="alpine-card">
-          <div class="alpine-inner">
-            <div class="alpine-images">
-              <img
-                src="./assets/images/gokilimanjaro-desktop.jpg"
-                alt="Go Kilimanjaro Treks website built by WizardWeb featuring Mount Kilimanjaro climbs and Tanzania safaris"
-                class="alpine-desktop-img"
-                width="1440"
-                height="900"
-                loading="lazy"
-                decoding="async"
-              >
-            </div>
-            <div class="alpine-content">
-              <span class="portfolio-tag">Tanzania Tour Operator</span>
-              <h3 class="heading-md">A site as tall as the mountain itself.</h3>
-              <p>Nelson Mushi runs guided climbs and East African safaris out of Moshi, at the foot of Kilimanjaro. 270+ summits to his name. Four route specialities. Before this build, no website that did any of it justice.</p>
-              <p>We built him an editorial, route-by-route site with self-hosted fonts, schema markup for a full TourOperator profile, and server-side enquiry handling via Cloudflare Pages Functions. It loads from Tanzania, Toronto, and Tokyo equally fast.</p>
-
-              <div class="alpine-creds" role="list" aria-label="Site highlights">
-                <span class="alpine-cred" role="listitem">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg>
-                  Lemosho, Rongai, Marangu, Northern Circuit
-                </span>
-                <span class="alpine-cred" role="listitem">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-                  Pages Function enquiry handler
-                </span>
-                <span class="alpine-cred" role="listitem">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                  Self-hosted fonts, 100/100 PageSpeed
-                </span>
-                <span class="alpine-cred" role="listitem">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                  Hosted by WizardWeb
-                </span>
-              </div>
-
-              <a href="https://gokilimanjarotreks.com" target="_blank" rel="noopener" class="btn btn-primary">
-                Visit Live Site
-                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-              </a>
-            </div>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- ========== ALPINE DRYWALL ========== -->
-    <section class="section" aria-label="Alpine Drywall Calgary build">
-      <div class="container">
-        <span class="section-label">Featured Build</span>
-        <h2 class="heading-lg" style="margin-bottom: var(--space-10);">Built Together: Alpine Drywall Calgary</h2>
-
-        <article class="alpine-card">
-          <div class="alpine-inner">
-            <!-- Images column -->
-            <div class="alpine-images">
-              <img
-                src="./assets/images/alpine-drywall-desktop.jpg"
-                alt="Alpine Drywall Calgary website - dark navy industrial design built by WizardWeb"
-                class="alpine-desktop-img"
-                width="1400"
-                height="900"
-                loading="lazy"
-                decoding="async"
-              >
-              <div class="alpine-mobile-badge">
-                <img
-                  src="./assets/images/alpine-drywall-mobile.jpg"
-                  alt="Alpine Drywall Calgary mobile view"
-                  width="390"
-                  height="844"
-                  loading="lazy"
-                  decoding="async"
-                >
-              </div>
-            </div>
-
-            <!-- Content column -->
-            <div class="alpine-content">
-              <span class="portfolio-tag">Commercial Drywall Calgary</span>
-              <h3 class="heading-md">A site as solid as the work they do.</h3>
-              <p>Alpine Drywall has been delivering commercial and institutional drywall across Calgary since 1986. Four decades. Zero warranty claims. The kind of track record that speaks for itself, if the website gives it a chance to.</p>
-              <p>We built a clean, authoritative single-page site that says everything a general contractor or project manager needs to know before picking up the phone. Dark navy with orange accents. No fluff. Just credibility.</p>
-
-              <div class="alpine-creds" role="list" aria-label="Certifications and credentials">
-                <span class="alpine-cred" role="listitem">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                  COR Certified
-                </span>
-                <span class="alpine-cred" role="listitem">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
-                  Gold Seal Management
-                </span>
-                <span class="alpine-cred" role="listitem">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-                  Zero Warranty Claims
-                </span>
-                <span class="alpine-cred" role="listitem">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-                  Since 1986
-                </span>
-              </div>
-
-              <a href="https://alpinedrywallcalgary.com" target="_blank" rel="noopener" class="btn btn-primary">
-                Visit Live Site
-                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-              </a>
-            </div>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- ========== MORE PORTFOLIO GRID ========== -->
-    <section class="section" aria-label="More portfolio work">
-      <div class="container">
-        <div class="portfolio-section-header">
-          <div>
-            <span class="section-label">More Work</span>
-            <h2 class="heading-lg">Every business. A story worth telling.</h2>
-          </div>
-        </div>
-
-        <div class="work-portfolio-grid">
-
-          <!-- LaserQuit Therapy -->
-          <article class="work-portfolio-card">
-            <div class="work-portfolio-card-image">
-              <img
-                src="./assets/images/laserquit-desktop.jpg"
-                alt="LaserQuit Therapy website - laser therapy for addiction in BC"
-                width="1400"
-                height="900"
-                loading="lazy"
-                decoding="async"
-              >
-            </div>
-            <div class="work-portfolio-card-content">
-              <p class="card-location">British Columbia</p>
-              <h3>LaserQuit Therapy</h3>
-              <p>Cold laser therapy targeting acupressure points to help people quit smoking, vaping, and other compulsive habits. Backed by real testimonials and a clinical approach that deserves a site to match.</p>
-              <a href="https://laserquittherapy.ca" target="_blank" rel="noopener" class="card-link">
-                Visit Live Site
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-              </a>
-            </div>
-          </article>
-
-          <!-- T&M Bookkeeping -->
-          <article class="work-portfolio-card">
-            <div class="work-portfolio-card-image">
-              <img
-                src="./assets/images/tandm-desktop.jpg"
-                alt="T&M Bookkeeping website - bookkeeping and tax in Kamloops BC"
-                width="1400"
-                height="900"
-                loading="lazy"
-                decoding="async"
-              >
-            </div>
-            <div class="work-portfolio-card-content">
-              <p class="card-location">Kamloops, BC</p>
-              <h3>T&amp;M Bookkeeping</h3>
-              <p>Bookkeeping, payroll, and tax prep for small businesses in Kamloops. Flat-rate pricing, serving clients since 2005. Their tagline says it best: the government takes enough. Their site needed to say the same.</p>
-              <a href="https://tandmbookkeeping.com" target="_blank" rel="noopener" class="card-link">
-                Visit Live Site
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-              </a>
-            </div>
-          </article>
-
-          <!-- Lloydminster Chemical Transport -->
-          <article class="work-portfolio-card">
-            <div class="work-portfolio-card-image">
-              <img
-                src="./assets/images/lloydminster-desktop.jpg"
-                alt="Lloydminster Chemical Transport website built by WizardWeb"
-                width="1400"
-                height="900"
-                loading="lazy"
-                decoding="async"
-              >
-            </div>
-            <div class="work-portfolio-card-content">
-              <p class="card-location">Fort McMurray to Kindersley Corridor</p>
-              <h3>Lloydminster Chemical Transport</h3>
-              <p>Upstream chemical hauling through one of Canada's most demanding oil corridors. TDG certified. 24/7 dispatch. Operating since 2009. A site as tough as the industry it serves.</p>
-              <a href="https://lloydminsterchemicaltransport.com" target="_blank" rel="noopener" class="card-link">
-                Visit Live Site
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-              </a>
-            </div>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ========== CTA SECTION ========== -->
-    <section class="cta-section" aria-label="Call to action">
-      <span class="section-label section-label-light">Ready?</span>
-      <h2 class="heading-lg" style="color: #fff; margin-bottom: var(--space-4);">Your business could be next.</h2>
-      <p>Every site you've seen on this page started with one call. A conversation about your business, your customers, and the story that needs to be told. Let's have that conversation.</p>
-      <div class="cta-buttons">
-        <a href="#" data-cal-link="clintonw/website-launch-strategy-call" data-cal-namespace="strategy-call" data-cal-config='{"layout":"month_view"}' class="btn btn-accent btn-lg">Book a Call</a>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- ========== FOOTER ========== -->
-  <footer class="site-footer" role="contentinfo">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <div style="display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-2);">
-            <svg class="logo-icon" viewBox="0 0 64 64" width="40" height="40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#1B5E5A"/><path d="M14 19 L22 47 L32 28 L42 47 L50 19" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="50" cy="14" r="3" fill="#C8922A"/><circle cx="50" cy="14" r="1" fill="#ffffff"/></svg>
-            <div class="logo-text" style="color: #fff;">Wizard<span style="color: var(--primary);">Web</span></div>
-          </div>
-          <p>Custom-built websites backed by 30+ years of sales and marketing. We craft the story that sells, then build the site that gets you found.</p>
-        </div>
-        <div class="footer-col">
-          <h4>Pages</h4>
-          <a href="work.html">Our Work</a>
-          <a href="about.html">About</a>
-          <a href="services.html">Services</a>
-          <a href="pricing.html">Pricing</a>
-        </div>
-        <div class="footer-col">
-          <h4>Work</h4>
-          <a href="https://airbornearts.com" target="_blank" rel="noopener">Airborne Arts</a>
-          <a href="https://gokilimanjarotreks.com" target="_blank" rel="noopener">Go Kilimanjaro Treks</a>
-          <a href="https://alpinedrywallcalgary.com" target="_blank" rel="noopener">Alpine Drywall</a>
-          <a href="https://laserquittherapy.ca" target="_blank" rel="noopener">LaserQuit Therapy</a>
-          <a href="https://lloydminsterchemicaltransport.com" target="_blank" rel="noopener">Lloydminster Chemical Transport</a>
-          <a href="https://tandmbookkeeping.com" target="_blank" rel="noopener">T&amp;M Bookkeeping</a>
-        </div>
-        <div class="footer-col">
-          <h4>Connect</h4>
-          <a href="contact.html">Book a Call</a>
-          <a href="mailto:hello@wizardweb.ca">hello@wizardweb.ca</a>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <span>&copy; 2026 WizardWeb. All rights reserved.</span>
-        <span>Built for the world.</span>
-      </div>
+  <!-- 02 Go Kilimanjaro Treks (alt) -->
+  <article class="project alt" data-cat="hospitality" data-reveal>
+    <a class="p-shot" href="https://gokilimanjarotreks.com" target="_blank" rel="noopener" aria-label="Visit Go Kilimanjaro Treks">
+      <span class="tag">Tour Operator &middot; Tanzania</span>
+      <span class="num">№ 02</span>
+      <img src="/assets/images/gokilimanjaro-desktop.jpg" alt="Go Kilimanjaro Treks website built by WizardWeb featuring Kilimanjaro climbs and Tanzania safaris" loading="lazy" />
+      <span class="view">Visit live →</span>
+    </a>
+    <div class="p-copy">
+      <div class="eyebrow"><span class="dot"></span>2025 &middot; Moshi, Tanzania</div>
+      <h2>Go Kilimanjaro<br/>Treks</h2>
+      <p class="lede">A site as tall as the <em>mountain itself.</em></p>
+      <p class="body">
+        Nelson Mushi runs guided climbs and East African safaris out of Moshi, at the foot of Kilimanjaro. 270+ summits to his name, four route specialities, and until this build, no website that did any of it justice. We delivered an editorial, route-by-route experience with self-hosted fonts, full TourOperator schema, and server-side enquiry handling. Loads from Tanzania, Toronto, and Tokyo equally fast.
+      </p>
+      <ul class="deliv">
+        <li><span class="k">01</span><span>Route pages for Lemosho, Rongai, Marangu, Northern Circuit</span></li>
+        <li><span class="k">02</span><span>TourOperator schema with full LocalBusiness markup</span></li>
+        <li><span class="k">03</span><span>Pages Function enquiry handler via Resend</span></li>
+        <li><span class="k">04</span><span>Self-hosted fonts, 100/100 PageSpeed, hosted by us</span></li>
+      </ul>
+      <a class="p-link" href="https://gokilimanjarotreks.com" target="_blank" rel="noopener">
+        gokilimanjarotreks.com
+        <span class="arr" aria-hidden="true">↗</span>
+      </a>
     </div>
-  </footer>
+  </article>
 
-  <script>
-  // Mobile nav toggle
-  var mobileBtn = document.getElementById('mobileMenuBtn');
-  var headerNav = document.getElementById('headerNav');
-  if (mobileBtn && headerNav) {
-    mobileBtn.addEventListener('click', function() {
-      headerNav.classList.toggle('open');
-      mobileBtn.classList.toggle('active');
-      mobileBtn.setAttribute('aria-expanded', headerNav.classList.contains('open'));
-    });
-    headerNav.querySelectorAll('a').forEach(function(link) {
-      link.addEventListener('click', function() {
-        headerNav.classList.remove('open');
-        mobileBtn.classList.remove('active');
-        mobileBtn.setAttribute('aria-expanded', 'false');
-      });
-    });
-  }
+  <!-- 03 Alpine Drywall -->
+  <article class="project" data-cat="trades" data-reveal>
+    <a class="p-shot" href="https://alpinedrywallcalgary.com" target="_blank" rel="noopener" aria-label="Visit Alpine Drywall">
+      <span class="tag">Trades &middot; Calgary</span>
+      <span class="num">№ 03</span>
+      <img src="/assets/images/alpine-drywall-desktop.jpg" alt="Alpine Drywall Calgary website" loading="lazy" />
+      <span class="view">Visit live →</span>
+    </a>
+    <div class="p-copy">
+      <div class="eyebrow"><span class="dot"></span>2024 &middot; Calgary, AB</div>
+      <h2>Alpine Drywall<br/>Calgary</h2>
+      <p class="lede">Forty years of craft, finally with the <em>digital presence to match.</em></p>
+      <p class="body">
+        Alpine has been doing commercial drywall in Calgary since 1986. COR certified, Gold Seal management, zero warranty claims on a body of work most contractors could not pull off. The old site read like a 2003 brochure. We rebuilt around their actual differentiators: certifications front and centre, project gallery that loads instantly, and a quote workflow that puts a general contractor on the phone with the right estimator inside an hour.
+      </p>
+      <ul class="deliv">
+        <li><span class="k">01</span><span>Brand refresh &amp; visual system</span></li>
+        <li><span class="k">02</span><span>Project gallery with edge-served images</span></li>
+        <li><span class="k">03</span><span>Certifications &amp; memberships microsite</span></li>
+        <li><span class="k">04</span><span>Quote-request workflow with estimator routing</span></li>
+      </ul>
+      <a class="p-link" href="https://alpinedrywallcalgary.com" target="_blank" rel="noopener">
+        alpinedrywallcalgary.com
+        <span class="arr" aria-hidden="true">↗</span>
+      </a>
+    </div>
+  </article>
 
-  // Header scroll effect
-  var header = document.getElementById('siteHeader');
-  window.addEventListener('scroll', function() {
-    if (window.scrollY > 20) {
-      header.classList.add('scrolled');
-    } else {
-      header.classList.remove('scrolled');
+  <!-- 04 LaserQuit (alt) -->
+  <article class="project alt" data-cat="health" data-reveal>
+    <a class="p-shot" href="https://laserquittherapy.ca" target="_blank" rel="noopener" aria-label="Visit LaserQuit Therapy">
+      <span class="tag">Health &middot; BC</span>
+      <span class="num">№ 04</span>
+      <img src="/assets/images/laserquit-desktop.jpg" alt="LaserQuit Therapy website" loading="lazy" />
+      <span class="view">Visit live →</span>
+    </a>
+    <div class="p-copy">
+      <div class="eyebrow"><span class="dot"></span>2024 &middot; British Columbia</div>
+      <h2>LaserQuit<br/>Therapy</h2>
+      <p class="lede">A category full of skepticism. A site that builds trust in <em>three scrolls.</em></p>
+      <p class="body">
+        LaserQuit is BC's leading laser therapy clinic for quitting smoking, vaping, and other addictive habits. The challenge: a category where customers arrive already half-convinced it is a scam. We led with the science, the success rates, and real reviews, then made booking a session as low-friction as ordering coffee.
+      </p>
+      <ul class="deliv">
+        <li><span class="k">01</span><span>Long-form education pages with citations</span></li>
+        <li><span class="k">02</span><span>LocalBusiness &amp; FAQ schema for rich results</span></li>
+        <li><span class="k">03</span><span>Online booking integration</span></li>
+        <li><span class="k">04</span><span>Review aggregation &amp; trust strip</span></li>
+      </ul>
+      <a class="p-link" href="https://laserquittherapy.ca" target="_blank" rel="noopener">
+        laserquittherapy.ca
+        <span class="arr" aria-hidden="true">↗</span>
+      </a>
+    </div>
+  </article>
+
+  <!-- 05 Lloydminster Chemical Transport -->
+  <article class="project" data-cat="industrial" data-reveal>
+    <a class="p-shot" href="https://lloydminsterchemicaltransport.com" target="_blank" rel="noopener" aria-label="Visit Lloydminster Chemical Transport">
+      <span class="tag">Industrial &middot; Western Canada</span>
+      <span class="num">№ 05</span>
+      <img src="/assets/images/lloydminster-desktop.jpg" alt="Lloydminster Chemical Transport website built by WizardWeb" loading="lazy" />
+      <span class="view">Visit live →</span>
+    </a>
+    <div class="p-copy">
+      <div class="eyebrow"><span class="dot"></span>2024 &middot; Lloydminster, AB</div>
+      <h2>Lloydminster<br/>Chemical Transport</h2>
+      <p class="lede">B2B that signals safety, compliance and capacity in the <em>first 500ms.</em></p>
+      <p class="body">
+        Lloydminster Chemical Transport hauls upstream chemicals across Western Canada's oil corridors. Their customers, procurement officers at energy companies, care about exactly three things: TDG certification, safety record, and whether you can mobilize on short notice. Every design decision points at one of those three. The site loads in under a second over 4G in Lloydminster.
+      </p>
+      <ul class="deliv">
+        <li><span class="k">01</span><span>TDG certification &amp; safety record page</span></li>
+        <li><span class="k">02</span><span>Fleet &amp; service area map</span></li>
+        <li><span class="k">03</span><span>Procurement-ready spec sheets</span></li>
+        <li><span class="k">04</span><span>24/7 dispatch CTA, always one tap away</span></li>
+      </ul>
+      <a class="p-link" href="https://lloydminsterchemicaltransport.com" target="_blank" rel="noopener">
+        lloydminsterchemicaltransport.com
+        <span class="arr" aria-hidden="true">↗</span>
+      </a>
+    </div>
+  </article>
+
+  <!-- 06 T&M Bookkeeping (typographic, alt) -->
+  <article class="project alt" data-cat="services" data-reveal>
+    <a class="p-shot is-type" href="https://tandmbookkeeping.com" target="_blank" rel="noopener" aria-label="Visit T&M Bookkeeping">
+      <span class="tag">Pro Services &middot; Bookkeeping</span>
+      <span class="num">№ 06</span>
+      <div class="big">T&amp;M<br/><em>Books.</em></div>
+      <div class="url">tandmbookkeeping.com →</div>
+    </a>
+    <div class="p-copy">
+      <div class="eyebrow"><span class="dot"></span>2023 &middot; Professional Services</div>
+      <h2>T&amp;M<br/>Bookkeeping</h2>
+      <p class="lede">Bookkeeping for small businesses that <em>hate paperwork.</em></p>
+      <p class="body">
+        T&amp;M takes the books off your plate so you can run the business. We translated that promise into a site that does not feel like an accountant's office: friendly, plain-language, built to convert the overwhelmed owner who has been Googling "bookkeeper near me" at 11pm on a Tuesday.
+      </p>
+      <ul class="deliv">
+        <li><span class="k">01</span><span>Plain-language services explainer</span></li>
+        <li><span class="k">02</span><span>Pricing transparency &amp; package selector</span></li>
+        <li><span class="k">03</span><span>Lead form with intent qualifying</span></li>
+        <li><span class="k">04</span><span>Local SEO across three nearby markets</span></li>
+      </ul>
+      <a class="p-link" href="https://tandmbookkeeping.com" target="_blank" rel="noopener">
+        tandmbookkeeping.com
+        <span class="arr" aria-hidden="true">↗</span>
+      </a>
+    </div>
+  </article>
+
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="cta-inner" data-reveal>
+    <div class="eyebrow"><span class="dot"></span>Available for 2 projects in Q3</div>
+    <h2>Could be<br/><em>your site</em> next.</h2>
+    <p>
+      Tell us about your business and where the current site falls short. We will come back within a day with a plan, a price, and a launch date.
+    </p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="mailto:hello@wizardweb.ca">
+        hello@wizardweb.ca
+        <span class="arr" aria-hidden="true">↗</span>
+      </a>
+      <a class="btn btn-ghost" href="https://cal.com/clintonw/website-launch-strategy-call" target="_blank" rel="noopener">
+        Book a 30-min call
+        <span class="arr" aria-hidden="true">↗</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="live">All systems normal</div>
+  <div class="right">
+    <a href="work.html">Work</a>
+    <a href="index.html#services">Services</a>
+    <a href="index.html#faq">FAQ</a>
+    <a href="mailto:hello@wizardweb.ca">Contact</a>
+    <span>© 2026 WizardWeb</span>
+  </div>
+</footer>
+
+<script>
+/* nav stuck on scroll */
+(function () {
+  const nav = document.getElementById("nav");
+  function onScroll() { nav.classList.toggle("is-stuck", window.scrollY > 12); }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+})();
+
+/* reveal on scroll */
+(function () {
+  const io = new IntersectionObserver((entries) => {
+    for (const e of entries) {
+      if (e.isIntersecting) { e.target.classList.add("is-in"); io.unobserve(e.target); }
     }
-  });
-  </script>
+  }, { threshold: 0.08, rootMargin: "0px 0px -8% 0px" });
+  document.querySelectorAll("[data-reveal]").forEach((el) => io.observe(el));
+})();
 
+/* filter chips */
+(function () {
+  const chips = document.querySelectorAll(".chip");
+  const projects = document.querySelectorAll(".project");
+  const count = document.getElementById("count");
 
-  <!-- Cal.com Popup Embed -->
-  <script type="text/javascript">
-  (function (C, A, L) {
-    let p = function (a, ar) { a.q.push(ar); };
-    let d = C.document;
-    C.Cal = C.Cal || function () {
-      let cal = C.Cal; let ar = arguments;
-      if (!cal.loaded) {
-        cal.ns = {}; cal.q = cal.q || [];
-        d.head.appendChild(d.createElement("script")).src = A;
-        cal.loaded = true;
-      }
-      if (ar[0] === L) {
-        const api = function () { p(api, arguments); };
-        const namespace = ar[1];
-        api.q = api.q || [];
-        if (typeof namespace === "string") {
-          cal.ns[namespace] = cal.ns[namespace] || api;
-          p(cal.ns[namespace], ar);
-          p(cal, ["initNamespace", namespace]);
-        } else p(cal, ar);
-        return;
-      }
-      p(cal, ar);
-    };
-  })(window, "https://app.cal.com/embed/embed.js", "init");
-  function initCal(){
-    if (initCal.done) return; initCal.done = true;
-    Cal("init", "strategy-call", {origin: "https://cal.com"});
-    Cal.ns["strategy-call"]("ui", {
-      "styles": {"branding": {"brandColor": "#1B5E5A"}},
-      "hideEventTypeDetails": false,
-      "layout": "month_view"
+  function apply(cat) {
+    let visible = 0;
+    projects.forEach((p) => {
+      const show = cat === "all" || p.dataset.cat === cat;
+      p.classList.toggle("is-hidden", !show);
+      if (show) visible++;
     });
+    const total = String(projects.length).padStart(2, "0");
+    const shown = String(visible).padStart(2, "0");
+    count.textContent = `${shown} / ${total}`;
   }
-  ['mouseenter','touchstart','focusin'].forEach(function(evt){
-    document.addEventListener(evt, function(e){
-      if (e.target && e.target.closest && e.target.closest('[data-cal-link]')) initCal();
-    }, { capture: true, passive: true });
-  });
-  </script>
 
+  chips.forEach((c) => {
+    c.addEventListener("click", () => {
+      chips.forEach((x) => x.classList.remove("is-on"));
+      c.classList.add("is-on");
+      apply(c.dataset.cat);
+    });
+  });
+})();
+</script>
 </body>
 </html>

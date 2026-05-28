@@ -1,426 +1,1648 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>WizardWeb | Websites That Tell Your Story and Get You Found</title>
-  <meta name="description" content="Custom-built websites backed by 30+ years of sales and marketing. Fast, SEO-optimized, mobile-first. We craft the story that sells, then build the site that gets you found.">
-  <meta name="keywords" content="custom website builder Canada, fast website, SEO website, small business website, web design, website development, WizardWeb">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>WizardWeb — Websites that earn their keep.</title>
+<meta name="description" content="WizardWeb is a Canadian studio crafting fast, beautiful websites for small businesses. Design, build, and bulletproof hosting on Cloudflare." />
+<meta name="theme-color" content="#07080A" />
+<link rel="canonical" href="https://wizardweb.ca/" />
+<meta property="og:title" content="WizardWeb — Websites that earn their keep." />
+<meta property="og:description" content="A small Canadian studio that builds fast, beautiful websites for small businesses." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://wizardweb.ca/" />
+<meta property="og:locale" content="en_CA" />
+<meta property="og:site_name" content="WizardWeb" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="WizardWeb — Websites that earn their keep." />
+<meta name="twitter:description" content="A small Canadian studio that builds fast, beautiful websites for small businesses." />
 
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="WizardWeb | Websites That Tell Your Story and Get You Found">
-  <meta property="og:description" content="Custom-built websites backed by 30+ years of sales and marketing. We craft the story that sells, then build the site that gets you found.">
-  <meta property="og:image" content="https://wizardweb.ca/assets/images/airborne-arts-desktop.jpg">
-  <meta property="og:url" content="https://wizardweb.ca/">
-  <meta property="og:site_name" content="WizardWeb">
-  <meta property="og:locale" content="en_CA">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="apple-touch-icon" href="/favicon.svg" />
 
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="WizardWeb | Websites That Tell Your Story and Get You Found">
-  <meta name="twitter:description" content="Custom-built websites backed by 30+ years of sales and marketing. We craft the story that sells, then build the site that gets you found.">
-  <meta name="twitter:image" content="https://wizardweb.ca/assets/images/airborne-arts-desktop.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-  <link rel="canonical" href="https://wizardweb.ca/">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "WizardWeb",
+  "url": "https://wizardweb.ca",
+  "description": "Web design and Cloudflare hosting studio for small businesses, founded by Clinton Wasylishen.",
+  "areaServed": "CA",
+  "priceRange": "$$",
+  "founder": { "@type": "Person", "name": "Clinton Wasylishen" },
+  "email": "hello@wizardweb.ca",
+  "sameAs": [
+    "https://airbornearts.com",
+    "https://gokilimanjarotreks.com",
+    "https://alpinedrywallcalgary.com"
+  ]
+}
+</script>
 
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <link rel="apple-touch-icon" href="/assets/images/logo-mark.svg">
-  <meta name="theme-color" content="#1B5E5A">
+<style>
+/* ───────────── tokens ───────────── */
+:root {
+  --ink:        #07080A;
+  --ink-2:      #0E1014;
+  --paper:      #F2EFE7;
+  --smoke:      #8A8A82;
+  --line:       rgba(242, 239, 231, 0.10);
+  --line-strong:rgba(242, 239, 231, 0.22);
+  --accent:     #B6FF5C;
+  --accent-ink: #07080A;
 
-  <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
-  <link href="https://api.fontshare.com/v2/css?f[]=zodiak@400,500,700&f[]=satoshi@300,400,500,600,700&display=swap"
-        rel="stylesheet" media="print" onload="this.media='all'">
-  <noscript>
-  <link href="https://api.fontshare.com/v2/css?f[]=zodiak@400,500,700&f[]=satoshi@300,400,500,600,700&display=swap"
-        rel="stylesheet">
-  </noscript>
+  --f-display:  "Instrument Serif", "Times New Roman", serif;
+  --f-sans:     "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --f-mono:     "JetBrains Mono", ui-monospace, monospace;
 
-  <link rel="preload" as="image" href="./assets/images/airborne-arts-desktop.jpg">
-  <link rel="stylesheet" href="base.css">
-  <link rel="stylesheet" href="style.css">
+  --gutter:     clamp(20px, 4vw, 56px);
+  --max:        1440px;
+}
 
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "name": "WizardWeb",
-    "description": "Custom-built websites backed by 30+ years of sales and marketing expertise. We craft the story that sells, then build the fastest site your business has ever had.",
-    "url": "https://wizardweb.ca",
-    "founder": {
-      "@type": "Person",
-      "name": "Clinton Wasylishen"
-    },
-    "areaServed": "Canada",
-    "serviceType": ["Web Design", "Web Development", "SEO", "Digital Marketing"],
-    "priceRange": "$497 - $2,497+"
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: var(--ink); color: var(--paper); }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--f-sans);
+  font-size: 17px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+::selection { background: var(--accent); color: var(--accent-ink); }
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+
+/* ───────────── shared bits ───────────── */
+.eyebrow {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--smoke);
+}
+.eyebrow .dot {
+  display: inline-block;
+  width: 6px; height: 6px;
+  background: var(--accent);
+  border-radius: 50%;
+  margin-right: 8px;
+  vertical-align: 1px;
+  box-shadow: 0 0 10px var(--accent);
+}
+.rule { height: 1px; background: var(--line); width: 100%; }
+
+.container {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.section {
+  position: relative;
+  border-top: 1px solid var(--line);
+}
+.section::before,
+.section::after {
+  content: "";
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 1px;
+  background: var(--line);
+  pointer-events: none;
+}
+.section::before { left: var(--gutter); }
+.section::after  { right: var(--gutter); }
+
+/* button */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 22px 16px 24px;
+  border-radius: 999px;
+  font-family: var(--f-mono);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: transform .2s ease, background .2s ease, color .2s ease;
+}
+.btn .arr {
+  display: inline-flex;
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: var(--accent-ink);
+  color: var(--accent);
+  align-items: center; justify-content: center;
+  transition: transform .25s ease;
+}
+.btn-primary {
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+.btn-primary:hover { transform: translateY(-1px); }
+.btn-primary:hover .arr { transform: translate(3px, -3px); }
+.btn-ghost {
+  background: transparent;
+  color: var(--paper);
+  border: 1px solid var(--line-strong);
+}
+.btn-ghost .arr { background: var(--paper); color: var(--ink); }
+.btn-ghost:hover { background: rgba(242,239,231,0.04); }
+.btn-ghost:hover .arr { transform: translate(3px, -3px); }
+
+/* ───────────── nav ───────────── */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 50;
+  padding: 18px var(--gutter);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  mix-blend-mode: normal;
+  transition: backdrop-filter .3s ease, background .3s ease, border-color .3s ease;
+  border-bottom: 1px solid transparent;
+}
+.nav.is-stuck {
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  background: rgba(7, 8, 10, 0.62);
+  border-bottom-color: var(--line);
+}
+.brand {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+  font-family: var(--f-display);
+  font-size: 22px;
+  letter-spacing: -0.01em;
+}
+.brand .mark {
+  display: inline-flex;
+  width: 22px; height: 22px;
+  margin-right: 4px;
+}
+.brand .mark svg { width: 100%; height: 100%; }
+.brand .tld {
+  font-family: var(--f-mono);
+  font-size: 10px;
+  color: var(--smoke);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  transform: translateY(-2px);
+}
+.nav-links {
+  display: flex;
+  gap: 28px;
+  font-family: var(--f-mono);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.nav-links a {
+  position: relative;
+  color: var(--smoke);
+  transition: color .2s ease;
+}
+.nav-links a:hover { color: var(--paper); }
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 100%;
+  bottom: -6px;
+  height: 1px;
+  background: var(--accent);
+  transition: right .3s ease;
+}
+.nav-links a:hover::after { right: 0; }
+.nav-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 10px 14px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: rgba(242,239,231,0.02);
+  transition: background .2s ease, border-color .2s ease, color .2s ease;
+}
+.nav-cta:hover { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.nav-cta::before {
+  content: "";
+  width: 6px; height: 6px;
+  background: var(--accent);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--accent);
+}
+.nav-cta:hover::before { background: var(--accent-ink); box-shadow: none; }
+@media (max-width: 760px) {
+  .nav-links { display: none; }
+}
+
+/* ───────────── hero ───────────── */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  padding: 140px var(--gutter) 80px;
+  overflow: hidden;
+  border-top: none;
+}
+.hero::before, .hero::after {
+  content: "";
+  position: absolute; top: 0; bottom: 0; width: 1px;
+  background: var(--line);
+  pointer-events: none;
+}
+.hero::before { left: var(--gutter); }
+.hero::after  { right: var(--gutter); }
+
+.hero-canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.hero-canvas canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.hero-vignette {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(80% 60% at 50% 40%, transparent 0%, rgba(7,8,10,0.55) 70%, var(--ink) 100%),
+    linear-gradient(180deg, rgba(7,8,10,0) 0%, rgba(7,8,10,0) 60%, var(--ink) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  max-width: var(--max);
+  margin: 0 auto;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 48px;
+  min-height: calc(100vh - 220px);
+}
+
+.hero-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+}
+.hero-coord {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--smoke);
+  text-align: right;
+  line-height: 1.8;
+}
+.hero-coord span { color: var(--paper); }
+
+.hero-title {
+  font-family: var(--f-display);
+  font-weight: 400;
+  font-size: clamp(56px, 11vw, 184px);
+  line-height: 0.92;
+  letter-spacing: -0.02em;
+  margin: 0;
+  max-width: 14ch;
+}
+.hero-title em {
+  font-style: italic;
+  color: var(--accent);
+  font-feature-settings: "ss01";
+}
+
+.hero-bottom {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 64px;
+  align-items: end;
+}
+.hero-lede {
+  font-size: 19px;
+  line-height: 1.45;
+  color: var(--paper);
+  max-width: 46ch;
+  opacity: 0.9;
+}
+.hero-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 24px;
+}
+
+.hero-meta {
+  display: grid;
+  gap: 24px;
+  font-family: var(--f-mono);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  color: var(--smoke);
+}
+.hero-meta .stat {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  border-top: 1px solid var(--line);
+  padding-top: 14px;
+}
+.hero-meta .num {
+  font-family: var(--f-display);
+  font-size: 36px;
+  color: var(--paper);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+@media (max-width: 860px) {
+  .hero-bottom { grid-template-columns: 1fr; gap: 36px; }
+  .hero-top    { flex-direction: column; align-items: flex-start; }
+  .hero-coord  { text-align: left; }
+}
+
+.scroll-cue {
+  position: absolute;
+  left: 50%;
+  bottom: 28px;
+  transform: translateX(-50%);
+  z-index: 3;
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--smoke);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.scroll-cue .bar {
+  display: inline-block;
+  width: 1px; height: 28px;
+  background: linear-gradient(180deg, var(--smoke), transparent);
+  animation: cue 2.4s ease infinite;
+}
+@keyframes cue {
+  0%   { transform: scaleY(0); transform-origin: top; }
+  40%  { transform: scaleY(1); transform-origin: top; }
+  60%  { transform: scaleY(1); transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
+
+/* ───────────── marquee ───────────── */
+.marquee {
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  overflow: hidden;
+  background: var(--ink);
+}
+.marquee-track {
+  display: flex;
+  gap: 56px;
+  padding: 22px 0;
+  width: max-content;
+  animation: scroll 38s linear infinite;
+  font-family: var(--f-display);
+  font-size: clamp(28px, 4vw, 48px);
+  letter-spacing: -0.01em;
+  line-height: 1;
+  white-space: nowrap;
+}
+.marquee-track span { display: inline-flex; align-items: center; gap: 56px; }
+.marquee-track .sep {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--accent);
+  display: inline-block;
+  flex: 0 0 auto;
+}
+.marquee-track .ital { font-style: italic; color: var(--smoke); }
+@keyframes scroll { to { transform: translateX(-50%); } }
+
+/* ───────────── manifesto / approach ───────────── */
+.approach {
+  padding: 120px var(--gutter);
+}
+.approach-grid {
+  max-width: var(--max);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 64px;
+  align-items: start;
+}
+.approach h2 {
+  font-family: var(--f-display);
+  font-weight: 400;
+  font-size: clamp(38px, 5vw, 64px);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  margin: 18px 0 0;
+}
+.approach h2 em { color: var(--accent); font-style: italic; }
+.approach .copy p {
+  font-size: 19px;
+  line-height: 1.5;
+  margin: 0 0 18px;
+  color: var(--paper);
+  opacity: 0.92;
+}
+.approach .copy p + p { opacity: 0.7; }
+
+.kpi-row {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border-top: 1px solid var(--line);
+}
+.kpi {
+  padding: 24px 18px 4px 0;
+  border-right: 1px solid var(--line);
+  padding-left: 18px;
+}
+.kpi:first-child { padding-left: 0; }
+.kpi:last-child { border-right: 0; }
+.kpi .n {
+  font-family: var(--f-display);
+  font-size: clamp(42px, 5vw, 64px);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.kpi .l {
+  margin-top: 8px;
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--smoke);
+}
+
+@media (max-width: 860px) {
+  .approach-grid { grid-template-columns: 1fr; gap: 28px; }
+  .kpi-row       { grid-template-columns: 1fr; }
+  .kpi           { border-right: 0; border-bottom: 1px solid var(--line); padding: 18px 0; }
+  .kpi:last-child{ border-bottom: 0; }
+}
+
+/* ───────────── work ───────────── */
+.work {
+  padding: 80px var(--gutter) 40px;
+}
+.work-more {
+  padding: 0 var(--gutter) 120px;
+}
+
+.feature {
+  max-width: var(--max);
+  margin: 0 auto 80px;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 56px;
+  align-items: center;
+}
+.feature-shot {
+  position: relative;
+  aspect-ratio: 4/3;
+  background: var(--ink-2);
+  border: 1px solid var(--line);
+  overflow: hidden;
+}
+.feature-shot img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .8s ease;
+}
+.feature-shot:hover img { transform: scale(1.02); }
+.feature-shot .tag {
+  position: absolute;
+  top: 18px; left: 18px;
+  z-index: 2;
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--paper);
+  padding: 6px 10px;
+  background: rgba(7,8,10,0.55);
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  backdrop-filter: blur(6px);
+}
+.feature-shot .num {
+  position: absolute;
+  top: 18px; right: 18px;
+  z-index: 2;
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: var(--paper);
+  opacity: 0.7;
+}
+.feature-copy .eyebrow { margin-bottom: 10px; }
+.feature-copy h3 {
+  font-family: var(--f-display);
+  font-weight: 400;
+  font-size: clamp(28px, 3vw, 44px);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  margin: 0 0 6px;
+}
+.feature-copy .lede {
+  font-family: var(--f-display);
+  font-style: italic;
+  font-size: clamp(20px, 2vw, 26px);
+  line-height: 1.25;
+  color: var(--paper);
+  margin: 0 0 22px;
+  max-width: 28ch;
+}
+.feature-copy .lede em { color: var(--accent); }
+.feature-copy p {
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--paper);
+  opacity: 0.85;
+  margin: 0 0 24px;
+  max-width: 48ch;
+}
+.feature-deliv {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 28px;
+  display: grid;
+  gap: 0;
+}
+.feature-deliv li {
+  display: grid;
+  grid-template-columns: 24px 1fr;
+  gap: 12px;
+  align-items: baseline;
+  padding: 12px 0;
+  border-top: 1px solid var(--line);
+  font-size: 15px;
+  line-height: 1.4;
+  color: var(--paper);
+  opacity: 0.92;
+}
+.feature-deliv li:last-child { border-bottom: 1px solid var(--line); }
+.feature-deliv .k {
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--smoke);
+}
+.feature-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--paper);
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--line-strong);
+  transition: color .2s ease, border-color .2s ease;
+}
+.feature-link:hover { color: var(--accent); border-color: var(--accent); }
+.feature-link .arr {
+  display: inline-flex;
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--accent-ink);
+  align-items: center; justify-content: center;
+  transition: transform .25s ease;
+}
+.feature-link:hover .arr { transform: translate(3px, -3px); }
+
+@media (max-width: 980px) {
+  .feature { grid-template-columns: 1fr; gap: 32px; }
+}
+
+.more-head {
+  max-width: var(--max);
+  margin: 0 auto 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--line);
+}
+.more-head .label {
+  font-family: var(--f-display);
+  font-size: clamp(28px, 3vw, 40px);
+  letter-spacing: -0.01em;
+  line-height: 1;
+}
+.more-head .label em { color: var(--accent); font-style: italic; }
+.more-head .all {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--smoke);
+  display: inline-flex; align-items: center; gap: 8px;
+}
+.more-head .all:hover { color: var(--paper); }
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--line);
+  margin: 0 auto 48px;
+  max-width: var(--max);
+}
+.section-head h2 {
+  font-family: var(--f-display);
+  font-weight: 400;
+  font-size: clamp(40px, 6vw, 80px);
+  line-height: 0.96;
+  letter-spacing: -0.02em;
+  margin: 8px 0 0;
+}
+.section-head h2 em { color: var(--accent); font-style: italic; }
+.section-head .meta {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--smoke);
+  text-align: right;
+}
+
+.work-grid {
+  max-width: var(--max);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.work-card {
+  position: relative;
+  display: block;
+  background: var(--ink-2);
+  border: 1px solid var(--line);
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  transition: border-color .25s ease, transform .4s ease;
+}
+.work-card:hover { border-color: var(--line-strong); }
+.work-card:hover .wc-thumb img { transform: scale(1.02); }
+
+.wc-thumb {
+  position: absolute;
+  inset: 0;
+}
+.wc-thumb img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .8s ease;
+}
+.wc-thumb::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(7,8,10,0.15) 0%, transparent 30%, rgba(7,8,10,0.35) 60%, rgba(7,8,10,0.85) 100%);
+  pointer-events: none;
+}
+.wc-meta {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 18px;
+  z-index: 2;
+  background: linear-gradient(180deg, transparent, rgba(7,8,10,0.85) 80%);
+}
+.wc-meta h3 {
+  font-family: var(--f-display);
+  font-weight: 400;
+  font-size: clamp(24px, 2.6vw, 38px);
+  letter-spacing: -0.01em;
+  margin: 0;
+  line-height: 1.05;
+}
+.wc-meta .tags {
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--smoke);
+}
+.wc-tag {
+  position: absolute;
+  top: 18px; left: 18px;
+  z-index: 2;
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--paper);
+  padding: 6px 10px;
+  background: rgba(7,8,10,0.55);
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  backdrop-filter: blur(6px);
+}
+.wc-num {
+  position: absolute;
+  top: 18px; right: 18px;
+  z-index: 2;
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: var(--smoke);
+}
+
+@media (max-width: 980px) {
+  .work-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 640px) {
+  .work-grid { grid-template-columns: 1fr; }
+  .section-head { flex-direction: column; align-items: flex-start; }
+  .section-head .meta { text-align: left; }
+  .more-head { flex-direction: column; align-items: flex-start; }
+}
+
+/* ───────────── services ───────────── */
+.services {
+  padding: 80px var(--gutter) 120px;
+  background: var(--ink-2);
+  border-top: 1px solid var(--line);
+}
+.svc-list {
+  max-width: var(--max);
+  margin: 0 auto;
+  display: grid;
+  gap: 0;
+}
+.svc {
+  display: grid;
+  grid-template-columns: 200px 1fr 1.1fr;
+  gap: 48px;
+  padding: 56px 0;
+  border-top: 1px solid var(--line);
+  align-items: start;
+  position: relative;
+}
+.svc:first-child { border-top: 0; padding-top: 8px; }
+.svc-num {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--smoke);
+  padding-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.svc-num .tag {
+  display: inline-block;
+  padding: 4px 10px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  color: var(--paper);
+  width: fit-content;
+}
+.svc h3 {
+  font-family: var(--f-display);
+  font-weight: 400;
+  font-size: clamp(36px, 4.4vw, 64px);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  margin: 0 0 22px;
+}
+.svc h3 em { color: var(--accent); font-style: italic; }
+.svc .desc {
+  font-size: 17px;
+  line-height: 1.5;
+  color: var(--paper);
+  opacity: 0.85;
+  margin: 0;
+  max-width: 50ch;
+}
+.svc-deliv {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 12px;
+}
+.svc-deliv li {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: 12px;
+  align-items: baseline;
+  padding: 14px 0;
+  border-top: 1px solid var(--line);
+  font-size: 16px;
+  line-height: 1.4;
+}
+.svc-deliv li:first-child { border-top: 0; padding-top: 0; }
+.svc-deliv .k {
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--smoke);
+}
+.svc-deliv .v em { color: var(--accent); font-style: italic; font-family: var(--f-display); font-size: 1.15em; }
+
+@media (max-width: 980px) {
+  .svc { grid-template-columns: 1fr; gap: 24px; padding: 40px 0; }
+}
+
+/* ───────────── FAQ ───────────── */
+.faq {
+  padding: 80px var(--gutter) 120px;
+}
+.faq-wrap {
+  max-width: var(--max);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 64px;
+  align-items: start;
+}
+.faq-wrap h2 {
+  font-family: var(--f-display);
+  font-weight: 400;
+  font-size: clamp(40px, 5vw, 72px);
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+  margin: 12px 0 0;
+}
+.faq-wrap h2 em { color: var(--accent); font-style: italic; }
+
+.faq-list { display: grid; gap: 0; }
+.faq-item {
+  border-top: 1px solid var(--line);
+}
+.faq-item:last-child { border-bottom: 1px solid var(--line); }
+.faq-q {
+  width: 100%;
+  text-align: left;
+  display: grid;
+  grid-template-columns: 32px 1fr 36px;
+  align-items: center;
+  gap: 16px;
+  padding: 24px 0;
+  font-family: var(--f-display);
+  font-size: clamp(20px, 2.2vw, 28px);
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+.faq-q .qn {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  color: var(--smoke);
+  letter-spacing: 0.16em;
+}
+.faq-q .pm {
+  position: relative;
+  width: 24px; height: 24px;
+  border: 1px solid var(--line-strong);
+  border-radius: 50%;
+  flex: 0 0 auto;
+  justify-self: end;
+  transition: background .2s ease, border-color .2s ease;
+}
+.faq-q .pm::before, .faq-q .pm::after {
+  content: "";
+  position: absolute;
+  background: var(--paper);
+  left: 50%; top: 50%;
+  transform: translate(-50%, -50%);
+  transition: transform .25s ease, background .2s ease;
+}
+.faq-q .pm::before { width: 10px; height: 1px; }
+.faq-q .pm::after  { width: 1px;  height: 10px; }
+.faq-item[open] .faq-q .pm { background: var(--accent); border-color: var(--accent); }
+.faq-item[open] .faq-q .pm::before, .faq-item[open] .faq-q .pm::after { background: var(--accent-ink); }
+.faq-item[open] .faq-q .pm::after { transform: translate(-50%, -50%) scaleY(0); }
+
+.faq-a {
+  padding: 0 0 28px calc(32px + 16px);
+  color: var(--paper);
+  opacity: 0.85;
+  font-size: 16px;
+  line-height: 1.55;
+  max-width: 60ch;
+}
+.faq-item summary { list-style: none; cursor: pointer; }
+.faq-item summary::-webkit-details-marker { display: none; }
+
+@media (max-width: 860px) {
+  .faq-wrap { grid-template-columns: 1fr; gap: 28px; }
+}
+
+/* ───────────── closing CTA ───────────── */
+.cta {
+  padding: 120px var(--gutter);
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid var(--line);
+}
+.cta::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(60% 80% at 50% 100%, rgba(182,255,92,0.22), transparent 60%);
+  pointer-events: none;
+}
+.cta-inner {
+  position: relative;
+  max-width: var(--max);
+  margin: 0 auto;
+  text-align: center;
+}
+.cta h2 {
+  font-family: var(--f-display);
+  font-weight: 400;
+  font-size: clamp(48px, 9vw, 152px);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  margin: 24px auto 32px;
+  max-width: 16ch;
+}
+.cta h2 em { color: var(--accent); font-style: italic; }
+.cta p {
+  font-size: 18px;
+  color: var(--paper);
+  opacity: 0.8;
+  max-width: 52ch;
+  margin: 0 auto 28px;
+}
+
+/* ───────────── footer ───────────── */
+.footer {
+  padding: 40px var(--gutter);
+  border-top: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--smoke);
+  flex-wrap: wrap;
+}
+.footer .right { display: flex; gap: 22px; flex-wrap: wrap; }
+.footer a:hover { color: var(--paper); }
+.footer .live::before {
+  content: "";
+  display: inline-block;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 8px var(--accent);
+  margin-right: 8px;
+  vertical-align: 1px;
+  animation: pulse 1.6s ease-in-out infinite;
+}
+@keyframes pulse { 50% { opacity: 0.3; } }
+
+/* ───────────── reveal on scroll ───────────── */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity .9s cubic-bezier(.2,.7,0,1), transform .9s cubic-bezier(.2,.7,0,1);
+}
+[data-reveal].is-in { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
   }
-  </script>
+  [data-reveal] { opacity: 1; transform: none; }
+}
+</style>
 </head>
 <body>
 
-  <!-- ========== HEADER ========== -->
-  <header class="site-header" id="siteHeader" role="banner">
-    <div class="header-inner">
-      <a href="index.html" class="header-logo" aria-label="WizardWeb - Home">
-        <svg class="logo-icon" viewBox="0 0 64 64" width="40" height="40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#1B5E5A"/><path d="M14 19 L22 47 L32 28 L42 47 L50 19" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="50" cy="14" r="3" fill="#C8922A"/><circle cx="50" cy="14" r="1" fill="#ffffff"/></svg>
-        <div class="logo-text">Wizard<span>Web</span></div>
+<!-- ───────────── NAV ───────────── -->
+<header class="nav" id="nav">
+  <a href="#top" class="brand" aria-label="WizardWeb home">
+    <span class="mark" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none">
+        <path d="M3 19 L12 3 L21 19 Z" stroke="currentColor" stroke-width="1.4" />
+        <path d="M7 14 L12 8 L17 14" stroke="currentColor" stroke-width="1.4" />
+        <circle cx="12" cy="11" r="1.2" fill="#B6FF5C"/>
+      </svg>
+    </span>
+    Wizardweb
+  </a>
+  <nav class="nav-links" aria-label="Primary">
+    <a href="work.html">Work</a>
+    <a href="#services">Services</a>
+    <a href="#faq">FAQ</a>
+  </nav>
+  <a class="nav-cta" href="#contact">Start a project</a>
+</header>
+
+<!-- ───────────── HERO ───────────── -->
+<section class="hero" id="top">
+  <div class="hero-canvas" aria-hidden="true">
+    <canvas id="sigil"></canvas>
+  </div>
+  <div class="hero-vignette" aria-hidden="true"></div>
+
+  <div class="hero-inner">
+    <div class="hero-top">
+      <div class="eyebrow"><span class="dot"></span>WizardWeb Studio &nbsp;/&nbsp; est. 2021 &nbsp;/&nbsp; based in canada</div>
+      <div class="hero-coord">
+        <div><span>49.28°N</span> &nbsp; 123.12°W</div>
+        <div>currently <span>booking Q3</span></div>
+      </div>
+    </div>
+
+    <h1 class="hero-title">
+      Websites<br/>
+      that <em>earn</em><br/>
+      their keep.
+    </h1>
+
+    <div class="hero-bottom">
+      <div>
+        <p class="hero-lede">
+          A small Canadian studio building fast, beautiful, search-friendly websites for small businesses, and hosting them on infrastructure that does not blink.
+        </p>
+        <div class="hero-cta-row">
+          <a class="btn btn-primary" href="#contact">
+            Start a project
+            <span class="arr" aria-hidden="true">↗</span>
+          </a>
+          <a class="btn btn-ghost" href="#work">
+            See the craft
+            <span class="arr" aria-hidden="true">↓</span>
+          </a>
+        </div>
+      </div>
+      <div class="hero-meta">
+        <div class="stat">
+          <div class="num">98</div>
+          <div>Lighthouse perf<br/>avg across builds</div>
+        </div>
+        <div class="stat">
+          <div class="num">2&ndash;4</div>
+          <div>Weeks from kickoff<br/>to launch</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-cue"><span>Scroll</span><span class="bar"></span></div>
+</section>
+
+<!-- ───────────── MARQUEE ───────────── -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track" id="marquee">
+    <span>Design <em class="ital">&amp;</em> Build</span><span class="sep"></span>
+    <span>Cloudflare Hosting</span><span class="sep"></span>
+    <span><em class="ital">Lightning-fast</em> by default</span><span class="sep"></span>
+    <span>Local-first SEO</span><span class="sep"></span>
+    <span>Conversion-led</span><span class="sep"></span>
+    <span><em class="ital">Witty</em> when warranted</span><span class="sep"></span>
+    <span>Design <em class="ital">&amp;</em> Build</span><span class="sep"></span>
+    <span>Cloudflare Hosting</span><span class="sep"></span>
+    <span><em class="ital">Lightning-fast</em> by default</span><span class="sep"></span>
+    <span>Local-first SEO</span><span class="sep"></span>
+    <span>Conversion-led</span><span class="sep"></span>
+    <span><em class="ital">Witty</em> when warranted</span><span class="sep"></span>
+  </div>
+</div>
+
+<!-- ───────────── APPROACH ───────────── -->
+<section class="section approach" id="approach">
+  <div class="approach-grid">
+    <div data-reveal>
+      <div class="eyebrow"><span class="dot"></span>The Approach</div>
+      <h2>
+        We don't sell magic.<br/>
+        We sell <em>mastery.</em>
+      </h2>
+    </div>
+    <div class="copy" data-reveal>
+      <p>
+        Most small-business websites are slow, generic, and quietly leaking money. We build the opposite: sites with a point of view, a click-path, and a load time you can measure in milliseconds.
+      </p>
+      <p>
+        No bloated page builders. No mystery monthly fees. No template that 4,000 other businesses already bought. Every line of code is hand-picked for the job, then deployed to Cloudflare's edge so it shows up before your visitor finishes blinking.
+      </p>
+      <div class="kpi-row">
+        <div class="kpi">
+          <div class="n" data-count="98">0</div>
+          <div class="l">Avg Lighthouse</div>
+        </div>
+        <div class="kpi">
+          <div class="n" data-count="0.4" data-decimals="1" data-suffix="s">0s</div>
+          <div class="l">Median TTFB</div>
+        </div>
+        <div class="kpi">
+          <div class="n" data-count="100" data-suffix="%">0%</div>
+          <div class="l">Built by humans</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────── WORK ───────────── -->
+<section class="section work" id="work">
+  <div class="section-head" data-reveal>
+    <div>
+      <div class="eyebrow"><span class="dot"></span>Selected Work</div>
+      <h2>Sites that <em>pull</em> their weight.</h2>
+    </div>
+    <div class="meta">
+      Featured Build / 2024&ndash;2025<br/>
+      <span style="color:var(--paper)">Recent client launches</span>
+    </div>
+  </div>
+
+  <article class="feature" data-reveal>
+    <a class="feature-shot" href="https://airbornearts.com" target="_blank" rel="noopener">
+      <span class="tag">Hospitality &middot; Retreat</span>
+      <span class="num">№ 01 / Featured</span>
+      <img src="/assets/images/airborne-arts-desktop.jpg" alt="Airborne Arts Costa Rica website built by WizardWeb" loading="lazy" />
+    </a>
+    <div class="feature-copy">
+      <div class="eyebrow"><span class="dot"></span>Featured Build &middot; 2025</div>
+      <h3>Airborne Arts Costa Rica</h3>
+      <p class="lede">From an outdated Weebly site to a <em>premium retreat experience.</em></p>
+      <p>
+        A world-class aerial retreat center in the mountains of Costa Rica, founded by a 7-time National Champion aerialist and the co-founder of Trapeze School New York. They needed a site that matched the caliber of the experience. We delivered a story-driven, SEO-optimized build that positions them as the premier aerial retreat in Central America.
+      </p>
+      <ul class="feature-deliv">
+        <li><span class="k">01</span><span>Multi-page site with unique hero imagery on every page</span></li>
+        <li><span class="k">02</span><span>Full SEO restructure with JSON-LD structured data</span></li>
+        <li><span class="k">03</span><span>WhatsApp, Google Calendar &amp; Instagram integrations</span></li>
+        <li><span class="k">04</span><span>Delivered globally via Cloudflare's edge network</span></li>
+      </ul>
+      <a class="feature-link" href="https://airbornearts.com" target="_blank" rel="noopener">
+        Visit airbornearts.com
+        <span class="arr" aria-hidden="true">↗</span>
       </a>
-
-      <button class="mobile-menu-btn" aria-label="Open navigation menu" aria-expanded="false" id="mobileMenuBtn">
-        <span></span><span></span><span></span>
-      </button>
-
-      <nav class="header-nav" id="headerNav" aria-label="Main navigation">
-        <ul class="nav-links" role="list">
-          <li><a href="work.html">Our Work</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="pricing.html">Pricing</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-        <div class="nav-buttons">
-          <a href="#" data-cal-link="clintonw/website-launch-strategy-call" data-cal-namespace="strategy-call" data-cal-config='{"layout":"month_view"}' class="btn btn-accent btn-sm">Book a Call</a>
-        </div>
-      </nav>
     </div>
-  </header>
+  </article>
+</section>
 
-  <main>
+<section class="section work-more" aria-labelledby="more-work-h">
+  <div class="more-head" data-reveal>
+    <div class="label" id="more-work-h">Every business. A <em>story</em> worth telling.</div>
+    <a class="all" href="work.html">View all work <span aria-hidden="true">→</span></a>
+  </div>
 
-    <!-- ========== HERO ========== -->
-    <section class="hero" aria-label="Hero">
-      <div class="hero-bg">
-        <div class="hero-grid-pattern"></div>
+  <div class="work-grid">
+    <a class="work-card" href="https://gokilimanjarotreks.com" target="_blank" rel="noopener" data-reveal>
+      <div class="wc-thumb">
+        <img src="/assets/images/gokilimanjaro-desktop.jpg" alt="Go Kilimanjaro Treks website built by WizardWeb" loading="lazy" />
       </div>
-      <div class="hero-content">
-        <div class="hero-text">
-          <span class="section-label section-label-light">Built for the World</span>
-          <h1>Your business has a story.<br><em>We help the world find it.</em></h1>
-          <p>30+ years of sales and marketing, distilled into every website we build. Not just fast. Not just pretty. Built to tell your story and make sure the right people hear it.</p>
-          <div class="hero-buttons">
-            <a href="work.html" class="btn btn-accent btn-lg">See Our Work</a>
-            <a href="#" data-cal-link="clintonw/website-launch-strategy-call" data-cal-namespace="strategy-call" data-cal-config='{"layout":"month_view"}' class="btn btn-outline-light btn-lg">Book a Free Call</a>
-          </div>
-          <div class="hero-stats">
-            <div>
-              <div class="hero-stat-number">100</div>
-              <div class="hero-stat-label">PageSpeed Score</div>
-            </div>
-            <div>
-              <div class="hero-stat-number">&lt;0.5s</div>
-              <div class="hero-stat-label">Load Time</div>
-            </div>
-            <div>
-              <div class="hero-stat-number">30+</div>
-              <div class="hero-stat-label">Years Experience</div>
-            </div>
-          </div>
-        </div>
-        <div class="hero-visual">
-          <div class="device-mockup">
-            <div class="device-desktop">
-              <div class="device-desktop-topbar">
-                <div class="device-dot"></div>
-                <div class="device-dot"></div>
-                <div class="device-dot"></div>
-              </div>
-              <img src="./assets/images/airborne-arts-desktop.jpg" alt="Airborne Arts Costa Rica website built by WizardWeb" width="1400" height="900" loading="eager" fetchpriority="high">
-            </div>
-            <div class="device-mobile">
-              <img src="./assets/images/airborne-arts-mobile.jpg" alt="Airborne Arts mobile view" width="390" height="844" loading="eager">
-            </div>
-          </div>
-        </div>
+      <div class="wc-tag">Tour Operator &middot; Tanzania</div>
+      <div class="wc-num">№ 02</div>
+      <div class="wc-meta">
+        <h3>Go Kilimanjaro Treks</h3>
+        <div class="tags">Kilimanjaro climbs &middot; safaris</div>
       </div>
-    </section>
+    </a>
 
-    <!-- ========== STORY INTRO ========== -->
-    <section class="section" aria-label="Our approach">
-      <div class="container-narrow" style="text-align: center;">
-        <span class="section-label">The Problem</span>
-        <h2 class="heading-lg" style="margin-bottom: var(--space-6);">Your website should be your best salesperson. Most aren't even close.</h2>
-        <p class="text-lg" style="max-width: 640px; margin: 0 auto;">Slow load times. Buried in search results. A design that says nothing about who you are. Your business deserves better than a template and a prayer. It deserves a story that sells and a site that gets found.</p>
+    <a class="work-card" href="https://alpinedrywallcalgary.com" target="_blank" rel="noopener" data-reveal>
+      <div class="wc-thumb">
+        <img src="/assets/images/alpine-drywall-desktop.jpg" alt="Alpine Drywall Calgary website" loading="lazy" />
       </div>
-    </section>
-
-    <!-- ========== FEATURED WORK ========== -->
-    <section class="section section-alt" aria-label="Featured work">
-      <div class="container">
-        <span class="section-label">Featured Build</span>
-        <h2 class="heading-lg" style="margin-bottom: var(--space-10);">Airborne Arts Costa Rica</h2>
-
-        <div class="portfolio-hero-card">
-          <div class="portfolio-hero-image">
-            <img src="./assets/images/airborne-arts-desktop.jpg" alt="Airborne Arts Costa Rica website built by WizardWeb featuring flying trapeze and aerial retreat center" width="1400" height="900" loading="lazy" decoding="async">
-          </div>
-          <div class="portfolio-hero-content">
-            <span class="portfolio-tag">Featured Build</span>
-            <h3 class="heading-md" style="margin-bottom: var(--space-4);">From an outdated Weebly site to a premium retreat experience.</h3>
-            <p class="text-md" style="margin-bottom: var(--space-6);">Airborne Arts is a world-class aerial retreat center in the mountains of Costa Rica, founded by a 7-time National Champion aerialist and the co-founder of Trapeze School New York. They needed a website that matched the caliber of their experience. We built a full story-driven, SEO-optimized website that positions them as the premier aerial retreat in Central America.</p>
-            <ul style="margin-bottom: var(--space-6);">
-              <li class="text-md" style="padding: 4px 0;">Multi-page site with unique hero imagery on every page</li>
-              <li class="text-md" style="padding: 4px 0;">Full SEO restructure with JSON-LD structured data</li>
-              <li class="text-md" style="padding: 4px 0;">WhatsApp integration, Google Calendar, Instagram feed</li>
-              <li class="text-md" style="padding: 4px 0;">Delivered globally via best-in-class CDN infrastructure</li>
-            </ul>
-            <a href="https://airbornearts.com" target="_blank" class="btn btn-primary">Visit Live Site &rarr;</a>
-          </div>
-        </div>
+      <div class="wc-tag">Trades &middot; Calgary</div>
+      <div class="wc-num">№ 03</div>
+      <div class="wc-meta">
+        <h3>Alpine Drywall Calgary</h3>
+        <div class="tags">Commercial drywall &middot; since 1986</div>
       </div>
-    </section>
+    </a>
 
-    <!-- ========== MORE WORK ========== -->
-    <section class="section" aria-label="More work">
-      <div class="container">
-        <div style="display: flex; justify-content: space-between; align-items: end; margin-bottom: var(--space-8);">
-          <div>
-            <span class="section-label">More Work</span>
-            <h2 class="heading-md">Every business. A story worth telling.</h2>
-          </div>
-          <a href="work.html" class="btn btn-outline btn-sm" style="flex-shrink: 0;">View All Work &rarr;</a>
-        </div>
-        <div class="portfolio-small-grid">
-          <div class="portfolio-card">
-            <div class="portfolio-card-image">
-              <img src="./assets/images/alpine-drywall-desktop.jpg" alt="Alpine Drywall Calgary website" width="1400" height="900" loading="lazy" decoding="async">
-            </div>
-            <div class="portfolio-card-content">
-              <h3>Alpine Drywall Calgary</h3>
-              <p>Commercial drywall specialists since 1986. COR certified, Gold Seal management, zero warranty claims.</p>
-            </div>
-          </div>
-          <div class="portfolio-card">
-            <div class="portfolio-card-image">
-              <img src="./assets/images/laserquit-desktop.jpg" alt="LaserQuit Therapy website" width="1400" height="900" loading="lazy" decoding="async">
-            </div>
-            <div class="portfolio-card-content">
-              <h3>LaserQuit Therapy</h3>
-              <p>BC's leading laser therapy clinic helping people quit smoking, vaping, and addictive habits for good.</p>
-            </div>
-          </div>
-          <div class="portfolio-card">
-            <div class="portfolio-card-image">
-              <img src="./assets/images/gokilimanjaro-desktop.jpg" alt="Go Kilimanjaro Treks website built by WizardWeb" width="1400" height="900" loading="lazy" decoding="async">
-            </div>
-            <div class="portfolio-card-content">
-              <h3>Go Kilimanjaro Treks</h3>
-              <p>Tanzania-based tour operator running Kilimanjaro climbs and East African safaris. Editorial design, fast from anywhere on the planet.</p>
-            </div>
-          </div>
-        </div>
+    <a class="work-card" href="https://laserquittherapy.ca" target="_blank" rel="noopener" data-reveal>
+      <div class="wc-thumb">
+        <img src="/assets/images/laserquit-desktop.jpg" alt="LaserQuit Therapy website" loading="lazy" />
       </div>
-    </section>
+      <div class="wc-tag">Health &middot; BC</div>
+      <div class="wc-num">№ 04</div>
+      <div class="wc-meta">
+        <h3>LaserQuit Therapy</h3>
+        <div class="tags">Helping people quit, for good</div>
+      </div>
+    </a>
+  </div>
+</section>
 
-    <!-- ========== WHAT WE DO ========== -->
-    <section class="section section-dark" aria-label="What we do">
-      <div class="container">
-        <div style="text-align: center; margin-bottom: var(--space-12);">
-          <span class="section-label section-label-light">What We Do</span>
-          <h2 class="heading-lg" style="margin-bottom: var(--space-4);">Three things that separate us from every other web shop.</h2>
-          <p class="text-lg" style="max-width: 600px; margin: 0 auto;">We don't just build websites. We build the story, the speed, and the visibility your business needs to grow.</p>
-        </div>
-        <div class="services-grid">
-          <div class="service-card">
-            <div class="service-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
-            </div>
-            <h3>Story That Sells</h3>
-            <p>30+ years of sales and marketing poured into your copy, your positioning, and your brand narrative. We don't write filler. We write words that make people pick up the phone.</p>
-          </div>
-          <div class="service-card">
-            <div class="service-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-            </div>
-            <h3>Speed That Converts</h3>
-            <p>100/100 PageSpeed. Under half a second load time. Served from 300+ data centers worldwide, on the same infrastructure that powers Netflix, Shopify, and some of the biggest names on the internet. Every millisecond matters when a customer is deciding whether to stay or leave.</p>
-          </div>
-          <div class="service-card">
-            <div class="service-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-            </div>
-            <h3>SEO That Gets Found</h3>
-            <p>Semantic HTML. Schema markup. XML sitemaps. Optimized meta tags on every page. We don't bolt SEO on as an afterthought. It's baked into the foundation from line one.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========== MEET CLINTON ========== -->
-    <section class="section" aria-label="About Clinton">
-      <div class="container">
-        <div class="about-grid">
-          <div>
-            <span class="section-label">The Architect</span>
-            <h2 class="heading-lg" style="margin-bottom: var(--space-6);">Not a developer who learned marketing. A marketer who learned to build.</h2>
-            <p class="text-lg" style="margin-bottom: var(--space-5);">Clinton Wasylishen has spent 30+ years in the trenches of real sales and marketing. He built multiple seven-figure businesses, including a bootcamp company and four brick-and-mortar gyms. He knows what makes people buy, what makes businesses grow, and what stories need to be told.</p>
-            <p class="text-md" style="margin-bottom: var(--space-8);">Now, he brings that same sales instinct to every website he builds. Every headline is written to convert. Every page is structured to rank. Every design choice is made with one question in mind: does this help the customer say yes?</p>
-            <a href="about.html" class="btn btn-primary">Read the Full Story &rarr;</a>
-          </div>
-          <div class="about-image" style="background: var(--bg-alt); min-height: 400px; display: flex; align-items: center; justify-content: center;">
-            <div style="text-align: center; padding: var(--space-8);">
-              <div style="font-family: var(--font-display); font-size: 64px; font-weight: 700; color: var(--primary); line-height: 1; margin-bottom: var(--space-4);">30+</div>
-              <div style="font-size: 14px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em;">Years in Sales<br>& Marketing</div>
-              <div style="width: 40px; height: 2px; background: var(--accent); margin: var(--space-6) auto;"></div>
-              <div style="font-family: var(--font-display); font-size: 64px; font-weight: 700; color: var(--primary); line-height: 1; margin-bottom: var(--space-4);">7</div>
-              <div style="font-size: 14px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em;">Figure Businesses<br>Built</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========== PROCESS ========== -->
-    <section class="section section-alt" aria-label="Our process">
-      <div class="container">
-        <div style="text-align: center; margin-bottom: var(--space-12);">
-          <span class="section-label">How It Works</span>
-          <h2 class="heading-lg" style="margin-bottom: var(--space-4);">From story to live in under two weeks.</h2>
-          <p class="text-lg" style="max-width: 560px; margin: 0 auto;">No drawn-out timelines. No back-and-forth for months. We move fast because your business can't afford to wait.</p>
-        </div>
-        <div class="process-grid">
-          <div class="process-step">
-            <h3>Free Audit</h3>
-            <p>We analyze your current site for speed, SEO, mobile, and conversion issues. You get a full report with zero obligation.</p>
-          </div>
-          <div class="process-step">
-            <h3>Discovery Call</h3>
-            <p>20 minutes. We learn your business, your customers, and the story that needs to be told. We map the entire site strategy.</p>
-          </div>
-          <div class="process-step">
-            <h3>We Build</h3>
-            <p>Custom HTML, CSS, and JS. No templates. No WordPress. You get a preview link to review before anything goes live.</p>
-          </div>
-          <div class="process-step">
-            <h3>You Launch</h3>
-            <p>We handle DNS, SSL, and deployment. Your site goes live on a world-class global network, fast from everywhere on the planet.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========== CTA ========== -->
-    <section class="cta-section" aria-label="Call to action">
-      <span class="section-label section-label-light">Ready?</span>
-      <h2 class="heading-lg" style="color: #fff; margin-bottom: var(--space-4);">Your story is worth telling.<br>Let's tell it right.</h2>
-      <p>See what is holding your current site back. Book a free 20-minute call to find out.</p>
-      <div class="cta-buttons">
-        <a href="#" data-cal-link="clintonw/website-launch-strategy-call" data-cal-namespace="strategy-call" data-cal-config='{"layout":"month_view"}' class="btn btn-accent btn-lg">Book a Free Call</a>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- ========== FOOTER ========== -->
-  <footer class="site-footer" role="contentinfo">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <div style="display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-2);">
-            <svg class="logo-icon" viewBox="0 0 64 64" width="40" height="40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#1B5E5A"/><path d="M14 19 L22 47 L32 28 L42 47 L50 19" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="50" cy="14" r="3" fill="#C8922A"/><circle cx="50" cy="14" r="1" fill="#ffffff"/></svg>
-            <div class="logo-text" style="color: #fff;">Wizard<span style="color: var(--primary);">Web</span></div>
-          </div>
-          <p>Custom-built websites backed by 30+ years of sales and marketing. We craft the story that sells, then build the site that gets you found.</p>
-        </div>
-        <div class="footer-col">
-          <h4>Pages</h4>
-          <a href="work.html">Our Work</a>
-          <a href="about.html">About</a>
-          <a href="services.html">Services</a>
-          <a href="pricing.html">Pricing</a>
-        </div>
-        <div class="footer-col">
-          <h4>Work</h4>
-          <a href="https://airbornearts.com" target="_blank" rel="noopener">Airborne Arts</a>
-          <a href="https://gokilimanjarotreks.com" target="_blank" rel="noopener">Go Kilimanjaro Treks</a>
-          <a href="https://alpinedrywallcalgary.com" target="_blank" rel="noopener">Alpine Drywall</a>
-          <a href="https://laserquittherapy.ca" target="_blank" rel="noopener">LaserQuit Therapy</a>
-          <a href="https://lloydminsterchemicaltransport.com" target="_blank" rel="noopener">Lloydminster Chemical Transport</a>
-          <a href="https://tandmbookkeeping.com" target="_blank" rel="noopener">T&amp;M Bookkeeping</a>
-        </div>
-        <div class="footer-col">
-          <h4>Connect</h4>
-          <a href="contact.html">Book a Call</a>
-          <a href="mailto:hello@wizardweb.ca">hello@wizardweb.ca</a>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <span>&copy; 2026 WizardWeb. All rights reserved.</span>
-        <span>Built for the world.</span>
-      </div>
+<!-- ───────────── SERVICES ───────────── -->
+<section class="section services" id="services">
+  <div class="section-head" data-reveal>
+    <div>
+      <div class="eyebrow"><span class="dot"></span>Services</div>
+      <h2>Two things.<br/>Done <em>obsessively</em> well.</h2>
     </div>
-  </footer>
+    <div class="meta">
+      Web design &middot; Hosting<br/>
+      <span style="color:var(--paper)">Built to outlast trends</span>
+    </div>
+  </div>
 
-  <script>
-  // Mobile nav toggle
-  var mobileBtn = document.getElementById('mobileMenuBtn');
-  var headerNav = document.getElementById('headerNav');
-  if (mobileBtn && headerNav) {
-    mobileBtn.addEventListener('click', function() {
-      headerNav.classList.toggle('open');
-      mobileBtn.classList.toggle('active');
-      mobileBtn.setAttribute('aria-expanded', headerNav.classList.contains('open'));
-    });
-    headerNav.querySelectorAll('a').forEach(function(link) {
-      link.addEventListener('click', function() {
-        headerNav.classList.remove('open');
-        mobileBtn.classList.remove('active');
-        mobileBtn.setAttribute('aria-expanded', 'false');
-      });
-    });
+  <div class="svc-list">
+    <div class="svc" data-reveal>
+      <div class="svc-num">
+        <span>№ 01</span>
+        <span class="tag">Design &amp; Build</span>
+      </div>
+      <div>
+        <h3>Custom websites,<br/>without the <em>filler.</em></h3>
+        <p class="desc">
+          Strategy, design and build, handled by the same people end to end. No agency middlemen. No three-month discovery phase. We sketch, we ship, we sharpen.
+        </p>
+      </div>
+      <ul class="svc-deliv">
+        <li><span class="k">01</span><span class="v">Positioning &amp; messaging workshop</span></li>
+        <li><span class="k">02</span><span class="v">Custom design, <em>no templates</em></span></li>
+        <li><span class="k">03</span><span class="v">Built lean: Astro, HTML, or headless CMS</span></li>
+        <li><span class="k">04</span><span class="v">Lighthouse 95+ before we ship</span></li>
+        <li><span class="k">05</span><span class="v">Local-first SEO &amp; schema baked in</span></li>
+        <li><span class="k">06</span><span class="v">Launch in <em>2&ndash;4 weeks</em></span></li>
+      </ul>
+    </div>
+
+    <div class="svc" data-reveal>
+      <div class="svc-num">
+        <span>№ 02</span>
+        <span class="tag">Hosting &amp; Care</span>
+      </div>
+      <div>
+        <h3>Hosting on <em>Cloudflare's</em> edge.</h3>
+        <p class="desc">
+          The same network the world's largest sites run on, tuned for yours. Free SSL, DDoS protection, global CDN, and a real human (us) when something needs attention.
+        </p>
+      </div>
+      <ul class="svc-deliv">
+        <li><span class="k">01</span><span class="v">Deployed to <em>300+</em> edge locations</span></li>
+        <li><span class="k">02</span><span class="v">Free SSL, automatic renewals</span></li>
+        <li><span class="k">03</span><span class="v">Daily backups, 30-day rollbacks</span></li>
+        <li><span class="k">04</span><span class="v">DDoS &amp; bot mitigation included</span></li>
+        <li><span class="k">05</span><span class="v">Uptime monitoring &amp; status alerts</span></li>
+        <li><span class="k">06</span><span class="v">Edits &amp; updates, <em>flat monthly</em></span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────── FAQ ───────────── -->
+<section class="section faq" id="faq">
+  <div class="faq-wrap">
+    <div data-reveal>
+      <div class="eyebrow"><span class="dot"></span>FAQ</div>
+      <h2>Questions we hear<br/><em>a lot.</em></h2>
+    </div>
+    <div class="faq-list" data-reveal>
+      <details class="faq-item" open>
+        <summary class="faq-q"><span class="qn">01</span><span>How much does a website cost?</span><span class="pm" aria-hidden="true"></span></summary>
+        <div class="faq-a">
+          Most projects land between $4,500 and $14,000 CAD. Scope drives price. A focused 5-page brand site sits at the low end; e-commerce, custom CMS, or integrations push it up. We quote a fixed number after a 30-minute call so you never see a surprise on the invoice.
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q"><span class="qn">02</span><span>How fast can you launch?</span><span class="pm" aria-hidden="true"></span></summary>
+        <div class="faq-a">
+          Two to four weeks for most small-business sites, kickoff to live. We hold a slot once a deposit clears and run a single design-build sprint, so things do not drag for months.
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q"><span class="qn">03</span><span>Do I have to host with you?</span><span class="pm" aria-hidden="true"></span></summary>
+        <div class="faq-a">
+          No. You will always own your domain, your content, and your code. That said, most clients stay on our Cloudflare hosting because it is faster, cheaper, and we handle updates as part of the plan.
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q"><span class="qn">04</span><span>Will I be able to edit the site myself?</span><span class="pm" aria-hidden="true"></span></summary>
+        <div class="faq-a">
+          Yes. We pair every build with a lightweight CMS (or a Notion/Google-doc workflow for simpler sites) and a 30-minute walkthrough. If you would rather not touch it, edits are included in our care plan, usually same-day.
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q"><span class="qn">05</span><span>What about SEO?</span><span class="pm" aria-hidden="true"></span></summary>
+        <div class="faq-a">
+          Every site ships with clean semantic markup, structured data, fast Core Web Vitals, and local-business schema where it fits. We do not sell ongoing "SEO retainers". We build the foundation properly and point you at the few habits that actually move rankings.
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q"><span class="qn">06</span><span>Do you do logos and branding?</span><span class="pm" aria-hidden="true"></span></summary>
+        <div class="faq-a">
+          Light brand work: yes (typography, palette, simple marks). Full identity systems: we will hand you off to a branding partner we trust. We are sharpest when we stay focused on the web.
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────── CLOSING CTA ───────────── -->
+<section class="section cta" id="contact">
+  <div class="cta-inner" data-reveal>
+    <div class="eyebrow"><span class="dot"></span>Available for 2 projects in Q3</div>
+    <h2>Let's build something <em>worth visiting.</em></h2>
+    <p>
+      Tell us about your business and where the current site falls short. We will come back within a day with a plan, a price, and a launch date.
+    </p>
+    <div class="hero-cta-row" style="justify-content:center;">
+      <a class="btn btn-primary" href="mailto:hello@wizardweb.ca">
+        hello@wizardweb.ca
+        <span class="arr" aria-hidden="true">↗</span>
+      </a>
+      <a class="btn btn-ghost" href="https://cal.com/clintonw/website-launch-strategy-call" target="_blank" rel="noopener">
+        Book a 30-min call
+        <span class="arr" aria-hidden="true">↗</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────── FOOTER ───────────── -->
+<footer class="footer">
+  <div class="live">All systems normal</div>
+  <div class="right">
+    <a href="work.html">Work</a>
+    <a href="#services">Services</a>
+    <a href="#faq">FAQ</a>
+    <a href="mailto:hello@wizardweb.ca">Contact</a>
+    <span>© 2026 WizardWeb</span>
+  </div>
+</footer>
+
+<script>
+/* ───────────── interactive sigil canvas ───────────── */
+(function () {
+  const canvas = document.getElementById("sigil");
+  if (!canvas) return;
+  const ctx = canvas.getContext("2d", { alpha: true });
+
+  let W = 0, H = 0, DPR = 1, cx = 0, cy = 0;
+  let motion = "normal";
+  const accent = "#B6FF5C";
+
+  function resize() {
+    DPR = Math.min(window.devicePixelRatio || 1, 2);
+    W = canvas.clientWidth = canvas.parentElement.clientWidth;
+    H = canvas.clientHeight = canvas.parentElement.clientHeight;
+    canvas.width = W * DPR;
+    canvas.height = H * DPR;
+    ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+    cx = W / 2;
+    cy = H * 0.46;
   }
 
-  // Header scroll effect
-  var header = document.getElementById('siteHeader');
-  window.addEventListener('scroll', function() {
-    if (window.scrollY > 20) {
-      header.classList.add('scrolled');
+  function build() {
+    const rings = [];
+    const ringCount = 7;
+    const pointsPerRing = 56;
+    const baseR = Math.min(W, H) * 0.36;
+    for (let i = 0; i < ringCount; i++) {
+      const t = i / (ringCount - 1);
+      const yOffset = (t - 0.5) * baseR * 1.1;
+      const r = Math.sqrt(1 - Math.pow((t - 0.5) * 2, 2)) * baseR;
+      const pts = [];
+      for (let k = 0; k < pointsPerRing; k++) {
+        const a = (k / pointsPerRing) * Math.PI * 2;
+        pts.push({ x: Math.cos(a) * r, y: yOffset, z: Math.sin(a) * r, a, ring: i });
+      }
+      rings.push(pts);
+    }
+    const stars = [];
+    for (let i = 0; i < 80; i++) {
+      stars.push({
+        x: (Math.random() - 0.5) * baseR * 2.6,
+        y: (Math.random() - 0.5) * baseR * 2.4,
+        z: (Math.random() - 0.5) * baseR * 2.6,
+        s: Math.random() * 0.8 + 0.2,
+      });
+    }
+    return { rings, stars, baseR };
+  }
+
+  let scene = null;
+  let mouseX = 0, mouseY = 0, targetMX = 0, targetMY = 0;
+  let mouseInside = false;
+  let t0 = performance.now();
+
+  function project(p, sinY, cosY, sinX, cosX) {
+    let x = p.x * cosY - p.z * sinY;
+    let z = p.x * sinY + p.z * cosY;
+    let y = p.y * cosX - z * sinX;
+    z = p.y * sinX + z * cosX;
+    const f = 600 / (600 + z);
+    return { x: cx + x * f, y: cy + y * f, z, f };
+  }
+
+  function alphaHex(a) {
+    return Math.round(Math.max(0, Math.min(1, a)) * 255).toString(16).padStart(2, "0");
+  }
+
+  function draw() {
+    const now = performance.now();
+    const t = (now - t0) / 1000;
+
+    mouseX += (targetMX - mouseX) * 0.06;
+    mouseY += (targetMY - mouseY) * 0.06;
+
+    const motionScale = motion === "calm" ? 0.45 : motion === "big" ? 1.4 : 1;
+    const rotY = t * 0.18 * motionScale + (mouseX / W) * 0.6;
+    const rotX = Math.sin(t * 0.12) * 0.12 * motionScale + (mouseY / H) * 0.35 - 0.18;
+    const sinY = Math.sin(rotY), cosY = Math.cos(rotY);
+    const sinX = Math.sin(rotX), cosX = Math.cos(rotX);
+
+    ctx.clearRect(0, 0, W, H);
+
+    for (const s of scene.stars) {
+      const p = project(s, sinY, cosY, sinX, cosX);
+      const a = Math.max(0, Math.min(1, p.f - 0.5)) * 0.7;
+      ctx.globalAlpha = a;
+      ctx.fillStyle = "#F2EFE7";
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, s.s * p.f, 0, Math.PI * 2);
+      ctx.fill();
+    }
+    ctx.globalAlpha = 1;
+
+    for (let i = 0; i < scene.rings.length; i++) {
+      const ring = scene.rings[i];
+      const projected = ring.map((p) => project(p, sinY, cosY, sinX, cosX));
+      ctx.beginPath();
+      for (let k = 0; k < projected.length; k++) {
+        const p = projected[k];
+        if (k === 0) ctx.moveTo(p.x, p.y);
+        else ctx.lineTo(p.x, p.y);
+      }
+      ctx.closePath();
+      const avgZ = projected.reduce((s, p) => s + p.z, 0) / projected.length;
+      const depth = (avgZ + scene.baseR) / (scene.baseR * 2);
+      const isEquator = i === Math.floor(scene.rings.length / 2);
+      ctx.lineWidth = isEquator ? 1.2 : 0.7;
+      ctx.strokeStyle = isEquator
+        ? `${accent}${alphaHex(0.55 + depth * 0.3)}`
+        : `rgba(242, 239, 231, ${0.06 + depth * 0.12})`;
+      ctx.stroke();
+      if (isEquator) {
+        for (let k = 0; k < projected.length; k += 4) {
+          const p = projected[k];
+          ctx.beginPath();
+          ctx.fillStyle = accent;
+          ctx.globalAlpha = 0.5 + p.f * 0.5;
+          ctx.arc(p.x, p.y, 1.6 * p.f, 0, Math.PI * 2);
+          ctx.fill();
+        }
+        ctx.globalAlpha = 1;
+      }
+    }
+
+    ctx.strokeStyle = `rgba(242, 239, 231, 0.06)`;
+    ctx.lineWidth = 0.5;
+    const ppr = scene.rings[0].length;
+    for (let n = 0; n < ppr; n += 4) {
+      ctx.beginPath();
+      for (let i = 0; i < scene.rings.length; i++) {
+        const p = project(scene.rings[i][n], sinY, cosY, sinX, cosX);
+        if (i === 0) ctx.moveTo(p.x, p.y);
+        else ctx.lineTo(p.x, p.y);
+      }
+      ctx.stroke();
+    }
+
+    if (mouseInside) {
+      const mx = cx + mouseX * 0.6;
+      const my = cy + mouseY * 0.4;
+      const grad = ctx.createRadialGradient(mx, my, 0, mx, my, 220);
+      grad.addColorStop(0, `${accent}33`);
+      grad.addColorStop(1, "rgba(7,8,10,0)");
+      ctx.fillStyle = grad;
+      ctx.fillRect(mx - 220, my - 220, 440, 440);
+    }
+
+    ctx.strokeStyle = "rgba(242,239,231,0.08)";
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(cx - 14, cy); ctx.lineTo(cx + 14, cy);
+    ctx.moveTo(cx, cy - 14); ctx.lineTo(cx, cy + 14);
+    ctx.stroke();
+
+    rafId = requestAnimationFrame(draw);
+  }
+
+  let rafId = null;
+  function start() {
+    cancelAnimationFrame(rafId);
+    resize();
+    scene = build();
+    t0 = performance.now();
+    rafId = requestAnimationFrame(draw);
+  }
+
+  window.addEventListener("resize", () => { resize(); scene = build(); });
+  window.addEventListener("mousemove", (e) => {
+    const rect = canvas.getBoundingClientRect();
+    if (e.clientX >= rect.left && e.clientX <= rect.right && e.clientY >= rect.top && e.clientY <= rect.bottom) {
+      targetMX = (e.clientX - rect.left) - W / 2;
+      targetMY = (e.clientY - rect.top) - H / 2;
+      mouseInside = true;
     } else {
-      header.classList.remove('scrolled');
+      mouseInside = false;
+      targetMX *= 0.9; targetMY *= 0.9;
     }
   });
-  </script>
 
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches) motion = "calm";
+  start();
+})();
 
-  <!-- Cal.com Popup Embed -->
-  <script type="text/javascript">
-  (function (C, A, L) {
-    let p = function (a, ar) { a.q.push(ar); };
-    let d = C.document;
-    C.Cal = C.Cal || function () {
-      let cal = C.Cal; let ar = arguments;
-      if (!cal.loaded) {
-        cal.ns = {}; cal.q = cal.q || [];
-        d.head.appendChild(d.createElement("script")).src = A;
-        cal.loaded = true;
-      }
-      if (ar[0] === L) {
-        const api = function () { p(api, arguments); };
-        const namespace = ar[1];
-        api.q = api.q || [];
-        if (typeof namespace === "string") {
-          cal.ns[namespace] = cal.ns[namespace] || api;
-          p(cal.ns[namespace], ar);
-          p(cal, ["initNamespace", namespace]);
-        } else p(cal, ar);
-        return;
-      }
-      p(cal, ar);
-    };
-  })(window, "https://app.cal.com/embed/embed.js", "init");
-  function initCal(){
-    if (initCal.done) return; initCal.done = true;
-    Cal("init", "strategy-call", {origin: "https://cal.com"});
-    Cal.ns["strategy-call"]("ui", {
-      "styles": {"branding": {"brandColor": "#1B5E5A"}},
-      "hideEventTypeDetails": false,
-      "layout": "month_view"
-    });
+/* ───────────── site behaviours ───────────── */
+(function () {
+  const nav = document.getElementById("nav");
+  function onScroll() {
+    nav.classList.toggle("is-stuck", window.scrollY > 12);
   }
-  ['mouseenter','touchstart','focusin'].forEach(function(evt){
-    document.addEventListener(evt, function(e){
-      if (e.target && e.target.closest && e.target.closest('[data-cal-link]')) initCal();
-    }, { capture: true, passive: true });
-  });
-  </script>
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
 
+  const io = new IntersectionObserver(
+    (entries) => {
+      for (const e of entries) {
+        if (e.isIntersecting) { e.target.classList.add("is-in"); io.unobserve(e.target); }
+      }
+    },
+    { threshold: 0.12, rootMargin: "0px 0px -10% 0px" }
+  );
+  document.querySelectorAll("[data-reveal]").forEach((el) => io.observe(el));
+
+  const countIO = new IntersectionObserver(
+    (entries) => {
+      for (const e of entries) {
+        if (!e.isIntersecting) continue;
+        const el = e.target;
+        const to = parseFloat(el.dataset.count);
+        const decimals = parseInt(el.dataset.decimals || "0", 10);
+        const suffix = el.dataset.suffix || "";
+        const dur = 1500;
+        const t0 = performance.now();
+        function tick(now) {
+          const k = Math.min(1, (now - t0) / dur);
+          const eased = 1 - Math.pow(1 - k, 3);
+          const v = to * eased;
+          el.textContent = v.toFixed(decimals) + suffix;
+          if (k < 1) requestAnimationFrame(tick);
+          else el.textContent = to.toFixed(decimals) + suffix;
+        }
+        requestAnimationFrame(tick);
+        countIO.unobserve(el);
+      }
+    },
+    { threshold: 0.4 }
+  );
+  document.querySelectorAll("[data-count]").forEach((el) => countIO.observe(el));
+
+  const details = document.querySelectorAll(".faq-item");
+  details.forEach((d) => {
+    d.addEventListener("toggle", () => {
+      if (d.open) details.forEach((o) => { if (o !== d) o.open = false; });
+    });
+  });
+})();
+</script>
 </body>
 </html>

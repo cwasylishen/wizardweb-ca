@@ -1,22 +1,12 @@
 # WizardWeb.ca - Cloudflare Pages Headers
 
-# SVG and favicon: long cache, immutable
+# Favicon and logo SVGs: 30 days
 /favicon.svg
-  Cache-Control: public, max-age=2592000
-
-/assets/images/logo-mark.svg
   Cache-Control: public, max-age=2592000
 
 # Images: 30 days
 /assets/images/*
   Cache-Control: public, max-age=2592000
-
-# CSS: 1 year (cache-bust by renaming file when changing)
-/base.css
-  Cache-Control: public, max-age=31536000, immutable
-
-/style.css
-  Cache-Control: public, max-age=31536000, immutable
 
 # HTML: 1 hour, must-revalidate so updates show quickly
 /*.html
