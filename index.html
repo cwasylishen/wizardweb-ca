@@ -1085,7 +1085,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
     <a href="#services">Services</a>
     <a href="#faq">FAQ</a>
   </nav>
-  <a class="nav-cta" href="#contact">Start a project</a>
+  <a class="nav-cta" href="#" data-cal-link="clintonw/website-launch-strategy-call" data-cal-namespace="strategy-call" data-cal-config='{"layout":"month_view","theme":"dark"}'>Start a project</a>
 </header>
 
 <!-- ───────────── HERO ───────────── -->
@@ -1152,8 +1152,8 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
           A small Canadian studio building fast, beautiful, search-friendly websites for small businesses, and hosting them on infrastructure that does not blink.
         </p>
         <div class="hero-cta-row">
-          <a class="btn btn-primary" href="#contact">
-            Start a project
+          <a class="btn btn-primary" href="#" data-cal-link="clintonw/website-launch-strategy-call" data-cal-namespace="strategy-call" data-cal-config='{"layout":"month_view","theme":"dark"}'>
+            Book a call
             <span class="arr" aria-hidden="true">↗</span>
           </a>
           <a class="btn btn-ghost" href="#work">
@@ -1435,7 +1435,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
         hello@wizardweb.ca
         <span class="arr" aria-hidden="true">↗</span>
       </a>
-      <a class="btn btn-ghost" href="https://cal.com/clintonw/website-launch-strategy-call" target="_blank" rel="noopener">
+      <a class="btn btn-ghost" href="#" data-cal-link="clintonw/website-launch-strategy-call" data-cal-namespace="strategy-call" data-cal-config='{"layout":"month_view","theme":"dark"}'>
         Book a 30-min call
         <span class="arr" aria-hidden="true">↗</span>
       </a>
@@ -1720,6 +1720,18 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
     });
   });
 })();
+</script>
+
+<!-- ───────────── Cal.com popup booking ───────────── -->
+<script type="text/javascript">
+(function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if (typeof namespace === "string") { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]); } else p(cal, ar); return; } p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+Cal("init", "strategy-call", { origin: "https://cal.com" });
+Cal.ns["strategy-call"]("ui", { theme: "dark", cssVarsPerTheme: { dark: { "cal-brand": "#B6FF5C" } }, hideEventTypeDetails: false, layout: "month_view" });
+// Expose a helper so the chatbot / other UI can open the booking popup programmatically.
+window.wwOpenBooking = function () {
+  try { Cal.ns["strategy-call"]("modal", { calLink: "clintonw/website-launch-strategy-call", config: { layout: "month_view", theme: "dark" } }); }
+  catch (e) { window.open("https://cal.com/clintonw/website-launch-strategy-call", "_blank", "noopener"); }
+};
 </script>
 </body>
 </html>
