@@ -1964,6 +1964,18 @@ window.wwOpenBooking = function () {
 .ww-foot button{flex:0 0 auto;background:var(--accent);color:var(--accent-ink);border:none;padding:0 16px;font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
 .ww-foot button:disabled{opacity:.5;cursor:default}
 .ww-note{font-family:var(--f-mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--smoke);text-align:center;padding:0 0 10px;background:var(--ink)}
+.ww-book{align-self:stretch;border:1px solid var(--line-strong);background:var(--ink);padding:14px;display:flex;flex-direction:column;gap:10px}
+.ww-book .lab{font-family:var(--f-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+.ww-book .body{font-size:13px;line-height:1.5;color:var(--paper)}
+.ww-book input{background:var(--ink-2);border:1px solid var(--line-strong);color:var(--paper);font-family:var(--f-sans);font-size:14px;padding:10px 11px;outline:none}
+.ww-book input:focus{border-color:var(--accent)}
+.ww-book button.go{background:var(--accent);color:var(--accent-ink);border:none;padding:11px;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
+.ww-book button.go:disabled{opacity:.5;cursor:default}
+.ww-slots{display:flex;flex-direction:column;gap:6px;max-height:200px;overflow-y:auto}
+.ww-slot{text-align:left;background:var(--ink-2);border:1px solid var(--line-strong);color:var(--paper);font-family:var(--f-mono);font-size:12px;letter-spacing:.03em;padding:10px 12px;cursor:pointer;transition:background .15s ease,color .15s ease,border-color .15s ease}
+.ww-slot:hover{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.ww-book .err{color:#ff8a8a;font-size:12px}
+.ww-book a.meet{color:var(--accent);text-decoration:underline;font-size:13px;word-break:break-all}
 @media(max-width:520px){.ww-chat{right:16px;left:16px;bottom:16px;width:auto;height:min(76vh,560px)}.ww-chat-launch{right:16px;bottom:16px}}
 </style>
 
@@ -1988,7 +2000,11 @@ window.wwOpenBooking = function () {
 
 <script>
 (function () {
-  var ENDPOINT = "https://wizardweb-chat.cwasylishen.workers.dev/chat";
+  var BASE = "https://wizardweb-chat.cwasylishen.workers.dev";
+  var ENDPOINT = BASE + "/chat";
+  var SLOTS_ENDPOINT = BASE + "/slots";
+  var BOOK_ENDPOINT = BASE + "/book";
+  var TZ = (function () { try { return Intl.DateTimeFormat().resolvedOptions().timeZone || ""; } catch (e) { return ""; } })();
   var launch = document.getElementById("wwLaunch");
   var panel = document.getElementById("wwChat");
   var msgs = document.getElementById("wwMsgs");
@@ -2051,11 +2067,8 @@ window.wwOpenBooking = function () {
       var reply = (data && data.reply) || "Sorry, something went wrong. Try again or email hello@wizardweb.ca.";
       addMsg(reply, "bot");
       history.push({ role: "assistant", content: reply });
-      if (data && data.action === "open_booking" && typeof window.wwOpenBooking === "function") {
-        setTimeout(function () {
-          addMsg("Opening the calendar so you can grab a time...", "bot");
-          window.wwOpenBooking();
-        }, 600);
+      if (data && data.action === "book") {
+        setTimeout(startBooking, 400);
       }
     } catch (e) {
       typing(false);
@@ -2063,6 +2076,75 @@ window.wwOpenBooking = function () {
     }
     busy = false; send.disabled = false;
     input.focus();
+  }
+
+  // ---- in-chat Cal.com booking ----
+  function el(tag, cls, txt) { var e = document.createElement(tag); if (cls) e.className = cls; if (txt != null) e.textContent = txt; return e; }
+  function fallbackPopup(card, note) {
+    card.innerHTML = "";
+    var e = el("div", "err", note || "Let me open the full calendar for you.");
+    card.appendChild(e);
+    var fb = el("button", "go", "Open calendar");
+    fb.addEventListener("click", function () { if (typeof window.wwOpenBooking === "function") window.wwOpenBooking(); });
+    card.appendChild(fb);
+  }
+
+  function startBooking() {
+    var card = el("div", "ww-book");
+    card.appendChild(el("div", "lab", "Book a free 30-min call"));
+    var name = el("input"); name.type = "text"; name.placeholder = "Your name"; name.autocomplete = "name"; name.maxLength = 80;
+    var email = el("input"); email.type = "email"; email.placeholder = "Your email"; email.autocomplete = "email"; email.maxLength = 120;
+    var go = el("button", "go", "Find open times");
+    var err = el("div", "err"); err.style.display = "none";
+    card.appendChild(name); card.appendChild(email); card.appendChild(go); card.appendChild(err);
+    msgs.appendChild(card); msgs.scrollTop = msgs.scrollHeight;
+    setTimeout(function () { name.focus(); }, 50);
+    function submit() {
+      var n = (name.value || "").trim(), em = (email.value || "").trim();
+      if (!n) { err.textContent = "Pop your name in first."; err.style.display = "block"; return; }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)) { err.textContent = "That email looks off."; err.style.display = "block"; return; }
+      err.style.display = "none"; go.disabled = true; go.textContent = "Loading times...";
+      loadSlots(card, n, em);
+    }
+    go.addEventListener("click", submit);
+    email.addEventListener("keydown", function (e) { if (e.key === "Enter") { e.preventDefault(); submit(); } });
+  }
+
+  async function loadSlots(card, name, email) {
+    try {
+      var res = await fetch(SLOTS_ENDPOINT + "?tz=" + encodeURIComponent(TZ));
+      var data = await res.json();
+      var slots = (data && data.slots) || [];
+      if (!slots.length) { fallbackPopup(card, "No open times loaded just now."); return; }
+      card.innerHTML = "";
+      card.appendChild(el("div", "lab", "Pick a time, " + name.split(" ")[0]));
+      var wrap = el("div", "ww-slots");
+      slots.forEach(function (s) {
+        var b = el("button", "ww-slot", s.label);
+        b.addEventListener("click", function () { doBook(card, name, email, s); });
+        wrap.appendChild(b);
+      });
+      card.appendChild(wrap);
+      msgs.scrollTop = msgs.scrollHeight;
+    } catch (e) { fallbackPopup(card, "Could not load times."); }
+  }
+
+  async function doBook(card, name, email, slot) {
+    card.innerHTML = "";
+    card.appendChild(el("div", "lab", "Booking " + slot.label + "..."));
+    try {
+      var res = await fetch(BOOK_ENDPOINT, {
+        method: "POST", headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name: name, email: email, start: slot.start, tz: TZ }),
+      });
+      var data = await res.json();
+      if (!data || !data.ok) throw new Error((data && data.error) || "failed");
+      card.innerHTML = "";
+      card.appendChild(el("div", "lab", "You're booked"));
+      card.appendChild(el("div", "body", "See you " + (data.when || slot.label) + ". A calendar invite and Google Meet link are on the way to " + email + "."));
+      if (data.meetingUrl) { var a = el("a", "meet", "Join link"); a.href = data.meetingUrl; a.target = "_blank"; a.rel = "noopener"; card.appendChild(a); }
+      msgs.scrollTop = msgs.scrollHeight;
+    } catch (e) { fallbackPopup(card, "That slot did not take. Opening the full calendar."); }
   }
 
   launch.addEventListener("click", openPanel);
