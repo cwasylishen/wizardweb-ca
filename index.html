@@ -2071,5 +2071,17 @@ window.wwOpenBooking = function () {
   input.addEventListener("keydown", function (e) { if (e.key === "Enter") { e.preventDefault(); sendMsg(); } });
 })();
 </script>
+
+<!-- ───────────── AI VOICE AGENT (ElevenLabs ConvAI) ───────────── -->
+<!-- Built by WizardWeb. Agent: WizardWeb Site Concierge.
+     If the widget shows but will not connect, set the agent to Public
+     (or add wizardweb.ca to allowed domains) in the ElevenLabs dashboard,
+     Agents > WizardWeb Site Concierge > Widget / Security. One toggle. -->
+<style>
+  elevenlabs-convai{position:fixed;left:20px;bottom:20px;right:auto;z-index:9997}
+  @media(max-width:520px){elevenlabs-convai{left:16px;bottom:84px}}
+</style>
+<elevenlabs-convai agent-id="agent_9601kv4rr7tqf1savd8ffaay5eq7"></elevenlabs-convai>
+<script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
 </body>
 </html>
