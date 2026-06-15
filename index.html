@@ -1526,7 +1526,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 
   <div class="ai-proof" data-reveal>
     <span class="live-dot" aria-hidden="true"></span>
-    <p>The chat bubble in the corner of this page and the voice agent both run right here, right now. <em>Built by us. Go ahead, try them.</em></p>
+    <p>The chat bubble in the corner of this page runs on this exact stack, live right now, and it books the call itself. <em>Built by us. Go ahead, try it.</em></p>
   </div>
 </section>
 
@@ -1603,7 +1603,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
       <details class="faq-item">
         <summary class="faq-q"><span class="qn">05</span><span>Can you build me an AI chatbot or voice agent?</span><span class="pm" aria-hidden="true"></span></summary>
         <div class="faq-a">
-          Yes, and it is one of our favourite things to build. Web chat, two-way SMS, and natural-sounding voice agents that answer questions, qualify leads, and book appointments around the clock. It is a custom add-on, not part of the standard build, and we design, train and host the whole thing. The chat bubble and voice agent on this page are live examples. Try them, then ask us about yours.
+          Yes, and it is one of our favourite things to build. Web chat, two-way SMS, and natural-sounding voice agents that answer questions, qualify leads, and book appointments around the clock. It is a custom add-on, not part of the standard build, and we design, train and host the whole thing. The chat bubble on this page is a live example, it even books the call itself. Try it, then ask us about yours.
         </div>
       </details>
       <details class="faq-item">
@@ -1936,12 +1936,12 @@ window.wwOpenBooking = function () {
 
 <!-- ───────────── AI CHAT WIDGET ───────────── -->
 <style>
-.ww-chat-launch{position:fixed;left:20px;right:auto;bottom:20px;z-index:9998;display:inline-flex;align-items:center;gap:10px;padding:13px 18px 13px 16px;border-radius:999px;background:var(--accent);color:var(--accent-ink);font-family:var(--f-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;box-shadow:0 10px 30px rgba(0,0,0,.45),0 0 0 1px rgba(182,255,92,.4);cursor:pointer;transition:transform .2s ease,box-shadow .2s ease}
+.ww-chat-launch{position:fixed;right:20px;bottom:20px;z-index:9998;display:inline-flex;align-items:center;gap:10px;padding:13px 18px 13px 16px;border-radius:999px;background:var(--accent);color:var(--accent-ink);font-family:var(--f-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;box-shadow:0 10px 30px rgba(0,0,0,.45),0 0 0 1px rgba(182,255,92,.4);cursor:pointer;transition:transform .2s ease,box-shadow .2s ease}
 .ww-chat-launch:hover{transform:translateY(-2px)}
 .ww-chat-launch svg{width:18px;height:18px}
 .ww-chat-launch .pulse{width:7px;height:7px;border-radius:50%;background:var(--accent-ink);position:relative}
 .ww-chat-launch.is-open{display:none}
-.ww-chat{position:fixed;left:20px;right:auto;bottom:20px;z-index:9999;width:380px;max-width:calc(100vw - 32px);height:min(70vh,580px);background:var(--ink-2);border:1px solid var(--line-strong);box-shadow:0 30px 90px rgba(0,0,0,.6);display:none;flex-direction:column;overflow:hidden}
+.ww-chat{position:fixed;right:20px;bottom:20px;z-index:9999;width:380px;max-width:calc(100vw - 32px);height:min(70vh,580px);background:var(--ink-2);border:1px solid var(--line-strong);box-shadow:0 30px 90px rgba(0,0,0,.6);display:none;flex-direction:column;overflow:hidden}
 .ww-chat.is-open{display:flex}
 .ww-chat-head{display:flex;align-items:center;gap:10px;padding:16px 18px;border-bottom:1px solid var(--line);background:var(--ink)}
 .ww-chat-head .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 10px var(--accent);animation:pulse 1.6s ease-in-out infinite;flex:0 0 auto}
@@ -1976,7 +1976,7 @@ window.wwOpenBooking = function () {
 .ww-slot:hover{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
 .ww-book .err{color:#ff8a8a;font-size:12px}
 .ww-book a.meet{color:var(--accent);text-decoration:underline;font-size:13px;word-break:break-all}
-@media(max-width:520px){.ww-chat{right:16px;left:16px;bottom:16px;width:auto;height:min(76vh,560px)}.ww-chat-launch{left:16px;right:auto;bottom:16px}}
+@media(max-width:520px){.ww-chat{right:16px;left:16px;bottom:16px;width:auto;height:min(76vh,560px)}.ww-chat-launch{right:16px;bottom:16px}}
 </style>
 
 <button class="ww-chat-launch" id="wwLaunch" aria-label="Open AI chat assistant">
@@ -2154,17 +2154,5 @@ window.wwOpenBooking = function () {
 })();
 </script>
 
-<!-- ───────────── AI VOICE AGENT (ElevenLabs ConvAI) ───────────── -->
-<!-- Built by WizardWeb. Agent: WizardWeb Site Concierge.
-     If the widget shows but will not connect, set the agent to Public
-     (or add wizardweb.ca to allowed domains) in the ElevenLabs dashboard,
-     Agents > WizardWeb Site Concierge > Widget / Security. One toggle. -->
-<style>
-  /* Let the ElevenLabs widget use its own native bottom-right placement so its
-     consent/intro panel never overflows the viewport. Chat bubble lives bottom-left. */
-  elevenlabs-convai{z-index:9997}
-</style>
-<elevenlabs-convai agent-id="agent_9601kv4rr7tqf1savd8ffaay5eq7"></elevenlabs-convai>
-<script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
 </body>
 </html>
