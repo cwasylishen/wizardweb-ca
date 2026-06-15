@@ -1933,5 +1933,143 @@ window.wwOpenBooking = function () {
   catch (e) { window.open("https://cal.com/clintonw/website-launch-strategy-call", "_blank", "noopener"); }
 };
 </script>
+
+<!-- ───────────── AI CHAT WIDGET ───────────── -->
+<style>
+.ww-chat-launch{position:fixed;right:20px;bottom:20px;z-index:9998;display:inline-flex;align-items:center;gap:10px;padding:13px 18px 13px 16px;border-radius:999px;background:var(--accent);color:var(--accent-ink);font-family:var(--f-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;box-shadow:0 10px 30px rgba(0,0,0,.45),0 0 0 1px rgba(182,255,92,.4);cursor:pointer;transition:transform .2s ease,box-shadow .2s ease}
+.ww-chat-launch:hover{transform:translateY(-2px)}
+.ww-chat-launch svg{width:18px;height:18px}
+.ww-chat-launch .pulse{width:7px;height:7px;border-radius:50%;background:var(--accent-ink);position:relative}
+.ww-chat-launch.is-open{display:none}
+.ww-chat{position:fixed;right:20px;bottom:20px;z-index:9999;width:380px;max-width:calc(100vw - 32px);height:min(70vh,580px);background:var(--ink-2);border:1px solid var(--line-strong);box-shadow:0 30px 90px rgba(0,0,0,.6);display:none;flex-direction:column;overflow:hidden}
+.ww-chat.is-open{display:flex}
+.ww-chat-head{display:flex;align-items:center;gap:10px;padding:16px 18px;border-bottom:1px solid var(--line);background:var(--ink)}
+.ww-chat-head .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 10px var(--accent);animation:pulse 1.6s ease-in-out infinite;flex:0 0 auto}
+.ww-chat-head .t{font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--paper)}
+.ww-chat-head .t small{display:block;color:var(--smoke);letter-spacing:.08em;margin-top:2px}
+.ww-chat-head .x{margin-left:auto;width:28px;height:28px;border:1px solid var(--line-strong);border-radius:50%;color:var(--paper);display:flex;align-items:center;justify-content:center;font-size:16px;line-height:1;cursor:pointer;background:none}
+.ww-chat-head .x:hover{border-color:var(--paper)}
+.ww-msgs{flex:1;overflow-y:auto;padding:18px;display:flex;flex-direction:column;gap:12px}
+.ww-msg{max-width:84%;font-size:14px;line-height:1.5;padding:11px 14px;border:1px solid var(--line)}
+.ww-msg.bot{align-self:flex-start;background:var(--ink);color:var(--paper)}
+.ww-msg.user{align-self:flex-end;background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.ww-typing{align-self:flex-start;display:inline-flex;gap:5px;padding:13px 14px;border:1px solid var(--line);background:var(--ink)}
+.ww-typing span{width:6px;height:6px;border-radius:50%;background:var(--smoke);animation:wwbounce 1.2s infinite ease-in-out}
+.ww-typing span:nth-child(2){animation-delay:.15s}
+.ww-typing span:nth-child(3){animation-delay:.3s}
+@keyframes wwbounce{0%,80%,100%{transform:translateY(0);opacity:.4}40%{transform:translateY(-4px);opacity:1}}
+.ww-foot{border-top:1px solid var(--line);padding:12px;display:flex;gap:8px;background:var(--ink)}
+.ww-foot input{flex:1;background:var(--ink-2);border:1px solid var(--line-strong);color:var(--paper);font-family:var(--f-sans);font-size:14px;padding:11px 12px;outline:none}
+.ww-foot input:focus{border-color:var(--accent)}
+.ww-foot button{flex:0 0 auto;background:var(--accent);color:var(--accent-ink);border:none;padding:0 16px;font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
+.ww-foot button:disabled{opacity:.5;cursor:default}
+.ww-note{font-family:var(--f-mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--smoke);text-align:center;padding:0 0 10px;background:var(--ink)}
+@media(max-width:520px){.ww-chat{right:16px;left:16px;bottom:16px;width:auto;height:min(76vh,560px)}.ww-chat-launch{right:16px;bottom:16px}}
+</style>
+
+<button class="ww-chat-launch" id="wwLaunch" aria-label="Open AI chat assistant">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+  Ask AI
+</button>
+
+<section class="ww-chat" id="wwChat" aria-label="WizardWeb AI assistant" aria-live="polite">
+  <div class="ww-chat-head">
+    <span class="dot" aria-hidden="true"></span>
+    <div class="t">WizardWeb Assistant<small>AI demo &middot; ask us anything</small></div>
+    <button class="x" id="wwClose" aria-label="Close chat">&times;</button>
+  </div>
+  <div class="ww-msgs" id="wwMsgs"></div>
+  <div class="ww-foot">
+    <input id="wwInput" type="text" placeholder="Ask about sites, AI agents, pricing..." autocomplete="off" maxlength="500" aria-label="Type your message" />
+    <button id="wwSend" type="button">Send</button>
+  </div>
+  <div class="ww-note">This bot was built by WizardWeb</div>
+</section>
+
+<script>
+(function () {
+  var ENDPOINT = "https://wizardweb-chat.cwasylishen.workers.dev/chat";
+  var launch = document.getElementById("wwLaunch");
+  var panel = document.getElementById("wwChat");
+  var msgs = document.getElementById("wwMsgs");
+  var input = document.getElementById("wwInput");
+  var send = document.getElementById("wwSend");
+  var close = document.getElementById("wwClose");
+  if (!launch || !panel) return;
+
+  var history = [];
+  var seeded = false;
+  var busy = false;
+
+  function addMsg(text, who) {
+    var d = document.createElement("div");
+    d.className = "ww-msg " + who;
+    d.textContent = text;
+    msgs.appendChild(d);
+    msgs.scrollTop = msgs.scrollHeight;
+    return d;
+  }
+  function typing(on) {
+    var t = document.getElementById("wwTyping");
+    if (on && !t) {
+      t = document.createElement("div");
+      t.className = "ww-typing"; t.id = "wwTyping";
+      t.innerHTML = "<span></span><span></span><span></span>";
+      msgs.appendChild(t); msgs.scrollTop = msgs.scrollHeight;
+    } else if (!on && t) { t.remove(); }
+  }
+  function openPanel() {
+    panel.classList.add("is-open");
+    launch.classList.add("is-open");
+    if (!seeded) {
+      seeded = true;
+      addMsg("Hi, I'm the WizardWeb assistant, an AI built by the studio. Ask me about websites, AI chat or voice agents, pricing, or anything else. Or just say 'book a call'.", "bot");
+    }
+    setTimeout(function(){ input.focus(); }, 50);
+  }
+  function closePanel() {
+    panel.classList.remove("is-open");
+    launch.classList.remove("is-open");
+  }
+
+  async function sendMsg() {
+    var text = (input.value || "").trim();
+    if (!text || busy) return;
+    busy = true; send.disabled = true;
+    input.value = "";
+    addMsg(text, "user");
+    history.push({ role: "user", content: text });
+    typing(true);
+    try {
+      var res = await fetch(ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ messages: history.slice(-12) }),
+      });
+      var data = await res.json();
+      typing(false);
+      var reply = (data && data.reply) || "Sorry, something went wrong. Try again or email hello@wizardweb.ca.";
+      addMsg(reply, "bot");
+      history.push({ role: "assistant", content: reply });
+      if (data && data.action === "open_booking" && typeof window.wwOpenBooking === "function") {
+        setTimeout(function () {
+          addMsg("Opening the calendar so you can grab a time...", "bot");
+          window.wwOpenBooking();
+        }, 600);
+      }
+    } catch (e) {
+      typing(false);
+      addMsg("I could not reach the server just now. Email hello@wizardweb.ca or tap Book a call up top.", "bot");
+    }
+    busy = false; send.disabled = false;
+    input.focus();
+  }
+
+  launch.addEventListener("click", openPanel);
+  close.addEventListener("click", closePanel);
+  send.addEventListener("click", sendMsg);
+  input.addEventListener("keydown", function (e) { if (e.key === "Enter") { e.preventDefault(); sendMsg(); } });
+})();
+</script>
 </body>
 </html>
