@@ -160,5 +160,6 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--smoke);font-f
 </div></footer>
 
 <script>if(location.search.indexOf("ok=1")>-1){var o=document.getElementById("ok");if(o){o.style.display="block";o.scrollIntoView({behavior:"smooth"})}}</script>
+<script>(function(){fetch("https://app.wizardweb.ca/api/testimonials").then(function(r){return r.json()}).then(function(d){if(!d||!d.length)return;var esc=function(s){return String(s||"").replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c]})};var el=document.getElementById("tlist");if(!el)return;el.innerHTML=d.map(function(t){var st="★★★★★".slice(0,t.rating||5);return '<div class="tcard"><p style="color:var(--lime);font-size:14px;letter-spacing:3px;margin-bottom:10px">'+st+'</p><p>“'+esc(t.body)+'”</p><div class="who">'+esc(t.author||"Cliente")+' · '+esc(t.business_name)+'</div></div>'}).join("")}).catch(function(){})})();</script>
 </body>
 </html>
