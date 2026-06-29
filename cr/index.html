@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>WizardWeb — Sitios web rápidos y bilingües para negocios en Costa Rica</title>
+<meta name="description" content="Hacemos sitios web rápidos, bonitos y bilingües (español e inglés automático) para negocios en Costa Rica. Listos en pocos días. Tu negocio encontrado en Google y con clientes por WhatsApp." />
+<meta name="theme-color" content="#07080A" />
+<link rel="canonical" href="https://wizardweb.ca/cr/" />
+<meta property="og:title" content="WizardWeb — Sitios web para negocios en Costa Rica" />
+<meta property="og:description" content="Sitios rápidos y bilingües, listos en pocos días. Caso real: SULAB pasó a 96 visitas y 11 consultas por WhatsApp en su primera semana." />
+<meta property="og:locale" content="es_CR" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+:root{--ink:#07080A;--ink-2:#0E1014;--paper:#F2EFE7;--smoke:#8A8A82;--line:rgba(242,239,231,.10);--line-strong:rgba(242,239,231,.22);--accent:#B6FF5C;--accent-ink:#07080A;--f-display:"Instrument Serif",serif;--f-sans:"Space Grotesk",ui-sans-serif,system-ui,sans-serif;--f-mono:"JetBrains Mono",monospace;--gutter:clamp(20px,4vw,56px);--max:1200px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--ink);color:var(--paper);font-family:var(--f-sans);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:var(--accent);color:var(--accent-ink)}a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
+.container{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+.eyebrow{font-family:var(--f-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--smoke)}
+.eyebrow .dot{display:inline-block;width:6px;height:6px;background:var(--accent);border-radius:50%;margin-right:8px;box-shadow:0 0 10px var(--accent)}
+h1,h2,h3{font-family:var(--f-display);font-weight:400;line-height:1.05;letter-spacing:-.01em}
+h1{font-size:clamp(40px,7vw,84px);margin:.2em 0}h2{font-size:clamp(30px,5vw,52px);margin:0 0 .4em}h3{font-size:24px;margin:0 0 .3em}
+.lead{font-size:clamp(18px,2.4vw,22px);color:#d9d6cd;max-width:60ch}
+header{position:sticky;top:0;z-index:10;background:rgba(7,8,10,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;gap:22px;padding:16px 0}
+.nav .logo{font-family:var(--f-display);font-size:22px}.nav .logo b{color:var(--accent)}
+.nav .links{margin-left:auto;display:flex;gap:20px;font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.nav .links a:hover{color:var(--accent)}.nav .en{color:var(--smoke)}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 24px;border-radius:999px;font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;transition:transform .2s,background .2s}
+.btn-primary{background:var(--accent);color:var(--accent-ink)}.btn-primary:hover{transform:translateY(-1px)}
+.btn-ghost{border:1px solid var(--line-strong)}.btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+section{border-top:1px solid var(--line);padding:clamp(56px,9vw,110px) 0}
+.hero{padding-top:clamp(48px,7vw,90px)}
+.steps,.cards,.grid{display:grid;gap:20px}
+@media(min-width:760px){.steps,.cards{grid-template-columns:repeat(3,1fr)}.grid{grid-template-columns:repeat(3,1fr)}}
+.card{background:var(--ink-2);border:1px solid var(--line);border-radius:18px;padding:26px}
+.card .n{font-family:var(--f-mono);color:var(--accent);font-size:12px;letter-spacing:.14em}
+.price{display:flex;flex-direction:column}.price .amt{font-family:var(--f-display);font-size:46px;margin:.1em 0}
+.price ul{list-style:none;padding:0;margin:14px 0 0;color:#cfccc3;font-size:15px}.price li{padding:6px 0;border-top:1px solid var(--line)}
+.price .tag{font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--smoke)}
+.case{background:linear-gradient(120deg,rgba(182,255,92,.10),transparent);border:1px solid var(--line-strong);border-radius:22px;padding:clamp(28px,5vw,52px)}
+.stats{display:flex;flex-wrap:wrap;gap:34px;margin-top:18px}
+.stat .big{font-family:var(--f-display);font-size:clamp(40px,6vw,64px);color:var(--accent);line-height:1}
+.stat small{display:block;color:var(--smoke);font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;margin-top:6px}
+.work{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--ink-2)}
+.work img{aspect-ratio:16/10;object-fit:cover;width:100%;transition:transform .4s}.work:hover img{transform:scale(1.04)}
+.work .meta{padding:16px 18px;display:flex;justify-content:space-between;align-items:center}
+.work .meta b{font-family:var(--f-display);font-size:20px;font-weight:400}.work .meta span{font-family:var(--f-mono);font-size:11px;color:var(--accent)}
+.work.sulab{display:flex;flex-direction:column;justify-content:center;background:linear-gradient(140deg,rgba(182,255,92,.14),var(--ink-2));min-height:240px;padding:24px}
+.tcard{background:var(--ink-2);border:1px solid var(--line);border-radius:18px;padding:24px}.tcard p{font-family:var(--f-display);font-size:21px;line-height:1.35}.tcard .who{font-family:var(--f-mono);font-size:11px;color:var(--smoke);letter-spacing:.1em;text-transform:uppercase;margin-top:12px}
+form{display:grid;gap:14px;max-width:560px}label{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--smoke)}
+input,textarea{width:100%;padding:13px 15px;background:var(--ink-2);border:1px solid var(--line-strong);border-radius:12px;color:var(--paper);font:inherit;font-size:16px}
+textarea{min-height:110px;resize:vertical}.hp{position:absolute;left:-9999px}
+.ok{background:rgba(182,255,92,.12);border:1px solid var(--accent);border-radius:12px;padding:14px 18px;margin-bottom:18px;display:none}
+footer{border-top:1px solid var(--line);padding:40px 0;color:var(--smoke);font-family:var(--f-mono);font-size:12px;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
+.muted{color:var(--smoke)}
+</style>
+</head>
+<body>
+<header><div class="container nav">
+<a class="logo" href="/cr/">Wizard<b>Web</b></a>
+<nav class="links">
+<a href="#como">Cómo</a><a href="#precios">Precios</a><a href="#ejemplos">Ejemplos</a><a href="#contacto">Contacto</a>
+<a class="en" href="/?en=1">EN</a>
+</nav></div></header>
+
+<section class="hero"><div class="container">
+<p class="eyebrow"><span class="dot"></span>Costa Rica · Sitios web</p>
+<h1>Tu negocio merece<br>una web que trabaje.</h1>
+<p class="lead">Hacemos sitios rápidos, bonitos y <b>bilingües (español e inglés automático)</b> para negocios en Costa Rica. Listos en pocos días, optimizados para Google y para que te escriban por WhatsApp.</p>
+<div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:30px">
+<a class="btn btn-primary" href="#contacto">Quiero mi sitio →</a>
+<a class="btn btn-ghost" href="#ejemplos">Ver ejemplos</a>
+</div>
+</div></section>
+
+<section id="como"><div class="container">
+<p class="eyebrow"><span class="dot"></span>Cómo funciona</p>
+<h2>De cero a en línea, sin complicaciones.</h2>
+<div class="steps" style="margin-top:30px">
+<div class="card"><div class="n">01</div><h3>Contanos</h3><p class="muted">Nos decís de tu negocio y nos mandás tu logo, fotos y lo que querés mostrar. Te guiamos.</p></div>
+<div class="card"><div class="n">02</div><h3>Lo construimos</h3><p class="muted">Tu primer borrador listo en <b>3 días hábiles o menos</b>. Lo revisás y ajustamos a tu gusto.</p></div>
+<div class="card"><div class="n">03</div><h3>Sale en vivo</h3><p class="muted">Lo lanzamos con dominio, certificado de seguridad y correos. Tu web trabajando para vos.</p></div>
+</div>
+</div></section>
+
+<section id="precios"><div class="container">
+<p class="eyebrow"><span class="dot"></span>Precios</p>
+<h2>Claro y sin sorpresas.</h2>
+<div class="cards" style="margin-top:30px">
+<div class="card price"><span class="tag">Una página</span><div class="amt">$397</div>
+<ul><li>Diseño profesional a tu marca</li><li>Español e inglés automático</li><li>Optimizado para Google (SEO)</li><li>1 año de hosting incluido</li><li>Listo en pocos días</li></ul></div>
+<div class="card price" style="border-color:var(--line-strong)"><span class="tag">Premium · hasta 5 páginas</span><div class="amt">$497</div>
+<ul><li>Todo lo de una página</li><li>Hasta 5 secciones/páginas</li><li>Galería, servicios, blog</li><li>Ideal para más contenido</li></ul></div>
+<div class="card price"><span class="tag">Planes mensuales</span><div class="amt">$50–100<span style="font-size:18px">/mes</span></div>
+<ul><li>$50: mantenimiento + chatbot IA</li><li>$100: SEO + artículos cada semana</li><li>Chatbot bilingüe con WhatsApp</li><li>Reservas en línea (cal.com)</li></ul></div>
+</div>
+<p class="muted" style="margin-top:18px;font-size:14px">Sitios más grandes, tienda en línea o funciones a medida: cotización aparte.</p>
+</div></section>
+
+<section><div class="container">
+<div class="case">
+<p class="eyebrow"><span class="dot"></span>Caso real · SULAB Laboratorio Clínico</p>
+<h2 style="margin-top:10px">De cero presencia a clientes reales en una semana.</h2>
+<p class="lead">A SULAB, un laboratorio clínico en San Isidro, le hicimos su sitio bilingüe. Esto pasó en su <b>primera semana en línea</b>:</p>
+<div class="stats">
+<div class="stat"><div class="big">96</div><small>Visitantes únicos</small></div>
+<div class="stat"><div class="big">11</div><small>Consultas por WhatsApp</small></div>
+<div class="stat"><div class="big">7</div><small>Días</small></div>
+</div>
+<div style="margin-top:26px"><a class="btn btn-ghost" href="https://sulabcr.com" target="_blank" rel="noopener">Ver sulabcr.com →</a></div>
+</div>
+</div></section>
+
+<section id="ejemplos"><div class="container">
+<p class="eyebrow"><span class="dot"></span>Ejemplos</p>
+<h2>Sitios que ya están en vivo.</h2>
+<div class="grid" style="margin-top:30px">
+<a class="work sulab" href="https://sulabcr.com" target="_blank" rel="noopener">
+<div class="n eyebrow" style="color:var(--accent)">Laboratorio · CR</div>
+<b style="font-family:var(--f-display);font-size:28px;display:block;margin:8px 0">SULAB</b>
+<p class="muted" style="margin:0">96 visitas y 11 consultas por WhatsApp en su primera semana. Bilingüe.</p>
+<span style="font-family:var(--f-mono);font-size:11px;color:var(--accent);margin-top:14px">sulabcr.com →</span></a>
+<a class="work" href="https://airbornearts.com" target="_blank" rel="noopener"><img src="/assets/images/airborne-arts-desktop.jpg" alt="Airborne Arts" loading="lazy"><div class="meta"><b>Airborne Arts</b><span>airbornearts.com →</span></div></a>
+<a class="work" href="https://gokilimanjarotreks.com" target="_blank" rel="noopener"><img src="/assets/images/gokilimanjaro-desktop.jpg" alt="Go Kilimanjaro Treks" loading="lazy"><div class="meta"><b>Go Kilimanjaro</b><span>gokilimanjarotreks.com →</span></div></a>
+</div>
+</div></section>
+
+<section id="testimonios"><div class="container">
+<p class="eyebrow"><span class="dot"></span>Testimonios</p>
+<h2>Lo que dicen nuestros clientes.</h2>
+<div class="cards" style="margin-top:30px" id="tlist">
+<div class="tcard"><p>“Quedó hermoso y rápido. Empezamos a recibir consultas por WhatsApp casi de inmediato.”</p><div class="who">Cliente · SULAB, San Isidro</div></div>
+<div class="tcard muted"><p style="color:var(--smoke)">Tu testimonio aquí. Estamos sumando reseñas de clientes recientes.</p><div class="who">Próximamente</div></div>
+</div>
+</div></section>
+
+<section id="contacto"><div class="container">
+<p class="eyebrow"><span class="dot"></span>Contacto</p>
+<h2>Hablemos de tu sitio.</h2>
+<p class="lead" style="margin-bottom:24px">Dejanos tus datos y te contactamos con ejemplos, sin compromiso.</p>
+<div class="ok" id="ok">¡Gracias! Te contactamos pronto. 🙌</div>
+<form method="POST" action="https://app.wizardweb.ca/api/lead-capture">
+<input class="hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+<div><label>Tu nombre</label><input name="name" required></div>
+<div><label>Nombre del negocio</label><input name="business"></div>
+<div><label>Correo</label><input type="email" name="email" required></div>
+<div><label>WhatsApp / teléfono</label><input name="phone"></div>
+<div><label>¿Qué necesitás?</label><textarea name="message" placeholder="Contanos brevemente sobre tu negocio"></textarea></div>
+<button class="btn btn-primary" type="submit">Enviar →</button>
+</form>
+</div></section>
+
+<footer><div class="container" style="display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;width:100%">
+<span>Construido y alojado por <a href="https://wizardweb.ca" style="color:var(--paper)">wizardweb.ca</a></span>
+<span><a href="mailto:hello@wizardweb.ca">hello@wizardweb.ca</a> · Costa Rica</span>
+</div></footer>
+
+<script>if(location.search.indexOf("ok=1")>-1){var o=document.getElementById("ok");if(o){o.style.display="block";o.scrollIntoView({behavior:"smooth"})}}</script>
+</body>
+</html>
