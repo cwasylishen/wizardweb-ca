@@ -1084,7 +1084,8 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   <nav class="nav-links" aria-label="Primary">
     <a href="work.html">Work</a>
     <a href="#services">Services</a>
-    <a href="#ai">AI</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#audit">Free audit</a>
     <a href="#faq">FAQ</a>
   </nav>
   <a class="nav-cta" href="#" data-cal-link="clintonw/website-launch-strategy-call" data-cal-namespace="strategy-call" data-cal-config='{"layout":"month_view","theme":"dark"}'>Start a project</a>
@@ -1624,6 +1625,57 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 </section>
 
 <!-- ───────────── CLOSING CTA ───────────── -->
+<section class="section" id="pricing">
+  <div class="section-head" data-reveal>
+    <div>
+      <div class="eyebrow"><span class="dot"></span>Pricing</div>
+      <h2>Clear prices.<br/>No <em>surprises.</em></h2>
+    </div>
+    <div class="meta">One-time build + optional care<br/><span style="color:var(--paper)">Custom quotes for bigger builds</span></div>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px;margin-top:34px" data-reveal>
+    <div style="background:var(--ink-2);border:1px solid var(--line);border-radius:18px;padding:26px">
+      <div style="font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--smoke)">One page</div>
+      <div style="font-family:var(--f-display);font-size:44px;line-height:1;margin:10px 0">$397</div>
+      <p style="color:#cfccc3;font-size:14px;margin:0">A fast, polished one-page site. Includes 1 year of hosting, then $100/yr.</p>
+    </div>
+    <div style="background:var(--ink-2);border:1px solid var(--line);border-radius:18px;padding:26px">
+      <div style="font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--smoke)">Premium · up to 5 pages</div>
+      <div style="font-family:var(--f-display);font-size:44px;line-height:1;margin:10px 0">$497</div>
+      <p style="color:#cfccc3;font-size:14px;margin:0">More room to tell your story, services, gallery, about, contact.</p>
+    </div>
+    <div style="background:linear-gradient(140deg,rgba(182,255,92,.12),var(--ink-2));border:1px solid var(--line-strong);border-radius:18px;padding:26px">
+      <div style="font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)">Custom · e-commerce</div>
+      <div style="font-family:var(--f-display);font-size:40px;line-height:1;margin:10px 0">From $1,000</div>
+      <p style="color:#cfccc3;font-size:14px;margin:0">Online stores, carts, inventory, booking, 5+ pages. Built to spec. Hosting $50/mo (database + backups).</p>
+    </div>
+    <div style="background:var(--ink-2);border:1px solid var(--line);border-radius:18px;padding:26px">
+      <div style="font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--smoke)">Care + AI · monthly</div>
+      <div style="font-family:var(--f-display);font-size:40px;line-height:1;margin:10px 0">$50&ndash;$100</div>
+      <p style="color:#cfccc3;font-size:14px;margin:0">$50/mo care + an AI chatbot like this one. $100/mo adds SEO with 3 articles a week.</p>
+    </div>
+  </div>
+  <p style="font-family:var(--f-mono);font-size:12px;color:var(--smoke);margin-top:18px" data-reveal>$100 deposit to start &middot; first draft in 3 business days &middot; bilingual (EN/ES) included.</p>
+</section>
+
+<section class="section" id="audit">
+  <div class="cta-inner" data-reveal style="text-align:center;max-width:680px;margin:0 auto">
+    <div class="eyebrow" style="justify-content:center"><span class="dot"></span>Free audit</div>
+    <h2>Get a free <em>audit</em> of your online presence.</h2>
+    <p>Drop your email and we'll show you exactly what's costing you customers and how to fix it, fast. No spam, ever, just one genuinely useful follow-up.</p>
+    <form method="POST" action="https://app.wizardweb.ca/api/audit-request" style="display:grid;gap:12px;max-width:420px;margin:26px auto 0;text-align:left">
+      <input type="hidden" name="lang" value="en">
+      <input type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px">
+      <input name="email" type="email" required placeholder="Your email (required)">
+      <input name="phone" placeholder="Phone / WhatsApp (optional)">
+      <input name="website" placeholder="Current website, if any (optional)">
+      <input name="business" placeholder="Business name (optional)">
+      <button type="submit" style="background:var(--accent);color:var(--accent-ink);border:0;border-radius:999px;padding:15px 22px;font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;cursor:pointer">Send me my free audit ↗</button>
+      <span style="font-family:var(--f-mono);font-size:11px;color:var(--smoke);text-align:center">We never spam. One helpful follow-up, that's it.</span>
+    </form>
+  </div>
+</section>
+
 <section class="section cta" id="contact">
   <div class="cta-inner" data-reveal>
     <div class="eyebrow"><span class="dot"></span>Available for 2 projects in Q3</div>
@@ -2155,5 +2207,65 @@ window.wwOpenBooking = function () {
 })();
 </script>
 
+<style>
+.ww-chat-launch{display:none!important}
+#wzc-launch{position:fixed;right:20px;bottom:20px;z-index:9998;width:60px;height:60px;border-radius:50%;background:var(--accent);color:var(--accent-ink);border:0;font-size:27px;cursor:pointer;box-shadow:0 10px 30px rgba(0,0,0,.45);display:flex;align-items:center;justify-content:center;transition:transform .15s}
+#wzc-launch:hover{transform:scale(1.07)}
+#wzc{position:fixed;right:20px;bottom:20px;z-index:9999;width:374px;max-width:calc(100vw - 28px);height:560px;max-height:calc(100vh - 36px);background:var(--ink-2);border:1px solid var(--line-strong);border-radius:20px;display:none;flex-direction:column;overflow:hidden;box-shadow:0 24px 64px rgba(0,0,0,.55)}
+#wzc.open{display:flex}
+.wzc-head{padding:15px 18px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:10px}
+.wzc-head b{font-family:var(--f-sans);font-size:15px;display:block}
+.wzc-head small{color:var(--smoke);font-family:var(--f-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase}
+.wzc-x{margin-left:auto;background:none;border:0;color:var(--smoke);font-size:24px;cursor:pointer;line-height:1}
+.wzc-msgs{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px}
+.wzc-b{max-width:84%;padding:10px 13px;border-radius:14px;font-size:14.5px;line-height:1.45;white-space:pre-wrap;word-wrap:break-word}
+.wzc-b.bot{background:rgba(242,239,231,.06);border:1px solid var(--line);align-self:flex-start;border-bottom-left-radius:4px}
+.wzc-b.me{background:var(--accent);color:var(--accent-ink);align-self:flex-end;border-bottom-right-radius:4px;font-weight:500}
+.wzc-typ{align-self:flex-start;color:var(--smoke);font-size:13px;font-style:italic;padding:2px 6px}
+.wzc-cta{display:flex;gap:8px;margin:0 14px 8px}
+.wzc-cta a,.wzc-cta button{flex:1;display:flex;align-items:center;justify-content:center;gap:6px;padding:10px;border-radius:12px;text-decoration:none;font-weight:700;font-size:13px;font-family:var(--f-sans);cursor:pointer;border:0}
+.wzc-wa{background:#25D366;color:#06310f}
+.wzc-aud{background:var(--accent);color:var(--accent-ink)}
+.wzc-foot{padding:11px 12px;border-top:1px solid var(--line);display:flex;gap:8px}
+.wzc-foot input{flex:1;padding:11px 13px;border-radius:12px;border:1px solid var(--line-strong);background:var(--ink);color:var(--paper);font:inherit;font-size:15px}
+.wzc-foot button{padding:0 17px;border:0;border-radius:12px;background:var(--accent);color:var(--accent-ink);font-weight:700;font-family:var(--f-sans);cursor:pointer}
+</style>
+<button id="wzc-launch" aria-label="Open chat">🪄</button>
+<div id="wzc" role="dialog" aria-label="WizardWeb Assistant">
+  <div class="wzc-head"><div><b>WizardWeb Assistant</b><small>Replies instantly</small></div><button class="wzc-x" aria-label="Close">×</button></div>
+  <div class="wzc-msgs" id="wzc-msgs"></div>
+  <div class="wzc-cta">
+    <button class="wzc-aud" id="wzc-audit" type="button">📊 Free audit</button>
+    <a class="wzc-wa" target="_blank" rel="noopener" href="https://wa.me/50670130653?text=Hi%2C%20I%20saw%20your%20site%20and%20want%20info%20about%20a%20website.">💬 WhatsApp</a>
+  </div>
+  <div class="wzc-foot"><input id="wzc-in" placeholder="Ask a question..." autocomplete="off"><button id="wzc-send">Send</button></div>
+</div>
+<script>
+(function(){
+  var API="https://app.wizardweb.ca/api/chat",LANG="en",hist=[],busy=false;
+  var box=document.getElementById("wzc"),msgs=document.getElementById("wzc-msgs"),input=document.getElementById("wzc-in"),launch=document.getElementById("wzc-launch");
+  function esc(s){return String(s||"").replace(/[&<>]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;"}[c]})}
+  function add(role,text){var d=document.createElement("div");d.className="wzc-b "+(role==="me"?"me":"bot");d.innerHTML=esc(text);msgs.appendChild(d);msgs.scrollTop=msgs.scrollHeight}
+  function open(){box.classList.add("open");launch.style.display="none";if(!hist.length)add("bot","Hi! I'm Mago 🪄, the WizardWeb assistant. Ask me anything about your new website: prices, timelines, a free audit, whatever you need.");setTimeout(function(){input.focus()},50)}
+  function close(){box.classList.remove("open");launch.style.display="flex"}
+  async function send(){
+    var v=input.value.trim();if(!v||busy)return;
+    input.value="";add("me",v);hist.push({role:"user",content:v});busy=true;
+    var typ=document.createElement("div");typ.className="wzc-typ";typ.textContent="typing…";msgs.appendChild(typ);msgs.scrollTop=msgs.scrollHeight;
+    try{
+      var r=await fetch(API,{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({lang:LANG,messages:hist})});
+      var j=await r.json();typ.remove();
+      var reply=j.reply||"Sorry, I couldn't reply right now. Try WhatsApp and we'll help.";
+      add("bot",reply);hist.push({role:"assistant",content:reply});
+    }catch(e){typ.remove();add("bot","Connection issue. Message us on WhatsApp and we'll help.")}
+    busy=false;
+  }
+  launch.onclick=open;
+  box.querySelector(".wzc-x").onclick=close;
+  document.getElementById("wzc-send").onclick=send;
+  document.getElementById("wzc-audit").onclick=function(){close();var a=document.getElementById("audit");if(a)a.scrollIntoView({behavior:"smooth"})};
+  input.addEventListener("keydown",function(e){if(e.key==="Enter"){e.preventDefault();send()}});
+})();
+</script>
 </body>
 </html>

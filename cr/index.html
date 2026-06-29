@@ -63,7 +63,7 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--smoke);font-f
 <header><div class="container nav">
 <a class="logo" href="/cr/">Wizard<b>Web</b></a>
 <nav class="links">
-<a href="#como">Cómo</a><a href="#precios">Precios</a><a href="#ejemplos">Ejemplos</a><a href="#contacto">Contacto</a>
+<a href="#como">Cómo</a><a href="#precios">Precios</a><a href="#ejemplos">Ejemplos</a><a href="#audit">Análisis gratis</a><a href="#contacto">Contacto</a>
 <a class="en" href="/?en=1">EN</a>
 </nav></div></header>
 
@@ -138,6 +138,22 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--smoke);font-f
 </div>
 </div></section>
 
+<section id="audit"><div class="container">
+<p class="eyebrow"><span class="dot"></span>Análisis gratis</p>
+<h2>Recibí un análisis gratis de tu presencia en línea.</h2>
+<p class="lead" style="margin-bottom:24px">Dejanos tu correo y te mostramos qué te está costando clientes y cómo arreglarlo, rápido. Nada de spam, solo un seguimiento útil.</p>
+<form method="POST" action="https://app.wizardweb.ca/api/audit-request">
+<input type="hidden" name="lang" value="es">
+<input class="hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+<div><label>Correo (obligatorio)</label><input type="email" name="email" required></div>
+<div><label>WhatsApp / teléfono (opcional)</label><input name="phone"></div>
+<div><label>Tu sitio web actual, si tenés (opcional)</label><input name="website" placeholder="https://..."></div>
+<div><label>Nombre del negocio (opcional)</label><input name="business"></div>
+<button class="btn btn-primary" type="submit">Quiero mi análisis gratis →</button>
+<p style="font-family:var(--f-mono);font-size:12px;color:var(--smoke);margin-top:6px">Nunca enviamos spam. Un solo seguimiento para ayudarte.</p>
+</form>
+</div></section>
+
 <section id="contacto"><div class="container">
 <p class="eyebrow"><span class="dot"></span>Contacto</p>
 <h2>Hablemos de tu sitio.</h2>
@@ -175,7 +191,10 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--smoke);font-f
 .wzc-b.bot{background:rgba(242,239,231,.06);border:1px solid var(--line);align-self:flex-start;border-bottom-left-radius:4px}
 .wzc-b.me{background:var(--accent);color:var(--accent-ink);align-self:flex-end;border-bottom-right-radius:4px;font-weight:500}
 .wzc-typ{align-self:flex-start;color:var(--smoke);font-size:13px;font-style:italic;padding:2px 6px}
-.wzc-wa{display:flex;align-items:center;justify-content:center;gap:8px;margin:0 14px 8px;padding:11px;background:#25D366;color:#06310f;border-radius:12px;text-decoration:none;font-weight:700;font-size:14px;font-family:var(--f-sans)}
+.wzc-cta{display:flex;gap:8px;margin:0 14px 8px}
+.wzc-cta a,.wzc-cta button{flex:1;display:flex;align-items:center;justify-content:center;gap:6px;padding:10px;border-radius:12px;text-decoration:none;font-weight:700;font-size:13px;font-family:var(--f-sans);cursor:pointer;border:0}
+.wzc-wa{background:#25D366;color:#06310f}
+.wzc-aud{background:var(--accent);color:var(--accent-ink)}
 .wzc-foot{padding:11px 12px;border-top:1px solid var(--line);display:flex;gap:8px}
 .wzc-foot input{flex:1;padding:11px 13px;border-radius:12px;border:1px solid var(--line-strong);background:var(--ink);color:var(--paper);font:inherit;font-size:15px}
 .wzc-foot button{padding:0 17px;border:0;border-radius:12px;background:var(--accent);color:var(--accent-ink);font-weight:700;font-family:var(--f-sans);cursor:pointer}
@@ -184,7 +203,10 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--smoke);font-f
 <div id="wzc" role="dialog" aria-label="Asistente WizardWeb">
   <div class="wzc-head"><div><b>Asistente WizardWeb</b><small>Responde al instante</small></div><button class="wzc-x" aria-label="Cerrar">×</button></div>
   <div class="wzc-msgs" id="wzc-msgs"></div>
-  <a class="wzc-wa" target="_blank" rel="noopener" href="https://wa.me/50670130653?text=Hola%2C%20vi%20su%20sitio%20y%20quiero%20informaci%C3%B3n%20sobre%20un%20sitio%20web.">💬 Hablar por WhatsApp</a>
+  <div class="wzc-cta">
+    <button class="wzc-aud" id="wzc-audit" type="button">📊 Análisis gratis</button>
+    <a class="wzc-wa" target="_blank" rel="noopener" href="https://wa.me/50670130653?text=Hola%2C%20vi%20su%20sitio%20y%20quiero%20informaci%C3%B3n%20sobre%20un%20sitio%20web.">💬 WhatsApp</a>
+  </div>
   <div class="wzc-foot"><input id="wzc-in" placeholder="Escribí tu pregunta..." autocomplete="off"><button id="wzc-send">Enviar</button></div>
 </div>
 <script>
@@ -210,6 +232,7 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--smoke);font-f
   launch.onclick=open;
   box.querySelector(".wzc-x").onclick=close;
   document.getElementById("wzc-send").onclick=send;
+  document.getElementById("wzc-audit").onclick=function(){close();var a=document.getElementById("audit");if(a)a.scrollIntoView({behavior:"smooth"})};
   input.addEventListener("keydown",function(e){if(e.key==="Enter"){e.preventDefault();send()}});
 })();
 </script>
