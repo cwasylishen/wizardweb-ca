@@ -161,5 +161,57 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--smoke);font-f
 
 <script>if(location.search.indexOf("ok=1")>-1){var o=document.getElementById("ok");if(o){o.style.display="block";o.scrollIntoView({behavior:"smooth"})}}</script>
 <script>(function(){fetch("https://app.wizardweb.ca/api/testimonials").then(function(r){return r.json()}).then(function(d){if(!d||!d.length)return;var esc=function(s){return String(s||"").replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c]})};var el=document.getElementById("tlist");if(!el)return;el.innerHTML=d.map(function(t){var st="★★★★★".slice(0,t.rating||5);return '<div class="tcard"><p style="color:var(--lime);font-size:14px;letter-spacing:3px;margin-bottom:10px">'+st+'</p><p>“'+esc(t.body)+'”</p><div class="who">'+esc(t.author||"Cliente")+' · '+esc(t.business_name)+'</div></div>'}).join("")}).catch(function(){})})();</script>
+<style>
+#wzc-launch{position:fixed;right:20px;bottom:20px;z-index:60;width:60px;height:60px;border-radius:50%;background:var(--accent);color:var(--accent-ink);border:0;font-size:27px;cursor:pointer;box-shadow:0 10px 30px rgba(0,0,0,.45);display:flex;align-items:center;justify-content:center;transition:transform .15s}
+#wzc-launch:hover{transform:scale(1.07)}
+#wzc{position:fixed;right:20px;bottom:20px;z-index:61;width:374px;max-width:calc(100vw - 28px);height:560px;max-height:calc(100vh - 36px);background:var(--ink-2);border:1px solid var(--line-strong);border-radius:20px;display:none;flex-direction:column;overflow:hidden;box-shadow:0 24px 64px rgba(0,0,0,.55)}
+#wzc.open{display:flex}
+.wzc-head{padding:15px 18px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:10px}
+.wzc-head b{font-family:var(--f-sans);font-size:15px;display:block}
+.wzc-head small{color:var(--smoke);font-family:var(--f-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase}
+.wzc-x{margin-left:auto;background:none;border:0;color:var(--smoke);font-size:24px;cursor:pointer;line-height:1}
+.wzc-msgs{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px}
+.wzc-b{max-width:84%;padding:10px 13px;border-radius:14px;font-size:14.5px;line-height:1.45;white-space:pre-wrap;word-wrap:break-word}
+.wzc-b.bot{background:rgba(242,239,231,.06);border:1px solid var(--line);align-self:flex-start;border-bottom-left-radius:4px}
+.wzc-b.me{background:var(--accent);color:var(--accent-ink);align-self:flex-end;border-bottom-right-radius:4px;font-weight:500}
+.wzc-typ{align-self:flex-start;color:var(--smoke);font-size:13px;font-style:italic;padding:2px 6px}
+.wzc-wa{display:flex;align-items:center;justify-content:center;gap:8px;margin:0 14px 8px;padding:11px;background:#25D366;color:#06310f;border-radius:12px;text-decoration:none;font-weight:700;font-size:14px;font-family:var(--f-sans)}
+.wzc-foot{padding:11px 12px;border-top:1px solid var(--line);display:flex;gap:8px}
+.wzc-foot input{flex:1;padding:11px 13px;border-radius:12px;border:1px solid var(--line-strong);background:var(--ink);color:var(--paper);font:inherit;font-size:15px}
+.wzc-foot button{padding:0 17px;border:0;border-radius:12px;background:var(--accent);color:var(--accent-ink);font-weight:700;font-family:var(--f-sans);cursor:pointer}
+</style>
+<button id="wzc-launch" aria-label="Abrir chat">🪄</button>
+<div id="wzc" role="dialog" aria-label="Asistente WizardWeb">
+  <div class="wzc-head"><div><b>Asistente WizardWeb</b><small>Responde al instante</small></div><button class="wzc-x" aria-label="Cerrar">×</button></div>
+  <div class="wzc-msgs" id="wzc-msgs"></div>
+  <a class="wzc-wa" target="_blank" rel="noopener" href="https://wa.me/50670130653?text=Hola%2C%20vi%20su%20sitio%20y%20quiero%20informaci%C3%B3n%20sobre%20un%20sitio%20web.">💬 Hablar por WhatsApp</a>
+  <div class="wzc-foot"><input id="wzc-in" placeholder="Escribí tu pregunta..." autocomplete="off"><button id="wzc-send">Enviar</button></div>
+</div>
+<script>
+(function(){
+  var API="https://app.wizardweb.ca/api/chat",hist=[],busy=false;
+  var box=document.getElementById("wzc"),msgs=document.getElementById("wzc-msgs"),input=document.getElementById("wzc-in"),launch=document.getElementById("wzc-launch");
+  function esc(s){return String(s||"").replace(/[&<>]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;"}[c]})}
+  function add(role,text){var d=document.createElement("div");d.className="wzc-b "+(role==="me"?"me":"bot");d.innerHTML=esc(text);msgs.appendChild(d);msgs.scrollTop=msgs.scrollHeight}
+  function open(){box.classList.add("open");launch.style.display="none";if(!hist.length)add("bot","¡Hola! Soy Mago 🪄, el asistente de WizardWeb. Preguntame lo que querás sobre tu nuevo sitio web: precios, tiempos, ejemplos, lo que sea.");setTimeout(function(){input.focus()},50)}
+  function close(){box.classList.remove("open");launch.style.display="flex"}
+  async function send(){
+    var v=input.value.trim();if(!v||busy)return;
+    input.value="";add("me",v);hist.push({role:"user",content:v});busy=true;
+    var typ=document.createElement("div");typ.className="wzc-typ";typ.textContent="escribiendo…";msgs.appendChild(typ);msgs.scrollTop=msgs.scrollHeight;
+    try{
+      var r=await fetch(API,{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({messages:hist})});
+      var j=await r.json();typ.remove();
+      var reply=j.reply||"Disculpá, no pude responder ahora. Probá por WhatsApp y con gusto te atendemos.";
+      add("bot",reply);hist.push({role:"assistant",content:reply});
+    }catch(e){typ.remove();add("bot","Hubo un problema de conexión. Escribinos por WhatsApp y con gusto te ayudamos.")}
+    busy=false;
+  }
+  launch.onclick=open;
+  box.querySelector(".wzc-x").onclick=close;
+  document.getElementById("wzc-send").onclick=send;
+  input.addEventListener("keydown",function(e){if(e.key==="Enter"){e.preventDefault();send()}});
+})();
+</script>
 </body>
 </html>
