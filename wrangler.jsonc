@@ -1,0 +1,25 @@
+// wizardweb.ca — assets-only Worker (no main module, no bindings).
+// Reconstructed 2026-08-13 from live worker settings:
+//   GET /accounts/{a}/workers/scripts/wizardweb-ca/settings -> bindings: [], no compat flags
+//   content/v2 -> 204 (has_assets: true, has_modules: false)
+// Assets root is the repo root; .assetsignore excludes git/config/*.md files.
+// Custom domain: wizardweb.ca (app.wizardweb.ca is a DIFFERENT worker, wizardweb-intake).
+{
+  "name": "wizardweb-ca",
+  "compatibility_date": "2026-08-13",
+  "assets": {
+    "directory": "."
+  },
+  "routes": [
+    { "pattern": "wizardweb.ca", "custom_domain": true }
+  ],
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 1,
+    "logs": {
+      "enabled": true,
+      "head_sampling_rate": 1,
+      "invocation_logs": true
+    }
+  }
+}
