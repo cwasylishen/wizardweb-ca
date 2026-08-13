@@ -24,11 +24,16 @@
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="apple-touch-icon" href="/favicon.svg" />
 
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="preload" href="/assets/fonts/instrument-serif-400.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="/assets/fonts/space-grotesk-var.woff2" as="font" type="font/woff2" crossorigin />
 
 <style>
+/* self-hosted fonts (latin subsets) */
+@font-face { font-family: "Instrument Serif"; font-style: normal; font-weight: 400; font-display: swap; src: url(/assets/fonts/instrument-serif-400.woff2) format("woff2"); }
+@font-face { font-family: "Instrument Serif"; font-style: italic; font-weight: 400; font-display: swap; src: url(/assets/fonts/instrument-serif-400italic.woff2) format("woff2"); }
+@font-face { font-family: "Space Grotesk"; font-style: normal; font-weight: 300 700; font-display: swap; src: url(/assets/fonts/space-grotesk-var.woff2) format("woff2"); }
+@font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 100 800; font-display: swap; src: url(/assets/fonts/jetbrains-mono-var.woff2) format("woff2"); }
+
 :root {
   --ink:        #07080A;
   --ink-2:      #0E1014;
@@ -759,7 +764,7 @@ input:focus-visible, textarea:focus-visible {
     <a class="p-shot" href="https://airbornearts.com" target="_blank" rel="noopener" aria-label="Visit Airborne Arts">
       <span class="tag">Hospitality &middot; Retreat</span>
       <span class="num">№ 01 / Featured</span>
-      <img src="/assets/images/airborne-arts-desktop.jpg" alt="Airborne Arts Costa Rica website" loading="lazy" />
+      <picture><source type="image/avif" srcset="/assets/images/airborne-arts-desktop-800.avif" /><source type="image/webp" srcset="/assets/images/airborne-arts-desktop-800.webp" /><img src="/assets/images/airborne-arts-desktop.jpg" width="1400" height="900" alt="Airborne Arts Costa Rica website" loading="lazy" /></picture>
       <span class="view">Visit live →</span>
     </a>
     <div class="p-copy">
@@ -787,7 +792,7 @@ input:focus-visible, textarea:focus-visible {
     <a class="p-shot" href="https://gokilimanjarotreks.com" target="_blank" rel="noopener" aria-label="Visit Go Kilimanjaro Treks">
       <span class="tag">Tour Operator &middot; Tanzania</span>
       <span class="num">№ 02</span>
-      <img src="/assets/images/gokilimanjaro-desktop.jpg" alt="Go Kilimanjaro Treks website built by WizardWeb featuring Kilimanjaro climbs and Tanzania safaris" loading="lazy" />
+      <picture><source type="image/avif" srcset="/assets/images/gokilimanjaro-desktop-800.avif" /><source type="image/webp" srcset="/assets/images/gokilimanjaro-desktop-800.webp" /><img src="/assets/images/gokilimanjaro-desktop.jpg" width="1440" height="900" alt="Go Kilimanjaro Treks website built by WizardWeb featuring Kilimanjaro climbs and Tanzania safaris" loading="lazy" /></picture>
       <span class="view">Visit live →</span>
     </a>
     <div class="p-copy">
@@ -815,7 +820,7 @@ input:focus-visible, textarea:focus-visible {
     <a class="p-shot" href="https://alpinedrywallcalgary.com" target="_blank" rel="noopener" aria-label="Visit Alpine Drywall">
       <span class="tag">Trades &middot; Calgary</span>
       <span class="num">№ 03</span>
-      <img src="/assets/images/alpine-drywall-desktop.jpg" alt="Alpine Drywall Calgary website" loading="lazy" />
+      <picture><source type="image/avif" srcset="/assets/images/alpine-drywall-desktop-800.avif" /><source type="image/webp" srcset="/assets/images/alpine-drywall-desktop-800.webp" /><img src="/assets/images/alpine-drywall-desktop.jpg" width="1400" height="900" alt="Alpine Drywall Calgary website" loading="lazy" /></picture>
       <span class="view">Visit live →</span>
     </a>
     <div class="p-copy">
@@ -843,7 +848,7 @@ input:focus-visible, textarea:focus-visible {
     <a class="p-shot" href="https://laserquittherapy.ca" target="_blank" rel="noopener" aria-label="Visit LaserQuit Therapy">
       <span class="tag">Health &middot; AI Chat + SMS + Voice</span>
       <span class="num">№ 04</span>
-      <img src="/assets/images/laserquit-desktop.jpg" alt="LaserQuit Therapy website" loading="lazy" />
+      <picture><source type="image/avif" srcset="/assets/images/laserquit-desktop-800.avif" /><source type="image/webp" srcset="/assets/images/laserquit-desktop-800.webp" /><img src="/assets/images/laserquit-desktop.jpg" width="1400" height="900" alt="LaserQuit Therapy website" loading="lazy" /></picture>
       <span class="view">Visit live →</span>
     </a>
     <div class="p-copy">
@@ -872,7 +877,7 @@ input:focus-visible, textarea:focus-visible {
     <a class="p-shot" href="https://lloydminsterchemicaltransport.com" target="_blank" rel="noopener" aria-label="Visit Lloydminster Chemical Transport">
       <span class="tag">Industrial &middot; Western Canada</span>
       <span class="num">№ 05</span>
-      <img src="/assets/images/lloydminster-desktop.jpg" alt="Lloydminster Chemical Transport website built by WizardWeb" loading="lazy" />
+      <picture><source type="image/avif" srcset="/assets/images/lloydminster-desktop-800.avif" /><source type="image/webp" srcset="/assets/images/lloydminster-desktop-800.webp" /><img src="/assets/images/lloydminster-desktop.jpg" width="1400" height="900" alt="Lloydminster Chemical Transport website built by WizardWeb" loading="lazy" /></picture>
       <span class="view">Visit live →</span>
     </a>
     <div class="p-copy">
@@ -928,7 +933,7 @@ input:focus-visible, textarea:focus-visible {
     <a class="p-shot" href="https://solocruisehacks.com" target="_blank" rel="noopener" aria-label="Visit Solo Cruise Hacks">
       <span class="tag">Membership &middot; AI Voice</span>
       <span class="num">№ 07</span>
-      <img src="/assets/images/solocruise-desktop.jpg" alt="Solo Cruise Hacks membership platform built by WizardWeb" loading="lazy" />
+      <picture><source type="image/avif" srcset="/assets/images/solocruise-desktop-800.avif" /><source type="image/webp" srcset="/assets/images/solocruise-desktop-800.webp" /><img src="/assets/images/solocruise-desktop.jpg" width="1400" height="1050" alt="Solo Cruise Hacks membership platform built by WizardWeb" loading="lazy" /></picture>
       <span class="view">Visit live →</span>
     </a>
     <div class="p-copy">

@@ -28,9 +28,8 @@
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="apple-touch-icon" href="/favicon.svg" />
 
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="preload" href="/assets/fonts/instrument-serif-400.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="/assets/fonts/space-grotesk-var.woff2" as="font" type="font/woff2" crossorigin />
 
 <script type="application/ld+json">
 {
@@ -52,6 +51,12 @@
 </script>
 
 <style>
+/* self-hosted fonts (latin subsets) */
+@font-face { font-family: "Instrument Serif"; font-style: normal; font-weight: 400; font-display: swap; src: url(/assets/fonts/instrument-serif-400.woff2) format("woff2"); }
+@font-face { font-family: "Instrument Serif"; font-style: italic; font-weight: 400; font-display: swap; src: url(/assets/fonts/instrument-serif-400italic.woff2) format("woff2"); }
+@font-face { font-family: "Space Grotesk"; font-style: normal; font-weight: 300 700; font-display: swap; src: url(/assets/fonts/space-grotesk-var.woff2) format("woff2"); }
+@font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 100 800; font-display: swap; src: url(/assets/fonts/jetbrains-mono-var.woff2) format("woff2"); }
+
 /* ───────────── tokens ───────────── */
 :root {
   --ink:        #07080A;
@@ -62,6 +67,7 @@
   --line-strong:rgba(242, 239, 231, 0.22);
   --accent:     #B6FF5C;
   --accent-ink: #07080A;
+  --paper-dim:  rgba(242, 239, 231, 0.72);
 
   --f-display:  "Instrument Serif", "Times New Roman", serif;
   --f-sans:     "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
@@ -1057,6 +1063,106 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 }
 @keyframes pulse { 50% { opacity: 0.3; } }
 
+/* ───────────── pricing ───────────── */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  margin-top: 34px;
+}
+.price-card {
+  background: var(--ink);
+  padding: 28px 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: background .3s ease;
+}
+.price-card:hover { background: var(--ink-2); }
+.price-card .tier {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--smoke);
+}
+.price-card.is-featured { background: linear-gradient(140deg, rgba(182,255,92,0.08), var(--ink)); }
+.price-card.is-featured .tier { color: var(--accent); }
+.price-card .amt {
+  font-family: var(--f-display);
+  font-size: 44px;
+  line-height: 1;
+  margin: 4px 0 2px;
+}
+.price-card p {
+  color: var(--paper-dim);
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0;
+}
+.price-note {
+  font-family: var(--f-mono);
+  font-size: 12px;
+  color: var(--smoke);
+  margin-top: 18px;
+}
+
+/* ───────────── ai & control panel ───────────── */
+.ai{padding:80px var(--gutter);background:var(--ink);border-top:1px solid var(--line)}
+.ai-intro{max-width:var(--max);margin:0 auto 48px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:end;padding-bottom:28px;border-bottom:1px solid var(--line)}
+.ai-intro h2{font-family:var(--f-display);font-weight:400;font-size:clamp(40px,6vw,80px);line-height:.96;letter-spacing:-.02em;margin:8px 0 0}
+.ai-intro h2 em{color:var(--accent);font-style:italic}
+.ai-intro .note{font-size:16px;line-height:1.6;color:var(--paper);opacity:.85}
+.ai-intro .note strong{opacity:1;color:var(--accent);font-weight:600}
+.ai-grid{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.ai-card{background:var(--ink);padding:40px;display:flex;flex-direction:column;gap:16px;transition:background .3s ease}
+.ai-card:hover{background:var(--ink-2)}
+.ai-ico{width:46px;height:46px;border:1px solid var(--line-strong);border-radius:999px;display:flex;align-items:center;justify-content:center;color:var(--accent);flex:0 0 auto}
+.ai-ico svg{width:20px;height:20px}
+.ai-card h3{font-family:var(--f-display);font-weight:400;font-size:clamp(24px,2.6vw,34px);line-height:1.04;letter-spacing:-.01em;margin:0}
+.ai-card p{font-size:15px;line-height:1.55;color:var(--paper);opacity:.82;margin:0}
+.ai-card ul{list-style:none;padding:0;margin:6px 0 0;display:grid;gap:9px}
+.ai-card li{font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--smoke);display:flex;gap:10px;align-items:baseline}
+.ai-card li::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--accent);flex:0 0 auto;transform:translateY(-1px)}
+.ai-proof{max-width:var(--max);margin:32px auto 0;border:1px solid var(--line-strong);padding:22px 26px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;background:linear-gradient(120deg,rgba(182,255,92,.07),transparent 60%)}
+.ai-proof .live-dot{width:9px;height:9px;border-radius:50%;background:var(--accent);box-shadow:0 0 10px var(--accent);flex:0 0 auto;animation:pulse 1.6s ease-in-out infinite}
+.ai-proof p{margin:0;font-size:16px;color:var(--paper);line-height:1.5}
+.ai-proof em{font-family:var(--f-display);font-style:italic;color:var(--accent)}
+@media(max-width:860px){.ai-intro{grid-template-columns:1fr;gap:20px}.ai-grid{grid-template-columns:1fr}.ai-card{padding:32px var(--gutter)}}
+
+.panel{padding:80px var(--gutter);background:var(--ink-2);border-top:1px solid var(--line)}
+.panel-grid{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:center}
+.panel-copy h2{font-family:var(--f-display);font-weight:400;font-size:clamp(36px,5vw,64px);line-height:1;letter-spacing:-.02em;margin:12px 0 20px}
+.panel-copy h2 em{color:var(--accent);font-style:italic}
+.panel-copy .lead{font-size:18px;line-height:1.55;color:var(--paper);opacity:.85;margin:0 0 24px;max-width:48ch}
+.panel-list{list-style:none;padding:0;margin:0 0 28px}
+.panel-list li{display:grid;grid-template-columns:28px 1fr;gap:12px;align-items:baseline;padding:14px 0;border-top:1px solid var(--line);font-size:16px;line-height:1.4}
+.panel-list li:last-child{border-bottom:1px solid var(--line)}
+.panel-list .k{font-family:var(--f-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--smoke)}
+.panel-list em{font-family:var(--f-display);font-style:italic;color:var(--accent)}
+.panel-tagline{font-family:var(--f-display);font-size:clamp(24px,2.6vw,34px);font-style:italic;line-height:1.15;color:var(--paper);margin:0}
+.panel-tagline em{color:var(--accent)}
+.dash{border:1px solid var(--line-strong);background:var(--ink);box-shadow:0 30px 80px rgba(0,0,0,.5);font-family:var(--f-mono)}
+.dash-bar{display:flex;align-items:center;gap:8px;padding:12px 14px;border-bottom:1px solid var(--line)}
+.dash-bar .d{width:9px;height:9px;border-radius:50%;background:#2a2d31}
+.dash-bar .t{margin-left:8px;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--smoke)}
+.dash-body{padding:18px}
+.dash-kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px}
+.dash-kpi{border:1px solid var(--line);padding:12px}
+.dash-kpi .n{font-family:var(--f-display);font-size:28px;color:var(--paper);line-height:1}
+.dash-kpi .n.up{color:var(--accent)}
+.dash-kpi .l{font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--smoke);margin-top:6px}
+.dash-chart{display:flex;align-items:flex-end;gap:6px;height:72px;padding:10px;border:1px solid var(--line);margin-bottom:14px}
+.dash-chart span{flex:1;background:linear-gradient(180deg,var(--accent),rgba(182,255,92,.2));opacity:.85}
+.dash-feed{border:1px solid var(--line)}
+.dash-feed .row{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:9px 12px;border-bottom:1px solid var(--line);font-size:11px;color:var(--smoke)}
+.dash-feed .row:last-child{border-bottom:0}
+.dash-feed .row .src{color:var(--paper)}
+.dash-feed .tag{font-size:9px;letter-spacing:.08em;text-transform:uppercase;padding:2px 8px;border:1px solid var(--line-strong);border-radius:999px;color:var(--accent);white-space:nowrap}
+@media(max-width:860px){.panel-grid{grid-template-columns:1fr;gap:36px}}
+
 /* ───────────── accessibility ───────────── */
 .skip {
   position: absolute;
@@ -1401,7 +1507,7 @@ input:focus-visible, textarea:focus-visible {
     <a class="feature-shot" href="https://airbornearts.com" target="_blank" rel="noopener">
       <span class="tag">Hospitality &middot; Retreat</span>
       <span class="num">№ 01 / Featured</span>
-      <img src="/assets/images/airborne-arts-desktop.jpg" alt="Airborne Arts Costa Rica website built by WizardWeb" loading="lazy" />
+      <picture><source type="image/avif" srcset="/assets/images/airborne-arts-desktop-800.avif" /><source type="image/webp" srcset="/assets/images/airborne-arts-desktop-800.webp" /><img src="/assets/images/airborne-arts-desktop.jpg" width="1400" height="900" alt="Airborne Arts Costa Rica website built by WizardWeb" loading="lazy" /></picture>
     </a>
     <div class="feature-copy">
       <div class="eyebrow"><span class="dot"></span>Featured Build &middot; 2025</div>
@@ -1433,7 +1539,7 @@ input:focus-visible, textarea:focus-visible {
   <div class="work-grid">
     <a class="work-card" href="https://gokilimanjarotreks.com" target="_blank" rel="noopener" data-reveal>
       <div class="wc-thumb">
-        <img src="/assets/images/gokilimanjaro-desktop.jpg" alt="Go Kilimanjaro Treks website built by WizardWeb" loading="lazy" />
+        <picture><source type="image/avif" srcset="/assets/images/gokilimanjaro-desktop-800.avif" /><source type="image/webp" srcset="/assets/images/gokilimanjaro-desktop-800.webp" /><img src="/assets/images/gokilimanjaro-desktop.jpg" width="1440" height="900" alt="Go Kilimanjaro Treks website built by WizardWeb" loading="lazy" /></picture>
       </div>
       <div class="wc-tag">Tour Operator &middot; Tanzania</div>
       <div class="wc-num">№ 02</div>
@@ -1445,7 +1551,7 @@ input:focus-visible, textarea:focus-visible {
 
     <a class="work-card" href="https://solocruisehacks.com" target="_blank" rel="noopener" data-reveal>
       <div class="wc-thumb">
-        <img src="/assets/images/solocruise-desktop.jpg" alt="Solo Cruise Hacks membership site built by WizardWeb" loading="lazy" />
+        <picture><source type="image/avif" srcset="/assets/images/solocruise-desktop-800.avif" /><source type="image/webp" srcset="/assets/images/solocruise-desktop-800.webp" /><img src="/assets/images/solocruise-desktop.jpg" width="1400" height="1050" alt="Solo Cruise Hacks membership site built by WizardWeb" loading="lazy" /></picture>
       </div>
       <div class="wc-tag">Membership &middot; AI Voice</div>
       <div class="wc-num">№ 03</div>
@@ -1457,7 +1563,7 @@ input:focus-visible, textarea:focus-visible {
 
     <a class="work-card" href="https://laserquittherapy.ca" target="_blank" rel="noopener" data-reveal>
       <div class="wc-thumb">
-        <img src="/assets/images/laserquit-desktop.jpg" alt="LaserQuit Therapy website built by WizardWeb" loading="lazy" />
+        <picture><source type="image/avif" srcset="/assets/images/laserquit-desktop-800.avif" /><source type="image/webp" srcset="/assets/images/laserquit-desktop-800.webp" /><img src="/assets/images/laserquit-desktop.jpg" width="1400" height="900" alt="LaserQuit Therapy website built by WizardWeb" loading="lazy" /></picture>
       </div>
       <div class="wc-tag">Health &middot; AI Chat + SMS + Voice</div>
       <div class="wc-num">№ 04</div>
@@ -1469,7 +1575,7 @@ input:focus-visible, textarea:focus-visible {
 
     <a class="work-card" href="https://alpinedrywallcalgary.com" target="_blank" rel="noopener" data-reveal>
       <div class="wc-thumb">
-        <img src="/assets/images/alpine-drywall-desktop.jpg" alt="Alpine Drywall Calgary website" loading="lazy" />
+        <picture><source type="image/avif" srcset="/assets/images/alpine-drywall-desktop-800.avif" /><source type="image/webp" srcset="/assets/images/alpine-drywall-desktop-800.webp" /><img src="/assets/images/alpine-drywall-desktop.jpg" width="1400" height="900" alt="Alpine Drywall Calgary website" loading="lazy" /></picture>
       </div>
       <div class="wc-tag">Trades &middot; Calgary</div>
       <div class="wc-num">№ 05</div>
@@ -1481,7 +1587,7 @@ input:focus-visible, textarea:focus-visible {
 
     <a class="work-card" href="https://tandmbookkeeping.com" target="_blank" rel="noopener" data-reveal>
       <div class="wc-thumb">
-        <img src="/assets/images/tandm-desktop.jpg" alt="T&amp;M Bookkeeping website built by WizardWeb" loading="lazy" />
+        <picture><source type="image/avif" srcset="/assets/images/tandm-desktop-800.avif" /><source type="image/webp" srcset="/assets/images/tandm-desktop-800.webp" /><img src="/assets/images/tandm-desktop.jpg" width="1400" height="900" alt="T&amp;M Bookkeeping website built by WizardWeb" loading="lazy" /></picture>
       </div>
       <div class="wc-tag">Pro Services &middot; AI Receptionist</div>
       <div class="wc-num">№ 06</div>
@@ -1493,7 +1599,7 @@ input:focus-visible, textarea:focus-visible {
 
     <a class="work-card" href="https://lloydminsterchemicaltransport.com" target="_blank" rel="noopener" data-reveal>
       <div class="wc-thumb">
-        <img src="/assets/images/lloydminster-desktop.jpg" alt="Lloydminster Chemical Transport website built by WizardWeb" loading="lazy" />
+        <picture><source type="image/avif" srcset="/assets/images/lloydminster-desktop-800.avif" /><source type="image/webp" srcset="/assets/images/lloydminster-desktop-800.webp" /><img src="/assets/images/lloydminster-desktop.jpg" width="1400" height="900" alt="Lloydminster Chemical Transport website built by WizardWeb" loading="lazy" /></picture>
       </div>
       <div class="wc-tag">Industrial &middot; Western Canada</div>
       <div class="wc-num">№ 07</div>
@@ -1562,62 +1668,6 @@ input:focus-visible, textarea:focus-visible {
     </div>
   </div>
 </section>
-
-<!-- ───────────── AI & CONTROL PANEL STYLES ───────────── -->
-<style>
-.ai{padding:80px var(--gutter);background:var(--ink);border-top:1px solid var(--line)}
-.ai-intro{max-width:var(--max);margin:0 auto 48px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:end;padding-bottom:28px;border-bottom:1px solid var(--line)}
-.ai-intro h2{font-family:var(--f-display);font-weight:400;font-size:clamp(40px,6vw,80px);line-height:.96;letter-spacing:-.02em;margin:8px 0 0}
-.ai-intro h2 em{color:var(--accent);font-style:italic}
-.ai-intro .note{font-size:16px;line-height:1.6;color:var(--paper);opacity:.85}
-.ai-intro .note strong{opacity:1;color:var(--accent);font-weight:600}
-.ai-grid{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
-.ai-card{background:var(--ink);padding:40px;display:flex;flex-direction:column;gap:16px;transition:background .3s ease}
-.ai-card:hover{background:var(--ink-2)}
-.ai-ico{width:46px;height:46px;border:1px solid var(--line-strong);border-radius:999px;display:flex;align-items:center;justify-content:center;color:var(--accent);flex:0 0 auto}
-.ai-ico svg{width:20px;height:20px}
-.ai-card h3{font-family:var(--f-display);font-weight:400;font-size:clamp(24px,2.6vw,34px);line-height:1.04;letter-spacing:-.01em;margin:0}
-.ai-card p{font-size:15px;line-height:1.55;color:var(--paper);opacity:.82;margin:0}
-.ai-card ul{list-style:none;padding:0;margin:6px 0 0;display:grid;gap:9px}
-.ai-card li{font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--smoke);display:flex;gap:10px;align-items:baseline}
-.ai-card li::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--accent);flex:0 0 auto;transform:translateY(-1px)}
-.ai-proof{max-width:var(--max);margin:32px auto 0;border:1px solid var(--line-strong);padding:22px 26px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;background:linear-gradient(120deg,rgba(182,255,92,.07),transparent 60%)}
-.ai-proof .live-dot{width:9px;height:9px;border-radius:50%;background:var(--accent);box-shadow:0 0 10px var(--accent);flex:0 0 auto;animation:pulse 1.6s ease-in-out infinite}
-.ai-proof p{margin:0;font-size:16px;color:var(--paper);line-height:1.5}
-.ai-proof em{font-family:var(--f-display);font-style:italic;color:var(--accent)}
-@media(max-width:860px){.ai-intro{grid-template-columns:1fr;gap:20px}.ai-grid{grid-template-columns:1fr}.ai-card{padding:32px var(--gutter)}}
-
-.panel{padding:80px var(--gutter);background:var(--ink-2);border-top:1px solid var(--line)}
-.panel-grid{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:center}
-.panel-copy h2{font-family:var(--f-display);font-weight:400;font-size:clamp(36px,5vw,64px);line-height:1;letter-spacing:-.02em;margin:12px 0 20px}
-.panel-copy h2 em{color:var(--accent);font-style:italic}
-.panel-copy .lead{font-size:18px;line-height:1.55;color:var(--paper);opacity:.85;margin:0 0 24px;max-width:48ch}
-.panel-list{list-style:none;padding:0;margin:0 0 28px}
-.panel-list li{display:grid;grid-template-columns:28px 1fr;gap:12px;align-items:baseline;padding:14px 0;border-top:1px solid var(--line);font-size:16px;line-height:1.4}
-.panel-list li:last-child{border-bottom:1px solid var(--line)}
-.panel-list .k{font-family:var(--f-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--smoke)}
-.panel-list em{font-family:var(--f-display);font-style:italic;color:var(--accent)}
-.panel-tagline{font-family:var(--f-display);font-size:clamp(24px,2.6vw,34px);font-style:italic;line-height:1.15;color:var(--paper);margin:0}
-.panel-tagline em{color:var(--accent)}
-.dash{border:1px solid var(--line-strong);background:var(--ink);box-shadow:0 30px 80px rgba(0,0,0,.5);font-family:var(--f-mono)}
-.dash-bar{display:flex;align-items:center;gap:8px;padding:12px 14px;border-bottom:1px solid var(--line)}
-.dash-bar .d{width:9px;height:9px;border-radius:50%;background:#2a2d31}
-.dash-bar .t{margin-left:8px;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--smoke)}
-.dash-body{padding:18px}
-.dash-kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px}
-.dash-kpi{border:1px solid var(--line);padding:12px}
-.dash-kpi .n{font-family:var(--f-display);font-size:28px;color:var(--paper);line-height:1}
-.dash-kpi .n.up{color:var(--accent)}
-.dash-kpi .l{font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--smoke);margin-top:6px}
-.dash-chart{display:flex;align-items:flex-end;gap:6px;height:72px;padding:10px;border:1px solid var(--line);margin-bottom:14px}
-.dash-chart span{flex:1;background:linear-gradient(180deg,var(--accent),rgba(182,255,92,.2));opacity:.85}
-.dash-feed{border:1px solid var(--line)}
-.dash-feed .row{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:9px 12px;border-bottom:1px solid var(--line);font-size:11px;color:var(--smoke)}
-.dash-feed .row:last-child{border-bottom:0}
-.dash-feed .row .src{color:var(--paper)}
-.dash-feed .tag{font-size:9px;letter-spacing:.08em;text-transform:uppercase;padding:2px 8px;border:1px solid var(--line-strong);border-radius:999px;color:var(--accent);white-space:nowrap}
-@media(max-width:860px){.panel-grid{grid-template-columns:1fr;gap:36px}}
-</style>
 
 <!-- ───────────── AI & AUTOMATION ───────────── -->
 <section class="ai" id="ai">
@@ -1781,29 +1831,29 @@ input:focus-visible, textarea:focus-visible {
     </div>
     <div class="meta">One-time build + optional care<br/><span style="color:var(--paper)">Custom quotes for bigger builds</span></div>
   </div>
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px;margin-top:34px" data-reveal>
-    <div style="background:var(--ink-2);border:1px solid var(--line);border-radius:18px;padding:26px">
-      <div style="font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--smoke)">One page</div>
-      <div style="font-family:var(--f-display);font-size:44px;line-height:1;margin:10px 0">$397</div>
-      <p style="color:#cfccc3;font-size:14px;margin:0">A fast, polished one-page site. Includes 1 year of hosting, then $100/yr.</p>
+  <div class="pricing-grid" data-reveal>
+    <div class="price-card">
+      <div class="tier">One page</div>
+      <div class="amt">$397</div>
+      <p>A focused one-pager, built to the same standard as everything else we ship. Includes 1 year of hosting, then $100/yr.</p>
     </div>
-    <div style="background:var(--ink-2);border:1px solid var(--line);border-radius:18px;padding:26px">
-      <div style="font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--smoke)">Premium · up to 5 pages</div>
-      <div style="font-family:var(--f-display);font-size:44px;line-height:1;margin:10px 0">$497</div>
-      <p style="color:#cfccc3;font-size:14px;margin:0">More room to tell your story, services, gallery, about, contact.</p>
+    <div class="price-card">
+      <div class="tier">Premium · up to 5 pages</div>
+      <div class="amt">$497</div>
+      <p>More room to tell your story, services, gallery, about, contact.</p>
     </div>
-    <div style="background:linear-gradient(140deg,rgba(182,255,92,.12),var(--ink-2));border:1px solid var(--line-strong);border-radius:18px;padding:26px">
-      <div style="font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)">Custom · e-commerce</div>
-      <div style="font-family:var(--f-display);font-size:40px;line-height:1;margin:10px 0">From $1,000</div>
-      <p style="color:#cfccc3;font-size:14px;margin:0">Online stores, carts, inventory, booking, 5+ pages. Built to spec. Hosting $50/mo (database + backups).</p>
+    <div class="price-card is-featured">
+      <div class="tier">Custom · e-commerce</div>
+      <div class="amt">From $1,000</div>
+      <p>Online stores, carts, inventory, booking, 5+ pages. Built to spec. Hosting $50/mo (database + backups).</p>
     </div>
-    <div style="background:var(--ink-2);border:1px solid var(--line);border-radius:18px;padding:26px">
-      <div style="font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--smoke)">Care + AI · monthly</div>
-      <div style="font-family:var(--f-display);font-size:40px;line-height:1;margin:10px 0">$50-$100</div>
-      <p style="color:#cfccc3;font-size:14px;margin:0">$50/mo care + an AI chatbot like this one. $100/mo adds SEO with 3 articles a week.</p>
+    <div class="price-card">
+      <div class="tier">Care + AI · monthly</div>
+      <div class="amt">$50-$100</div>
+      <p>$50/mo care + an AI chatbot like this one. $100/mo adds SEO with 3 articles a week.</p>
     </div>
   </div>
-  <p style="font-family:var(--f-mono);font-size:12px;color:var(--smoke);margin-top:18px" data-reveal>$100 deposit to start &middot; first draft in 3 business days &middot; bilingual (EN/ES) included.</p>
+  <p class="price-note" data-reveal>$100 deposit to start &middot; first draft in 3 business days &middot; bilingual (EN/ES) included.</p>
 </section>
 
 <section class="section" id="audit">
