@@ -31,188 +31,1485 @@
 @font-face { font-family: "Space Grotesk"; font-style: normal; font-weight: 300 700; font-display: swap; src: url(/assets/fonts/space-grotesk-var.woff2) format("woff2"); }
 @font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 100 800; font-display: swap; src: url(/assets/fonts/jetbrains-mono-var.woff2) format("woff2"); }
 
-:root{--ink:#07080A;--ink-2:#0E1014;--paper:#F2EFE7;--smoke:#8A8A82;--line:rgba(242,239,231,.10);--line-strong:rgba(242,239,231,.22);--accent:#B6FF5C;--accent-ink:#07080A;--f-display:"Instrument Serif",serif;--f-sans:"Space Grotesk",ui-sans-serif,system-ui,sans-serif;--f-mono:"JetBrains Mono",monospace;--gutter:clamp(20px,4vw,56px);--max:1200px}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--ink);color:var(--paper);font-family:var(--f-sans);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-::selection{background:var(--accent);color:var(--accent-ink)}a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
-.container{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
-.eyebrow{font-family:var(--f-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--smoke)}
-.eyebrow .dot{display:inline-block;width:6px;height:6px;background:var(--accent);border-radius:50%;margin-right:8px;box-shadow:0 0 10px var(--accent)}
-h1,h2,h3{font-family:var(--f-display);font-weight:400;line-height:1.05;letter-spacing:-.01em}
-h1{font-size:clamp(40px,7vw,84px);margin:.2em 0}h2{font-size:clamp(30px,5vw,52px);margin:0 0 .4em}h3{font-size:24px;margin:0 0 .3em}
-.lead{font-size:clamp(18px,2.4vw,22px);color:#d9d6cd;max-width:60ch}
-header{position:sticky;top:0;z-index:10;background:rgba(7,8,10,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-.nav{display:flex;align-items:center;gap:22px;padding:16px 0}
-.nav .logo{display:inline-flex;align-items:baseline;gap:8px;font-family:var(--f-display);font-size:22px;letter-spacing:-.01em}.nav .logo .mark{display:inline-flex;width:22px;height:22px;margin-right:4px;align-self:center}.nav .logo .mark svg{width:100%;height:100%}
-.nav .links{margin-left:auto;display:flex;gap:20px;font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
-.nav .links a:hover{color:var(--accent)}.nav .en{color:var(--smoke)}
-.nav-menu{display:none;position:relative;margin-left:auto;font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase}
-.nav-menu summary{list-style:none;cursor:pointer;color:var(--paper);padding:10px 14px;border:1px solid var(--line);border-radius:999px;background:rgba(242,239,231,0.02)}
-.nav-menu summary::-webkit-details-marker{display:none}
-.nav-menu[open] summary{border-color:var(--accent)}
-.nav-menu .sheet{position:absolute;right:0;top:calc(100% + 10px);min-width:210px;background:var(--ink-2,#14140f);border:1px solid var(--line);display:grid;z-index:60}
-.nav-menu .sheet a{padding:14px 18px;border-bottom:1px solid var(--line);color:var(--smoke)}
-.nav-menu .sheet a:last-child{border-bottom:0}
-.nav-menu .sheet a:hover{color:var(--paper)}
-@media(max-width:760px){.nav .links{display:none}.nav-menu{display:block}}
-.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 24px;border-radius:999px;font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;transition:transform .2s,background .2s}
-.btn-primary{background:var(--accent);color:var(--accent-ink)}.btn-primary:hover{transform:translateY(-1px)}
-.btn-ghost{border:1px solid var(--line-strong)}.btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
-section{border-top:1px solid var(--line);padding:clamp(56px,9vw,110px) 0}
-.hero{padding-top:clamp(48px,7vw,90px)}
-.steps,.cards,.grid{display:grid;gap:20px}
-@media(min-width:760px){.steps,.cards{grid-template-columns:repeat(3,1fr)}.grid{grid-template-columns:repeat(3,1fr)}}
-.card{background:var(--ink-2);border:1px solid var(--line);padding:26px}
-.card .n{font-family:var(--f-mono);color:var(--accent);font-size:12px;letter-spacing:.14em}
-.price{display:flex;flex-direction:column}.price .amt{font-family:var(--f-display);font-size:46px;margin:.1em 0}
-.price ul{list-style:none;padding:0;margin:14px 0 0;color:#cfccc3;font-size:15px}.price li{padding:6px 0;border-top:1px solid var(--line)}
-.price .tag{font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--smoke)}
-.case{background:linear-gradient(120deg,rgba(182,255,92,.10),transparent);border:1px solid var(--line-strong);padding:clamp(28px,5vw,52px)}
-.stats{display:flex;flex-wrap:wrap;gap:34px;margin-top:18px}
-.stat .big{font-family:var(--f-display);font-size:clamp(40px,6vw,64px);color:var(--accent);line-height:1}
-.stat small{display:block;color:var(--smoke);font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;margin-top:6px}
-.work{border:1px solid var(--line);overflow:hidden;background:var(--ink-2)}
-.work img{aspect-ratio:16/10;object-fit:cover;width:100%;transition:transform .4s}.work:hover img{transform:scale(1.04)}
-.work .meta{padding:16px 18px;display:flex;justify-content:space-between;align-items:center}
-.work .meta b{font-family:var(--f-display);font-size:20px;font-weight:400}.work .meta span{font-family:var(--f-mono);font-size:11px;color:var(--accent)}
-.work.sulab{display:flex;flex-direction:column;justify-content:center;background:linear-gradient(140deg,rgba(182,255,92,.14),var(--ink-2));min-height:240px;padding:24px}
-.tcard{background:var(--ink-2);border:1px solid var(--line);padding:24px}.tcard p{font-family:var(--f-display);font-size:21px;line-height:1.35}.tcard .who{font-family:var(--f-mono);font-size:11px;color:var(--smoke);letter-spacing:.1em;text-transform:uppercase;margin-top:12px}
-form{display:grid;gap:14px;max-width:560px}label{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--smoke)}
-input,textarea{width:100%;padding:13px 15px;background:var(--ink-2);border:1px solid var(--line-strong);color:var(--paper);font:inherit;font-size:16px}
-textarea{min-height:110px;resize:vertical}.hp{position:absolute;left:-9999px}
-.ok{background:rgba(182,255,92,.12);border:1px solid var(--accent);padding:14px 18px;margin-bottom:18px;display:none}
-footer{border-top:1px solid var(--line);padding:40px 0;color:var(--smoke);font-family:var(--f-mono);font-size:12px;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
-.muted{color:var(--smoke)}
-.skip{position:absolute;left:-9999px;top:0;z-index:100;background:var(--accent);color:var(--accent-ink);font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;padding:12px 18px}
-.skip:focus{left:0}
-a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+/* ───────────── tokens ───────────── */
+:root {
+  --ink:        #07080A;
+  --ink-2:      #0E1014;
+  --paper:      #F2EFE7;
+  --smoke:      #8A8A82;
+  --line:       rgba(242, 239, 231, 0.10);
+  --line-strong:rgba(242, 239, 231, 0.22);
+  --accent:     #B6FF5C;
+  --accent-ink: #07080A;
+  --paper-dim:  rgba(242, 239, 231, 0.72);
+
+  --f-display:  "Instrument Serif", "Times New Roman", serif;
+  --f-sans:     "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --f-mono:     "JetBrains Mono", ui-monospace, monospace;
+
+  --gutter:     clamp(20px, 4vw, 56px);
+  --max:        1440px;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: var(--ink); color: var(--paper); }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--f-sans);
+  font-size: 17px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+::selection { background: var(--accent); color: var(--accent-ink); }
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+
+/* ───────────── shared bits ───────────── */
+.eyebrow {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--smoke);
+}
+.eyebrow .dot {
+  display: inline-block;
+  width: 6px; height: 6px;
+  background: var(--accent);
+  border-radius: 50%;
+  margin-right: 8px;
+  vertical-align: 1px;
+  box-shadow: 0 0 10px var(--accent);
+}
+.container { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
+
+.section {
+  position: relative;
+  border-top: 1px solid var(--line);
+}
+.section::before,
+.section::after {
+  content: "";
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 1px;
+  background: var(--line);
+  pointer-events: none;
+}
+.section::before { left: var(--gutter); }
+.section::after  { right: var(--gutter); }
+
+/* button */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 22px 16px 24px;
+  border-radius: 999px;
+  font-family: var(--f-mono);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: transform .2s ease, background .2s ease, color .2s ease;
+}
+.btn .arr {
+  display: inline-flex;
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: var(--accent-ink);
+  color: var(--accent);
+  align-items: center; justify-content: center;
+  transition: transform .25s ease;
+}
+.btn-primary { background: var(--accent); color: var(--accent-ink); }
+.btn-primary:hover { transform: translateY(-1px); }
+.btn-primary:hover .arr { transform: translate(3px, -3px); }
+.btn-ghost {
+  background: transparent;
+  color: var(--paper);
+  border: 1px solid var(--line-strong);
+}
+.btn-ghost .arr { background: var(--paper); color: var(--ink); }
+.btn-ghost:hover { background: rgba(242,239,231,0.04); }
+.btn-ghost:hover .arr { transform: translate(3px, -3px); }
+
+/* ───────────── nav ───────────── */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 50;
+  padding: 18px var(--gutter);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  transition: backdrop-filter .3s ease, background .3s ease, border-color .3s ease;
+  border-bottom: 1px solid transparent;
+}
+.nav.is-stuck {
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  background: rgba(7, 8, 10, 0.62);
+  border-bottom-color: var(--line);
+}
+.brand {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+  font-family: var(--f-display);
+  font-size: 22px;
+  letter-spacing: -0.01em;
+}
+.brand .mark { display: inline-flex; width: 22px; height: 22px; margin-right: 4px; align-self: center; }
+.brand .mark svg { width: 100%; height: 100%; }
+.nav-links {
+  display: flex;
+  gap: 26px;
+  font-family: var(--f-mono);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.nav-links a {
+  position: relative;
+  color: var(--smoke);
+  transition: color .2s ease;
+}
+.nav-links a:hover { color: var(--paper); }
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 100%;
+  bottom: -6px;
+  height: 1px;
+  background: var(--accent);
+  transition: right .3s ease;
+}
+.nav-links a:hover::after { right: 0; }
+.nav-links .en {
+  color: var(--smoke);
+  padding: 4px 10px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+}
+.nav-links .en::after { display: none; }
+.nav-links .en:hover { border-color: var(--line-strong); }
+
+/* mobile menu (kept exactly: details/summary + sheet) */
+.nav-menu {
+  display: none;
+  position: relative;
+  font-family: var(--f-mono);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.nav-menu summary {
+  list-style: none;
+  cursor: pointer;
+  color: var(--paper);
+  padding: 10px 14px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: rgba(242,239,231,0.02);
+}
+.nav-menu summary::-webkit-details-marker { display: none; }
+.nav-menu[open] summary { border-color: var(--accent); }
+.nav-menu .sheet {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 10px);
+  min-width: 210px;
+  background: var(--ink-2);
+  border: 1px solid var(--line-strong);
+  display: grid;
+  z-index: 60;
+}
+.nav-menu .sheet a {
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--line);
+  color: var(--smoke);
+}
+.nav-menu .sheet a:last-child { border-bottom: 0; }
+.nav-menu .sheet a:hover { color: var(--paper); }
+@media (max-width: 860px) {
+  .nav-links { display: none; }
+  .nav-menu { display: block; }
+}
+
+/* ───────────── hero ───────────── */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  padding: 140px var(--gutter) 80px;
+  overflow: hidden;
+  border-top: none;
+}
+.hero::before, .hero::after {
+  content: "";
+  position: absolute; top: 0; bottom: 0; width: 1px;
+  background: var(--line);
+  pointer-events: none;
+}
+.hero::before { left: var(--gutter); }
+.hero::after  { right: var(--gutter); }
+
+.hero-canvas { position: absolute; inset: 0; z-index: 0; }
+.sigil-fallback {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  z-index: 0;
+  opacity: 0.45;
+  pointer-events: none;
+}
+.hero-canvas canvas {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.hero-vignette {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(80% 60% at 50% 40%, transparent 0%, rgba(7,8,10,0.55) 70%, var(--ink) 100%),
+    linear-gradient(180deg, rgba(7,8,10,0) 0%, rgba(7,8,10,0) 60%, var(--ink) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  max-width: var(--max);
+  margin: 0 auto;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 48px;
+  min-height: calc(100vh - 220px);
+}
+.hero-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+}
+.hero-coord {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--smoke);
+  text-align: right;
+  line-height: 1.8;
+}
+.hero-coord span { color: var(--paper); }
+
+.hero-title {
+  font-family: var(--f-display);
+  font-weight: 400;
+  font-size: clamp(48px, 9.5vw, 150px);
+  line-height: 0.94;
+  letter-spacing: -0.02em;
+  margin: 0;
+  max-width: 16ch;
+}
+.hero-title em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.hero-bottom {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 64px;
+  align-items: end;
+}
+.hero-lede {
+  font-size: 19px;
+  line-height: 1.45;
+  color: var(--paper);
+  max-width: 46ch;
+  opacity: 0.9;
+}
+.hero-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 24px;
+}
+.hero-meta {
+  display: grid;
+  gap: 24px;
+  font-family: var(--f-mono);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  color: var(--smoke);
+}
+.hero-meta .stat {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  border-top: 1px solid var(--line);
+  padding-top: 14px;
+}
+.hero-meta .num {
+  font-family: var(--f-display);
+  font-size: 36px;
+  color: var(--paper);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+@media (max-width: 860px) {
+  .hero-bottom { grid-template-columns: 1fr; gap: 36px; }
+  .hero-top    { flex-direction: column; align-items: flex-start; }
+  .hero-coord  { text-align: left; }
+}
+
+.scroll-cue {
+  position: absolute;
+  left: 50%;
+  bottom: 28px;
+  transform: translateX(-50%);
+  z-index: 3;
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--smoke);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.scroll-cue .bar {
+  display: inline-block;
+  width: 1px; height: 28px;
+  background: linear-gradient(180deg, var(--smoke), transparent);
+  animation: cue 2.4s ease infinite;
+}
+@keyframes cue {
+  0%   { transform: scaleY(0); transform-origin: top; }
+  40%  { transform: scaleY(1); transform-origin: top; }
+  60%  { transform: scaleY(1); transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
+
+/* ───────────── marquee ───────────── */
+.marquee {
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  overflow: hidden;
+  background: var(--ink);
+}
+.marquee-track {
+  display: flex;
+  gap: 56px;
+  padding: 22px 0;
+  width: max-content;
+  animation: scroll 38s linear infinite;
+  font-family: var(--f-display);
+  font-size: clamp(28px, 4vw, 48px);
+  letter-spacing: -0.01em;
+  line-height: 1;
+  white-space: nowrap;
+}
+.marquee-track span { display: inline-flex; align-items: center; gap: 56px; }
+.marquee-track .sep {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--accent);
+  display: inline-block;
+  flex: 0 0 auto;
+}
+.marquee-track .ital { font-style: italic; color: var(--smoke); }
+@keyframes scroll { to { transform: translateX(-50%); } }
+
+/* ───────────── section head ───────────── */
+.section-pad { padding: 80px var(--gutter) 120px; }
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--line);
+  margin: 0 auto 48px;
+  max-width: var(--max);
+}
+.section-head h2 {
+  font-family: var(--f-display);
+  font-weight: 400;
+  font-size: clamp(38px, 5.6vw, 76px);
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+  margin: 8px 0 0;
+}
+.section-head h2 em { color: var(--accent); font-style: italic; }
+.section-head .meta {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--smoke);
+  text-align: right;
+}
+@media (max-width: 640px) {
+  .section-head { flex-direction: column; align-items: flex-start; }
+  .section-head .meta { text-align: left; }
+}
+
+/* ───────────── steps (cómo) ───────────── */
+.steps {
+  max-width: var(--max);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+.step {
+  background: var(--ink);
+  padding: 40px 32px 44px;
+  position: relative;
+  transition: background .3s ease;
+}
+.step:hover { background: var(--ink-2); }
+.step .n {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+.step .n::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+}
+.step h3 {
+  font-family: var(--f-display);
+  font-weight: 400;
+  font-size: clamp(26px, 2.6vw, 36px);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  margin: 0 0 14px;
+}
+.step p {
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--paper);
+  opacity: 0.8;
+  margin: 0;
+  max-width: 40ch;
+}
+.step p b { color: var(--accent); font-weight: 600; }
+@media (max-width: 860px) {
+  .steps { grid-template-columns: 1fr; }
+}
+
+/* ───────────── pricing ───────────── */
+.pricing-grid {
+  max-width: var(--max);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+.price-card {
+  background: var(--ink);
+  padding: 32px 28px 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: background .3s ease;
+}
+.price-card:hover { background: var(--ink-2); }
+.price-card .tier {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--smoke);
+}
+.price-card.is-featured { background: linear-gradient(140deg, rgba(182,255,92,0.08), var(--ink)); }
+.price-card.is-featured .tier { color: var(--accent); }
+.price-card .amt {
+  font-family: var(--f-display);
+  font-size: 46px;
+  line-height: 1;
+  margin: 6px 0 4px;
+}
+.price-card .amt small { font-size: 18px; font-family: var(--f-display); }
+.price-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 14px 0 0;
+  color: var(--paper-dim);
+  font-size: 15px;
+  line-height: 1.45;
+}
+.price-card li {
+  padding: 9px 0;
+  border-top: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: 14px 1fr;
+  gap: 10px;
+  align-items: baseline;
+}
+.price-card li::before {
+  content: "";
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+  transform: translateY(-1px);
+}
+.price-note {
+  font-family: var(--f-mono);
+  font-size: 12px;
+  color: var(--smoke);
+  margin: 18px auto 0;
+  max-width: var(--max);
+}
+
+/* ───────────── caso (SULAB) ───────────── */
+.case {
+  max-width: var(--max);
+  margin: 0 auto;
+  border: 1px solid var(--line-strong);
+  background: linear-gradient(120deg, rgba(182,255,92,0.10), transparent 60%);
+  padding: clamp(28px, 5vw, 56px);
+  position: relative;
+  overflow: hidden;
+}
+.case h2 {
+  font-family: var(--f-display);
+  font-weight: 400;
+  font-size: clamp(32px, 4.6vw, 60px);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  margin: 14px 0 18px;
+  max-width: 22ch;
+}
+.case h2 em { color: var(--accent); font-style: italic; }
+.case .lead {
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--paper);
+  opacity: 0.88;
+  max-width: 58ch;
+  margin: 0;
+}
+.case-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  margin-top: 34px;
+  border-top: 1px solid var(--line-strong);
+}
+.case-stats .stat {
+  padding: 22px 18px 0 0;
+  border-right: 1px solid var(--line);
+  padding-left: 18px;
+}
+.case-stats .stat:first-child { padding-left: 0; }
+.case-stats .stat:last-child { border-right: 0; }
+.case-stats .big {
+  font-family: var(--f-display);
+  font-size: clamp(42px, 6vw, 72px);
+  color: var(--accent);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.case-stats small {
+  display: block;
+  color: var(--smoke);
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-top: 8px;
+}
+@media (max-width: 640px) {
+  .case-stats { grid-template-columns: 1fr; }
+  .case-stats .stat { border-right: 0; border-bottom: 1px solid var(--line); padding: 16px 0; }
+  .case-stats .stat:last-child { border-bottom: 0; }
+}
+
+/* ───────────── ejemplos (work cards) ───────────── */
+.work-grid {
+  max-width: var(--max);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.work-card {
+  position: relative;
+  display: block;
+  background: var(--ink-2);
+  border: 1px solid var(--line);
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  transition: border-color .25s ease;
+}
+.work-card:hover { border-color: var(--line-strong); }
+.work-card:hover .wc-thumb img { transform: scale(1.02); }
+.wc-thumb { position: absolute; inset: 0; }
+.wc-thumb img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .8s ease;
+}
+.wc-thumb::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(7,8,10,0.15) 0%, transparent 30%, rgba(7,8,10,0.35) 60%, rgba(7,8,10,0.85) 100%);
+  pointer-events: none;
+}
+.wc-meta {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 18px;
+  z-index: 2;
+  background: linear-gradient(180deg, transparent, rgba(7,8,10,0.85) 80%);
+}
+.wc-meta h3 {
+  font-family: var(--f-display);
+  font-weight: 400;
+  font-size: clamp(24px, 2.4vw, 34px);
+  letter-spacing: -0.01em;
+  margin: 0;
+  line-height: 1.05;
+}
+.wc-meta .tags {
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+  white-space: nowrap;
+}
+.wc-tag {
+  position: absolute;
+  top: 18px; left: 18px;
+  z-index: 2;
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--paper);
+  padding: 6px 10px;
+  background: rgba(7,8,10,0.55);
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  backdrop-filter: blur(6px);
+}
+.work-card.sulab {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: linear-gradient(140deg, rgba(182,255,92,0.14), var(--ink-2));
+  padding: 28px;
+  aspect-ratio: 4/3;
+}
+.work-card.sulab .wc-kicker {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.work-card.sulab b {
+  font-family: var(--f-display);
+  font-weight: 400;
+  font-size: clamp(30px, 3vw, 42px);
+  display: block;
+  margin: 10px 0 8px;
+  letter-spacing: -0.01em;
+}
+.work-card.sulab p {
+  margin: 0;
+  color: var(--paper);
+  opacity: 0.8;
+  font-size: 15px;
+  line-height: 1.5;
+  max-width: 34ch;
+}
+.work-card.sulab .url {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  color: var(--accent);
+  margin-top: 16px;
+  display: inline-block;
+}
+@media (max-width: 980px) { .work-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 640px) { .work-grid { grid-template-columns: 1fr; } }
+
+/* ───────────── testimonios ───────────── */
+.tgrid {
+  max-width: var(--max);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+.tcard {
+  background: var(--ink);
+  padding: 32px 28px;
+  transition: background .3s ease;
+}
+.tcard:hover { background: var(--ink-2); }
+.tcard p {
+  font-family: var(--f-display);
+  font-size: 21px;
+  line-height: 1.35;
+  margin: 0;
+}
+.tcard .who {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  color: var(--smoke);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-top: 14px;
+}
+.tcard.soon p { color: var(--smoke); }
+
+/* ───────────── forms ───────────── */
+.split {
+  max-width: var(--max);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 64px;
+  align-items: start;
+}
+.split .intro h2 {
+  font-family: var(--f-display);
+  font-weight: 400;
+  font-size: clamp(34px, 4.6vw, 60px);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  margin: 12px 0 18px;
+}
+.split .intro h2 em { color: var(--accent); font-style: italic; }
+.split .intro p {
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--paper);
+  opacity: 0.85;
+  max-width: 44ch;
+  margin: 0;
+}
+@media (max-width: 860px) { .split { grid-template-columns: 1fr; gap: 32px; } }
+
+form { display: grid; gap: 14px; max-width: 560px; }
+label {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--smoke);
+  display: grid;
+  gap: 6px;
+}
+input, textarea {
+  width: 100%;
+  padding: 13px 15px;
+  background: var(--ink-2);
+  border: 1px solid var(--line-strong);
+  color: var(--paper);
+  font: inherit;
+  font-size: 16px;
+}
+input:focus, textarea:focus { border-color: var(--accent); outline: none; }
+textarea { min-height: 110px; resize: vertical; }
+.hp { position: absolute; left: -9999px; }
+.ok {
+  background: rgba(182,255,92,0.12);
+  border: 1px solid var(--accent);
+  padding: 14px 18px;
+  margin-bottom: 18px;
+  display: none;
+}
+form .btn { justify-self: start; border: 0; }
+.form-note {
+  font-family: var(--f-mono);
+  font-size: 12px;
+  color: var(--smoke);
+  margin-top: 6px;
+}
+.muted { color: var(--smoke); }
+
+/* ───────────── cta (contacto glow) ───────────── */
+.cta-glow {
+  position: relative;
+  overflow: hidden;
+}
+.cta-glow::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(60% 80% at 50% 100%, rgba(182,255,92,0.16), transparent 60%);
+  pointer-events: none;
+}
+
+/* ───────────── footer ───────────── */
+.footer {
+  padding: 40px var(--gutter);
+  border-top: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--smoke);
+  flex-wrap: wrap;
+}
+.footer .right { display: flex; gap: 22px; flex-wrap: wrap; }
+.footer a:hover { color: var(--paper); }
+.footer .live::before {
+  content: "";
+  display: inline-block;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 8px var(--accent);
+  margin-right: 8px;
+  vertical-align: 1px;
+  animation: pulse 1.6s ease-in-out infinite;
+}
+@keyframes pulse { 50% { opacity: 0.3; } }
+
+/* ───────────── accessibility ───────────── */
+.skip {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-family: var(--f-mono);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 12px 18px;
+}
+.skip:focus { left: 0; }
+a:focus-visible, button:focus-visible, summary:focus-visible,
+input:focus-visible, textarea:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ───────────── reveal on scroll ───────────── */
+html.js [data-reveal] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity .9s cubic-bezier(.2,.7,0,1), transform .9s cubic-bezier(.2,.7,0,1);
+}
+[data-reveal].is-in { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  html.js [data-reveal] { opacity: 1; transform: none; transition: none; }
+  .marquee-track { animation: none; }
+  .eyebrow .dot, .footer .live::before, .scroll-cue .bar { animation: none; }
+  html { scroll-behavior: auto; }
+  a, button, summary, input { transition-duration: 80ms; }
+}
 </style>
 </head>
 <body>
+
 <a class="skip" href="#main">Saltar al contenido</a>
-<header><div class="container nav">
-<a class="logo" href="/cr/" aria-label="WizardWeb inicio"><span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M3 19 L12 3 L21 19 Z" stroke="currentColor" stroke-width="1.4"/><path d="M7 14 L12 8 L17 14" stroke="currentColor" stroke-width="1.4"/><circle cx="12" cy="11" r="1.2" fill="#B6FF5C"/></svg></span>Wizardweb</a>
-<nav class="links" aria-label="Principal">
-<a href="#como">Cómo</a><a href="#precios">Precios</a><a href="#ejemplos">Ejemplos</a><a href="#audit">Análisis gratis</a><a href="#contacto">Contacto</a>
-<a class="en" href="/?en=1">EN</a>
-</nav>
-<details class="nav-menu" id="navMenu">
-<summary aria-label="Abrir menú">Menú</summary>
-<nav class="sheet" aria-label="Móvil">
-<a href="#como">Cómo</a><a href="#precios">Precios</a><a href="#ejemplos">Ejemplos</a><a href="#audit">Análisis gratis</a><a href="#contacto">Contacto</a><a href="/?en=1">EN</a>
-</nav>
-</details>
-</div></header>
 
-<section class="hero" id="main"><div class="container">
-<p class="eyebrow"><span class="dot"></span>Costa Rica · Sitios web</p>
-<h1>Tu negocio merece<br>una web que trabaje.</h1>
-<p class="lead">Hacemos sitios rápidos, bonitos y <b>bilingües (español e inglés automático)</b> para negocios en Costa Rica. Listos en pocos días, optimizados para Google y para que te escriban por WhatsApp.</p>
-<div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:30px">
-<a class="btn btn-primary" href="#contacto">Quiero mi sitio →</a>
-<a class="btn btn-ghost" href="#ejemplos">Ver ejemplos</a>
+<!-- ───────────── NAV ───────────── -->
+<header class="nav" id="nav">
+  <a class="brand" href="/cr/" aria-label="WizardWeb inicio">
+    <span class="mark" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none">
+        <path d="M3 19 L12 3 L21 19 Z" stroke="currentColor" stroke-width="1.4"/>
+        <path d="M7 14 L12 8 L17 14" stroke="currentColor" stroke-width="1.4"/>
+        <circle cx="12" cy="11" r="1.2" fill="#B6FF5C"/>
+      </svg>
+    </span>
+    Wizardweb
+  </a>
+  <nav class="nav-links" aria-label="Principal">
+    <a href="#como">Cómo</a><a href="#precios">Precios</a><a href="#ejemplos">Ejemplos</a><a href="#audit">Análisis gratis</a><a href="#contacto">Contacto</a>
+    <a class="en" href="/?en=1">EN</a>
+  </nav>
+  <details class="nav-menu" id="navMenu">
+    <summary aria-label="Abrir menú">Menú</summary>
+    <nav class="sheet" aria-label="Móvil">
+      <a href="#como">Cómo</a><a href="#precios">Precios</a><a href="#ejemplos">Ejemplos</a><a href="#audit">Análisis gratis</a><a href="#contacto">Contacto</a><a href="/?en=1">EN</a>
+    </nav>
+  </details>
+</header>
+
+<!-- ───────────── HERO ───────────── -->
+<section class="hero" id="main">
+  <div class="hero-canvas" aria-hidden="true">
+    <svg class="sigil-fallback" viewBox="-200 -200 400 400" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+      <g fill="#F2EFE7" opacity="0.55">
+        <circle cx="-170" cy="-110" r="1.1"/>
+        <circle cx="125"  cy="-150" r="1.2"/>
+        <circle cx="-180" cy="60"   r="0.9"/>
+        <circle cx="170"  cy="100"  r="1.1"/>
+        <circle cx="-90"  cy="-180" r="1.0"/>
+        <circle cx="60"   cy="160"  r="1.1"/>
+        <circle cx="-120" cy="170"  r="0.8"/>
+        <circle cx="150"  cy="-30"  r="1.2"/>
+        <circle cx="40"   cy="-90"  r="0.7"/>
+        <circle cx="-50"  cy="120"  r="0.9"/>
+      </g>
+      <g fill="none" stroke-linecap="round" stroke-linejoin="round" transform="rotate(-8)">
+        <ellipse cx="0" cy="-110" rx="55"  ry="6"  stroke="#F2EFE7" stroke-opacity="0.22" stroke-width="1.2"/>
+        <ellipse cx="0" cy="-72"  rx="100" ry="12" stroke="#F2EFE7" stroke-opacity="0.32" stroke-width="1.2"/>
+        <ellipse cx="0" cy="-36"  rx="130" ry="20" stroke="#F2EFE7" stroke-opacity="0.40" stroke-width="1.2"/>
+        <ellipse cx="0" cy="0"    rx="140" ry="26" stroke="#B6FF5C" stroke-opacity="0.95" stroke-width="2.2"/>
+        <ellipse cx="0" cy="36"   rx="130" ry="20" stroke="#F2EFE7" stroke-opacity="0.40" stroke-width="1.2"/>
+        <ellipse cx="0" cy="72"   rx="100" ry="12" stroke="#F2EFE7" stroke-opacity="0.32" stroke-width="1.2"/>
+        <ellipse cx="0" cy="110"  rx="55"  ry="6"  stroke="#F2EFE7" stroke-opacity="0.22" stroke-width="1.2"/>
+      </g>
+      <g fill="#B6FF5C" transform="rotate(-8)">
+        <circle cx="-140" cy="0"  r="2.4" opacity="0.9"/>
+        <circle cx="-100" cy="14" r="2.4" opacity="0.85"/>
+        <circle cx="-50"  cy="22" r="2.4" opacity="0.8"/>
+        <circle cx="0"    cy="26" r="2.4" opacity="0.85"/>
+        <circle cx="50"   cy="22" r="2.4" opacity="0.8"/>
+        <circle cx="100"  cy="14" r="2.4" opacity="0.85"/>
+        <circle cx="140"  cy="0"  r="2.4" opacity="0.9"/>
+      </g>
+      <g stroke="#F2EFE7" stroke-opacity="0.10" stroke-width="1">
+        <line x1="-14" y1="0" x2="14" y2="0"/>
+        <line x1="0" y1="-14" x2="0" y2="14"/>
+      </g>
+    </svg>
+    <canvas id="sigil"></canvas>
+  </div>
+  <div class="hero-vignette" aria-hidden="true"></div>
+
+  <div class="hero-inner">
+    <div class="hero-top">
+      <div class="eyebrow"><span class="dot"></span>Costa Rica &nbsp;/&nbsp; Sitios web &nbsp;/&nbsp; bilingües</div>
+      <div class="hero-coord">
+        <div><span>9.37°N</span> &nbsp; 83.70°W</div>
+        <div>listos en <span>pocos días</span></div>
+      </div>
+    </div>
+
+    <h1 class="hero-title">
+      Tu negocio merece<br/>
+      una web que <em>trabaje.</em>
+    </h1>
+
+    <div class="hero-bottom">
+      <div>
+        <p class="hero-lede">
+          Hacemos sitios rápidos, bonitos y <b>bilingües (español e inglés automático)</b> para negocios en Costa Rica. Listos en pocos días, optimizados para Google y para que te escriban por WhatsApp.
+        </p>
+        <div class="hero-cta-row">
+          <a class="btn btn-primary" href="#contacto">Quiero mi sitio <span class="arr" aria-hidden="true">↗</span></a>
+          <a class="btn btn-ghost" href="#ejemplos">Ver ejemplos <span class="arr" aria-hidden="true">↓</span></a>
+        </div>
+      </div>
+      <div class="hero-meta">
+        <div class="stat">
+          <div class="num">98</div>
+          <div>Visitantes en una semana,<br/>caso real: SULAB</div>
+        </div>
+        <div class="stat">
+          <div class="num">14</div>
+          <div>Consultas por WhatsApp<br/>esa misma semana</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-cue"><span>Bajá</span><span class="bar"></span></div>
+</section>
+
+<!-- ───────────── MARQUEE ───────────── -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Diseño <em class="ital">&amp;</em> construcción</span><span class="sep"></span>
+    <span><em class="ital">Bilingüe</em> automático</span><span class="sep"></span>
+    <span>Optimizado para Google</span><span class="sep"></span>
+    <span>Clientes por <em class="ital">WhatsApp</em></span><span class="sep"></span>
+    <span>Listo en pocos días</span><span class="sep"></span>
+    <span>Hosting incluido</span><span class="sep"></span>
+    <span>Diseño <em class="ital">&amp;</em> construcción</span><span class="sep"></span>
+    <span><em class="ital">Bilingüe</em> automático</span><span class="sep"></span>
+    <span>Optimizado para Google</span><span class="sep"></span>
+    <span>Clientes por <em class="ital">WhatsApp</em></span><span class="sep"></span>
+    <span>Listo en pocos días</span><span class="sep"></span>
+    <span>Hosting incluido</span><span class="sep"></span>
+  </div>
 </div>
-</div></section>
 
-<section id="como"><div class="container">
-<p class="eyebrow"><span class="dot"></span>Cómo funciona</p>
-<h2>De cero a en línea, sin complicaciones.</h2>
-<div class="steps" style="margin-top:30px">
-<div class="card"><div class="n">01</div><h3>Contanos</h3><p class="muted">Nos decís de tu negocio y nos mandás tu logo, fotos y lo que querés mostrar. Te guiamos.</p></div>
-<div class="card"><div class="n">02</div><h3>Lo construimos</h3><p class="muted">Tu primer borrador listo en <b>3 días hábiles o menos</b>. Lo revisás y ajustamos a tu gusto.</p></div>
-<div class="card"><div class="n">03</div><h3>Sale en vivo</h3><p class="muted">Lo lanzamos con dominio, certificado de seguridad y correos. Tu web trabajando para vos.</p></div>
-</div>
-</div></section>
+<!-- ───────────── CÓMO ───────────── -->
+<section class="section section-pad" id="como">
+  <div class="section-head" data-reveal>
+    <div>
+      <div class="eyebrow"><span class="dot"></span>Cómo funciona</div>
+      <h2>De cero a en línea,<br/>sin <em>complicaciones.</em></h2>
+    </div>
+    <div class="meta">Tres pasos<br/><span style="color:var(--paper)">Primer borrador en 3 días</span></div>
+  </div>
+  <div class="steps" data-reveal>
+    <div class="step">
+      <div class="n">01</div>
+      <h3>Contanos</h3>
+      <p>Nos decís de tu negocio y nos mandás tu logo, fotos y lo que querés mostrar. Te guiamos.</p>
+    </div>
+    <div class="step">
+      <div class="n">02</div>
+      <h3>Lo construimos</h3>
+      <p>Tu primer borrador listo en <b>3 días hábiles o menos</b>. Lo revisás y ajustamos a tu gusto.</p>
+    </div>
+    <div class="step">
+      <div class="n">03</div>
+      <h3>Sale en vivo</h3>
+      <p>Lo lanzamos con dominio, certificado de seguridad y correos. Tu web trabajando para vos.</p>
+    </div>
+  </div>
+</section>
 
-<section id="precios"><div class="container">
-<p class="eyebrow"><span class="dot"></span>Precios</p>
-<h2>Claro y sin sorpresas.</h2>
-<div class="cards" style="margin-top:30px">
-<div class="card price"><span class="tag">Una página</span><div class="amt">$397</div>
-<ul><li>Diseño profesional a tu marca</li><li>Español e inglés automático</li><li>Optimizado para Google (SEO)</li><li>1 año de hosting incluido</li><li>Listo en pocos días</li></ul></div>
-<div class="card price" style="border-color:var(--line-strong)"><span class="tag">Premium · hasta 5 páginas</span><div class="amt">$497</div>
-<ul><li>Todo lo de una página</li><li>Hasta 5 secciones/páginas</li><li>Galería, servicios, blog</li><li>Ideal para más contenido</li></ul></div>
-<div class="card price"><span class="tag">Planes mensuales</span><div class="amt">$50-100<span style="font-size:18px">/mes</span></div>
-<ul><li>$50: mantenimiento + chatbot IA</li><li>$100: SEO + artículos cada semana</li><li>Chatbot bilingüe con WhatsApp</li><li>Reservas en línea (cal.com)</li></ul></div>
-</div>
-<p class="muted" style="margin-top:18px;font-size:14px">Sitios más grandes, tienda en línea o funciones a medida: cotización aparte.</p>
-</div></section>
+<!-- ───────────── PRECIOS ───────────── -->
+<section class="section section-pad" id="precios">
+  <div class="section-head" data-reveal>
+    <div>
+      <div class="eyebrow"><span class="dot"></span>Precios</div>
+      <h2>Claro y sin <em>sorpresas.</em></h2>
+    </div>
+    <div class="meta">Pago único + planes opcionales<br/><span style="color:var(--paper)">Hosting incluido 1 año</span></div>
+  </div>
+  <div class="pricing-grid" data-reveal>
+    <div class="price-card">
+      <div class="tier">Una página</div>
+      <div class="amt">$397</div>
+      <ul>
+        <li>Diseño profesional a tu marca</li>
+        <li>Español e inglés automático</li>
+        <li>Optimizado para Google (SEO)</li>
+        <li>1 año de hosting incluido</li>
+        <li>Listo en pocos días</li>
+      </ul>
+    </div>
+    <div class="price-card is-featured">
+      <div class="tier">Premium · hasta 5 páginas</div>
+      <div class="amt">$497</div>
+      <ul>
+        <li>Todo lo de una página</li>
+        <li>Hasta 5 secciones/páginas</li>
+        <li>Galería, servicios, blog</li>
+        <li>Ideal para más contenido</li>
+      </ul>
+    </div>
+    <div class="price-card">
+      <div class="tier">Planes mensuales</div>
+      <div class="amt">$50-100<small>/mes</small></div>
+      <ul>
+        <li>$50: mantenimiento + chatbot IA</li>
+        <li>$100: SEO + artículos cada semana</li>
+        <li>Chatbot bilingüe con WhatsApp</li>
+        <li>Reservas en línea (cal.com)</li>
+      </ul>
+    </div>
+  </div>
+  <p class="price-note" data-reveal>Sitios más grandes, tienda en línea o funciones a medida: cotización aparte.</p>
+</section>
 
-<section><div class="container">
-<div class="case">
-<p class="eyebrow"><span class="dot"></span>Caso real · SULAB Laboratorio Clínico</p>
-<h2 style="margin-top:10px">De cero presencia a clientes reales en una semana.</h2>
-<p class="lead">A SULAB, un laboratorio clínico en San Isidro, le hicimos su sitio bilingüe. Y sigue trayendo clientes, semana tras semana. Mirá <b>una sola semana</b>:</p>
-<div class="stats">
-<div class="stat"><div class="big">98</div><small>Visitantes únicos</small></div>
-<div class="stat"><div class="big">14</div><small>Consultas por WhatsApp</small></div>
-<div class="stat"><div class="big">121</div><small>Visitas a páginas</small></div>
-</div>
-<div style="margin-top:26px"><a class="btn btn-ghost" href="https://sulabcr.com" target="_blank" rel="noopener">Ver sulabcr.com →</a></div>
-</div>
-</div></section>
+<!-- ───────────── CASO SULAB ───────────── -->
+<section class="section section-pad">
+  <div class="case" data-reveal>
+    <p class="eyebrow"><span class="dot"></span>Caso real · SULAB Laboratorio Clínico</p>
+    <h2>De cero presencia a <em>clientes reales</em> en una semana.</h2>
+    <p class="lead">A SULAB, un laboratorio clínico en San Isidro, le hicimos su sitio bilingüe. Y sigue trayendo clientes, semana tras semana. Mirá <b>una sola semana</b>:</p>
+    <div class="case-stats">
+      <div class="stat"><div class="big">98</div><small>Visitantes únicos</small></div>
+      <div class="stat"><div class="big">14</div><small>Consultas por WhatsApp</small></div>
+      <div class="stat"><div class="big">121</div><small>Visitas a páginas</small></div>
+    </div>
+    <div style="margin-top:32px"><a class="btn btn-ghost" href="https://sulabcr.com" target="_blank" rel="noopener">Ver sulabcr.com <span class="arr" aria-hidden="true">↗</span></a></div>
+  </div>
+</section>
 
-<section id="ejemplos"><div class="container">
-<p class="eyebrow"><span class="dot"></span>Ejemplos</p>
-<h2>Sitios que ya están en vivo.</h2>
-<div class="grid" style="margin-top:30px">
-<a class="work sulab" href="https://sulabcr.com" target="_blank" rel="noopener">
-<div class="n eyebrow" style="color:var(--accent)">Laboratorio · CR</div>
-<b style="font-family:var(--f-display);font-size:28px;display:block;margin:8px 0">SULAB</b>
-<p class="muted" style="margin:0">98 visitantes y 14 consultas por WhatsApp en una semana. Bilingüe.</p>
-<span style="font-family:var(--f-mono);font-size:11px;color:var(--accent);margin-top:14px">sulabcr.com →</span></a>
-<a class="work" href="https://airbornearts.com" target="_blank" rel="noopener"><picture><source type="image/avif" srcset="/assets/images/airborne-arts-desktop-800.avif" /><source type="image/webp" srcset="/assets/images/airborne-arts-desktop-800.webp" /><img src="/assets/images/airborne-arts-desktop.jpg" width="1400" height="900" alt="Airborne Arts" loading="lazy" /></picture><div class="meta"><b>Airborne Arts</b><span>airbornearts.com →</span></div></a>
-<a class="work" href="https://gokilimanjarotreks.com" target="_blank" rel="noopener"><picture><source type="image/avif" srcset="/assets/images/gokilimanjaro-desktop-800.avif" /><source type="image/webp" srcset="/assets/images/gokilimanjaro-desktop-800.webp" /><img src="/assets/images/gokilimanjaro-desktop.jpg" width="1440" height="900" alt="Go Kilimanjaro Treks" loading="lazy" /></picture><div class="meta"><b>Go Kilimanjaro</b><span>gokilimanjarotreks.com →</span></div></a>
-</div>
-</div></section>
+<!-- ───────────── EJEMPLOS ───────────── -->
+<section class="section section-pad" id="ejemplos">
+  <div class="section-head" data-reveal>
+    <div>
+      <div class="eyebrow"><span class="dot"></span>Ejemplos</div>
+      <h2>Sitios que ya están <em>en vivo.</em></h2>
+    </div>
+    <div class="meta">Trabajos recientes<br/><span style="color:var(--paper)">Hacé clic y visitalos</span></div>
+  </div>
+  <div class="work-grid">
+    <a class="work-card sulab" href="https://sulabcr.com" target="_blank" rel="noopener" data-reveal>
+      <span class="wc-kicker">Laboratorio · CR</span>
+      <b>SULAB</b>
+      <p>98 visitantes y 14 consultas por WhatsApp en una semana. Bilingüe.</p>
+      <span class="url">sulabcr.com →</span>
+    </a>
+    <a class="work-card" href="https://airbornearts.com" target="_blank" rel="noopener" data-reveal>
+      <div class="wc-thumb">
+        <picture><source type="image/avif" srcset="/assets/images/airborne-arts-desktop-800.avif" /><source type="image/webp" srcset="/assets/images/airborne-arts-desktop-800.webp" /><img src="/assets/images/airborne-arts-desktop.jpg" width="1400" height="900" alt="Airborne Arts" loading="lazy" /></picture>
+      </div>
+      <div class="wc-tag">Retiro · Costa Rica</div>
+      <div class="wc-meta">
+        <h3>Airborne Arts</h3>
+        <div class="tags">airbornearts.com →</div>
+      </div>
+    </a>
+    <a class="work-card" href="https://gokilimanjarotreks.com" target="_blank" rel="noopener" data-reveal>
+      <div class="wc-thumb">
+        <picture><source type="image/avif" srcset="/assets/images/gokilimanjaro-desktop-800.avif" /><source type="image/webp" srcset="/assets/images/gokilimanjaro-desktop-800.webp" /><img src="/assets/images/gokilimanjaro-desktop.jpg" width="1440" height="900" alt="Go Kilimanjaro Treks" loading="lazy" /></picture>
+      </div>
+      <div class="wc-tag">Turismo · Tanzania</div>
+      <div class="wc-meta">
+        <h3>Go Kilimanjaro</h3>
+        <div class="tags">gokilimanjarotreks.com →</div>
+      </div>
+    </a>
+  </div>
+</section>
 
-<section id="testimonios"><div class="container">
-<p class="eyebrow"><span class="dot"></span>Testimonios</p>
-<h2>Lo que dicen nuestros clientes.</h2>
-<div class="cards" style="margin-top:30px" id="tlist">
-<div class="tcard"><p>“Quedó hermoso y rápido. Empezamos a recibir consultas por WhatsApp casi de inmediato.”</p><div class="who">Cliente · SULAB, San Isidro</div></div>
-<div class="tcard muted"><p style="color:var(--smoke)">Tu testimonio aquí. Estamos sumando reseñas de clientes recientes.</p><div class="who">Próximamente</div></div>
-</div>
-</div></section>
+<!-- ───────────── TESTIMONIOS ───────────── -->
+<section class="section section-pad" id="testimonios">
+  <div class="section-head" data-reveal>
+    <div>
+      <div class="eyebrow"><span class="dot"></span>Testimonios</div>
+      <h2>Lo que dicen<br/>nuestros <em>clientes.</em></h2>
+    </div>
+  </div>
+  <div class="tgrid" id="tlist" data-reveal>
+    <div class="tcard"><p>“Quedó hermoso y rápido. Empezamos a recibir consultas por WhatsApp casi de inmediato.”</p><div class="who">Cliente · SULAB, San Isidro</div></div>
+    <div class="tcard soon"><p>Tu testimonio aquí. Estamos sumando reseñas de clientes recientes.</p><div class="who">Próximamente</div></div>
+  </div>
+</section>
 
-<section id="audit"><div class="container">
-<p class="eyebrow"><span class="dot"></span>Análisis gratis</p>
-<h2>Recibí un análisis gratis de tu presencia en línea.</h2>
-<p class="lead" style="margin-bottom:24px">Dejanos tu correo y te mostramos qué te está costando clientes y cómo arreglarlo, rápido. Nada de spam, solo un seguimiento útil.</p>
-<form method="POST" action="https://app.wizardweb.ca/api/audit-request">
-<input type="hidden" name="lang" value="es">
-<input class="hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
-<div><label>Correo (obligatorio)</label><input type="email" name="email" required></div>
-<div><label>WhatsApp / teléfono (opcional)</label><input name="phone"></div>
-<div><label>Tu sitio web actual, si tenés (opcional)</label><input name="website" placeholder="https://..."></div>
-<div><label>Nombre del negocio (opcional)</label><input name="business"></div>
-<button class="btn btn-primary" type="submit">Quiero mi análisis gratis →</button>
-<p style="font-family:var(--f-mono);font-size:12px;color:var(--smoke);margin-top:6px">Nunca enviamos spam. Un solo seguimiento para ayudarte.</p>
-</form>
-</div></section>
+<!-- ───────────── ANÁLISIS GRATIS ───────────── -->
+<section class="section section-pad" id="audit">
+  <div class="split">
+    <div class="intro" data-reveal>
+      <div class="eyebrow"><span class="dot"></span>Análisis gratis</div>
+      <h2>Recibí un análisis <em>gratis</em> de tu presencia en línea.</h2>
+      <p>Dejanos tu correo y te mostramos qué te está costando clientes y cómo arreglarlo, rápido. Nada de spam, solo un seguimiento útil.</p>
+    </div>
+    <form method="POST" action="https://app.wizardweb.ca/api/audit-request" data-reveal>
+      <input type="hidden" name="lang" value="es">
+      <input class="hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <label>Correo (obligatorio)<input type="email" name="email" required></label>
+      <label>WhatsApp / teléfono (opcional)<input name="phone"></label>
+      <label>Tu sitio web actual, si tenés (opcional)<input name="website" placeholder="https://..."></label>
+      <label>Nombre del negocio (opcional)<input name="business"></label>
+      <button class="btn btn-primary" type="submit">Quiero mi análisis gratis <span class="arr" aria-hidden="true">↗</span></button>
+      <p class="form-note">Nunca enviamos spam. Un solo seguimiento para ayudarte.</p>
+    </form>
+  </div>
+</section>
 
-<section id="contacto"><div class="container">
-<p class="eyebrow"><span class="dot"></span>Contacto</p>
-<h2>Hablemos de tu sitio.</h2>
-<p class="lead" style="margin-bottom:24px">Dejanos tus datos y te contactamos con ejemplos, sin compromiso.</p>
-<div class="ok" id="ok">¡Gracias! Te contactamos pronto.</div>
-<form method="POST" action="https://app.wizardweb.ca/api/lead-capture">
-<input class="hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
-<div><label>Tu nombre</label><input name="name" required></div>
-<div><label>Nombre del negocio</label><input name="business"></div>
-<div><label>Correo</label><input type="email" name="email" required></div>
-<div><label>WhatsApp / teléfono</label><input name="phone"></div>
-<div><label>¿Qué necesitás?</label><textarea name="message" placeholder="Contanos brevemente sobre tu negocio"></textarea></div>
-<button class="btn btn-primary" type="submit">Enviar →</button>
-</form>
-</div></section>
+<!-- ───────────── CONTACTO ───────────── -->
+<section class="section section-pad cta-glow" id="contacto">
+  <div class="split">
+    <div class="intro" data-reveal>
+      <div class="eyebrow"><span class="dot"></span>Contacto</div>
+      <h2>Hablemos de <em>tu sitio.</em></h2>
+      <p>Dejanos tus datos y te contactamos con ejemplos, sin compromiso.</p>
+    </div>
+    <div data-reveal>
+      <div class="ok" id="ok">¡Gracias! Te contactamos pronto.</div>
+      <form method="POST" action="https://app.wizardweb.ca/api/lead-capture">
+        <input class="hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <label>Tu nombre<input name="name" required></label>
+        <label>Nombre del negocio<input name="business"></label>
+        <label>Correo<input type="email" name="email" required></label>
+        <label>WhatsApp / teléfono<input name="phone"></label>
+        <label>¿Qué necesitás?<textarea name="message" placeholder="Contanos brevemente sobre tu negocio"></textarea></label>
+        <button class="btn btn-primary" type="submit">Enviar <span class="arr" aria-hidden="true">↗</span></button>
+      </form>
+    </div>
+  </div>
+</section>
 
-<footer><div class="container" style="display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;width:100%">
-<span>Construido y alojado por <a href="https://wizardweb.ca" style="color:var(--paper)">wizardweb.ca</a></span>
-<span><a href="mailto:hello@wizardweb.ca">hello@wizardweb.ca</a> · Costa Rica</span>
-</div></footer>
+<!-- ───────────── FOOTER ───────────── -->
+<footer class="footer">
+  <div class="live">Construido y alojado por <a href="https://wizardweb.ca" style="color:var(--paper)">wizardweb.ca</a></div>
+  <div class="right">
+    <a href="mailto:hello@wizardweb.ca">hello@wizardweb.ca</a>
+    <span>Costa Rica</span>
+  </div>
+</footer>
+
+<script>
+/* ───────────── interactive sigil canvas ───────────── */
+/* Defensive: SVG fallback is always visible behind this canvas. */
+(function () {
+  const canvas = document.getElementById("sigil");
+  if (!canvas) return;
+
+  let ctx;
+  try { ctx = canvas.getContext("2d", { alpha: true }); } catch (err) { return; }
+  if (!ctx) return;
+
+  let W = 0, H = 0, DPR = 1, cx = 0, cy = 0;
+  let motion = "normal";
+  const accent = "#B6FF5C";
+  let lastFrame = 0;
+
+  function resize() {
+    DPR = Math.min(window.devicePixelRatio || 1, 2);
+    W = canvas.clientWidth = canvas.parentElement.clientWidth;
+    H = canvas.clientHeight = canvas.parentElement.clientHeight;
+    canvas.width = W * DPR;
+    canvas.height = H * DPR;
+    ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+    cx = W / 2;
+    cy = H * 0.46;
+  }
+
+  function build() {
+    const rings = [];
+    const ringCount = 7;
+    const pointsPerRing = 56;
+    const baseR = Math.min(W, H) * 0.36;
+    for (let i = 0; i < ringCount; i++) {
+      const t = i / (ringCount - 1);
+      const yOffset = (t - 0.5) * baseR * 1.1;
+      const r = Math.sqrt(1 - Math.pow((t - 0.5) * 2, 2)) * baseR;
+      const pts = [];
+      for (let k = 0; k < pointsPerRing; k++) {
+        const a = (k / pointsPerRing) * Math.PI * 2;
+        pts.push({ x: Math.cos(a) * r, y: yOffset, z: Math.sin(a) * r, a, ring: i });
+      }
+      rings.push(pts);
+    }
+    const stars = [];
+    for (let i = 0; i < 80; i++) {
+      stars.push({
+        x: (Math.random() - 0.5) * baseR * 2.6,
+        y: (Math.random() - 0.5) * baseR * 2.4,
+        z: (Math.random() - 0.5) * baseR * 2.6,
+        s: Math.random() * 0.8 + 0.2,
+      });
+    }
+    return { rings, stars, baseR };
+  }
+
+  let scene = null;
+  let mouseX = 0, mouseY = 0, targetMX = 0, targetMY = 0;
+  let mouseInside = false;
+  let t0 = performance.now();
+
+  function project(p, sinY, cosY, sinX, cosX) {
+    let x = p.x * cosY - p.z * sinY;
+    let z = p.x * sinY + p.z * cosY;
+    let y = p.y * cosX - z * sinX;
+    z = p.y * sinX + z * cosX;
+    const f = 600 / (600 + z);
+    return { x: cx + x * f, y: cy + y * f, z, f };
+  }
+
+  function alphaHex(a) {
+    return Math.round(Math.max(0, Math.min(1, a)) * 255).toString(16).padStart(2, "0");
+  }
+
+  function draw() {
+    const now = performance.now();
+    lastFrame = now;
+    const t = (now - t0) / 1000;
+
+    mouseX += (targetMX - mouseX) * 0.06;
+    mouseY += (targetMY - mouseY) * 0.06;
+
+    const motionScale = motion === "calm" ? 0.6 : motion === "big" ? 1.6 : 1.25;
+    const rotY = t * 0.28 * motionScale + (mouseX / W) * 0.7;
+    const rotX = Math.sin(t * 0.18) * 0.18 * motionScale + (mouseY / H) * 0.4 - 0.18;
+    const sinY = Math.sin(rotY), cosY = Math.cos(rotY);
+    const sinX = Math.sin(rotX), cosX = Math.cos(rotX);
+
+    ctx.clearRect(0, 0, W, H);
+
+    for (const s of scene.stars) {
+      const p = project(s, sinY, cosY, sinX, cosX);
+      const a = Math.max(0, Math.min(1, p.f - 0.5)) * 0.95;
+      ctx.globalAlpha = a;
+      ctx.fillStyle = "#F2EFE7";
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, s.s * p.f * 1.2, 0, Math.PI * 2);
+      ctx.fill();
+    }
+    ctx.globalAlpha = 1;
+
+    for (let i = 0; i < scene.rings.length; i++) {
+      const ring = scene.rings[i];
+      const projected = ring.map((p) => project(p, sinY, cosY, sinX, cosX));
+      ctx.beginPath();
+      for (let k = 0; k < projected.length; k++) {
+        const p = projected[k];
+        if (k === 0) ctx.moveTo(p.x, p.y);
+        else ctx.lineTo(p.x, p.y);
+      }
+      ctx.closePath();
+      const avgZ = projected.reduce((s, p) => s + p.z, 0) / projected.length;
+      const depth = (avgZ + scene.baseR) / (scene.baseR * 2);
+      const isEquator = i === Math.floor(scene.rings.length / 2);
+      ctx.lineWidth = isEquator ? 2.0 : 1.2;
+      ctx.strokeStyle = isEquator
+        ? `${accent}${alphaHex(0.85 + depth * 0.15)}`
+        : `rgba(242, 239, 231, ${0.18 + depth * 0.22})`;
+      ctx.stroke();
+      if (isEquator) {
+        for (let k = 0; k < projected.length; k += 4) {
+          const p = projected[k];
+          ctx.beginPath();
+          ctx.fillStyle = accent;
+          ctx.globalAlpha = 0.7 + p.f * 0.3;
+          ctx.arc(p.x, p.y, 2.4 * p.f, 0, Math.PI * 2);
+          ctx.fill();
+        }
+        ctx.globalAlpha = 1;
+      }
+    }
+
+    ctx.strokeStyle = `rgba(242, 239, 231, 0.14)`;
+    ctx.lineWidth = 0.9;
+    const ppr = scene.rings[0].length;
+    for (let n = 0; n < ppr; n += 4) {
+      ctx.beginPath();
+      for (let i = 0; i < scene.rings.length; i++) {
+        const p = project(scene.rings[i][n], sinY, cosY, sinX, cosX);
+        if (i === 0) ctx.moveTo(p.x, p.y);
+        else ctx.lineTo(p.x, p.y);
+      }
+      ctx.stroke();
+    }
+
+    if (mouseInside) {
+      const mx = cx + mouseX * 0.6;
+      const my = cy + mouseY * 0.4;
+      const grad = ctx.createRadialGradient(mx, my, 0, mx, my, 280);
+      grad.addColorStop(0, `${accent}55`);
+      grad.addColorStop(1, "rgba(7,8,10,0)");
+      ctx.fillStyle = grad;
+      ctx.fillRect(mx - 280, my - 280, 560, 560);
+    }
+
+    ctx.strokeStyle = "rgba(242,239,231,0.08)";
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(cx - 14, cy); ctx.lineTo(cx + 14, cy);
+    ctx.moveTo(cx, cy - 14); ctx.lineTo(cx, cy + 14);
+    ctx.stroke();
+
+    rafId = requestAnimationFrame(safeDraw);
+  }
+
+  function safeDraw() {
+    try { draw(); } catch (err) { cancelAnimationFrame(rafId); rafId = null; }
+  }
+
+  let rafId = null;
+  function start() {
+    if (rafId) cancelAnimationFrame(rafId);
+    try {
+      resize();
+      scene = build();
+      if (!W || !H) return;
+      t0 = performance.now();
+      lastFrame = t0;
+      rafId = requestAnimationFrame(safeDraw);
+    } catch (err) { /* SVG fallback remains visible */ }
+  }
+
+  window.addEventListener("resize", () => {
+    try { resize(); scene = build(); } catch (err) {}
+  });
+  window.addEventListener("mousemove", (e) => {
+    const rect = canvas.getBoundingClientRect();
+    if (e.clientX >= rect.left && e.clientX <= rect.right && e.clientY >= rect.top && e.clientY <= rect.bottom) {
+      targetMX = (e.clientX - rect.left) - W / 2;
+      targetMY = (e.clientY - rect.top) - H / 2;
+      mouseInside = true;
+    } else {
+      mouseInside = false;
+      targetMX *= 0.9; targetMY *= 0.9;
+    }
+  });
+
+  document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "visible") {
+      const stalled = performance.now() - lastFrame > 2000;
+      if (stalled || !rafId) start();
+    }
+  });
+
+  canvas.addEventListener("contextlost", () => { cancelAnimationFrame(rafId); rafId = null; });
+  canvas.addEventListener("contextrestored", () => { start(); });
+
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches) motion = "calm";
+  start();
+})();
+
+/* ───────────── site behaviours ───────────── */
+(function () {
+  const nav = document.getElementById("nav");
+  function onScroll() {
+    nav.classList.toggle("is-stuck", window.scrollY > 12);
+  }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+
+  document.documentElement.classList.add("js");
+  const io = new IntersectionObserver(
+    (entries) => {
+      for (const e of entries) {
+        if (e.isIntersecting) { e.target.classList.add("is-in"); io.unobserve(e.target); }
+      }
+    },
+    { threshold: 0.12, rootMargin: "0px 0px -10% 0px" }
+  );
+  document.querySelectorAll("[data-reveal]").forEach((el) => io.observe(el));
+
+  const navMenu = document.getElementById("navMenu");
+  if (navMenu) {
+    navMenu.querySelectorAll(".sheet a").forEach((a) => {
+      a.addEventListener("click", () => { navMenu.open = false; });
+    });
+  }
+})();
+</script>
 
 <script>if(location.search.indexOf("ok=1")>-1){var o=document.getElementById("ok");if(o){o.style.display="block";o.scrollIntoView({behavior:"smooth"})}}</script>
-<script>(function(){fetch("https://app.wizardweb.ca/api/testimonials").then(function(r){return r.json()}).then(function(d){if(!d||!d.length)return;var esc=function(s){return String(s||"").replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c]})};var el=document.getElementById("tlist");if(!el)return;el.innerHTML=d.map(function(t){var st="★★★★★".slice(0,t.rating||5);return '<div class="tcard"><p style="color:var(--lime);font-size:14px;letter-spacing:3px;margin-bottom:10px">'+st+'</p><p>“'+esc(t.body)+'”</p><div class="who">'+esc(t.author||"Cliente")+' · '+esc(t.business_name)+'</div></div>'}).join("")}).catch(function(){})})();</script>
+<script>(function(){fetch("https://app.wizardweb.ca/api/testimonials").then(function(r){return r.json()}).then(function(d){if(!d||!d.length)return;var esc=function(s){return String(s||"").replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c]})};var el=document.getElementById("tlist");if(!el)return;el.innerHTML=d.map(function(t){var st="★★★★★".slice(0,t.rating||5);return '<div class="tcard"><p style="color:var(--accent);font-size:14px;letter-spacing:3px;margin-bottom:10px">'+st+'</p><p>“'+esc(t.body)+'”</p><div class="who">'+esc(t.author||"Cliente")+' · '+esc(t.business_name)+'</div></div>'}).join("")}).catch(function(){})})();</script>
 <style>
 #wzc-launch{position:fixed;right:20px;bottom:20px;z-index:60;display:inline-flex;align-items:center;gap:10px;padding:13px 18px 13px 16px;border-radius:999px;background:var(--accent);color:var(--accent-ink);font-family:var(--f-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;border:0;cursor:pointer;box-shadow:0 10px 30px rgba(0,0,0,.45);transition:transform .2s ease}
 #wzc-launch:hover{transform:translateY(-2px)}
