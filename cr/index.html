@@ -45,6 +45,15 @@ header{position:sticky;top:0;z-index:10;background:rgba(7,8,10,.82);backdrop-fil
 .nav .logo{display:inline-flex;align-items:baseline;gap:8px;font-family:var(--f-display);font-size:22px;letter-spacing:-.01em}.nav .logo .mark{display:inline-flex;width:22px;height:22px;margin-right:4px;align-self:center}.nav .logo .mark svg{width:100%;height:100%}
 .nav .links{margin-left:auto;display:flex;gap:20px;font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
 .nav .links a:hover{color:var(--accent)}.nav .en{color:var(--smoke)}
+.nav-menu{display:none;position:relative;margin-left:auto;font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase}
+.nav-menu summary{list-style:none;cursor:pointer;color:var(--paper);padding:10px 14px;border:1px solid var(--line);border-radius:999px;background:rgba(242,239,231,0.02)}
+.nav-menu summary::-webkit-details-marker{display:none}
+.nav-menu[open] summary{border-color:var(--accent)}
+.nav-menu .sheet{position:absolute;right:0;top:calc(100% + 10px);min-width:210px;background:var(--ink-2,#14140f);border:1px solid var(--line);display:grid;z-index:60}
+.nav-menu .sheet a{padding:14px 18px;border-bottom:1px solid var(--line);color:var(--smoke)}
+.nav-menu .sheet a:last-child{border-bottom:0}
+.nav-menu .sheet a:hover{color:var(--paper)}
+@media(max-width:760px){.nav .links{display:none}.nav-menu{display:block}}
 .btn{display:inline-flex;align-items:center;gap:10px;padding:15px 24px;border-radius:999px;font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;transition:transform .2s,background .2s}
 .btn-primary{background:var(--accent);color:var(--accent-ink)}.btn-primary:hover{transform:translateY(-1px)}
 .btn-ghost{border:1px solid var(--line-strong)}.btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
@@ -82,10 +91,17 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
 <a class="skip" href="#main">Saltar al contenido</a>
 <header><div class="container nav">
 <a class="logo" href="/cr/" aria-label="WizardWeb inicio"><span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M3 19 L12 3 L21 19 Z" stroke="currentColor" stroke-width="1.4"/><path d="M7 14 L12 8 L17 14" stroke="currentColor" stroke-width="1.4"/><circle cx="12" cy="11" r="1.2" fill="#B6FF5C"/></svg></span>Wizardweb</a>
-<nav class="links">
+<nav class="links" aria-label="Principal">
 <a href="#como">Cómo</a><a href="#precios">Precios</a><a href="#ejemplos">Ejemplos</a><a href="#audit">Análisis gratis</a><a href="#contacto">Contacto</a>
 <a class="en" href="/?en=1">EN</a>
-</nav></div></header>
+</nav>
+<details class="nav-menu" id="navMenu">
+<summary aria-label="Abrir menú">Menú</summary>
+<nav class="sheet" aria-label="Móvil">
+<a href="#como">Cómo</a><a href="#precios">Precios</a><a href="#ejemplos">Ejemplos</a><a href="#audit">Análisis gratis</a><a href="#contacto">Contacto</a><a href="/?en=1">EN</a>
+</nav>
+</details>
+</div></header>
 
 <section class="hero" id="main"><div class="container">
 <p class="eyebrow"><span class="dot"></span>Costa Rica · Sitios web</p>
