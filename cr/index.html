@@ -68,9 +68,13 @@ textarea{min-height:110px;resize:vertical}.hp{position:absolute;left:-9999px}
 .ok{background:rgba(182,255,92,.12);border:1px solid var(--accent);border-radius:12px;padding:14px 18px;margin-bottom:18px;display:none}
 footer{border-top:1px solid var(--line);padding:40px 0;color:var(--smoke);font-family:var(--f-mono);font-size:12px;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
 .muted{color:var(--smoke)}
+.skip{position:absolute;left:-9999px;top:0;z-index:100;background:var(--accent);color:var(--accent-ink);font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;padding:12px 18px}
+.skip:focus{left:0}
+a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 </style>
 </head>
 <body>
+<a class="skip" href="#main">Saltar al contenido</a>
 <header><div class="container nav">
 <a class="logo" href="/cr/">Wizard<b>Web</b></a>
 <nav class="links">
@@ -78,7 +82,7 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--smoke);font-f
 <a class="en" href="/?en=1">EN</a>
 </nav></div></header>
 
-<section class="hero"><div class="container">
+<section class="hero" id="main"><div class="container">
 <p class="eyebrow"><span class="dot"></span>Costa Rica · Sitios web</p>
 <h1>Tu negocio merece<br>una web que trabaje.</h1>
 <p class="lead">Hacemos sitios rápidos, bonitos y <b>bilingües (español e inglés automático)</b> para negocios en Costa Rica. Listos en pocos días, optimizados para Google y para que te escriban por WhatsApp.</p>

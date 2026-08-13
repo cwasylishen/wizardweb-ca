@@ -1057,6 +1057,103 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 }
 @keyframes pulse { 50% { opacity: 0.3; } }
 
+/* ───────────── accessibility ───────────── */
+.skip {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-family: var(--f-mono);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 12px 18px;
+}
+.skip:focus { left: 0; }
+a:focus-visible, button:focus-visible, summary:focus-visible,
+input:focus-visible, textarea:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ───────────── mobile menu ───────────── */
+.nav-menu {
+  display: none;
+  position: relative;
+  font-family: var(--f-mono);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.nav-menu summary {
+  list-style: none;
+  cursor: pointer;
+  color: var(--paper);
+  padding: 10px 14px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: rgba(242,239,231,0.02);
+}
+.nav-menu summary::-webkit-details-marker { display: none; }
+.nav-menu[open] summary { border-color: var(--accent); }
+.nav-menu .sheet {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 10px);
+  min-width: 210px;
+  background: var(--ink-2);
+  border: 1px solid var(--line-strong);
+  display: grid;
+}
+.nav-menu .sheet a {
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--line);
+  color: var(--smoke);
+}
+.nav-menu .sheet a:last-child { border-bottom: 0; }
+.nav-menu .sheet a:hover { color: var(--paper); }
+@media (max-width: 760px) {
+  .nav-menu { display: block; }
+}
+
+/* ───────────── audit form ───────────── */
+.audit-form {
+  display: grid;
+  gap: 12px;
+  max-width: 420px;
+  margin: 26px auto 0;
+  text-align: left;
+}
+.audit-form label {
+  display: grid;
+  gap: 6px;
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--smoke);
+}
+.audit-form input {
+  width: 100%;
+  padding: 13px 15px;
+  background: var(--ink-2);
+  border: 1px solid var(--line-strong);
+  color: var(--paper);
+  font: inherit;
+  font-size: 16px;
+}
+.audit-form input:focus { border-color: var(--accent); }
+.form-ok {
+  background: rgba(182,255,92,0.12);
+  border: 1px solid var(--accent);
+  padding: 14px 18px;
+  margin: 18px 0 0;
+  font-size: 15px;
+  display: none;
+}
+
 /* ───────────── chat widget (live assistant) ───────────── */
 #wzc-launch{position:fixed;right:20px;bottom:20px;z-index:9998;display:inline-flex;align-items:center;gap:10px;padding:13px 18px 13px 16px;border-radius:999px;background:var(--accent);color:var(--accent-ink);font-family:var(--f-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;border:0;cursor:pointer;box-shadow:0 10px 30px rgba(0,0,0,.45);transition:transform .2s ease}
 #wzc-launch:hover{transform:translateY(-2px)}
@@ -1095,15 +1192,20 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 [data-reveal].is-in { opacity: 1; transform: none; }
 
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.001ms !important;
-    transition-duration: 0.001ms !important;
-  }
-  [data-reveal] { opacity: 1; transform: none; }
+  /* Reveals render visible, marquee holds still, pulses stop.
+     Hover/focus color changes keep a fast duration so state still registers. */
+  [data-reveal] { opacity: 1; transform: none; transition: none; }
+  .marquee-track { animation: none; }
+  .eyebrow .dot, .nav-cta::before, .footer .live::before,
+  .ai-proof .live-dot, .wzc-head .dot, .scroll-cue .bar { animation: none; }
+  html { scroll-behavior: auto; }
+  a, button, summary, input { transition-duration: 80ms; }
 }
 </style>
 </head>
 <body>
+
+<a class="skip" href="#top">Skip to content</a>
 
 <!-- ───────────── NAV ───────────── -->
 <header class="nav" id="nav">
@@ -1124,6 +1226,16 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
     <a href="#audit">Free audit</a>
     <a href="#faq">FAQ</a>
   </nav>
+  <details class="nav-menu" id="navMenu">
+    <summary aria-label="Open menu">Menu</summary>
+    <nav class="sheet" aria-label="Mobile">
+      <a href="/work">Work</a>
+      <a href="#services">Services</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#audit">Free audit</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+  </details>
   <a class="nav-cta" href="#" data-cal-link="clintonw/website-launch-strategy-call" data-cal-namespace="strategy-call" data-cal-config='{"layout":"month_view","theme":"dark"}'>Start a project</a>
 </header>
 
@@ -1314,7 +1426,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 
 <section class="section work-more" aria-labelledby="more-work-h">
   <div class="more-head" data-reveal>
-    <div class="label" id="more-work-h">Every business. A <em>story</em> worth telling.</div>
+    <h2 class="label" id="more-work-h" style="margin:0;font-weight:400">Every business. A <em>story</em> worth telling.</h2>
     <a class="all" href="/work">View all work <span aria-hidden="true">→</span></a>
   </div>
 
@@ -1699,13 +1811,14 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
     <div class="eyebrow" style="justify-content:center"><span class="dot"></span>Free audit</div>
     <h2>Get a free <em>audit</em> of your online presence.</h2>
     <p>Drop your email and we'll show you exactly what's costing you customers and how to fix it, fast. No spam, ever, just one genuinely useful follow-up.</p>
-    <form method="POST" action="https://app.wizardweb.ca/api/audit-request" style="display:grid;gap:12px;max-width:420px;margin:26px auto 0;text-align:left">
+    <div class="form-ok" id="audit-ok" role="status">Got it. Your audit is on the way, watch your inbox.</div>
+    <form class="audit-form" method="POST" action="https://app.wizardweb.ca/api/audit-request">
       <input type="hidden" name="lang" value="en">
       <input type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px">
-      <input name="email" type="email" required placeholder="Your email (required)">
-      <input name="phone" placeholder="Phone / WhatsApp (optional)">
-      <input name="website" placeholder="Current website, if any (optional)">
-      <input name="business" placeholder="Business name (optional)">
+      <label>Your email (required)<input name="email" type="email" required autocomplete="email"></label>
+      <label>Phone / WhatsApp (optional)<input name="phone" autocomplete="tel"></label>
+      <label>Current website, if any (optional)<input name="website" autocomplete="url"></label>
+      <label>Business name (optional)<input name="business" autocomplete="organization"></label>
       <button type="submit" style="background:var(--accent);color:var(--accent-ink);border:0;border-radius:999px;padding:15px 22px;font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;cursor:pointer">Send me my free audit ↗</button>
       <span style="font-family:var(--f-mono);font-size:11px;color:var(--smoke);text-align:center">We never spam. One helpful follow-up, that's it.</span>
     </form>
@@ -2001,6 +2114,19 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
     { threshold: 0.4 }
   );
   document.querySelectorAll("[data-count]").forEach((el) => countIO.observe(el));
+
+  const navMenu = document.getElementById("navMenu");
+  if (navMenu) {
+    navMenu.querySelectorAll(".sheet a").forEach((a) => {
+      a.addEventListener("click", () => { navMenu.open = false; });
+    });
+  }
+
+  // Perceivable submission feedback for the audit form (?ok=1 on return)
+  if (location.search.indexOf("ok=1") > -1) {
+    const ok = document.getElementById("audit-ok");
+    if (ok) { ok.style.display = "block"; ok.scrollIntoView({ behavior: "smooth", block: "center" }); }
+  }
 
   const details = document.querySelectorAll(".faq-item");
   details.forEach((d) => {
