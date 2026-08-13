@@ -42,7 +42,7 @@ h1{font-size:clamp(40px,7vw,84px);margin:.2em 0}h2{font-size:clamp(30px,5vw,52px
 .lead{font-size:clamp(18px,2.4vw,22px);color:#d9d6cd;max-width:60ch}
 header{position:sticky;top:0;z-index:10;background:rgba(7,8,10,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .nav{display:flex;align-items:center;gap:22px;padding:16px 0}
-.nav .logo{font-family:var(--f-display);font-size:22px}.nav .logo b{color:var(--accent)}
+.nav .logo{display:inline-flex;align-items:baseline;gap:8px;font-family:var(--f-display);font-size:22px;letter-spacing:-.01em}.nav .logo .mark{display:inline-flex;width:22px;height:22px;margin-right:4px;align-self:center}.nav .logo .mark svg{width:100%;height:100%}
 .nav .links{margin-left:auto;display:flex;gap:20px;font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
 .nav .links a:hover{color:var(--accent)}.nav .en{color:var(--smoke)}
 .btn{display:inline-flex;align-items:center;gap:10px;padding:15px 24px;border-radius:999px;font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;transition:transform .2s,background .2s}
@@ -52,25 +52,25 @@ section{border-top:1px solid var(--line);padding:clamp(56px,9vw,110px) 0}
 .hero{padding-top:clamp(48px,7vw,90px)}
 .steps,.cards,.grid{display:grid;gap:20px}
 @media(min-width:760px){.steps,.cards{grid-template-columns:repeat(3,1fr)}.grid{grid-template-columns:repeat(3,1fr)}}
-.card{background:var(--ink-2);border:1px solid var(--line);border-radius:18px;padding:26px}
+.card{background:var(--ink-2);border:1px solid var(--line);padding:26px}
 .card .n{font-family:var(--f-mono);color:var(--accent);font-size:12px;letter-spacing:.14em}
 .price{display:flex;flex-direction:column}.price .amt{font-family:var(--f-display);font-size:46px;margin:.1em 0}
 .price ul{list-style:none;padding:0;margin:14px 0 0;color:#cfccc3;font-size:15px}.price li{padding:6px 0;border-top:1px solid var(--line)}
 .price .tag{font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--smoke)}
-.case{background:linear-gradient(120deg,rgba(182,255,92,.10),transparent);border:1px solid var(--line-strong);border-radius:22px;padding:clamp(28px,5vw,52px)}
+.case{background:linear-gradient(120deg,rgba(182,255,92,.10),transparent);border:1px solid var(--line-strong);padding:clamp(28px,5vw,52px)}
 .stats{display:flex;flex-wrap:wrap;gap:34px;margin-top:18px}
 .stat .big{font-family:var(--f-display);font-size:clamp(40px,6vw,64px);color:var(--accent);line-height:1}
 .stat small{display:block;color:var(--smoke);font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;margin-top:6px}
-.work{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--ink-2)}
+.work{border:1px solid var(--line);overflow:hidden;background:var(--ink-2)}
 .work img{aspect-ratio:16/10;object-fit:cover;width:100%;transition:transform .4s}.work:hover img{transform:scale(1.04)}
 .work .meta{padding:16px 18px;display:flex;justify-content:space-between;align-items:center}
 .work .meta b{font-family:var(--f-display);font-size:20px;font-weight:400}.work .meta span{font-family:var(--f-mono);font-size:11px;color:var(--accent)}
 .work.sulab{display:flex;flex-direction:column;justify-content:center;background:linear-gradient(140deg,rgba(182,255,92,.14),var(--ink-2));min-height:240px;padding:24px}
-.tcard{background:var(--ink-2);border:1px solid var(--line);border-radius:18px;padding:24px}.tcard p{font-family:var(--f-display);font-size:21px;line-height:1.35}.tcard .who{font-family:var(--f-mono);font-size:11px;color:var(--smoke);letter-spacing:.1em;text-transform:uppercase;margin-top:12px}
+.tcard{background:var(--ink-2);border:1px solid var(--line);padding:24px}.tcard p{font-family:var(--f-display);font-size:21px;line-height:1.35}.tcard .who{font-family:var(--f-mono);font-size:11px;color:var(--smoke);letter-spacing:.1em;text-transform:uppercase;margin-top:12px}
 form{display:grid;gap:14px;max-width:560px}label{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--smoke)}
-input,textarea{width:100%;padding:13px 15px;background:var(--ink-2);border:1px solid var(--line-strong);border-radius:12px;color:var(--paper);font:inherit;font-size:16px}
+input,textarea{width:100%;padding:13px 15px;background:var(--ink-2);border:1px solid var(--line-strong);color:var(--paper);font:inherit;font-size:16px}
 textarea{min-height:110px;resize:vertical}.hp{position:absolute;left:-9999px}
-.ok{background:rgba(182,255,92,.12);border:1px solid var(--accent);border-radius:12px;padding:14px 18px;margin-bottom:18px;display:none}
+.ok{background:rgba(182,255,92,.12);border:1px solid var(--accent);padding:14px 18px;margin-bottom:18px;display:none}
 footer{border-top:1px solid var(--line);padding:40px 0;color:var(--smoke);font-family:var(--f-mono);font-size:12px;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
 .muted{color:var(--smoke)}
 .skip{position:absolute;left:-9999px;top:0;z-index:100;background:var(--accent);color:var(--accent-ink);font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;padding:12px 18px}
@@ -81,7 +81,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
 <body>
 <a class="skip" href="#main">Saltar al contenido</a>
 <header><div class="container nav">
-<a class="logo" href="/cr/">Wizard<b>Web</b></a>
+<a class="logo" href="/cr/" aria-label="WizardWeb inicio"><span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M3 19 L12 3 L21 19 Z" stroke="currentColor" stroke-width="1.4"/><path d="M7 14 L12 8 L17 14" stroke="currentColor" stroke-width="1.4"/><circle cx="12" cy="11" r="1.2" fill="#B6FF5C"/></svg></span>Wizardweb</a>
 <nav class="links">
 <a href="#como">Cómo</a><a href="#precios">Precios</a><a href="#ejemplos">Ejemplos</a><a href="#audit">Análisis gratis</a><a href="#contacto">Contacto</a>
 <a class="en" href="/?en=1">EN</a>
@@ -178,7 +178,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
 <p class="eyebrow"><span class="dot"></span>Contacto</p>
 <h2>Hablemos de tu sitio.</h2>
 <p class="lead" style="margin-bottom:24px">Dejanos tus datos y te contactamos con ejemplos, sin compromiso.</p>
-<div class="ok" id="ok">¡Gracias! Te contactamos pronto. 🙌</div>
+<div class="ok" id="ok">¡Gracias! Te contactamos pronto.</div>
 <form method="POST" action="https://app.wizardweb.ca/api/lead-capture">
 <input class="hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
 <div><label>Tu nombre</label><input name="name" required></div>
@@ -198,34 +198,41 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
 <script>if(location.search.indexOf("ok=1")>-1){var o=document.getElementById("ok");if(o){o.style.display="block";o.scrollIntoView({behavior:"smooth"})}}</script>
 <script>(function(){fetch("https://app.wizardweb.ca/api/testimonials").then(function(r){return r.json()}).then(function(d){if(!d||!d.length)return;var esc=function(s){return String(s||"").replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c]})};var el=document.getElementById("tlist");if(!el)return;el.innerHTML=d.map(function(t){var st="★★★★★".slice(0,t.rating||5);return '<div class="tcard"><p style="color:var(--lime);font-size:14px;letter-spacing:3px;margin-bottom:10px">'+st+'</p><p>“'+esc(t.body)+'”</p><div class="who">'+esc(t.author||"Cliente")+' · '+esc(t.business_name)+'</div></div>'}).join("")}).catch(function(){})})();</script>
 <style>
-#wzc-launch{position:fixed;right:20px;bottom:20px;z-index:60;width:60px;height:60px;border-radius:50%;background:var(--accent);color:var(--accent-ink);border:0;font-size:27px;cursor:pointer;box-shadow:0 10px 30px rgba(0,0,0,.45);display:flex;align-items:center;justify-content:center;transition:transform .15s}
-#wzc-launch:hover{transform:scale(1.07)}
-#wzc{position:fixed;right:20px;bottom:20px;z-index:61;width:374px;max-width:calc(100vw - 28px);height:560px;max-height:calc(100vh - 36px);background:var(--ink-2);border:1px solid var(--line-strong);border-radius:20px;display:none;flex-direction:column;overflow:hidden;box-shadow:0 24px 64px rgba(0,0,0,.55)}
+#wzc-launch{position:fixed;right:20px;bottom:20px;z-index:60;display:inline-flex;align-items:center;gap:10px;padding:13px 18px 13px 16px;border-radius:999px;background:var(--accent);color:var(--accent-ink);font-family:var(--f-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;border:0;cursor:pointer;box-shadow:0 10px 30px rgba(0,0,0,.45);transition:transform .2s ease}
+#wzc-launch:hover{transform:translateY(-2px)}
+#wzc-launch svg{width:18px;height:18px}
+#wzc{position:fixed;right:20px;bottom:20px;z-index:61;width:374px;max-width:calc(100vw - 28px);height:560px;max-height:calc(100vh - 36px);background:var(--ink-2);border:1px solid var(--line-strong);display:none;flex-direction:column;overflow:hidden;box-shadow:0 24px 64px rgba(0,0,0,.55)}
 #wzc.open{display:flex}
-.wzc-head{padding:15px 18px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:10px}
-.wzc-head b{font-family:var(--f-sans);font-size:15px;display:block}
+.wzc-head{padding:14px 18px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:10px;background:var(--ink)}
+.wzc-head .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 10px var(--accent);flex:0 0 auto}
+.wzc-head b{font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:500;display:block}
 .wzc-head small{color:var(--smoke);font-family:var(--f-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase}
 .wzc-x{margin-left:auto;background:none;border:0;color:var(--smoke);font-size:24px;cursor:pointer;line-height:1}
+.wzc-x:hover{color:var(--paper)}
 .wzc-msgs{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px}
-.wzc-b{max-width:84%;padding:10px 13px;border-radius:14px;font-size:14.5px;line-height:1.45;white-space:pre-wrap;word-wrap:break-word}
-.wzc-b.bot{background:rgba(242,239,231,.06);border:1px solid var(--line);align-self:flex-start;border-bottom-left-radius:4px}
-.wzc-b.me{background:var(--accent);color:var(--accent-ink);align-self:flex-end;border-bottom-right-radius:4px;font-weight:500}
+.wzc-b{max-width:84%;padding:10px 13px;border:1px solid var(--line);font-size:14px;line-height:1.5;white-space:pre-wrap;word-wrap:break-word}
+.wzc-b.bot{background:var(--ink);align-self:flex-start}
+.wzc-b.me{background:var(--accent);color:var(--accent-ink);border-color:var(--accent);align-self:flex-end;font-weight:500}
 .wzc-typ{align-self:flex-start;color:var(--smoke);font-size:13px;font-style:italic;padding:2px 6px}
-.wzc-cta{display:flex;gap:8px;margin:0 14px 8px}
-.wzc-cta a,.wzc-cta button{flex:1;display:flex;align-items:center;justify-content:center;gap:6px;padding:10px;border-radius:12px;text-decoration:none;font-weight:700;font-size:13px;font-family:var(--f-sans);cursor:pointer;border:0}
-.wzc-wa{background:#25D366;color:#06310f}
+.wzc-cta{display:flex;gap:8px;margin:0 14px 10px}
+.wzc-cta a,.wzc-cta button{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;padding:10px;text-decoration:none;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;border:0}
 .wzc-aud{background:var(--accent);color:var(--accent-ink)}
-.wzc-foot{padding:11px 12px;border-top:1px solid var(--line);display:flex;gap:8px}
-.wzc-foot input{flex:1;padding:11px 13px;border-radius:12px;border:1px solid var(--line-strong);background:var(--ink);color:var(--paper);font:inherit;font-size:15px}
-.wzc-foot button{padding:0 17px;border:0;border-radius:12px;background:var(--accent);color:var(--accent-ink);font-weight:700;font-family:var(--f-sans);cursor:pointer}
+.wzc-wa{background:transparent;color:var(--paper);border:1px solid var(--line-strong)!important}
+.wzc-wa::before{content:"";width:7px;height:7px;border-radius:50%;background:#25D366;flex:0 0 auto}
+.wzc-wa:hover{background:rgba(242,239,231,0.04)}
+.wzc-foot{padding:11px 12px;border-top:1px solid var(--line);display:flex;gap:8px;background:var(--ink)}
+.wzc-foot input{flex:1;padding:11px 13px;border:1px solid var(--line-strong);background:var(--ink-2);color:var(--paper);font:inherit;font-size:15px;outline:none}
+.wzc-foot input:focus{border-color:var(--accent)}
+.wzc-foot button{padding:0 17px;border:0;background:var(--accent);color:var(--accent-ink);font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
+@media(max-width:520px){#wzc{right:14px;left:14px;bottom:14px;width:auto}#wzc-launch{right:16px;bottom:16px}}
 </style>
-<button id="wzc-launch" aria-label="Abrir chat">🪄</button>
+<button id="wzc-launch" aria-label="Abrir chat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>Pregunta</button>
 <div id="wzc" role="dialog" aria-label="Asistente WizardWeb">
-  <div class="wzc-head"><div><b>Asistente WizardWeb</b><small>Responde al instante</small></div><button class="wzc-x" aria-label="Cerrar">×</button></div>
+  <div class="wzc-head"><span class="dot" aria-hidden="true"></span><div><b>Asistente WizardWeb</b><small>Responde al instante</small></div><button class="wzc-x" aria-label="Cerrar">×</button></div>
   <div class="wzc-msgs" id="wzc-msgs"></div>
   <div class="wzc-cta">
-    <button class="wzc-aud" id="wzc-audit" type="button">📊 Análisis gratis</button>
-    <a class="wzc-wa" target="_blank" rel="noopener" href="https://wa.me/50670130653?text=Hola%2C%20vi%20su%20sitio%20y%20quiero%20informaci%C3%B3n%20sobre%20un%20sitio%20web.">💬 WhatsApp</a>
+    <button class="wzc-aud" id="wzc-audit" type="button">Análisis gratis</button>
+    <a class="wzc-wa" target="_blank" rel="noopener" href="https://wa.me/50670130653?text=Hola%2C%20vi%20su%20sitio%20y%20quiero%20informaci%C3%B3n%20sobre%20un%20sitio%20web.">WhatsApp</a>
   </div>
   <div class="wzc-foot"><input id="wzc-in" placeholder="Escribí tu pregunta..." autocomplete="off"><button id="wzc-send">Enviar</button></div>
 </div>
@@ -235,7 +242,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
   var box=document.getElementById("wzc"),msgs=document.getElementById("wzc-msgs"),input=document.getElementById("wzc-in"),launch=document.getElementById("wzc-launch");
   function esc(s){return String(s||"").replace(/[&<>]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;"}[c]})}
   function add(role,text){var d=document.createElement("div");d.className="wzc-b "+(role==="me"?"me":"bot");d.innerHTML=esc(text);msgs.appendChild(d);msgs.scrollTop=msgs.scrollHeight}
-  function open(){box.classList.add("open");launch.style.display="none";if(!hist.length)add("bot","¡Hola! Soy Mago 🪄, el asistente de WizardWeb. Preguntame lo que querás sobre tu nuevo sitio web: precios, tiempos, ejemplos, lo que sea.");setTimeout(function(){input.focus()},50)}
+  function open(){box.classList.add("open");launch.style.display="none";if(!hist.length)add("bot","¡Hola! Soy el asistente de WizardWeb. Preguntame lo que querás sobre tu nuevo sitio web: precios, tiempos, ejemplos, lo que sea.");setTimeout(function(){input.focus()},50)}
   function close(){box.classList.remove("open");launch.style.display="flex"}
   async function send(){
     var v=input.value.trim();if(!v||busy)return;
