@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>A proposal for Uvita Information Center · WizardWeb</title>
+<meta name="description" content="A private proposal from Clinton at WizardWeb for uvita.info: what's working, what's costing visitors, and what we'd build." />
+<meta name="robots" content="noindex, nofollow" />
+<meta name="theme-color" content="#07080A" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="apple-touch-icon" href="/favicon.svg" />
+
+<link rel="preload" href="/assets/fonts/instrument-serif-400.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="/assets/fonts/space-grotesk-var.woff2" as="font" type="font/woff2" crossorigin />
+
+<style>
+@font-face { font-family: "Instrument Serif"; font-style: normal; font-weight: 400; font-display: swap; src: url(/assets/fonts/instrument-serif-400.woff2) format("woff2"); }
+@font-face { font-family: "Instrument Serif"; font-style: italic; font-weight: 400; font-display: swap; src: url(/assets/fonts/instrument-serif-400italic.woff2) format("woff2"); }
+@font-face { font-family: "Space Grotesk"; font-style: normal; font-weight: 300 700; font-display: swap; src: url(/assets/fonts/space-grotesk-var.woff2) format("woff2"); }
+@font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 100 800; font-display: swap; src: url(/assets/fonts/jetbrains-mono-var.woff2) format("woff2"); }
+
+:root {
+  --ink:        #07080A;
+  --ink-2:      #0E1014;
+  --paper:      #F2EFE7;
+  --smoke:      #8A8A82;
+  --line:       rgba(242, 239, 231, 0.10);
+  --line-strong:rgba(242, 239, 231, 0.22);
+  --accent:     #B6FF5C;
+  --accent-ink: #07080A;
+
+  --f-display:  "Instrument Serif", "Times New Roman", serif;
+  --f-sans:     "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --f-mono:     "JetBrains Mono", ui-monospace, monospace;
+
+  --gutter:     clamp(20px, 4vw, 56px);
+  --max:        1120px;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: var(--ink); color: var(--paper); }
+html { scroll-behavior: smooth; }
+body { font-family: var(--f-sans); font-size: 17px; line-height: 1.5; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; overflow-x: hidden; }
+::selection { background: var(--accent); color: var(--accent-ink); }
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+
+.eyebrow { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--smoke); }
+.eyebrow .dot { display: inline-block; width: 6px; height: 6px; background: var(--accent); border-radius: 50%; margin-right: 8px; vertical-align: 1px; box-shadow: 0 0 10px var(--accent); }
+
+.btn { display: inline-flex; align-items: center; gap: 12px; padding: 16px 22px 16px 24px; border-radius: 999px; font-family: var(--f-mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; transition: transform .2s ease, background .2s ease, color .2s ease; }
+.btn .arr { display: inline-flex; width: 22px; height: 22px; border-radius: 50%; background: var(--accent-ink); color: var(--accent); align-items: center; justify-content: center; transition: transform .25s ease; }
+.btn-primary { background: var(--accent); color: var(--accent-ink); }
+.btn-primary:hover { transform: translateY(-1px); }
+.btn-primary:hover .arr { transform: translate(3px, -3px); }
+.btn-ghost { background: transparent; color: var(--paper); border: 1px solid var(--line-strong); }
+.btn-ghost .arr { background: var(--paper); color: var(--ink); }
+.btn-ghost:hover { background: rgba(242,239,231,0.04); }
+.btn-ghost:hover .arr { transform: translate(3px, -3px); }
+
+.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 50; padding: 18px var(--gutter); display: flex; align-items: center; justify-content: space-between; transition: backdrop-filter .3s ease, background .3s ease, border-color .3s ease; border-bottom: 1px solid transparent; }
+.nav.is-stuck { backdrop-filter: blur(14px) saturate(140%); -webkit-backdrop-filter: blur(14px) saturate(140%); background: rgba(7, 8, 10, 0.62); border-bottom-color: var(--line); }
+.brand { display: inline-flex; align-items: baseline; gap: 8px; font-family: var(--f-display); font-size: 22px; letter-spacing: -0.01em; }
+.brand .mark { display: inline-flex; width: 22px; height: 22px; margin-right: 4px; }
+.brand .mark svg { width: 100%; height: 100%; }
+.nav-note { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--smoke); }
+@media (max-width: 640px) { .nav-note { display: none; } }
+
+.skip { position: absolute; left: -9999px; top: 0; z-index: 100; background: var(--accent); color: var(--accent-ink); font-family: var(--f-mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; padding: 12px 18px; }
+.skip:focus { left: 0; }
+a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.page-hero { padding: 150px var(--gutter) 40px; border-bottom: 1px solid var(--line); position: relative; overflow: hidden; }
+.page-hero::before { content: ""; position: absolute; inset: 0; background: radial-gradient(60% 80% at 80% 20%, rgba(182,255,92,0.10), transparent 60%), radial-gradient(40% 60% at 10% 90%, rgba(182,255,92,0.06), transparent 60%); pointer-events: none; }
+.page-hero-inner { position: relative; max-width: var(--max); margin: 0 auto; }
+.page-hero h1 { font-family: var(--f-display); font-weight: 400; font-size: clamp(38px, 6.4vw, 76px); line-height: 1.02; letter-spacing: -0.02em; margin: 18px 0 24px; max-width: 16ch; }
+.page-hero h1 em { font-style: italic; color: var(--accent); }
+.page-hero .lede { font-size: 18px; line-height: 1.6; color: var(--paper); opacity: 0.9; max-width: 62ch; margin: 0; }
+
+.sections { max-width: var(--max); margin: 0 auto; padding: 80px var(--gutter) 20px; display: grid; gap: 88px; }
+.blk-head h2 { font-family: var(--f-display); font-weight: 400; font-size: clamp(28px, 3.6vw, 44px); line-height: 1.06; letter-spacing: -0.02em; margin: 14px 0 22px; max-width: 20ch; }
+.blk-head h2 em { font-style: italic; color: var(--accent); }
+.blk-body p { font-size: 16px; line-height: 1.7; color: var(--paper); opacity: 0.9; margin: 0 0 20px; max-width: 68ch; }
+.blk-body p:last-child { margin-bottom: 0; }
+.blk-body strong { color: var(--paper); opacity: 1; }
+
+.shot { margin-top: 28px; background: var(--ink-2); border: 1px solid var(--line); overflow: hidden; position: relative; max-width: 560px; }
+.shot img { width: 100%; height: auto; display: block; }
+.shot-tag { position: absolute; top: 14px; left: 14px; z-index: 2; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--paper); padding: 6px 10px; background: rgba(7,8,10,0.6); border: 1px solid var(--line-strong); border-radius: 999px; backdrop-filter: blur(6px); }
+.shot-cap { margin: 12px 0 0; font-family: var(--f-mono); font-size: 12px; color: var(--smoke); max-width: 560px; }
+
+.numbers { list-style: none; padding: 0; margin: 24px 0 0; display: grid; gap: 0; max-width: 68ch; }
+.numbers li { display: grid; grid-template-columns: 108px 1fr; gap: 18px; align-items: baseline; padding: 16px 0; border-top: 1px solid var(--line); font-size: 15px; line-height: 1.5; }
+.numbers li:last-child { border-bottom: 1px solid var(--line); }
+.numbers .n { font-family: var(--f-display); font-size: 26px; color: var(--accent); line-height: 1; letter-spacing: -0.01em; }
+.numbers span.d { color: var(--paper); opacity: 0.9; }
+@media (max-width: 560px) { .numbers li { grid-template-columns: 1fr; gap: 4px; } }
+
+.build-list { list-style: none; padding: 0; margin: 24px 0 0; display: grid; gap: 0; max-width: 68ch; }
+.build-list li { display: grid; grid-template-columns: 32px 1fr; gap: 14px; align-items: baseline; padding: 16px 0; border-top: 1px solid var(--line); font-size: 15px; line-height: 1.5; }
+.build-list li:last-child { border-bottom: 1px solid var(--line); }
+.build-list .k { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--smoke); }
+.build-list b { color: var(--paper); }
+.build-list span.sub { display: block; color: var(--smoke); font-size: 14px; margin-top: 4px; font-weight: 400; }
+
+.offer { background: var(--ink-2); border: 1px solid var(--line-strong); padding: 44px clamp(24px,4vw,56px); max-width: 68ch; }
+.offer .amount { font-family: var(--f-display); font-size: clamp(40px, 6vw, 64px); color: var(--accent); line-height: 1; letter-spacing: -0.02em; margin: 10px 0 6px; }
+.offer .unit { font-family: var(--f-mono); font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--smoke); }
+.offer p { font-size: 16px; line-height: 1.7; color: var(--paper); opacity: 0.92; margin: 22px 0 0; max-width: 60ch; }
+.offer p:first-of-type { margin-top: 24px; }
+
+.cta { padding: 100px var(--gutter) 120px; position: relative; overflow: hidden; border-top: 1px solid var(--line); }
+.cta::before { content: ""; position: absolute; inset: 0; background: radial-gradient(60% 80% at 50% 100%, rgba(182,255,92,0.22), transparent 60%); pointer-events: none; }
+.cta-inner { position: relative; max-width: var(--max); margin: 0 auto; }
+.cta h2 { font-family: var(--f-display); font-weight: 400; font-size: clamp(32px, 5vw, 60px); line-height: 1.02; letter-spacing: -0.02em; margin: 24px 0 20px; max-width: 20ch; }
+.cta h2 em { color: var(--accent); font-style: italic; }
+.cta p { font-size: 17px; color: var(--paper); opacity: 0.85; max-width: 58ch; margin: 0 0 28px; line-height: 1.7; }
+.cta-row { display: flex; flex-wrap: wrap; gap: 14px; }
+
+.footer { padding: 40px var(--gutter); border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; gap: 24px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--smoke); flex-wrap: wrap; }
+.footer .right { display: flex; gap: 22px; flex-wrap: wrap; }
+.footer a:hover { color: var(--paper); }
+
+[data-reveal] { opacity: 0; transform: translateY(28px); transition: opacity .9s cubic-bezier(.2,.7,0,1), transform .9s cubic-bezier(.2,.7,0,1); }
+[data-reveal].is-in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] { opacity: 1; transform: none; transition: none; }
+  .eyebrow .dot { animation: none; }
+  html { scroll-behavior: auto; }
+  a, button { transition-duration: 80ms; }
+}
+</style>
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav" id="nav">
+  <a href="https://wizardweb.ca/" class="brand" aria-label="WizardWeb home">
+    <span class="mark" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none">
+        <path d="M3 19 L12 3 L21 19 Z" stroke="currentColor" stroke-width="1.4" />
+        <path d="M7 14 L12 8 L17 14" stroke="currentColor" stroke-width="1.4" />
+        <circle cx="12" cy="11" r="1.2" fill="#B6FF5C"/>
+      </svg>
+    </span>
+    Wizardweb
+  </a>
+  <div class="nav-note">Private proposal, prepared for uvita.info</div>
+</header>
+
+<section class="page-hero" id="main">
+  <div class="page-hero-inner">
+    <div class="eyebrow"><span class="dot"></span>A proposal from Clinton, for Uvita Information Center</div>
+    <h1>Your site already <em>does its job.</em><br/>Here's what would make it do more.</h1>
+    <p class="lede">
+      I went through uvita.info top to bottom this week the same way I'd check any client's site. The good news first: nothing is broken. Every link I tested works, the content is current, and your WhatsApp button is set up right where people expect it, on every page. That part doesn't need fixing. What I found is about weight and reach, not trust, and both are fixable without changing how the site looks or feels to you.
+    </p>
+  </div>
+</section>
+
+<div class="sections">
+
+  <div class="blk" data-reveal>
+    <div class="blk-head">
+      <div class="eyebrow"><span class="dot"></span>What's costing you visitors</div>
+      <h2>The site is <em>heavy,</em><br/>and two contact paths<br/>don't go anywhere.</h2>
+    </div>
+    <div class="blk-body">
+      <p>
+        Your homepage loads about 5.6 megabytes of photos before someone can even read it, close to 190 separate files, and takes roughly 6.6 seconds to finish on a normal connection. A big part of that is one logo file that's 970KB, loading on every single page. On hotel wifi or a phone with weak signal in the jungle, that's the difference between someone waiting for your page and someone leaving for the next Google result.
+      </p>
+      <p>
+        I also looked closer at how people actually reach you. The chat bubble that pops up on your site isn't WhatsApp, it's a separate chat tool, so a visitor who clicks it never lands in WhatsApp at all, they land somewhere you may not even be checking. And of the two phone numbers listed on your site, only <strong>+506 8843 7142</strong> is a mobile that can open WhatsApp. The other, <strong>+506 2743 8889</strong>, is a landline. A visitor who taps that one hoping to message you reaches nothing.
+      </p>
+      <div class="shot">
+        <span class="shot-tag">uvita.info today &middot; desktop</span>
+        <picture>
+          <source type="image/webp" srcset="/assets/images/uvita-home-desktop-800.webp" />
+          <img src="/assets/images/uvita-home-desktop.jpg" width="1280" height="900" alt="uvita.info homepage as it loads today, desktop view" loading="eager" />
+        </picture>
+      </div>
+      <p class="shot-cap">Screenshot taken during this week's review. This is the page as it loads right now, at full weight.</p>
+      <div class="numbers">
+        <li><span class="n">5.6MB</span><span class="d">Weight of your homepage, across roughly 190 requests, before a visitor sees anything</span></li>
+        <li><span class="n">~6.6s</span><span class="d">How long the homepage takes to finish loading on a normal connection</span></li>
+        <li><span class="n">970KB</span><span class="d">Size of the single logo file that loads on every page, sitewide</span></li>
+        <li><span class="n">Zero</span><span class="d">Times your site appeared when I searched "things to do in Uvita," "Uvita restaurants," or "Marino Ballena National Park tickets," where travel blogs and another local directory show up instead</span></li>
+      </div>
+    </div>
+  </div>
+
+  <div class="blk" data-reveal>
+    <div class="blk-head">
+      <div class="eyebrow"><span class="dot"></span>What we'd build</div>
+      <h2>The same site,<br/><em>rebuilt to be fast<br/>and findable.</em></h2>
+    </div>
+    <div class="blk-body">
+      <p>
+        This wouldn't be a redesign. It would be the same tours, the same car rental and shuttle info, the same mail forwarding service, rebuilt underneath so it loads fast, reaches you directly, and shows up when people search before their trip.
+      </p>
+      <ul class="build-list">
+        <li><span class="k">01</span><span><b>Pages that load in about a second, not six or seven.</b><span class="sub">Photos sized and compressed automatically, so they stay beautiful without costing you visitors on the way in.</span></span></li>
+        <li><span class="k">02</span><span><b>A real English site and a real Spanish site.</b><span class="sub">Two separate, properly indexed versions, not a translate widget bolted on top. Right now there's no Spanish version at all, which means every Spanish-speaking searcher, including people who already live around Uvita, never sees you.</span></span></li>
+        <li><span class="k">03</span><span><b>A page for every tour and every service.</b><span class="sub">Instead of one page listing everything at once, each tour and each service gets its own page that can actually rank for the exact thing someone typed, like a specific tour name or "Uvita snorkeling."</span></span></li>
+        <li><span class="k">04</span><span><b>WhatsApp that actually opens WhatsApp.</b><span class="sub">A WhatsApp button on every page, wired to your mobile number, opening the app directly. The dead landline link comes off, and the separate chat pop-up goes away, so there's exactly one way to reach you and it always works.</span></span></li>
+        <li><span class="k">05</span><span><b>A simple dashboard, run by you.</b><span class="sub">Change a tour price, swap a photo, or add a new listing yourself, without calling anyone or touching code.</span></span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="blk" data-reveal>
+    <div class="blk-head">
+      <div class="eyebrow"><span class="dot"></span>The offer</div>
+      <h2>Paid monthly<br/>instead of <em>all at once.</em></h2>
+    </div>
+    <div class="blk-body">
+      <p>
+        Clinton's offer to you, plainly: a full rebuild, moved off the platform you're on now and hosted by us, for <strong>50,000 colones a month for twelve months</strong>. After those twelve payments, the site is yours and hosting is free from then on, no further charge to keep it running.
+      </p>
+      <div class="offer">
+        <div class="eyebrow"><span class="dot"></span>What it comes to</div>
+        <div class="amount">₡50,000<span class="unit">&nbsp;/ month</span></div>
+        <div class="unit">Twelve payments, then it's yours. Hosting free after that.</div>
+        <p>No setup fee, no second package to choose between, no discount to negotiate. This is the build spread across twelve months instead of paid as one lump sum, and that's the whole offer.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<section class="cta">
+  <div class="cta-inner" data-reveal>
+    <div class="eyebrow"><span class="dot"></span>From Clinton, personally</div>
+    <h2>Questions? <em>Just ask.</em></h2>
+    <p>
+      This page is just for you, it isn't public and it isn't listed anywhere on our site. If any of this doesn't make sense, or you want to talk through what would actually change for your visitors before deciding anything, message me directly. No pressure either way.
+    </p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="mailto:hello@wizardweb.ca?subject=uvita.info%20proposal">
+        hello@wizardweb.ca
+        <span class="arr" aria-hidden="true">↗</span>
+      </a>
+      <a class="btn btn-ghost" href="https://wa.me/50670130653?text=Hi%20Clinton%2C%20I%20saw%20the%20uvita.info%20proposal." target="_blank" rel="noopener">
+        WhatsApp Clinton
+        <span class="arr" aria-hidden="true">↗</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div>Prepared 2026-08-20</div>
+  <div class="right">
+    <a href="mailto:hello@wizardweb.ca">Contact</a>
+    <span>&copy; <span id="yr">2026</span> WizardWeb</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  const nav = document.getElementById("nav");
+  function onScroll() { nav.classList.toggle("is-stuck", window.scrollY > 12); }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+  document.getElementById("yr").textContent = new Date().getFullYear();
+})();
+
+(function () {
+  const io = new IntersectionObserver((entries) => {
+    for (const e of entries) {
+      if (e.isIntersecting) { e.target.classList.add("is-in"); io.unobserve(e.target); }
+    }
+  }, { threshold: 0.08, rootMargin: "0px 0px -8% 0px" });
+  document.querySelectorAll("[data-reveal]").forEach((el) => io.observe(el));
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Caso de Estudio Top Outlet · WizardWeb</title>
+<meta name="description" content="Cómo WizardWeb le construyó a Top Outlet Pérez Zeledón una plataforma completa de comercio en línea: catálogo, escaneo automático de productos con inteligencia artificial, panel de dueño, y el hospedaje más rápido disponible. Un desarrollo que podemos vender a cualquier outlet del país." />
+<meta name="theme-color" content="#07080A" />
+<link rel="canonical" href="https://wizardweb.ca/cr/casos/top-outlet/" />
+<link rel="alternate" hreflang="en-CA" href="https://wizardweb.ca/work/top-outlet/" />
+<link rel="alternate" hreflang="es-CR" href="https://wizardweb.ca/cr/casos/top-outlet/" />
+<link rel="alternate" hreflang="x-default" href="https://wizardweb.ca/work/top-outlet/" />
+<meta property="og:title" content="Caso de Estudio Top Outlet · WizardWeb" />
+<meta property="og:description" content="Un outlet en Pérez Zeledón, Costa Rica ahora vende en línea con un catálogo escaneado automáticamente por inteligencia artificial, sobre el hospedaje más rápido disponible." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://wizardweb.ca/cr/casos/top-outlet/" />
+<meta property="og:locale" content="es_CR" />
+<meta property="og:site_name" content="WizardWeb" />
+<meta property="og:image" content="https://wizardweb.ca/assets/images/top-outlet-desktop.jpg" />
+<meta property="og:image:width" content="1280" />
+<meta property="og:image:height" content="900" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://wizardweb.ca/assets/images/top-outlet-desktop.jpg" />
+<meta name="twitter:title" content="Caso de Estudio Top Outlet · WizardWeb" />
+<meta name="twitter:description" content="Un outlet en Pérez Zeledón, Costa Rica ahora vende en línea con un catálogo escaneado automáticamente por inteligencia artificial, sobre el hospedaje más rápido disponible." />
+
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="apple-touch-icon" href="/favicon.svg" />
+
+<link rel="preload" href="/assets/fonts/instrument-serif-400.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="/assets/fonts/space-grotesk-var.woff2" as="font" type="font/woff2" crossorigin />
+
+<style>
+@font-face { font-family: "Instrument Serif"; font-style: normal; font-weight: 400; font-display: swap; src: url(/assets/fonts/instrument-serif-400.woff2) format("woff2"); }
+@font-face { font-family: "Instrument Serif"; font-style: italic; font-weight: 400; font-display: swap; src: url(/assets/fonts/instrument-serif-400italic.woff2) format("woff2"); }
+@font-face { font-family: "Space Grotesk"; font-style: normal; font-weight: 300 700; font-display: swap; src: url(/assets/fonts/space-grotesk-var.woff2) format("woff2"); }
+@font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 100 800; font-display: swap; src: url(/assets/fonts/jetbrains-mono-var.woff2) format("woff2"); }
+
+:root {
+  --ink:        #07080A;
+  --ink-2:      #0E1014;
+  --paper:      #F2EFE7;
+  --smoke:      #8A8A82;
+  --line:       rgba(242, 239, 231, 0.10);
+  --line-strong:rgba(242, 239, 231, 0.22);
+  --accent:     #B6FF5C;
+  --accent-ink: #07080A;
+
+  --f-display:  "Instrument Serif", "Times New Roman", serif;
+  --f-sans:     "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --f-mono:     "JetBrains Mono", ui-monospace, monospace;
+
+  --gutter:     clamp(20px, 4vw, 56px);
+  --max:        1440px;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: var(--ink); color: var(--paper); }
+html { scroll-behavior: smooth; }
+body { font-family: var(--f-sans); font-size: 17px; line-height: 1.5; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; overflow-x: hidden; }
+::selection { background: var(--accent); color: var(--accent-ink); }
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+
+.eyebrow { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--smoke); }
+.eyebrow .dot { display: inline-block; width: 6px; height: 6px; background: var(--accent); border-radius: 50%; margin-right: 8px; vertical-align: 1px; box-shadow: 0 0 10px var(--accent); }
+
+.btn { display: inline-flex; align-items: center; gap: 12px; padding: 16px 22px 16px 24px; border-radius: 999px; font-family: var(--f-mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; transition: transform .2s ease, background .2s ease, color .2s ease; }
+.btn .arr { display: inline-flex; width: 22px; height: 22px; border-radius: 50%; background: var(--accent-ink); color: var(--accent); align-items: center; justify-content: center; transition: transform .25s ease; }
+.btn-primary { background: var(--accent); color: var(--accent-ink); }
+.btn-primary:hover { transform: translateY(-1px); }
+.btn-primary:hover .arr { transform: translate(3px, -3px); }
+.btn-ghost { background: transparent; color: var(--paper); border: 1px solid var(--line-strong); }
+.btn-ghost .arr { background: var(--paper); color: var(--ink); }
+.btn-ghost:hover { background: rgba(242,239,231,0.04); }
+.btn-ghost:hover .arr { transform: translate(3px, -3px); }
+
+.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 50; padding: 18px var(--gutter); display: flex; align-items: center; justify-content: space-between; transition: backdrop-filter .3s ease, background .3s ease, border-color .3s ease; border-bottom: 1px solid transparent; }
+.nav.is-stuck { backdrop-filter: blur(14px) saturate(140%); -webkit-backdrop-filter: blur(14px) saturate(140%); background: rgba(7, 8, 10, 0.62); border-bottom-color: var(--line); }
+.brand { display: inline-flex; align-items: baseline; gap: 8px; font-family: var(--f-display); font-size: 22px; letter-spacing: -0.01em; }
+.brand .mark { display: inline-flex; width: 22px; height: 22px; margin-right: 4px; }
+.brand .mark svg { width: 100%; height: 100%; }
+.nav-links { display: flex; gap: 28px; font-family: var(--f-mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; }
+.nav-links a { position: relative; color: var(--smoke); transition: color .2s ease; }
+.nav-links a:hover, .nav-links a.is-current { color: var(--paper); }
+.nav-links a::after { content: ""; position: absolute; left: 0; right: 100%; bottom: -6px; height: 1px; background: var(--accent); transition: right .3s ease; }
+.nav-links a:hover::after, .nav-links a.is-current::after { right: 0; }
+.nav-cta { display: inline-flex; align-items: center; gap: 10px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; padding: 10px 14px; border: 1px solid var(--line-strong); border-radius: 999px; background: rgba(242,239,231,0.02); transition: background .2s ease, border-color .2s ease, color .2s ease; }
+.nav-cta:hover { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.nav-cta::before { content: ""; width: 6px; height: 6px; background: var(--accent); border-radius: 50%; box-shadow: 0 0 8px var(--accent); }
+.nav-cta:hover::before { background: var(--accent-ink); box-shadow: none; }
+@media (max-width: 760px) { .nav-links { display: none; } }
+
+.skip { position: absolute; left: -9999px; top: 0; z-index: 100; background: var(--accent); color: var(--accent-ink); font-family: var(--f-mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; padding: 12px 18px; }
+.skip:focus { left: 0; }
+a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.nav-menu { display: none; position: relative; font-family: var(--f-mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; }
+.nav-menu summary { list-style: none; cursor: pointer; color: var(--paper); padding: 10px 14px; border: 1px solid var(--line-strong); border-radius: 999px; background: rgba(242,239,231,0.02); }
+.nav-menu summary::-webkit-details-marker { display: none; }
+.nav-menu[open] summary { border-color: var(--accent); }
+.nav-menu .sheet { position: absolute; right: 0; top: calc(100% + 10px); min-width: 210px; background: var(--ink-2); border: 1px solid var(--line-strong); display: grid; }
+.nav-menu .sheet a { padding: 14px 18px; border-bottom: 1px solid var(--line); color: var(--smoke); }
+.nav-menu .sheet a:last-child { border-bottom: 0; }
+.nav-menu .sheet a:hover { color: var(--paper); }
+@media (max-width: 760px) { .nav-menu { display: block; } }
+
+.page-hero { padding: 160px var(--gutter) 60px; border-bottom: 1px solid var(--line); position: relative; overflow: hidden; }
+.page-hero::before { content: ""; position: absolute; inset: 0; background: radial-gradient(60% 80% at 80% 20%, rgba(182,255,92,0.10), transparent 60%), radial-gradient(40% 60% at 10% 90%, rgba(182,255,92,0.06), transparent 60%); pointer-events: none; }
+.page-hero-inner { position: relative; max-width: var(--max); margin: 0 auto; display: grid; grid-template-columns: 1.4fr 1fr; gap: 64px; align-items: end; }
+.page-hero h1 { font-family: var(--f-display); font-weight: 400; font-size: clamp(48px, 8vw, 120px); line-height: 0.96; letter-spacing: -0.02em; margin: 18px 0 0; max-width: 14ch; }
+.page-hero h1 em { font-style: italic; color: var(--accent); }
+.page-hero .lede { font-size: 18px; line-height: 1.5; color: var(--paper); opacity: 0.88; max-width: 46ch; margin: 0 0 24px; }
+.page-meta { display: grid; gap: 18px; font-family: var(--f-mono); font-size: 12px; letter-spacing: 0.06em; color: var(--smoke); }
+.page-meta .row { display: flex; align-items: baseline; gap: 14px; border-top: 1px solid var(--line); padding-top: 14px; }
+.page-meta .num { font-family: var(--f-display); font-size: 34px; color: var(--paper); line-height: 1; letter-spacing: -0.02em; }
+@media (max-width: 860px) { .page-hero-inner { grid-template-columns: 1fr; gap: 36px; } }
+
+.shots { padding: 60px var(--gutter) 10px; max-width: var(--max); margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr; gap: 24px; align-items: start; }
+.shot-desktop, .shot-mobile { position: relative; background: var(--ink-2); border: 1px solid var(--line); overflow: hidden; }
+.shot-desktop img, .shot-mobile img { width: 100%; height: auto; display: block; }
+.shot-tag { position: absolute; top: 14px; left: 14px; z-index: 2; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--paper); padding: 6px 10px; background: rgba(7,8,10,0.6); border: 1px solid var(--line-strong); border-radius: 999px; backdrop-filter: blur(6px); }
+@media (max-width: 860px) { .shots { grid-template-columns: 1fr; } }
+
+.sections { max-width: var(--max); margin: 0 auto; padding: 100px var(--gutter) 20px; display: grid; gap: 100px; }
+.blk { display: grid; grid-template-columns: 0.9fr 1.4fr; gap: 56px; }
+.blk-head { position: sticky; top: 100px; align-self: start; }
+.blk-head h2 { font-family: var(--f-display); font-weight: 400; font-size: clamp(30px, 3.6vw, 48px); line-height: 1.02; letter-spacing: -0.02em; margin: 14px 0 0; }
+.blk-head h2 em { font-style: italic; color: var(--accent); }
+.blk-body p { font-size: 16px; line-height: 1.65; color: var(--paper); opacity: 0.88; margin: 0 0 20px; max-width: 62ch; }
+.blk-body p:last-child { margin-bottom: 0; }
+.blk-body strong { color: var(--paper); opacity: 1; }
+@media (max-width: 860px) { .blk { grid-template-columns: 1fr; gap: 22px; } .blk-head { position: static; } }
+
+.deliv2 { list-style: none; padding: 0; margin: 24px 0 0; display: grid; gap: 0; }
+.deliv2 li { display: grid; grid-template-columns: 32px 1fr; gap: 14px; align-items: baseline; padding: 16px 0; border-top: 1px solid var(--line); font-size: 15px; line-height: 1.5; }
+.deliv2 li:last-child { border-bottom: 1px solid var(--line); }
+.deliv2 .k { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--smoke); }
+.deliv2 b { color: var(--paper); }
+.deliv2 span.sub { display: block; color: var(--smoke); font-size: 14px; margin-top: 4px; font-weight: 400; }
+
+.results { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter) 100px; }
+.res-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+.res-cell { background: var(--ink); padding: 32px 24px; }
+.res-cell .num { font-family: var(--f-display); font-size: clamp(34px, 4vw, 52px); color: var(--accent); line-height: 1; letter-spacing: -0.02em; }
+.res-cell .lbl { margin-top: 10px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--smoke); line-height: 1.5; }
+.res-note { margin: 20px 0 0; font-size: 13px; color: var(--smoke); max-width: 70ch; }
+@media (max-width: 860px) { .res-grid { grid-template-columns: 1fr 1fr; } }
+
+.cta { padding: 120px var(--gutter); position: relative; overflow: hidden; border-top: 1px solid var(--line); }
+.cta::before { content: ""; position: absolute; inset: 0; background: radial-gradient(60% 80% at 50% 100%, rgba(182,255,92,0.22), transparent 60%); pointer-events: none; }
+.cta-inner { position: relative; max-width: var(--max); margin: 0 auto; text-align: center; }
+.cta h2 { font-family: var(--f-display); font-weight: 400; font-size: clamp(40px, 6.4vw, 100px); line-height: 0.96; letter-spacing: -0.03em; margin: 24px auto 32px; max-width: 20ch; }
+.cta h2 em { color: var(--accent); font-style: italic; }
+.cta p { font-size: 18px; color: var(--paper); opacity: 0.8; max-width: 56ch; margin: 0 auto 28px; }
+.cta-row { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; }
+
+.footer { padding: 40px var(--gutter); border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; gap: 24px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--smoke); flex-wrap: wrap; }
+.footer .right { display: flex; gap: 22px; flex-wrap: wrap; }
+.footer a:hover { color: var(--paper); }
+.footer .live::before { content: ""; display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 8px var(--accent); margin-right: 8px; vertical-align: 1px; animation: pulse 1.6s ease-in-out infinite; }
+@keyframes pulse { 50% { opacity: 0.3; } }
+
+[data-reveal] { opacity: 0; transform: translateY(28px); transition: opacity .9s cubic-bezier(.2,.7,0,1), transform .9s cubic-bezier(.2,.7,0,1); }
+[data-reveal].is-in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] { opacity: 1; transform: none; transition: none; }
+  .eyebrow .dot, .nav-cta::before, .footer .live::before { animation: none; }
+  html { scroll-behavior: auto; }
+  a, button, summary, input { transition-duration: 80ms; }
+}
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Caso de Estudio Top Outlet",
+  "url": "https://wizardweb.ca/cr/casos/top-outlet/",
+  "about": "Desarrollo de comercio en línea para Top Outlet Pérez Zeledón, Costa Rica",
+  "publisher": {
+    "@type": "ProfessionalService",
+    "name": "WizardWeb",
+    "url": "https://wizardweb.ca",
+    "founder": { "@type": "Person", "name": "Clinton Wasylishen" }
+  }
+}
+</script>
+</head>
+<body>
+
+<a class="skip" href="#main">Saltar al contenido</a>
+
+<header class="nav" id="nav">
+  <a href="/cr/" class="brand" aria-label="Inicio WizardWeb">
+    <span class="mark" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none">
+        <path d="M3 19 L12 3 L21 19 Z" stroke="currentColor" stroke-width="1.4" />
+        <path d="M7 14 L12 8 L17 14" stroke="currentColor" stroke-width="1.4" />
+        <circle cx="12" cy="11" r="1.2" fill="#B6FF5C"/>
+      </svg>
+    </span>
+    Wizardweb
+  </a>
+  <nav class="nav-links" aria-label="Principal">
+    <a href="/cr/#como">Cómo</a>
+    <a href="/cr/#precios">Precios</a>
+    <a href="/cr/#ejemplos" class="is-current">Ejemplos</a>
+    <a href="/cr/#contacto">Contacto</a>
+    <a class="en" href="/work/top-outlet/?en=1">EN</a>
+  </nav>
+  <details class="nav-menu" id="navMenu">
+    <summary aria-label="Abrir menú">Menú</summary>
+    <nav class="sheet" aria-label="Móvil">
+      <a href="/cr/#como">Cómo</a>
+      <a href="/cr/#precios">Precios</a>
+      <a href="/cr/#ejemplos">Ejemplos</a>
+      <a href="/cr/#contacto">Contacto</a>
+      <a href="/work/top-outlet/?en=1">EN</a>
+    </nav>
+  </details>
+  <a class="nav-cta" href="#" data-cal-link="clintonw/website-launch-strategy-call" data-cal-namespace="strategy-call" data-cal-config='{"layout":"month_view","theme":"dark"}'>Empezar un proyecto</a>
+</header>
+
+<section class="page-hero" id="main">
+  <div class="page-hero-inner">
+    <div>
+      <div class="eyebrow"><span class="dot"></span>Caso de Estudio &nbsp;/&nbsp; Comercio y Outlets</div>
+      <h1>Un outlet,<br/><em>abierto en línea<br/>las 24 horas.</em></h1>
+    </div>
+    <div>
+      <p class="lede">
+        Top Outlet en Pérez Zeledón, Costa Rica vende artículos de marca a precio de liquidación desde su tienda física. Le construimos una segunda tienda que nunca cierra, se reabastece sola y se pone precio sola.
+      </p>
+      <div class="page-meta">
+        <div class="row"><span class="num">287+</span><span>Artículos en el catálogo<br/>en línea en todo momento</span></div>
+        <div class="row"><span class="num">5.044</span><span>Visitas desde que el sitio<br/>abrió en julio de 2026</span></div>
+        <div class="row"><span class="num">10 min</span><span>Cada cuánto se revisa el catálogo<br/>a sí mismo, de día y de noche</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="shots">
+  <div class="shot-desktop" data-reveal>
+    <span class="shot-tag">Sitio en vivo &middot; escritorio</span>
+    <picture>
+      <source type="image/webp" srcset="/assets/images/top-outlet-desktop-800.webp" />
+      <img src="/assets/images/top-outlet-desktop.jpg" width="1280" height="900" alt="Tienda en línea de Top Outlet Pérez Zeledón, vista de escritorio" loading="eager" />
+    </picture>
+  </div>
+  <div class="shot-mobile" data-reveal>
+    <span class="shot-tag">Sitio en vivo &middot; celular</span>
+    <picture>
+      <source type="image/webp" srcset="/assets/images/top-outlet-mobile-800.webp" />
+      <img src="/assets/images/top-outlet-mobile.jpg" width="390" height="844" alt="Tienda en línea de Top Outlet Pérez Zeledón, vista de celular" loading="eager" />
+    </picture>
+  </div>
+</div>
+
+<div class="sections">
+
+  <div class="blk" data-reveal>
+    <div class="blk-head">
+      <div class="eyebrow"><span class="dot"></span>El cliente</div>
+      <h2>Una tienda real,<br/>un <em>problema real.</em></h2>
+    </div>
+    <div class="blk-body">
+      <p>
+        Top Outlet es una tienda de liquidación en San Isidro de El General, Pérez Zeledón, que vende excedentes y devoluciones de marca, cajas y ropa, muy por debajo del precio de tienda. El tipo de negocio por el que la gente maneja hasta el otro lado del pueblo una vez que lo conoce, pero que casi nadie fuera de Pérez Zeledón sabía que existía.
+      </p>
+      <p>
+        El problema no era la mercadería. Era que una tienda física con cientos de artículos rotando constantemente no tenía manera de mostrar nada de eso en línea. Fotografiar, poner precio y publicar cada artículo a mano habría significado contratar a alguien de tiempo completo solo para mantener el catálogo al día, un gasto que se come el margen delgado con el que trabaja un outlet. Sin presencia en línea, todo cliente que no pasara frente a la tienda simplemente nunca se enteraba de lo que había esa semana.
+      </p>
+    </div>
+  </div>
+
+  <div class="blk" data-reveal>
+    <div class="blk-head">
+      <div class="eyebrow"><span class="dot"></span>Lo que construimos</div>
+      <h2>Todo el sistema,<br/><em>de principio a fin.</em></h2>
+    </div>
+    <div class="blk-body">
+      <p>
+        Le construimos a Top Outlet una tienda en línea completa y el sistema que la mueve por dentro, sobre el hospedaje más rápido disponible, para que el sitio cargue al instante ya sea que el cliente esté en Pérez Zeledón o al otro lado del país.
+      </p>
+      <ul class="deliv2">
+        <li><span class="k">01</span><span><b>Tienda y catálogo en línea.</b><span class="sub">Se busca por artículo o número de existencia, se navega por categoría, con precios de descuento que rotan cada día en cajas y ropa, y un conteo de artículos disponibles justo en la portada.</span></span></li>
+        <li><span class="k">02</span><span><b>Escaneo automático de productos.</b><span class="sub">El personal fotografía un artículo en la tienda. El sistema identifica qué es, redacta la publicación y estima un precio justo de forma automática, sin que nadie tenga que escribir una descripción a mano.</span></span></li>
+        <li><span class="k">03</span><span><b>Catalogación con inteligencia artificial que no descansa.</b><span class="sub">El catálogo se revisa a sí mismo cada diez minutos, las 24 horas, para que el inventario nuevo y los cambios de precio lleguen al sitio sin que nadie tenga que acordarse de publicarlos.</span></span></li>
+        <li><span class="k">04</span><span><b>Apartado y pago por SINPE.</b><span class="sub">Los clientes pagan por SINPE, apartan su artículo, y lo retiran en tienda o coordinan entrega, todo sin una sola llamada.</span></span></li>
+        <li><span class="k">05</span><span><b>Un panel para el personal y un panel para el dueño.</b><span class="sub">El personal maneja inventario, pedidos y envíos desde un panel pensado para el piso de venta. El dueño tiene su propio panel con números reales de ventas y visitas, no una impresión.</span></span></li>
+        <li><span class="k">06</span><span><b>Hecho para manejar dinero e inventario reales.</b><span class="sub">Los apartados se liberan solos automáticamente si la venta no se completa, para que ningún artículo quede bloqueado en silencio para otros compradores.</span></span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="blk" data-reveal>
+    <div class="blk-head">
+      <div class="eyebrow"><span class="dot"></span>Lo que significa para el dueño</div>
+      <h2>Menos digitar.<br/><em>Más vender.</em></h2>
+    </div>
+    <div class="blk-body">
+      <p>
+        El dueño no administra un sitio web. Él maneja una tienda, y el sitio web le sigue el paso solo. Una tarima nueva de devoluciones puede pasar de la bodega a una publicación fotografiada, con precio y publicada, en el tiempo que le toma al personal caminar el piso con un teléfono.
+      </p>
+      <p>
+        Clientes que nunca habrían encontrado la tienda pasando en carro ahora la encuentran buscando exactamente el artículo que quieren, ven qué hay disponible antes de salir de casa, y lo apartan antes de que alguien más lo compre en persona. El dueño ve cuáles de esas visitas realmente terminan en un apartado o un mensaje de WhatsApp, en su propio panel, con números reales en lugar de una corazonada.
+      </p>
+      <p>
+        Y porque esto se construyó una vez como un sistema real y no como un trabajo aislado, la misma tienda, el mismo escaneo automático y el mismo panel de dueño se pueden vestir con otra marca y entregar a cualquier otro outlet del país con el mismo problema: mucho inventario, y ninguna forma práctica de ponerlo en línea.
+      </p>
+    </div>
+  </div>
+
+  <div class="results" data-reveal>
+    <div class="eyebrow" style="margin-bottom:16px"><span class="dot"></span>Resultados, medidos desde el sitio en vivo</div>
+    <div class="res-grid">
+      <div class="res-cell"><div class="num">5.044</div><div class="lbl">Visitas desde el lanzamiento<br/>en julio de 2026</div></div>
+      <div class="res-cell"><div class="num">2.988</div><div class="lbl">Vistas de páginas de<br/>producto registradas</div></div>
+      <div class="res-cell"><div class="num">100</div><div class="lbl">Artículos apartados<br/>a través del sitio</div></div>
+      <div class="res-cell"><div class="num">179</div><div class="lbl">Clics hacia WhatsApp<br/>para hablar con el personal</div></div>
+    </div>
+    <p class="res-note">Cifras tomadas directamente del registro de visitas y eventos del propio sitio, medidas después del lanzamiento. No damos un total de ventas aquí por respeto a los números del dueño; él ve el panel completo de ventas él mismo.</p>
+  </div>
+
+</div>
+
+<section class="cta">
+  <div class="cta-inner" data-reveal>
+    <div class="eyebrow"><span class="dot"></span>Este es un desarrollo que podemos repetir</div>
+    <h2>¿Tenés un outlet?<br/><em>Ya lo construimos.</em></h2>
+    <p>
+      Si manejás un outlet, una liquidadora o una tienda de cierre en cualquier parte del país, este mismo sistema, tienda, catalogación automática y panel de dueño, se puede construir alrededor de tu inventario. Contanos de tu tienda y te respondemos con un plan y un precio.
+    </p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="mailto:hello@wizardweb.ca">
+        hello@wizardweb.ca
+        <span class="arr" aria-hidden="true">↗</span>
+      </a>
+      <a class="btn btn-ghost" href="#" data-cal-link="clintonw/website-launch-strategy-call" data-cal-namespace="strategy-call" data-cal-config='{"layout":"month_view","theme":"dark"}'>
+        Agendá una llamada de 30 min
+        <span class="arr" aria-hidden="true">↗</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="live">Todos los sistemas normales</div>
+  <div class="right">
+    <a href="/cr/#ejemplos">Ejemplos</a>
+    <a href="/cr/#como">Cómo</a>
+    <a href="/cr/#precios">Precios</a>
+    <a href="mailto:hello@wizardweb.ca">Contacto</a>
+    <span>© 2026 WizardWeb</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  const nav = document.getElementById("nav");
+  function onScroll() { nav.classList.toggle("is-stuck", window.scrollY > 12); }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+
+  const navMenu = document.getElementById("navMenu");
+  if (navMenu) {
+    navMenu.querySelectorAll(".sheet a").forEach((a) => {
+      a.addEventListener("click", () => { navMenu.open = false; });
+    });
+  }
+})();
+
+(function () {
+  const io = new IntersectionObserver((entries) => {
+    for (const e of entries) {
+      if (e.isIntersecting) { e.target.classList.add("is-in"); io.unobserve(e.target); }
+    }
+  }, { threshold: 0.08, rootMargin: "0px 0px -8% 0px" });
+  document.querySelectorAll("[data-reveal]").forEach((el) => io.observe(el));
+})();
+</script>
+
+<script type="text/javascript">
+(function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if (typeof namespace === "string") { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]); } else p(cal, ar); return; } p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+Cal("init", "strategy-call", { origin: "https://cal.com" });
+Cal.ns["strategy-call"]("ui", { theme: "dark", cssVarsPerTheme: { dark: { "cal-brand": "#B6FF5C" } }, hideEventTypeDetails: false, layout: "month_view" });
+window.wwOpenBooking = function () {
+  try { Cal.ns["strategy-call"]("modal", { calLink: "clintonw/website-launch-strategy-call", config: { layout: "month_view", theme: "dark" } }); }
+  catch (e) { window.open("https://cal.com/clintonw/website-launch-strategy-call", "_blank", "noopener"); }
+};
+</script>
+</body>
+</html>

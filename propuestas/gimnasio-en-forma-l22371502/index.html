@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Una propuesta para Gimnasio En Forma · WizardWeb</title>
+<meta name="description" content="Propuesta privada de Clinton en WizardWeb para Gimnasio En Forma: lo que funciona, lo que cuesta, y qué construiríamos." />
+<meta name="robots" content="noindex, nofollow" />
+<meta name="theme-color" content="#07080A" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="apple-touch-icon" href="/favicon.svg" />
+
+<link rel="preload" href="/assets/fonts/instrument-serif-400.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="/assets/fonts/space-grotesk-var.woff2" as="font" type="font/woff2" crossorigin />
+
+<style>
+@font-face { font-family: "Instrument Serif"; font-style: normal; font-weight: 400; font-display: swap; src: url(/assets/fonts/instrument-serif-400.woff2) format("woff2"); }
+@font-face { font-family: "Instrument Serif"; font-style: italic; font-weight: 400; font-display: swap; src: url(/assets/fonts/instrument-serif-400italic.woff2) format("woff2"); }
+@font-face { font-family: "Space Grotesk"; font-style: normal; font-weight: 300 700; font-display: swap; src: url(/assets/fonts/space-grotesk-var.woff2) format("woff2"); }
+@font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 100 800; font-display: swap; src: url(/assets/fonts/jetbrains-mono-var.woff2) format("woff2"); }
+
+:root {
+  --ink:        #07080A;
+  --ink-2:      #0E1014;
+  --paper:      #F2EFE7;
+  --smoke:      #8A8A82;
+  --line:       rgba(242, 239, 231, 0.10);
+  --line-strong:rgba(242, 239, 231, 0.22);
+  --accent:     #B6FF5C;
+  --accent-ink: #07080A;
+
+  --f-display:  "Instrument Serif", "Times New Roman", serif;
+  --f-sans:     "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --f-mono:     "JetBrains Mono", ui-monospace, monospace;
+
+  --gutter:     clamp(20px, 4vw, 56px);
+  --max:        1120px;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: var(--ink); color: var(--paper); }
+html { scroll-behavior: smooth; }
+body { font-family: var(--f-sans); font-size: 17px; line-height: 1.5; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; overflow-x: hidden; }
+::selection { background: var(--accent); color: var(--accent-ink); }
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+
+.eyebrow { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--smoke); }
+.eyebrow .dot { display: inline-block; width: 6px; height: 6px; background: var(--accent); border-radius: 50%; margin-right: 8px; vertical-align: 1px; box-shadow: 0 0 10px var(--accent); }
+
+.btn { display: inline-flex; align-items: center; gap: 12px; padding: 16px 22px 16px 24px; border-radius: 999px; font-family: var(--f-mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; transition: transform .2s ease, background .2s ease, color .2s ease; }
+.btn .arr { display: inline-flex; width: 22px; height: 22px; border-radius: 50%; background: var(--accent-ink); color: var(--accent); align-items: center; justify-content: center; transition: transform .25s ease; }
+.btn-primary { background: var(--accent); color: var(--accent-ink); }
+.btn-primary:hover { transform: translateY(-1px); }
+.btn-primary:hover .arr { transform: translate(3px, -3px); }
+.btn-ghost { background: transparent; color: var(--paper); border: 1px solid var(--line-strong); }
+.btn-ghost .arr { background: var(--paper); color: var(--ink); }
+.btn-ghost:hover { background: rgba(242,239,231,0.04); }
+.btn-ghost:hover .arr { transform: translate(3px, -3px); }
+
+.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 50; padding: 18px var(--gutter); display: flex; align-items: center; justify-content: space-between; transition: backdrop-filter .3s ease, background .3s ease, border-color .3s ease; border-bottom: 1px solid transparent; }
+.nav.is-stuck { backdrop-filter: blur(14px) saturate(140%); -webkit-backdrop-filter: blur(14px) saturate(140%); background: rgba(7, 8, 10, 0.62); border-bottom-color: var(--line); }
+.brand { display: inline-flex; align-items: baseline; gap: 8px; font-family: var(--f-display); font-size: 22px; letter-spacing: -0.01em; }
+.brand .mark { display: inline-flex; width: 22px; height: 22px; margin-right: 4px; }
+.brand .mark svg { width: 100%; height: 100%; }
+.nav-note { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--smoke); }
+@media (max-width: 640px) { .nav-note { display: none; } }
+
+.skip { position: absolute; left: -9999px; top: 0; z-index: 100; background: var(--accent); color: var(--accent-ink); font-family: var(--f-mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; padding: 12px 18px; }
+.skip:focus { left: 0; }
+a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.page-hero { padding: 150px var(--gutter) 40px; border-bottom: 1px solid var(--line); position: relative; overflow: hidden; }
+.page-hero::before { content: ""; position: absolute; inset: 0; background: radial-gradient(60% 80% at 80% 20%, rgba(182,255,92,0.10), transparent 60%), radial-gradient(40% 60% at 10% 90%, rgba(182,255,92,0.06), transparent 60%); pointer-events: none; }
+.page-hero-inner { position: relative; max-width: var(--max); margin: 0 auto; }
+.page-hero h1 { font-family: var(--f-display); font-weight: 400; font-size: clamp(38px, 6.4vw, 76px); line-height: 1.02; letter-spacing: -0.02em; margin: 18px 0 24px; max-width: 16ch; }
+.page-hero h1 em { font-style: italic; color: var(--accent); }
+.page-hero .lede { font-size: 18px; line-height: 1.6; color: var(--paper); opacity: 0.9; max-width: 62ch; margin: 0; }
+
+.sections { max-width: var(--max); margin: 0 auto; padding: 80px var(--gutter) 20px; display: grid; gap: 88px; }
+.blk-head h2 { font-family: var(--f-display); font-weight: 400; font-size: clamp(28px, 3.6vw, 44px); line-height: 1.06; letter-spacing: -0.02em; margin: 14px 0 22px; max-width: 20ch; }
+.blk-head h2 em { font-style: italic; color: var(--accent); }
+.blk-body p { font-size: 16px; line-height: 1.7; color: var(--paper); opacity: 0.9; margin: 0 0 20px; max-width: 68ch; }
+.blk-body p:last-child { margin-bottom: 0; }
+.blk-body strong { color: var(--paper); opacity: 1; }
+
+.numbers { list-style: none; padding: 0; margin: 24px 0 0; display: grid; gap: 0; max-width: 68ch; }
+.numbers li { display: grid; grid-template-columns: 108px 1fr; gap: 18px; align-items: baseline; padding: 16px 0; border-top: 1px solid var(--line); font-size: 15px; line-height: 1.5; }
+.numbers li:last-child { border-bottom: 1px solid var(--line); }
+.numbers .n { font-family: var(--f-display); font-size: 26px; color: var(--accent); line-height: 1; letter-spacing: -0.01em; }
+.numbers span.d { color: var(--paper); opacity: 0.9; }
+@media (max-width: 560px) { .numbers li { grid-template-columns: 1fr; gap: 4px; } }
+
+.build-list { list-style: none; padding: 0; margin: 24px 0 0; display: grid; gap: 0; max-width: 68ch; }
+.build-list li { display: grid; grid-template-columns: 32px 1fr; gap: 14px; align-items: baseline; padding: 16px 0; border-top: 1px solid var(--line); font-size: 15px; line-height: 1.5; }
+.build-list li:last-child { border-bottom: 1px solid var(--line); }
+.build-list .k { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--smoke); }
+.build-list b { color: var(--paper); }
+.build-list span.sub { display: block; color: var(--smoke); font-size: 14px; margin-top: 4px; font-weight: 400; }
+
+.offer { background: var(--ink-2); border: 1px solid var(--line-strong); padding: 44px clamp(24px,4vw,56px); max-width: 68ch; }
+.offer .amount { font-family: var(--f-display); font-size: clamp(40px, 6vw, 64px); color: var(--accent); line-height: 1; letter-spacing: -0.02em; margin: 10px 0 6px; }
+.offer .unit { font-family: var(--f-mono); font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--smoke); }
+.offer p { font-size: 16px; line-height: 1.7; color: var(--paper); opacity: 0.92; margin: 22px 0 0; max-width: 60ch; }
+.offer p:first-of-type { margin-top: 24px; }
+
+.cta { padding: 100px var(--gutter) 120px; position: relative; overflow: hidden; border-top: 1px solid var(--line); }
+.cta::before { content: ""; position: absolute; inset: 0; background: radial-gradient(60% 80% at 50% 100%, rgba(182,255,92,0.22), transparent 60%); pointer-events: none; }
+.cta-inner { position: relative; max-width: var(--max); margin: 0 auto; }
+.cta h2 { font-family: var(--f-display); font-weight: 400; font-size: clamp(32px, 5vw, 60px); line-height: 1.02; letter-spacing: -0.02em; margin: 24px 0 20px; max-width: 20ch; }
+.cta h2 em { color: var(--accent); font-style: italic; }
+.cta p { font-size: 17px; color: var(--paper); opacity: 0.85; max-width: 58ch; margin: 0 0 28px; line-height: 1.7; }
+.cta-row { display: flex; flex-wrap: wrap; gap: 14px; }
+
+.footer { padding: 40px var(--gutter); border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; gap: 24px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--smoke); flex-wrap: wrap; }
+.footer .right { display: flex; gap: 22px; flex-wrap: wrap; }
+.footer a:hover { color: var(--paper); }
+
+[data-reveal] { opacity: 0; transform: translateY(28px); transition: opacity .9s cubic-bezier(.2,.7,0,1), transform .9s cubic-bezier(.2,.7,0,1); }
+[data-reveal].is-in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] { opacity: 1; transform: none; transition: none; }
+  .eyebrow .dot { animation: none; }
+  html { scroll-behavior: auto; }
+  a, button { transition-duration: 80ms; }
+}
+</style>
+</head>
+<body>
+
+<a class="skip" href="#main">Saltar al contenido</a>
+
+<header class="nav" id="nav">
+  <a href="https://wizardweb.ca/" class="brand" aria-label="WizardWeb home">
+    <span class="mark" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none">
+        <path d="M3 19 L12 3 L21 19 Z" stroke="currentColor" stroke-width="1.4" />
+        <path d="M7 14 L12 8 L17 14" stroke="currentColor" stroke-width="1.4" />
+        <circle cx="12" cy="11" r="1.2" fill="#B6FF5C"/>
+      </svg>
+    </span>
+    Wizardweb
+  </a>
+  <div class="nav-note">Propuesta privada, preparada para Gimnasio En Forma</div>
+</header>
+
+<section class="page-hero" id="main">
+  <div class="page-hero-inner">
+    <div class="eyebrow"><span class="dot"></span>Una propuesta de Clinton, para Gimnasio En Forma</div>
+    <h1>Todavía no tiene sitio.<br/>Esto es lo que <em>se está perdiendo.</em></h1>
+    <p class="lede">Vi su perfil de Google y me gustó lo que encontré: su calificación de 4.6 estrellas con 299 reseñas en Google y su ubicación en Heredia. Eso ya es la parte difícil, la gente confía en usted. Lo que le falta es un lugar propio en internet donde esa confianza se convierta en más clientes.</p>
+  </div>
+</section>
+
+<div class="sections">
+
+  <div class="blk" data-reveal>
+    <div class="blk-head">
+      <div class="eyebrow"><span class="dot"></span>Lo que se está perdiendo</div>
+      <h2>Sin sitio propio,<br/>cada cliente que <em>lo busca</em><br/>puede no encontrarlo.</h2>
+    </div>
+    <div class="blk-body">
+      <p>Vi su perfil de Google y me gustó lo que encontré: su calificación de 4.6 estrellas con 299 reseñas en Google y su ubicación en Heredia. Eso ya es la parte difícil, la gente confía en usted. Lo que le falta es un lugar propio en internet donde esa confianza se convierta en más clientes.</p>
+
+    </div>
+  </div>
+
+  <div class="blk" data-reveal>
+    <div class="blk-head">
+      <div class="eyebrow"><span class="dot"></span>Lo que construiríamos</div>
+      <h2>Un sitio hecho<br/><em>para sus clientes,</em><br/>en su idioma.</h2>
+    </div>
+    <div class="blk-body">
+      <ul class="build-list">
+        <li><span class="k">01</span><span><b>Un sitio que carga rápido en cualquier celular.</b><span class="sub">Fotos optimizadas automáticamente, sin perder calidad.</span></span></li>
+        <li><span class="k">02</span><span><b>Su nombre real y su forma genuina de contacto.</b><span class="sub">WhatsApp conectado correctamente, para que cada clic abra una conversación real.</span></span></li>
+        <li><span class="k">03</span><span><b>Contenido en el idioma de sus clientes.</b><span class="sub">Escrito para las personas que realmente lo buscan, no traducido a máquina.</span></span></li>
+        <li><span class="k">04</span><span><b>Buenas prácticas de encontrabilidad desde el primer día.</b><span class="sub">Un título y descripción claros para cada página, para que los buscadores entiendan de qué trata su negocio.</span></span></li>
+      </ul>
+
+      <p style="margin-top:18px;">
+        <a class="btn btn-ghost" href="https://muestras.wizardweb.ca/gimnasio-en-forma-22371502/" target="_blank" rel="noopener">
+          Ya le construimos un ejemplo
+          <span class="arr" aria-hidden="true">↗</span>
+        </a>
+      </p>
+    </div>
+  </div>
+
+  <div class="blk" data-reveal>
+    <div class="blk-head">
+      <div class="eyebrow"><span class="dot"></span>La oferta</div>
+      <h2>Trescientos mil,<br/><em>en seis pagos.</em></h2>
+    </div>
+    <div class="blk-body">
+      <p>El trato de Wizard Web, tal cual: <strong>₡300,000 colones en total</strong>, pagados en <strong>seis cuotas de ₡50,000</strong>. La primera se paga antes de empezar a construir, las otras cinco después. El hospedaje queda incluido, gratis, para siempre, nunca se convierte en una factura. Durante el primer año, una ronda de cambios al mes está incluida sin costo, un cambio de horario, una foto nueva, un párrafo reescrito, usted pide y Ward lo hace. Después del primer año, cada ronda de cambios cuesta ₡25,000, el hospedaje sigue gratis.</p>
+      <div class="offer">
+        <div class="eyebrow"><span class="dot"></span>Lo que cuesta</div>
+        <div class="amount">₡300,000<span class="unit">&nbsp;en total</span></div>
+        <div class="unit">total &middot; seis pagos de ₡50,000</div>
+        <p>El hospedaje es gratis para siempre. Una ronda de cambios al mes está incluida el primer año. Después, cada ronda cuesta ₡25,000. Sin cuotas ocultas, sin descuento que negociar.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<section class="cta">
+  <div class="cta-inner" data-reveal>
+    <div class="eyebrow"><span class="dot"></span>De Clinton, en persona</div>
+    <h2>¿Preguntas? <em>Solo pregunte.</em></h2>
+    <p>Esta página es solo para usted, no es pública y no aparece en ningún listado de nuestro sitio. Si algo no le queda claro, o quiere hablar de qué cambiaría realmente para sus clientes antes de decidir, escríbame directamente. Sin presión.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="mailto:hello@wizardweb.ca?subject=Gimnasio%20En%20Forma%20proposal">
+        hello@wizardweb.ca
+        <span class="arr" aria-hidden="true">↗</span>
+      </a>
+      <a class="btn btn-ghost" href="https://wa.me/50670130653?text=Hola%20Clinton%2C%20vi%20la%20propuesta%20para%20Gimnasio%20En%20Forma." target="_blank" rel="noopener">
+        WhatsApp a Clinton
+        <span class="arr" aria-hidden="true">↗</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div>Preparado 2026-08-21</div>
+  <div class="right">
+    <a href="mailto:hello@wizardweb.ca">Contacto</a>
+    <span>&copy; <span id="yr">2026</span> WizardWeb</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  const nav = document.getElementById("nav");
+  function onScroll() { nav.classList.toggle("is-stuck", window.scrollY > 12); }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+  document.getElementById("yr").textContent = new Date().getFullYear();
+})();
+
+(function () {
+  const io = new IntersectionObserver((entries) => {
+    for (const e of entries) {
+      if (e.isIntersecting) { e.target.classList.add("is-in"); io.unobserve(e.target); }
+    }
+  }, { threshold: 0.08, rootMargin: "0px 0px -8% 0px" });
+  document.querySelectorAll("[data-reveal]").forEach((el) => io.observe(el));
+})();
+</script>
+</body>
+</html>
