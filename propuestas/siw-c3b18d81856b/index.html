@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex,nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SiteGetsBetter: weekly SEO fixes you approve | Wizard Web</title>
+<meta name="description" content="A short list of website fixes every week, already drafted. You say yes or no, and only your yeses go live. Start with a free 5-fix site check.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Wizard Web">
+<meta property="og:title" content="Ever paid for SEO and never saw what changed?">
+<meta property="og:description" content="Week one on a trekking company's website: 33 rewrites, 15 new internal links, 4 new pages. See what shipped, and why there are no results yet.">
+<meta name="theme-color" content="#07080A">
+<link rel="preload" href="/assets/fonts/space-grotesk-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/instrument-serif-400.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:"Instrument Serif";font-style:normal;font-weight:400;font-display:swap;src:url(/assets/fonts/instrument-serif-400.woff2) format("woff2")}
+@font-face{font-family:"Instrument Serif";font-style:italic;font-weight:400;font-display:swap;src:url(/assets/fonts/instrument-serif-400italic.woff2) format("woff2")}
+@font-face{font-family:"Space Grotesk";font-style:normal;font-weight:300 700;font-display:swap;src:url(/assets/fonts/space-grotesk-var.woff2) format("woff2")}
+@font-face{font-family:"JetBrains Mono";font-style:normal;font-weight:100 800;font-display:swap;src:url(/assets/fonts/jetbrains-mono-var.woff2) format("woff2")}
+
+:root{
+  --ink:#07080A;
+  --ink-2:#0E1014;
+  --ink-3:#15181D;
+  --ink-4:#1C2027;
+  --paper:#F2EFE7;
+  --paper-dim:rgba(242,239,231,.74);
+  --smoke:#8F8F86;
+  --line:rgba(242,239,231,.10);
+  --line-strong:rgba(242,239,231,.22);
+  --accent:#B6FF5C;
+  --accent-ink:#07080A;
+  --accent-soft:rgba(182,255,92,.12);
+  --red:#FF8672;
+  --red-soft:rgba(255,134,114,.12);
+  --amber:#FFC857;
+  --amber-soft:rgba(255,200,87,.13);
+  --f-display:"Instrument Serif","Times New Roman",serif;
+  --f-sans:"Space Grotesk",ui-sans-serif,system-ui,sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,monospace;
+  --gutter:20px;
+  --max:1200px;
+  --r:14px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ink);color:var(--paper);font:400 17px/1.55 var(--f-sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3,p,ul,ol,dl,dd,figure{margin:0}
+ul,ol{padding:0;list-style:none}
+a{color:inherit}
+strong,b{font-weight:600}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+.section{padding:72px 0;border-top:1px solid var(--line)}
+.kicker{font:500 11px/1.4 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--smoke)}
+h2{font:400 clamp(38px,6.4vw,68px)/1.02 var(--f-display);letter-spacing:-.01em}
+h2 em,h1 em{font-style:italic;color:var(--accent)}
+.lede{margin-top:16px;font-size:18px;color:var(--paper-dim);max-width:640px}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:0 26px;border-radius:999px;background:var(--accent);color:var(--accent-ink);font:600 17px/1 var(--f-sans);text-decoration:none;border:0;cursor:pointer;transition:transform .15s ease,box-shadow .15s ease}
+.btn:hover{transform:translateY(-1px);box-shadow:0 10px 30px -10px rgba(182,255,92,.55)}
+.btn svg{width:18px;height:18px}
+.link{color:var(--paper);text-decoration:underline;text-decoration-color:var(--line-strong);text-underline-offset:4px}
+.link:hover{text-decoration-color:var(--accent)}
+
+/* ───────── hero ───────── */
+.hero{position:relative;padding:22px 0 64px;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:
+  radial-gradient(60% 50% at 85% 10%,rgba(182,255,92,.10),transparent 70%),
+  linear-gradient(var(--line) 1px,transparent 1px) 0 0/100% 64px;
+  -webkit-mask-image:linear-gradient(#000,transparent 85%);mask-image:linear-gradient(#000,transparent 85%);pointer-events:none}
+.eyebrow{position:relative;display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;padding-bottom:18px;border-bottom:1px solid var(--line);font:500 11px/1.5 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--smoke)}
+.eyebrow .brand{display:inline-flex;align-items:center;gap:9px;color:var(--paper);font:600 15px/1 var(--f-sans);letter-spacing:-.01em;text-transform:none}
+.eyebrow .brand::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px var(--accent-soft)}
+.eyebrow .sep{display:none}
+.hero-grid{position:relative;display:grid;gap:44px;margin-top:40px}
+h1{font:400 clamp(44px,11.6vw,92px)/.98 var(--f-display);letter-spacing:-.015em}
+.hero .sub{margin-top:22px;font-size:18.5px;line-height:1.5;color:var(--paper-dim);max-width:560px}
+.cta-block{margin-top:30px;display:flex;flex-direction:column;align-items:flex-start;gap:14px}
+.cta-block .btn{width:100%}
+.under{font:500 12.5px/1.55 var(--f-mono);color:var(--paper-dim);letter-spacing:.01em}
+.under-sec{font-size:16px}
+
+/* hero fix card */
+.fixcard{position:relative;align-self:center;background:var(--ink-2);border:1px solid var(--line-strong);border-radius:18px;box-shadow:0 40px 80px -30px rgba(0,0,0,.8),0 0 0 6px rgba(242,239,231,.02);overflow:hidden}
+.sample-flag{display:flex;gap:10px;align-items:flex-start;padding:11px 16px;background:var(--amber-soft);border-bottom:1px solid rgba(255,200,87,.28);color:var(--amber);font:500 12px/1.45 var(--f-mono)}
+.sample-flag svg{flex:none;width:15px;height:15px;margin-top:1px}
+.fixcard .head{display:flex;justify-content:space-between;align-items:center;padding:16px 18px 6px;font:600 14px/1.3 var(--f-sans)}
+.fixcard .row{margin:10px 12px;padding:16px;border:1px solid var(--line);border-radius:12px;background:var(--ink-3)}
+.fixcard .row.done{opacity:.55}
+.fixcard .row.pending{border-color:rgba(255,200,87,.45);background:linear-gradient(180deg,rgba(255,200,87,.06),transparent 60%),var(--ink-3)}
+.fixcard .fx{font-size:15.5px;line-height:1.45}
+.fixcard .why{margin-top:8px;font-size:14px;color:var(--paper-dim)}
+.fixcard .row .st{margin-top:14px}
+.fixcard .foot{height:12px}
+
+/* chips & yes/no */
+.chip{display:inline-flex;align-items:center;gap:7px;padding:5px 10px;border-radius:999px;font:600 11.5px/1.2 var(--f-mono);letter-spacing:.02em;white-space:nowrap}
+.chip::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
+.chip.live{background:var(--accent-soft);color:var(--accent)}
+.chip.soon{background:transparent;color:var(--accent);box-shadow:inset 0 0 0 1px rgba(182,255,92,.45)}
+.chip.no{background:var(--red-soft);color:var(--red)}
+.chip.wait{background:var(--amber-soft);color:var(--amber)}
+.yn{display:flex;gap:8px;margin-top:12px}
+.yn span{flex:1;display:inline-flex;align-items:center;justify-content:center;gap:7px;height:42px;border-radius:10px;font:600 15px/1 var(--f-sans)}
+.yn .y{background:var(--accent);color:var(--accent-ink)}
+.yn .n{background:transparent;color:var(--paper);box-shadow:inset 0 0 0 1px var(--line-strong)}
+.yn svg{width:15px;height:15px}
+
+/* ───────── steps ───────── */
+.steps{display:grid;gap:12px;margin-top:40px;counter-reset:s}
+.step{position:relative;padding:24px 22px 26px;background:var(--ink-2);border:1px solid var(--line);border-radius:var(--r)}
+.step .n{font:500 11px/1 var(--f-mono);letter-spacing:.14em;color:var(--smoke);text-transform:uppercase}
+.step h3{margin-top:12px;font:600 21px/1.2 var(--f-sans);letter-spacing:-.015em}
+.step p{margin-top:10px;color:var(--paper-dim);font-size:16px}
+.step ul{margin-top:12px;display:grid;gap:10px}
+.step li{position:relative;padding-left:18px;color:var(--paper-dim);font-size:15.5px}
+.step li::before{content:"";position:absolute;left:0;top:.62em;width:8px;height:1px;background:var(--accent)}
+.step li b{color:var(--paper);font-weight:600}
+.step.you{background:var(--accent);color:var(--accent-ink);border-color:var(--accent);padding:30px 24px 32px;overflow:hidden}
+.step.you .n{color:rgba(7,8,10,.62)}
+.step.you h3{font:400 clamp(44px,11vw,84px)/.95 var(--f-display);letter-spacing:-.02em;margin-top:18px}
+.step.you p{color:rgba(7,8,10,.82);font-size:18px;max-width:520px;margin-top:16px}
+.badge{position:absolute;top:24px;right:20px;display:inline-flex;align-items:center;gap:7px;padding:7px 12px;border-radius:999px;background:var(--accent-ink);color:var(--accent);font:600 11px/1 var(--f-mono);letter-spacing:.12em;text-transform:uppercase}
+.badge::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent)}
+.you .marks{display:flex;gap:10px;margin-top:24px}
+.you .marks i{display:grid;place-items:center;width:52px;height:52px;border-radius:50%}
+.you .marks i:first-child{background:var(--accent-ink);color:var(--accent)}
+.you .marks i:last-child{box-shadow:inset 0 0 0 2px rgba(7,8,10,.8);color:var(--accent-ink)}
+.you .marks svg{width:22px;height:22px}
+.whole{display:flex;align-items:flex-end;padding:24px 22px;border-radius:var(--r);border:1px dashed var(--line-strong);font:400 30px/1.12 var(--f-display)}
+
+/* ───────── sample report ───────── */
+#sample{padding-top:8px;border-top:0}
+.report{margin-top:0;background:var(--ink-2);border:1px solid var(--line-strong);border-radius:18px;overflow:hidden;box-shadow:0 50px 100px -40px rgba(0,0,0,.9)}
+.report > .sample-flag{font-size:12.5px;padding:13px 18px}
+.report .who{padding:14px 18px;border-bottom:1px solid var(--line);font:500 12px/1.5 var(--f-mono);color:var(--smoke);background:var(--ink-3)}
+.part{padding:22px 14px 26px}
+.part + .part{border-top:1px solid var(--line)}
+.part-h{display:flex;align-items:center;gap:10px;padding:0 4px 16px;font:600 18px/1.25 var(--f-sans);letter-spacing:-.01em}
+.part-h::before{content:"";flex:none;width:8px;height:8px;border-radius:2px;background:var(--accent)}
+.fixes{display:grid;gap:10px}
+.fixes .th{display:none}
+.fix{display:grid;gap:10px;padding:16px;border:1px solid var(--line);border-radius:12px;background:var(--ink-3)}
+.fix .c-fix{font-size:15.5px;line-height:1.45}
+.fix .c-why{font-size:14.5px;color:var(--paper-dim)}
+.fix .k{display:block;margin-bottom:3px;font:500 10.5px/1.3 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--smoke)}
+.fix .note{display:block;margin-top:8px;font-size:14px;font-style:italic;color:var(--paper-dim)}
+.fix.pending{border-color:rgba(255,200,87,.45)}
+.fix.declined .c-fix{color:var(--paper-dim)}
+.tally{display:flex;flex-wrap:wrap;gap:6px 8px;align-items:center;padding:0 4px 16px;font:500 13px/1.5 var(--f-mono);color:var(--paper-dim)}
+.tally b{color:var(--paper);font-weight:700}
+.tally .t-ok b{color:var(--accent)}
+.tally .t-no b{color:var(--red)}
+.tbl{width:100%;border-collapse:collapse;font-size:13.5px}
+.tbl th{padding:0 4px 10px;font:500 9.5px/1.3 var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--smoke);text-align:right;vertical-align:bottom}
+.tbl th:first-child,.tbl td:first-child{text-align:left;padding-left:4px}
+.tbl td{padding:12px 4px;border-top:1px solid var(--line);text-align:right;font-family:var(--f-mono);font-variant-numeric:tabular-nums;vertical-align:top}
+.tbl td:first-child{font-family:var(--f-sans);font-size:14px;line-height:1.3}
+.tbl .up{color:var(--accent)}
+.tbl .down{color:var(--red)}
+.tbl .flat{color:var(--paper-dim)}
+.tbl tfoot td{border-top:1px solid var(--line-strong);font-weight:700;color:var(--paper)}
+.tbl tfoot td.up{color:var(--accent)}
+.tbl .last{color:var(--smoke)}
+@media (max-width:719.98px){
+  .tbl,.tbl thead,.tbl tbody,.tbl tfoot{display:block}
+  .tbl tr{display:grid;grid-template-columns:repeat(4,1fr);column-gap:8px;border-top:1px solid var(--line);padding:12px 4px}
+  .tbl thead tr{border-top:0;padding-top:0;align-items:end}
+  .tbl th,.tbl td{display:block;padding:0;border:0;text-align:left}
+  .tbl th:first-child,.tbl td:first-child{grid-column:1/-1;padding:0 0 6px}
+  .tbl th:first-child{padding-bottom:8px}
+  .tbl td{font-size:15px}
+  .tbl td:first-child{font-size:15px}
+  .tbl tfoot tr{border-top:1px solid var(--line-strong)}
+  .tbl tfoot td{border:0}
+}
+.report .coda{margin-top:16px;padding:0 4px;font-size:14.5px;color:var(--paper-dim)}
+.report .coda::before{content:"↘ ";color:var(--red)}
+
+/* ───────── week one ───────── */
+.stats{display:grid;gap:0;margin-top:40px;border-top:1px solid var(--line-strong)}
+.stat{padding:26px 0 28px;border-bottom:1px solid var(--line)}
+.stat .num{font:400 clamp(96px,26vw,168px)/.8 var(--f-display);letter-spacing:-.03em;color:var(--accent)}
+.stat .lab{margin-top:14px;font:600 20px/1.25 var(--f-sans);letter-spacing:-.01em}
+.stat .s{margin-top:8px;color:var(--paper-dim);font-size:15.5px;max-width:320px}
+.results{display:grid;gap:22px;margin-top:28px;padding:26px 22px;border:1px dashed var(--line-strong);border-radius:var(--r);background:repeating-linear-gradient(135deg,transparent 0 14px,rgba(242,239,231,.018) 14px 15px)}
+.results h3{font:400 38px/1.05 var(--f-display)}
+.results p{margin-top:12px;color:var(--paper-dim);font-size:16.5px}
+.results svg{width:100%;height:auto;max-height:150px}
+.closing{margin-top:28px;font:400 italic 26px/1.25 var(--f-display);color:var(--paper);max-width:760px}
+
+/* ───────── included ───────── */
+.cols{display:grid;gap:14px;margin-top:40px}
+.col{padding:26px 22px;border-radius:var(--r);background:var(--ink-2);border:1px solid var(--line)}
+.col h3{font:500 11.5px/1 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.col.not h3{color:var(--smoke)}
+.col ul{margin-top:18px;display:grid;gap:0}
+.col li{display:grid;grid-template-columns:22px 1fr;gap:12px;padding:13px 0;border-top:1px solid var(--line);font-size:16.5px}
+.col li svg{width:20px;height:20px;margin-top:2px}
+.col.yes li svg{color:var(--accent)}
+.col.not li{color:var(--paper-dim)}
+.col.not li svg{color:var(--smoke)}
+
+/* ───────── founding offer ───────── */
+.offer{display:grid;gap:32px;margin-top:0}
+.offer .body{margin-top:18px;font-size:18px;color:var(--paper-dim);max-width:560px}
+.price{border-radius:18px;overflow:hidden;border:1px solid var(--line-strong);background:var(--ink-2)}
+.price .r{display:grid;gap:4px;padding:18px 20px;border-top:1px solid var(--line)}
+.price .r:first-child{border-top:0}
+.price dt{font:500 11px/1.3 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--smoke)}
+.price dd{font-size:19px;font-weight:500}
+.price .r.f{background:var(--accent);color:var(--accent-ink);padding:22px 20px 24px}
+.price .r.f dt{color:rgba(7,8,10,.66)}
+.price .r.f dd{font-size:17px;font-weight:500}
+.price .r.f .big{display:block;white-space:nowrap;font:400 64px/1 var(--f-display);letter-spacing:-.02em;margin-bottom:4px}
+.price .r.reg dd{color:var(--paper-dim)}
+.price-note{margin-top:14px;font:500 12.5px/1.6 var(--f-mono);color:var(--paper-dim)}
+.offer .btn{margin-top:22px;width:100%}
+
+/* ───────── guarantee ───────── */
+.big-line{margin-top:28px;padding:28px 0 30px;border-top:1px solid var(--line-strong);border-bottom:1px solid var(--line-strong);font:400 clamp(32px,6.4vw,58px)/1.08 var(--f-display);letter-spacing:-.01em}
+.big-line em{font-style:italic;color:var(--accent)}
+.dont{margin-top:30px;display:grid;gap:12px;max-width:760px}
+.dont h3{font:600 20px/1.25 var(--f-sans)}
+.dont p{color:var(--paper-dim);font-size:17px}
+
+/* ───────── FAQ ───────── */
+.faq{margin-top:32px;border-top:1px solid var(--line-strong)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;display:grid;grid-template-columns:1fr 32px;gap:14px;align-items:start;padding:20px 0;cursor:pointer;font:600 18px/1.35 var(--f-sans);letter-spacing:-.01em}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary i{position:relative;width:32px;height:32px;border-radius:50%;box-shadow:inset 0 0 0 1px var(--line-strong)}
+.faq summary i::before,.faq summary i::after{content:"";position:absolute;left:50%;top:50%;width:12px;height:1.5px;background:var(--paper);transform:translate(-50%,-50%);transition:transform .2s}
+.faq summary i::after{transform:translate(-50%,-50%) rotate(90deg)}
+.faq details[open] summary i{background:var(--accent);box-shadow:none}
+.faq details[open] summary i::before,.faq details[open] summary i::after{background:var(--accent-ink)}
+.faq details[open] summary i::after{transform:translate(-50%,-50%) rotate(0)}
+.faq details p{padding:0 46px 24px 0;color:var(--paper-dim);font-size:16.5px;max-width:760px}
+
+/* ───────── form ───────── */
+.final{background:radial-gradient(80% 60% at 20% 0%,rgba(182,255,92,.08),transparent 70%)}
+.final-grid{display:grid;gap:32px}
+.final .body{margin-top:18px;font-size:18px;color:var(--paper-dim);max-width:520px}
+.formcard{padding:24px 20px;border-radius:18px;background:var(--ink-2);border:1px solid var(--line-strong)}
+form{display:grid;gap:18px}
+.field{display:grid;gap:7px}
+.field label{font:600 15px/1.3 var(--f-sans)}
+.field label .opt{font-weight:400;color:var(--smoke);margin-left:4px}
+.field input{width:100%;height:54px;padding:0 16px;border-radius:12px;border:1px solid var(--line-strong);background:var(--ink);color:var(--paper);font:400 17px/1 var(--f-sans);outline:none;transition:border-color .15s}
+.field input::placeholder{color:rgba(242,239,231,.34)}
+.field input:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+.field input[aria-invalid="true"]{border-color:var(--red)}
+.field .help{font-size:13.5px;color:var(--smoke)}
+.field .err{font-size:14px;color:var(--red)}
+.field .err:empty{display:none}
+.form-err{padding:12px 14px;border-radius:10px;background:var(--red-soft);color:var(--red);font-size:14.5px}
+.form-err a{color:inherit}
+form .btn{width:100%;margin-top:4px}
+form .btn[disabled]{opacity:.6;cursor:progress;transform:none}
+.under,.small,.price-note,.lede,.closing,.big-line{text-wrap:pretty}
+.small{font:500 12.5px/1.55 var(--f-mono);color:var(--paper-dim);text-align:center}
+.after{margin-top:20px;text-align:center;font-size:16px}
+.ok{padding:8px 4px}
+.ok h3{font:400 52px/1 var(--f-display);color:var(--accent)}
+.ok p{margin-top:14px;color:var(--paper-dim);font-size:17px}
+.ok a{color:var(--paper)}
+[hidden]{display:none!important}
+
+/* ───────── footer ───────── */
+footer{padding:40px 0 48px;border-top:1px solid var(--line)}
+footer p{font-size:14.5px;color:var(--paper-dim);max-width:720px}
+footer .c{margin-top:12px;font:500 12px/1.5 var(--f-mono);color:var(--smoke)}
+
+/* ───────── ≥ 720 ───────── */
+@media (min-width:720px){
+  :root{--gutter:40px}
+  .section{padding:104px 0}
+  .eyebrow .sep{display:inline}
+  .cta-block{flex-direction:row;flex-wrap:wrap;align-items:center;gap:14px 24px}
+  .cta-block .btn{width:auto}
+  .cta-block .under{flex-basis:100%;order:3}
+  .steps{grid-template-columns:repeat(3,1fr)}
+  .step.you{grid-column:1/-1;display:grid;grid-template-columns:1fr auto;align-items:end;column-gap:40px;padding:40px 40px 42px}
+  .step.you .n,.step.you h3,.step.you p{grid-column:1}
+  .step.you .marks{grid-column:2;grid-row:1/span 3;margin:0;align-self:end}
+  .you .marks i{width:84px;height:84px}
+  .you .marks svg{width:32px;height:32px}
+  .badge{top:36px;right:40px}
+  .part{padding:26px 26px 30px}
+  .fixes .th{display:grid;grid-template-columns:1.45fr 1fr 250px;gap:24px;padding:0 18px 4px;font:500 10.5px/1 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--smoke)}
+  .fix{grid-template-columns:1.45fr 1fr 250px;gap:24px;align-items:start;padding:18px}
+  .fix .k{display:none}
+  .tbl{font-size:15px}
+  .tbl th{font-size:10.5px;padding:0 12px 12px;letter-spacing:.1em}
+  .tbl td{padding:14px 12px}
+  .tbl td:first-child{font-size:15.5px}
+  .stats{grid-template-columns:repeat(3,1fr);border-top:0}
+  .stat{padding:28px 32px 8px 0;border-bottom:0;border-top:1px solid var(--line-strong)}
+  .stat + .stat{padding-left:32px;border-left:1px solid var(--line)}
+  .results{grid-template-columns:1fr 1fr;align-items:center;gap:40px;padding:36px}
+  .cols{grid-template-columns:1.35fr 1fr}
+  .col{padding:32px}
+  .price .r{grid-template-columns:180px 1fr;align-items:baseline;padding:20px 26px}
+  .price .r.f{padding:26px;grid-template-columns:1fr;gap:10px}
+  .offer .btn{width:auto}
+  .formcard{padding:34px}
+}
+@media (min-width:1080px){
+  :root{--gutter:56px}
+  .hero{padding:28px 0 88px}
+  .hero-grid{grid-template-columns:1.25fr 1fr;gap:64px;margin-top:72px;align-items:center}
+  .steps{gap:14px}
+  .offer{grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+  .guar{display:grid;grid-template-columns:1fr 1.6fr;gap:64px;align-items:start}
+  .guar .big-line{margin-top:0}
+  .faq-grid{display:grid;grid-template-columns:1fr 2fr;gap:64px}
+  .faq-grid .faq{margin-top:0}
+  .final-grid{grid-template-columns:1fr 1fr;gap:72px;align-items:start}
+  .closing{font-size:32px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M4.5 12.5l5 5L19.5 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-flag" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 7.5v5.5M12 16.3v.2" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol>
+</svg>
+
+<!-- ───────── 1. HERO ───────── -->
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow"><span class="brand">SiteGetsBetter, by Wizard Web</span><span class="sep"> · </span><span>For tour operators and local service businesses</span></p>
+
+    <div class="hero-grid">
+      <div>
+        <h1>A short list of fixes for your website, every week. <em>You say yes or no.</em></h1>
+        <p class="sub">Every week we study how your site shows up in Google and write the fixes. A person reads each one. Then you do, and only your yeses go live.</p>
+        <div class="cta-block">
+          <a class="btn" href="#check">Get my free site check <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a class="link under-sec" href="https://cal.com/clintonw/website-launch-strategy-call" target="_blank" rel="noopener">Or book a call</a>
+          <p class="under">Free. No logins. Your first 5 fixes, in writing, within 2 business days.</p>
+        </div>
+      </div>
+
+      <figure class="fixcard" aria-label="Sample report. A made-up business and invented numbers: not a client's results, and not a prediction.">
+        <p class="sample-flag"><svg aria-hidden="true"><use href="#i-flag"/></svg><span>Sample report. A made-up business and invented numbers: not a client's results, and not a prediction.</span></p>
+        <p class="head">Weekly fix list · Week 6</p>
+        <div class="row done">
+          <p class="fx"><b>Title, home page.</b> From "Home" to "Harbour Street Plumbing, Plumber in Riverside"</p>
+          <p class="st"><span class="chip live">Approved · Live</span></p>
+        </div>
+        <div class="row pending">
+          <p class="fx"><b>Title, furnace repair page.</b> Adds "Riverside" and "same-week"</p>
+          <p class="why">Near-miss search: "furnace repair riverside", position 11</p>
+          <div class="st"><span class="chip wait">Waiting for your yes</span>
+            <div class="yn" aria-hidden="true"><span class="y"><svg><use href="#i-check"/></svg>Yes</span><span class="n"><svg><use href="#i-x"/></svg>No</span></div>
+          </div>
+        </div>
+        <div class="foot"></div>
+      </figure>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ───────── 2. WHAT HAPPENS EVERY WEEK ───────── -->
+<section class="section" id="how">
+  <div class="wrap">
+    <h2>What happens every week</h2>
+    <p class="lede">Six steps. One of them is yours.</p>
+
+    <ol class="steps">
+      <li class="step">
+        <p class="n">Step 1</p>
+        <h3>We read the data.</h3>
+        <p>Your Google Search Console and Analytics, once you give us access. Plus what your competitors show up for.</p>
+      </li>
+      <li class="step">
+        <p class="n">Step 2</p>
+        <h3>We find the gaps.</h3>
+        <ul>
+          <li><b>Near-miss searches:</b> Google already shows your site for the search, but not near the top.</li>
+          <li><b>Missing pages:</b> people search for something you offer, and you have no page for it.</li>
+          <li><b>Weak titles:</b> the blue link in Google doesn't say what you do or where you do it.</li>
+        </ul>
+      </li>
+      <li class="step">
+        <p class="n">Step 3</p>
+        <h3>We draft the fixes.</h3>
+        <p>Written out in full: the new title, the new description, the new page. A person reads every fix before it reaches you.</p>
+      </li>
+      <li class="step you">
+        <span class="badge">Your step</span>
+        <p class="n">Step 4</p>
+        <h3>You say yes or no.</h3>
+        <p>We send you the list. You answer each fix with a yes or a no. Nothing ships without your yes.</p>
+        <div class="marks" aria-hidden="true"><i><svg><use href="#i-check"/></svg></i><i><svg><use href="#i-x"/></svg></i></div>
+      </li>
+      <li class="step">
+        <p class="n">Step 5</p>
+        <h3>We put your yeses live.</h3>
+        <p>Only the fixes you approved, on your live site.</p>
+      </li>
+      <li class="step">
+        <p class="n">Step 6</p>
+        <h3>We measure, then start again.</h3>
+        <p>Next week starts from what changed. Once a month you get a one-page report of your rankings and clicks.</p>
+      </li>
+      <li class="whole">Your whole job: read the list, say yes or no.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ───────── 3. SAMPLE REPORT ───────── -->
+<section class="section" id="sample" aria-label="Sample report">
+  <div class="wrap">
+    <div class="report">
+      <p class="sample-flag"><svg aria-hidden="true"><use href="#i-flag"/></svg><span>Sample report. A made-up business and invented numbers: not a client's results, and not a prediction.</span></p>
+      <p class="who">Example business: Harbour Street Plumbing (fictional)</p>
+
+      <!-- Part A -->
+      <div class="part">
+        <h3 class="part-h">Weekly fix list · Week 6</h3>
+        <div class="fixes" role="table">
+          <div class="th" role="row"><span role="columnheader">Fix</span><span role="columnheader">Why</span><span role="columnheader">Status</span></div>
+
+          <div class="fix" role="row">
+            <p class="c-fix" role="cell"><b>Title, home page.</b> From "Home" to "Harbour Street Plumbing, Plumber in Riverside"</p>
+            <p class="c-why" role="cell"><span class="k">Why</span>The title didn't name the town.</p>
+            <div role="cell"><span class="chip live">Approved · Live</span></div>
+          </div>
+
+          <div class="fix" role="row">
+            <p class="c-fix" role="cell"><b>New page:</b> "Water heater replacement in Riverside: what it costs"</p>
+            <p class="c-why" role="cell"><span class="k">Why</span>Near-miss search: "water heater replacement cost", position 14</p>
+            <div role="cell"><span class="chip soon">Approved · Goes live this week</span></div>
+          </div>
+
+          <div class="fix" role="row">
+            <p class="c-fix" role="cell"><b>Meta description, drain cleaning page.</b> Cut from 212 characters to 148</p>
+            <p class="c-why" role="cell"><span class="k">Why</span>Too long to show in full under the link.</p>
+            <div role="cell"><span class="chip live">Approved · Live</span></div>
+          </div>
+
+          <div class="fix declined" role="row">
+            <p class="c-fix" role="cell"><b>Internal links.</b> 3 service pages now point to Emergency repairs</p>
+            <p class="c-why" role="cell"><span class="k">Why</span>Nothing on the site linked to that page.</p>
+            <div role="cell"><span class="chip no">Declined.</span> <span class="note">Owner's note: "We stop night calls in November."</span></div>
+          </div>
+
+          <div class="fix pending" role="row">
+            <p class="c-fix" role="cell"><b>Title, furnace repair page.</b> Adds "Riverside" and "same-week"</p>
+            <p class="c-why" role="cell"><span class="k">Why</span>Near-miss search: "furnace repair riverside", position 11</p>
+            <div role="cell"><span class="chip wait">Waiting for your yes</span>
+              <div class="yn" aria-hidden="true"><span class="y"><svg><use href="#i-check"/></svg>Yes</span><span class="n"><svg><use href="#i-x"/></svg>No</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Part B -->
+      <div class="part">
+        <h3 class="part-h">Monthly report · Month 2 · Sample, invented numbers</h3>
+        <p class="tally">Fixes this month: <span><b>14</b> drafted</span> · <span class="t-ok"><b>10</b> approved</span> · <span class="t-no"><b>4</b> declined</span></p>
+        <table class="tbl">
+          <thead>
+            <tr><th scope="col">Search</th><th scope="col">Position, last month</th><th scope="col">Position, this month</th><th scope="col">Clicks, last month</th><th scope="col">Clicks, this month</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>plumber riverside</td><td class="last">11</td><td class="up">9</td><td class="last">14</td><td class="up">17</td></tr>
+            <tr><td>water heater replacement cost</td><td class="last">18</td><td class="up">15</td><td class="last">2</td><td class="up">3</td></tr>
+            <tr><td>drain cleaning near me</td><td class="last">7</td><td class="down">8</td><td class="last">22</td><td class="down">19</td></tr>
+            <tr><td>emergency plumber riverside</td><td class="last">6</td><td class="flat">6</td><td class="last">31</td><td class="down">30</td></tr>
+          </tbody>
+          <tfoot>
+            <tr><td>All clicks from Google</td><td></td><td></td><td>212</td><td class="up">219</td></tr>
+          </tfoot>
+        </table>
+        <p class="coda">Some numbers go down. The report shows those too.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── 4. WEEK ONE ───────── -->
+<section class="section" id="week-one">
+  <div class="wrap">
+    <h2>Week one on our first site</h2>
+    <p class="lede">Our first site belongs to a Kilimanjaro trekking company whose website Wizard Web already runs. Here is what shipped in week one. Week one came before the weekly yes-or-no list: Wizard Web approved the work in batches, not fix by fix.</p>
+
+    <div class="stats">
+      <div class="stat">
+        <p class="num">33</p>
+        <p class="lab">meta descriptions rewritten</p>
+        <p class="s">The summary Google sometimes shows under a link. These were over 160 characters. Each is now 155 or fewer.</p>
+      </div>
+      <div class="stat">
+        <p class="num">15</p>
+        <p class="lab">internal links added</p>
+        <p class="s">Links from 15 blog posts to the site's prices and operator-choice pages.</p>
+      </div>
+      <div class="stat">
+        <p class="num">4</p>
+        <p class="lab">new answer pages</p>
+        <p class="s">Each one answers a single question a trekker might type into Google.</p>
+      </div>
+    </div>
+
+    <div class="results">
+      <div>
+        <h3>Results: none yet.</h3>
+        <p>It's too early to tell. Google has to revisit a page before a change can show up in search, and we won't guess ahead of the data. When the numbers come in, we'll post them here, whatever they show.</p>
+      </div>
+      <svg viewBox="0 0 400 150" aria-hidden="true" preserveAspectRatio="none">
+        <g stroke="rgba(242,239,231,.10)" stroke-width="1">
+          <line x1="0" y1="20" x2="400" y2="20"/><line x1="0" y1="60" x2="400" y2="60"/><line x1="0" y1="100" x2="400" y2="100"/>
+        </g>
+        <line x1="0" y1="140" x2="400" y2="140" stroke="rgba(242,239,231,.30)" stroke-width="1"/>
+        <line x1="40" y1="12" x2="40" y2="140" stroke="#B6FF5C" stroke-width="1.5" stroke-dasharray="3 4"/>
+        <circle cx="40" cy="140" r="5" fill="#B6FF5C"/>
+        <line x1="46" y1="140" x2="400" y2="140" stroke="rgba(242,239,231,.5)" stroke-width="2" stroke-dasharray="2 7" stroke-linecap="round"/>
+      </svg>
+    </div>
+
+    <p class="closing">We're showing the work now because the work is the part you can judge today.</p>
+  </div>
+</section>
+
+<!-- ───────── 5. WHAT YOU GET ───────── -->
+<section class="section" id="included">
+  <div class="wrap">
+    <h2>What you get for $600 a month</h2>
+    <div class="cols">
+      <div class="col yes">
+        <h3>Included</h3>
+        <ul>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>A fix list every week, each fix written out in full.</span></li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>A person reads every fix before it reaches you.</span></li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Your yes or no on each one. Only yeses ship.</span></li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>We put the approved fixes live on your site.</span></li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>New pages, written when people search for something your site doesn't cover yet.</span></li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>A one-page report every month: your rankings and your clicks from Google.</span></li>
+        </ul>
+      </div>
+      <div class="col not">
+        <h3>Not included</h3>
+        <ul>
+          <li><svg aria-hidden="true"><use href="#i-x"/></svg><span>Link building</span></li>
+          <li><svg aria-hidden="true"><use href="#i-x"/></svg><span>Paid ads</span></li>
+          <li><svg aria-hidden="true"><use href="#i-x"/></svg><span>Full website rebuilds</span></li>
+          <li><svg aria-hidden="true"><use href="#i-x"/></svg><span>A ranking guarantee (see below)</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── 6. FOUNDING OFFER ───────── -->
+<section class="section" id="founding">
+  <div class="wrap offer">
+    <div>
+      <h2>Founding clients: 3 places at $400 a month</h2>
+      <p class="body">We're taking on 3 founding clients at a lower monthly price. In return, you tell us honestly how it's going, good or bad, and let us publish your before-and-after numbers, whatever they turn out to be. If we quote you, we'll say you paid the founding price.</p>
+    </div>
+    <div>
+      <dl class="price">
+        <div class="r f"><dt>Founding price</dt><dd><span class="big">$400 / month</span> · 3 places only</dd></div>
+        <div class="r reg"><dt>Regular price</dt><dd>$600 / month</dd></div>
+        <div class="r"><dt>Setup</dt><dd>$500, one time</dd></div>
+      </dl>
+      <p class="price-note">All prices in US dollars. When the 3 founding places are taken, the price is $600 a month.</p>
+      <a class="btn" href="#check">Start with the free site check <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── 7. GUARANTEE ───────── -->
+<section class="section" id="guarantee">
+  <div class="wrap guar">
+    <h2>What we guarantee</h2>
+    <div>
+      <p class="big-line">Every week we find and draft fixes. <em>Nothing ships without your yes.</em></p>
+      <div class="dont">
+        <h3>What we don't guarantee</h3>
+        <p>Rankings. No guarantees, ever, and the reason is honest: ranking depends on the town, the category and who else is competing. Google's own advice says no one can guarantee a number one ranking on Google.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── 8. FAQ ───────── -->
+<section class="section" id="faq">
+  <div class="wrap faq-grid">
+    <h2>Questions</h2>
+    <div class="faq">
+      <details>
+        <summary>Why not just use a $99-a-month AI SEO tool?<i aria-hidden="true"></i></summary>
+        <p>You could, and it would cost less. Some of those tools publish changes to your site automatically. Here, our software drafts each fix, a person reads it before it reaches you, and nothing goes live until you say yes. What you pay for is a person's judgment on every change, and the final word on your own website.</p>
+      </details>
+      <details>
+        <summary>Can you guarantee I'll rank on the first page?<i aria-hidden="true"></i></summary>
+        <p>No. No guarantees, ever, and the reason is honest: ranking depends on the town, the category and who else is competing. What we guarantee is the work. Every week we find and draft fixes, and nothing ships without your yes.</p>
+      </details>
+      <details>
+        <summary>How is this different from a one-time SEO audit?<i aria-hidden="true"></i></summary>
+        <p>An audit is a report you get once. Acting on it is up to you, and so is checking what happened afterwards. SiteGetsBetter runs every week. New findings arrive with the fixes already drafted, you approve or decline each one, we put the approved ones live, and a monthly report shows you the numbers.</p>
+      </details>
+      <details>
+        <summary>What if I don't like a change?<i aria-hidden="true"></i></summary>
+        <p>Say no. It doesn't ship. You don't need a reason, though a line about why helps us draft a better fix next week.</p>
+      </details>
+      <details>
+        <summary>How long until I see results?<i aria-hidden="true"></i></summary>
+        <p>We don't know yet, for your site or for anyone's. The service is new, and the first site we ran it on has no results to show yet. Google has to revisit a page before a change can show up in search, and what happens after that depends on your market. What we can promise is that you'll see your numbers every month, in a one-page report, as they come in.</p>
+      </details>
+      <details>
+        <summary>What access do you need?<i aria-hidden="true"></i></summary>
+        <p>For the free site check, none. We look from the outside, the way anyone searching can. After you sign up, you invite us to your Google Search Console and Google Analytics so we can read your own search data. We also need a way to put approved fixes live on your site, and we sort that out with you during setup.</p>
+      </details>
+      <details>
+        <summary>What's not included?<i aria-hidden="true"></i></summary>
+        <p>Link building, paid ads and full website rebuilds. If we think your site needs one of those, we'll tell you plainly. Wizard Web builds websites and can quote a rebuild separately.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── 9. FINAL CTA + FORM ───────── -->
+<section class="section final" id="check">
+  <div class="wrap final-grid">
+    <div>
+      <h2>Get your first 5 fixes, <em>free.</em></h2>
+      <p class="body">Send us your website. We'll look at it from the outside, along with how it shows up in Google, and send you a short written list of the first 5 fixes we'd make: near-miss searches, missing pages, weak titles. No logins needed. You'll have it within 2 business days.</p>
+    </div>
+
+    <div class="formcard">
+      <div class="ok" id="form-ok" role="status" hidden>
+        <h3>Got it.</h3>
+        <p>Your free site check is booked. A short written list of 5 fixes will reach the email you gave us within 2 business days. If you'd like to talk it through, <a href="https://cal.com/clintonw/website-launch-strategy-call" target="_blank" rel="noopener">book a call</a>.</p>
+      </div>
+
+      <form method="POST" action="https://app.wizardweb.ca/api/audit-request">
+        <input type="hidden" name="lang" value="en">
+        <input type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px">
+
+        <div class="field">
+          <label for="f-email">Your email</label>
+          <input id="f-email" name="email" type="email" required autocomplete="email" placeholder="you@yourbusiness.com" aria-describedby="e-email">
+          <p class="err" id="e-email" aria-live="polite"></p>
+        </div>
+        <div class="field">
+          <label for="f-website">Your website</label>
+          <input id="f-website" name="website" type="text" required inputmode="url" autocomplete="url" autocapitalize="off" spellcheck="false" placeholder="yourbusiness.com" aria-describedby="e-website">
+          <p class="err" id="e-website" aria-live="polite"></p>
+        </div>
+        <div class="field">
+          <label for="f-business">Business name <span class="opt">(optional)</span></label>
+          <input id="f-business" name="business" type="text" autocomplete="organization" placeholder="Harbour Street Plumbing">
+        </div>
+        <div class="field">
+          <label for="f-phone">Phone or WhatsApp <span class="opt">(optional)</span></label>
+          <input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="+1 555 123 4567" aria-describedby="h-phone">
+          <p class="help" id="h-phone">If you'd rather we message you there.</p>
+        </div>
+
+        <p class="form-err" id="form-err" role="alert" hidden>Something went wrong on our side. Please try again, or <a href="https://cal.com/clintonw/website-launch-strategy-call" target="_blank" rel="noopener">book a call</a> instead.</p>
+
+        <button class="btn" type="submit">Send me my 5 fixes <svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+        <p class="small">Free. No logins. A written list within 2 business days.</p>
+      </form>
+
+      <p class="after" id="after">Rather talk first? <a class="link" href="https://cal.com/clintonw/website-launch-strategy-call" target="_blank" rel="noopener">Book a call.</a></p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ───────── 10. FOOTER ───────── -->
+<footer>
+  <div class="wrap">
+    <p>SiteGetsBetter is a service of Wizard Web. Wizard Web is run by Clinton Wasylishen, who has over thirty years in technology. Prices in US dollars.</p>
+    <p class="c">© 2026 Wizard Web</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var f=document.querySelector('form[action="https://app.wizardweb.ca/api/audit-request"]');
+  if(!f)return;
+  var MSG={
+    emailEmpty:"Please add your email so we can send your list.",
+    emailBad:"That email doesn't look right. Please check it.",
+    siteEmpty:"Please add your website address."
+  };
+  var email=f.elements.email, site=f.elements.website;
+  var btn=f.querySelector('button[type="submit"]');
+  var failBox=document.getElementById('form-err');
+  function set(input,msg){
+    var e=document.getElementById('e-'+input.name);
+    e.textContent=msg||'';
+    if(msg)input.setAttribute('aria-invalid','true');else input.removeAttribute('aria-invalid');
+  }
+  function check(){
+    var ev=email.value.trim(), sv=site.value.trim();
+    set(email, !ev?MSG.emailEmpty:(email.validity.typeMismatch||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(ev))?MSG.emailBad:'');
+    set(site, !sv?MSG.siteEmpty:'');
+    return !email.hasAttribute('aria-invalid')&&!site.hasAttribute('aria-invalid');
+  }
+  /* Replace the browser's own bubbles with the deck's messages. */
+  f.addEventListener('invalid',function(e){e.preventDefault();check();var first=f.querySelector('[aria-invalid="true"]');if(first)first.focus();},true);
+  [email,site].forEach(function(i){i.addEventListener('input',function(){if(i.hasAttribute('aria-invalid'))check();});});
+  f.addEventListener('submit',function(e){
+    if(!check()){e.preventDefault();var first=f.querySelector('[aria-invalid="true"]');if(first)first.focus();return;}
+    if(!window.fetch||!window.URLSearchParams)return; /* native POST fallback */
+    e.preventDefault();
+    failBox.hidden=true;btn.disabled=true;
+    fetch(f.action,{method:'POST',mode:'no-cors',body:new URLSearchParams(new FormData(f))})
+      .then(function(){
+        f.hidden=true;document.getElementById('after').hidden=true;
+        var ok=document.getElementById('form-ok');ok.hidden=false;ok.scrollIntoView({behavior:'smooth',block:'center'});
+      })
+      .catch(function(){failBox.hidden=false;btn.disabled=false;});
+  });
+})();
+</script>
+</body>
+</html>
