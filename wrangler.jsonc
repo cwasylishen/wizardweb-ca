@@ -11,7 +11,10 @@
     "directory": "."
   },
   "routes": [
-    { "pattern": "wizardweb.ca", "custom_domain": true }
+    { "pattern": "wizardweb.ca", "custom_domain": true },
+    // www MUST be listed: a deploy from a config without it unbinds it (happened 2026-09-28
+    // 16:29 UTC; www served nothing for ~5h under an apex HSTS includeSubDomains; preload).
+    { "pattern": "www.wizardweb.ca", "custom_domain": true }
   ],
   "observability": {
     "enabled": true,
