@@ -1,0 +1,4 @@
+# SiteGetsBetter moved to its own domain 2026-09-28 (Cloudflare Warden). The staged copy
+# here had a form that reported success even on server errors; one live page only.
+/propuestas/siw-c3b18d81856b/* https://sitegetsbetter.com/ 301
+/propuestas/siw-c3b18d81856b https://sitegetsbetter.com/ 301
